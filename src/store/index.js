@@ -6,9 +6,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import ajax from '~common/ajax'
 import {platform, src, wait, convertToQueryString, getCk, isLowAndroidVersion} from '~common/util'
-import main from './main'
-import home from './home'
-import my from './my'
+
 Vue.use(Vuex)
 
 let baseURL = 'ws://192.168.41.76:6999';
@@ -356,91 +354,9 @@ const actions = {
         localStorage.setItem('ck', ck)
         commit('ck', ck)
     },
-    initWebsocket ({commit, state, dispatch}) {
-        return new Promise((resolve, reject) => {
-            let sock = new WebSocket(`${baseURL}/wapcrazybet`)
-            let interval = null
-            let flag = 0
-            let hasFinished = false
-            sock.onmessage = function (e) {
-                if (!~e.data.indexOf('you said')) {
-                    let data = JSON.parse(e.data)
-                    commit('updateSocketData', data)
-                } else {
-                    // alert('收到服务端心跳')
-                }
-            }
-            sock.onopen = function () {
-                if (state.socket.latestSub) {
-                    sock.send(state.socket.latestSub)
-                }
-                interval = setInterval(() => {
-                    sock.send('x')
-                }, 10000)
-                flag = 1
-                if (hasFinished) return
-                hasFinished = true
-                resolve()
-            }
-            sock.onclose = function () {
-                console.warn('websocket 重连')
-                clearInterval(interval)
-                setTimeout(() => {
-                    commit('addConnectNum')
-                    dispatch('initWebsocket')
-                }, 5000)
-            }
-            sock.onerror = function (e) {
-                console.error('sock error')
-                e.code = '102'
-                if (flag === 1) return
-                if (hasFinished) return
-                hasFinished = true
-                reject(e)
-            }
-            setTimeout(() => {
-                if (hasFinished) return
-                hasFinished = true
-                let error = new Error('超时')
-                error.code = '103'
-                reject(error)
-            }, 1000)
-            commit('initSocket', {sock, interval})
-        })
-    },
-
-    subscribe ({commit, state}, {ptype, body}) {
-        try {
-            let latestSub = JSON.stringify({
-                ptype,
-                action: 'sub',
-                body
-            })
-            state.socket.sock && state.socket.sock.send(latestSub)
-            commit('setLatestSub', latestSub)
-        } catch (e) {
-            console.error(e.message)
-        }
-    },
-    unsubscribe ({commit, state}, {ptype, body}) {
-        try {
-            state.socket.sock && state.socket.sock.send(JSON.stringify({
-                ptype,
-                action: 'unsub',
-                body
-            }))
-        } catch (e) {
-            console.error(e.message)
-        }
-    }
 }
 export default () => new Vuex.Store({
     state,
     actions,
     mutations,
-    modules: {
-        main,
-        home,
-        my
-    }
 })
