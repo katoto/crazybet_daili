@@ -4169,6 +4169,7 @@
             <div class="betInfo">
                 <div class="bet-info">
                     <span class="yue" v-if="hasLogin">余额 {{ allMoney | format }}</span>
+                    <span class="yue" v-else>未登录</span>
                     <span class="betMsg hide">请选择投注金额</span>
                     <span class="betMoney">
                                 <i class="icon-jinbi"></i>
@@ -4683,6 +4684,13 @@
                 }
             },
             faqi () {
+                if(!this.hasLogin){
+                    if (window.qqsdApp) {
+                        qqsdApp.invoke('login')
+                        return false
+                    }
+                    return false;
+                }
                 if (!this.selectedNum) {
                     this.$store.dispatch('showToast', '投注金币数不能为空！')
                     return

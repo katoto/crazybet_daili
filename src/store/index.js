@@ -11,12 +11,11 @@ import home from './home'
 import my from './my'
 Vue.use(Vuex)
 
-let baseURL = 'ws://192.168.41.76:6999'
-
+let baseURL = 'ws://192.168.41.76:6999';
 if (process.env.NODE_ENV === 'production') {
-    baseURL = 'wss://crazybet.choopaoo.com/wss'
+    baseURL = 'wss://crazybet.choopaoo.com/wss';
 } else if (process.env.NODE_ENV === 'preRelease') {
-    baseURL = 'wss://106.75.139.22/wss'
+    baseURL = 'ws://192.168.41.76:6999'
 }
 
 // 全局的就是直接变量，一个页面一个对象

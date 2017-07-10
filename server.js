@@ -8,7 +8,7 @@ const webpackDevMiddleware = require('webpack-dev-middleware')
 const webpackHotMiddleware = require('webpack-hot-middleware')
 const webpack = require('webpack')
 const forward = require('forward-request')
-const webpackConfig = require('./crazybet_daili/build/webpack.dev.config')
+const webpackConfig = require('./build/webpack.dev.config')
 
 const app = express()
 if (process.env.NODE_ENV === 'production') {

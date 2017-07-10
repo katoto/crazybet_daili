@@ -46,7 +46,8 @@
                         </div>
 
                         <p class="message-tips" :class="{'hide':!messageList.length}" v-show="isAddMessList">加载中...</p>
-                        <p class="message-tips" :class="{'hide':!messageList.length }">只显示最近的50条系统消息</p>
+                        <p class="message-tips" :class="{'hide':!messageList.length || messageList.length<3 }">只显示最近的50条系统消息</p>
+                        <p class="message-tips" style="position: fixed;bottom: 0;width:100%;background-color: #1d1e23;" :class="{'hide':!messageList.length || messageList.length >= 3 }">只显示最近的50条系统消息</p>
                     </div>
                     <!--<div class="msg_item msg_item_yidu">-->
                         <!--<div class="msg_tit">-->

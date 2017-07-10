@@ -2,7 +2,6 @@
     <div>
         <section class="topBar" v-if="!isAllListPage">
             <div class="icon icon_back" key="icon_backapp" v-tap="{methods:enterMy,params:'backApp'}"></div>
-            <!--<div class="icon icon_back" key="icon_back" v-if="isAllListPage"></div>-->
             <h1>疯狂猜球</h1>
         </section>
         <header class="header_hc clear" v-if="userInfo && !isAllListPage">
@@ -24,7 +23,7 @@
         </header>
         <header class="header_hc clear" v-if="!userInfo && !isAllListPage">
             <div class="before-login clear">
-                <p class="top_msg">与<em>6748</em>人一起体验疯狂猜球</p>
+                <p class="top_msg">与<em>{{ scrollNumber }}</em>人一起体验疯狂猜球</p>
                 <a class="fr" v-tap="{methods:goLogin,params:''}">请登录<i class="icon icon_raw"></i></a>
             </div>
         </header>
@@ -73,25 +72,21 @@
 
                         }, 10)
                         _hmt.push(['_trackEvent', '500qqsd_猜球记录点击', 'click', '500qqsd_猜球记录'])
-//                        this.$router.push(`/my/betlist`)
 
                         break
                     case 'charge':
                         stopHtml()
                         console.log('show charge')
-//                        this.$store.dispatch('getGoldList', 0)
                         setTimeout(() => {
                             this.$store.commit('showChargebox', true)
                         }, 10)
                         _hmt.push(['_trackEvent', '500qqsd_充值点击', 'click', '500qqsd_充值'])
 
-//                        this.$router.push(`/my/charge`)
-
                         break
                     case 'message':
+                        this.$store.dispatch('getMessageList')
                         stopHtml()
                         this.$store.state.msgAllData.messPageNum = 1
-                        this.$store.dispatch('getMessageList')
                         setTimeout(() => {
                             this.$store.commit('showMessbox', true)
                             setTimeout(() => {
@@ -161,7 +156,9 @@
             userInfo () {
                 return this.$store.state.userInfo
             },
-
+            scrollNumber () {
+                return this.$store.state.home.scrollNumber
+            },
             hasLogin () {
                 return !!this.$store.state.ck
             },
@@ -172,9 +169,6 @@
                     return false
                 }
             }
-        },
-        mounted () {
-            console.log(this.$store.state.route.path)
         },
         filters: {
             format: (num) => {

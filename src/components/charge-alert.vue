@@ -5,7 +5,8 @@
             <div class="popTit">
                 <ul class="btn_tab">
                     <li class="cur"><span>充值</span></li>
-                    <li v-tap="{methods: footballPropsShow }"><span>我的</span></li>
+                    <li v-tap="{methods: footballPropsShow }" v-if="showChargeList"><span>我的</span></li>
+                    <li v-tap="{methods: footballPropsShow }" v-else><span>购买</span></li>
                 </ul>
                 <h2 class="title">充值</h2>
                 <span class="close" v-tap="{ methods:closeChargebox }"></span>

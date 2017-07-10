@@ -2,7 +2,7 @@
  * Created by lichun on 2017/1/18.
  */
 const webpack = require('webpack')
-const base = require('./webpack.base.config.js')
+const base = require('./webpack.base.config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 module.exports = Object.assign({}, base, {
     // devtool: '#cheap-source-map',

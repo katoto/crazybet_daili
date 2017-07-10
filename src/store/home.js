@@ -10,6 +10,7 @@ const state = {
     matchList_noEnd: null,  // 全部赛事，未结束
     matchList_end: null,  // 结束列表
     crazymainScrollData: null,  // 滚动数据
+    scrollNumber:'7545',
     matchHotData: null,
     currentBetSelect: null,
     faqiState: 0, // 发起订单状态， 0代表没有发起， 1代表前端点击了， 服务端还没返回，2代表订单确认成功,
@@ -95,6 +96,9 @@ const mutations = {
                 state.crazymainScrollData.push('恭喜yan**抽到<strong>100元联通话费卡</strong>')
                 state.crazymainScrollData.push('恭喜小土豆**抽到<strong>500元京东卡</strong>')
             }
+        }
+        if(data.playnum){
+            state.scrollNumber = data.playnum;
         }
     },
     [mutationTypes.matchList_hot] (state, data) {

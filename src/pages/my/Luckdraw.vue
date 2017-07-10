@@ -281,7 +281,8 @@
                                     </button>
                                 </div>
                             </div>
-                            <div class="draw_record_list_name">{{ item.goodsname }}</div>
+                            <div class="draw_record_list_name" v-if="item.goodstype==='3'">{{ item.company | companyName }}{{ item.goodsname }}</div>
+                            <div class="draw_record_list_name" v-else>{{ item.goodsname }}</div>
                             <div class="draw_record_list_date">{{ item.crtime }}</div>
                         </li>
                     </template>
@@ -304,7 +305,6 @@
             <!-- 底部返回按钮结束 -->
         </div>
         <!-- 复制框 -->
-
 
     </div>
 </template>
@@ -348,7 +348,6 @@
         },
         watch: {
             chooseIDCartNumber (data) {
-                console.log(data)
                 let minNumObj = {}
                 let maxNum = 0
                 if (data && Array.isArray(data)) {
@@ -421,7 +420,6 @@
         },
         methods: {
             choseIDcart ({params}) {
-                console.log(params)
                 if (params) {
                     switch (params) {
                     case 'lt': this.chooseCart = 'lt'; break

@@ -931,6 +931,7 @@
 /*  数据统计弹层 */
 .pop_shuju .popIn {
     width: 630px;
+    background-color: #1d1e29;
 }
 .pop_shuju .list_menu {
     margin-left: 118px;
@@ -985,6 +986,9 @@
 .table_shuju td .num {
     font-size: 40px;
 }
+.table_shuju td .num.gray {
+    color: #2f3443;
+}
 
 .table_shuju .contrast {
     position: relative;
@@ -1014,7 +1018,6 @@
     height: 100%;
     top: 0;
     background: #3f437e;
-    min-width: 25px;
 }
 
 .table_shuju .contrast .item span:first-child {

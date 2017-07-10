@@ -17,8 +17,8 @@ module.exports = {
         // filename: '[name]/main.[chunkhash:8].js',
         // filename: '[name]/main.js',
         filename: '[name].js?[chunkhash:8]',
-        path: path.resolve(__dirname, '../dist/500qqsd/'),
-        publicPath: '/500qqsd/',
+        path: path.resolve(__dirname, '../dist/crazybet_daili/'),
+        publicPath: '/crazybet_daili/',
         // chunkFilename: '[name].[chunkhash:8].chunk.js',
         // chunkFilename: '[name].chunk.js',
         chunkFilename: `[name].chunk.js?[chunkhash:8]`

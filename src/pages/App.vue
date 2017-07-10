@@ -356,12 +356,10 @@
                     }
                 },390)
             }
-
 //            if (1) {
-//                await this.$store.dispatch('localLogin', 1345)
+//                await this.$store.dispatch('localLogin', 12345)
 //                await this.$store.dispatch('getUserInfo')
 //            }
-
             try {
                 if (window.WebSocket) {
                     await this.$store.dispatch('initWebsocket')
@@ -384,7 +382,6 @@
                     this.$store.dispatch('showToast', e.message)
                 }
             }
-
             this.ready = true
         },
         methods: {

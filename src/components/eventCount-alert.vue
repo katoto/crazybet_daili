@@ -32,7 +32,7 @@
                                         </p>
                                     </div>
                                 </td>
-                                <td><span class="num">{{ item.awaycount }}</span></td>
+                                <td><span class="num" :class="{'gray':item.awaycount ==='0'}">{{ item.awaycount }}</span></td>
                             </tr>
                         </tbody>
                     </table>
@@ -61,7 +61,10 @@
                                     'icon_jinqiu': item.casetype ==='101065' || item.casetype ==='102089',
                                      }"
                                 ></i>
-                                <span>{{ item.casetype | formatFootballCase }}</span>
+                                <span v-if="item.casetype === '101025' ||  item.casetype === '101065' ||
+                              item.casetype === '101045' ||  item.casetype === '101032' ||  item.casetype === '101034'">{{ fmdetail.HomeTeamName }}</span>
+                                <span v-if="item.casetype === '102049' ||  item.casetype === '102089' ||
+                              item.casetype === '102069' ||  item.casetype === '102056' ||  item.casetype === '102058'">{{ fmdetail.AwayTeamName }}</span>
                             </div>
                         </li>
                     </ul>
@@ -133,7 +136,10 @@
             },
             footballStatData () {
                 return this.$store.state.eventCountAllData.footballStatData
-            }
+            },
+            fmdetail () {
+                return this.$store.state.main.fmdetail
+            },
 
         },
         mounted () {
@@ -154,27 +160,27 @@
                 default: return ''
                 }
             },
-            formatFootballCase: (caseStr) => {
-//                足球比赛统计 主
-                switch (caseStr) {
-                case '101025':return '角球'
-                case '101065':return '进球'
-                case '101045':return '红牌'
-                case '101032':return '红牌'
-                case '101034':return '黄牌'
-                case '100018':return '点球开始'
-                case '102049':return '角球'
-                case '102089':return '进球'
-                case '102069':return '红牌'
-                case '102056':return '红牌'
-                case '102058':return '黄牌'
-                case '100141':return '比赛开始' // 有数据就开始
-                case '100001':return '中场休息'
-                case '100008':return '点球开始'
-                case '100782':return '取消比赛'
-                default: return ''
-                }
-            }
+//            formatFootballCase: (caseStr) => {
+////                足球比赛统计 主
+//                switch (caseStr) {
+//                case '101025':return '角球'
+//                case '101065':return '进球'
+//                case '101045':return '红牌'
+//                case '101032':return '红牌'
+//                case '101034':return '黄牌'
+//                case '100018':return '点球开始'
+//                case '102049':return '角球'
+//                case '102089':return '进球'
+//                case '102069':return '红牌'
+//                case '102056':return '红牌'
+//                case '102058':return '黄牌'
+//                case '100141':return '比赛开始' // 有数据就开始
+//                case '100001':return '中场休息'
+//                case '100008':return '点球开始'
+//                case '100782':return '取消比赛'
+//                default: return ''
+//                }
+//            }
         }
     }
 </script>

@@ -36,7 +36,7 @@
                                 <!--<div class="btn-goBet">竞猜本场<i class="icon-raw"></i> </div>-->
 
                                 <div class="fr" v-tap="{methods: switchMatch, matchinfo: goldList.currentmatch.matchinfo}" v-if="goldList.currentmatch.list&&goldList.currentmatch.list.length">
-                                    <span :class="{'color9': goldList.currentmatch.prize<=0, 'yellow':goldList.currentmatch.prize>0}" class="yellow">{{goldList.currentmatch.prize|statusZh}}</span>
+                                    <span :class="{'color9': goldList.currentmatch.prize<=0, 'yellow':goldList.currentmatch.prize>0}" class="yellow"> {{ goldList.currentmatch.prize|statusZh }} </span>
                                     <i class="icon-raw" v-if="goldList.currentmatch.list&&goldList.currentmatch.list.length" :class="{'icon-rawup': !shows[goldList.currentmatch.matchinfo.MatchID]}"></i>
                                 </div>
 
@@ -61,7 +61,7 @@
                                             align="right">(已返还){{tz.order.f_golds|number}}
                                         </td>
                                         <td v-else align="right">{{tz.order.f_golds|number}}</td>
-                                        <td v-if="tz.order.f_prize<=0" align="right" class="color9">{{tz.order.f_prize|result}}</td>
+                                        <td style="padding-right: 0.02rem" v-if="tz.order.f_prize<=0" align="right" class="color9">{{tz.order.f_prize|result}}</td>
                                         <td v-else align="right" class="yellow">中 {{tz.order.f_prize|number}}</td>
                                     </tr>
                                     </tbody>
@@ -83,7 +83,7 @@
                                     {{item.matchinfo.AwayTeamName}}
                                 </div>
                                 <div class="fr">
-                                    <span :class="{'color9': item.prize<=0, 'yellow':item.prize>0}" class="yellow">{{item.prize|statusZh}}</span>
+                                    <span style="padding-right: 0.02rem" :class="{'color9': item.prize<=0, 'yellow':item.prize>0}" class="yellow">{{item.prize|statusZh}}</span>
                                     <i class="icon-raw " :class="{'icon-rawup': !shows[item.matchinfo.MatchID]}"></i>
                                 </div>
                             </div>
