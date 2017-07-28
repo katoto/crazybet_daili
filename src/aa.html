@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 苹果手机状态栏 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <style>
+        body{
+            margin:1px;
+        }
+        .col{
+            display: inline-block;
+            border-left:1px solid #cccccc;
+            border-top:1px solid #cccccc;
+            width:100px;
+            height:50px;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            color:#000000;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        .header .col:last-child{
+            border:1px solid #cccccc;
+        }
+        .row .col:last-child{
+            border:1px solid #cccccc;
+        }
+        .headercol{
+            background-color: #0E2D5F;
+            color:white;
+            font-size: 17px;
+            text-align: center;
+        }
+        .fixedcol{
+            background-color: #1A68A2;
+            color:white;
+            font-size: 17px;
+            text-align: center;
+        }
+        .mytable_fixed{
+            overflow: hidden;
+            width:800px;
+            height:450px;
+        }
+        .mytable_fixedHeaderColumn,.mytable_header_left,.mytable_fixedColumn{
+            float:left;
+            overflow: hidden;
+            width:100px;
+            height:100%;
+        }
+        .mytable_conentent{
+            float:left;
+            overflow: auto;
+            /*-webkit-overflow-scrolling: touch;*/
+        }
+        .mytable_header{
+            overflow:hidden;
+            box-sizing: border-box;
+            width:100%;
+            height:50px;
+            background-color: grey;
+        }
+
+        .l-box-center {
+            display: -webkit-box;
+            -webkit-box-align: center;
+            -webkit-box-pack: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            -webkit-box-orient: vertical;
+            flex-flow: column;
+        }
+        .l-box-vertical-center {
+            display: -webkit-box;
+            -webkit-box-align: center;
+            display: flex;
+            align-items: center;
+            -webkit-box-orient: horizontal;
+            flex-flow: row;
+        }
+        .l-box-vertical-center-justify {
+            display: -webkit-box;
+            -webkit-box-orient: horizontal;
+            flex-flow: row;
+            -webkit-box-align: center;
+            -webkit-box-pack: justify;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .l-box-vertical-center-begin {
+            display: -webkit-box;
+            -webkit-box-orient: horizontal;
+            flex-flow: row;
+            -webkit-box-align: center;
+            -webkit-box-pack: start;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .l-box-vertical-center-end {
+            display: -webkit-box;
+            -webkit-box-orient: horizontal;
+            flex-flow: row;
+            -webkit-box-align: center;
+            -webkit-box-pack: end;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        .l-box-horizontal-center {
+            display: -webkit-box;
+            -webkit-box-pack: center;
+            display: flex;
+            justify-content: center;
+            -webkit-box-orient: horizontal;
+            flex-flow: row;
+        }
+
+        .l-flex-column {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            display: flex;
+            flex-flow: column;
+            height: 100%
+        }
+        .l-flex-row {
+            display: -webkit-box;
+            -webkit-box-orient: horizontal;
+            display: flex;
+            flex-flow: row;
+            width: 100%
+        }
+        .l-flex-1 {
+            -webkit-box-flex: 1;
+            flex: 1;
+            overflow: hidden
+        }
+        .l-scroll-y {
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .l-full {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0
+        }
+        .l-relative {
+            position: relative;
+        }
+
+
+
+    </style>
+</head>
+<body >
+<div class="l-full l-flex-column">
+    <header style="background-color: #00a0e5;">
+        <div>fadfdsafdsa</div>
+        <div>fadfdsafdsa</div>
+        <div>fadfdsafdsa</div>
+        <div>fadfdsafdsa</div>
+        <div>fadfdsafdsa</div>
+        <div>fadfdsafdsa</div>
+    </header>
+    <div style="height: 10px;border: 1px solid #000;">
+        <ul>
+            <li>基本是个</li>
+
+        </ul>
+    </div>
+    <div class="l-flex-1 l-relative">
+        <div class="mytable_fixed l-full l-flex-column">
+            <div class="mytable_header ">
+                <div class="mytable_fixedHeaderColumn">
+                    <div class="col headercol">column1</div>
+                </div>
+                <div class="mytable_header_left" style="width:600px;height:100%;">
+                    <div style="width:700px;">
+                        <div class="col headercol" style="">column3</div>
+                        <div class="col headercol" style="">column4</div>
+                        <div class="col headercol" style="">column5</div>
+                        <div class="col headercol" style="">column6</div>
+                        <div class="col headercol" style="">column7</div>
+                        <div class="col headercol" style="">column8</div>
+                    </div>
+                </div>
+            </div>
+            <div class="mytable_container l-flex-1" style="width:900px;height:400px;border-bottom: 1px solid #cccccc;box-sizing: border-box">
+                <div class="mytable_fixedColumn" style="width:100px;height:400px;background-color: #00a23f;">
+                    <!--固定2列的行展示-->
+                    <div class="myfixedrow">
+                        <div class="col fixedcol" style="">row1*column1</div>
+                    </div>
+                    <div class="myfixedrow">
+                        <div class="col fixedcol" style="">row2*column1</div>
+                    </div>
+                    <div class="myfixedrow">
+                        <div class="col fixedcol" style="">row3*column1</div>
+                    </div>
+                    <div class="myfixedrow">
+                        <div class="col fixedcol" style="">row4*column1</div>
+                    </div>
+                    <div class="myfixedrow">
+                        <div class="col fixedcol" style="">row5*column1</div>
+                    </div>
+                    <div class="myfixedrow">
+                        <div class="col fixedcol" style="">row6*column1</div>
+                    </div>
+                    <div class="myfixedrow">
+                        <div class="col fixedcol" style="">row7*column1</div>
+                    </div>
+                    <div class="myfixedrow">
+                        <div class="col fixedcol" style="">row8*column1</div>
+                    </div>
+                    <div class="myfixedrow">
+                        <div class="col fixedcol" style="">row9*column1</div>
+                    </div>
+                    <div class="myfixedrow">
+                        <div class="col fixedcol" style="">row8*column1</div>
+                    </div>
+                    <div class="myfixedrow">
+                        <div class="col fixedcol" style="">row9*column1</div>
+                    </div>
+                </div>
+                <div class="mytable_conentent" style="width:600px;height:400px;background-color: #1e83c9;">
+                    <!--非固定列数据-->
+                    <div style="width:700px;" data-scrollable="true"  >
+                        <div class="myrow" >
+                            <div class="col" style="">row1*col3</div>
+                            <div class="col" style="">row1*col4</div>
+                            <div class="col" style="">row1*col5</div>
+                            <div class="col" style="">row1*col6</div>
+                            <div class="col" style="">row1*col7</div>
+                            <div class="col" style="">row1*col8</div>
+                        </div>
+                        <div class="myrow" >
+                            <div class="col" style="">row2*col3</div>
+                            <div class="col" style="">row2*col4</div>
+                            <div class="col" style="">row2*col5</div>
+                            <div class="col" style="">row2*col6</div>
+                            <div class="col" style="">row2*col7</div>
+                            <div class="col" style="">row2*col8</div>
+                        </div>
+                        <div class="myrow" >
+                            <div class="col" style="">row1*col3</div>
+                            <div class="col" style="">row1*col4</div>
+                            <div class="col" style="">row1*col5</div>
+                            <div class="col" style="">row1*col6</div>
+                            <div class="col" style="">row1*col7</div>
+                            <div class="col" style="">row1*col8</div>
+                        </div>
+                        <div class="myrow" >
+                            <div class="col" style="">row2*col3</div>
+                            <div class="col" style="">row2*col4</div>
+                            <div class="col" style="">row2*col5</div>
+                            <div class="col" style="">row2*col6</div>
+                            <div class="col" style="">row2*col7</div>
+                            <div class="col" style="">row2*col8</div>
+                        </div>
+                        <div class="myrow" >
+                            <div class="col" style="">row1*col3</div>
+                            <div class="col" style="">row1*col4</div>
+                            <div class="col" style="">row1*col5</div>
+                            <div class="col" style="">row1*col6</div>
+                            <div class="col" style="">row1*col7</div>
+                            <div class="col" style="">row1*col8</div>
+                        </div>
+                        <div class="myrow" >
+                            <div class="col" style="">row2*col3</div>
+                            <div class="col" style="">row2*col4</div>
+                            <div class="col" style="">row2*col5</div>
+                            <div class="col" style="">row2*col6</div>
+                            <div class="col" style="">row2*col7</div>
+                            <div class="col" style="">row2*col8</div>
+                        </div>
+                        <div class="myrow" >
+                            <div class="col" style="">row1*col3</div>
+                            <div class="col" style="">row1*col4</div>
+                            <div class="col" style="">row1*col5</div>
+                            <div class="col" style="">row1*col6</div>
+                            <div class="col" style="">row1*col7</div>
+                            <div class="col" style="">row1*col8</div>
+                        </div>
+                        <div class="myrow" >
+                            <div class="col" style="">row2*col3</div>
+                            <div class="col" style="">row2*col4</div>
+                            <div class="col" style="">row2*col5</div>
+                            <div class="col" style="">row2*col6</div>
+                            <div class="col" style="">row2*col7</div>
+                            <div class="col" style="">row2*col8</div>
+                        </div>                <div class="myrow" >
+                        <div class="col" style="">row1*col3</div>
+                        <div class="col" style="">row1*col4</div>
+                        <div class="col" style="">row1*col5</div>
+                        <div class="col" style="">row1*col6</div>
+                        <div class="col" style="">row1*col7</div>
+                        <div class="col" style="">row1*col8</div>
+                    </div>
+                        <div class="myrow" >
+                            <div class="col" style="">row2*col3</div>
+                            <div class="col" style="">row2*col4</div>
+                            <div class="col" style="">row2*col5</div>
+                            <div class="col" style="">row2*col6</div>
+                            <div class="col" style="">row2*col7</div>
+                            <div class="col" style="">row2*col8</div>
+                        </div>                <div class="myrow" >
+                        <div class="col" style="">row1*col3</div>
+                        <div class="col" style="">row1*col4</div>
+                        <div class="col" style="">row1*col5</div>
+                        <div class="col" style="">row1*col6</div>
+                        <div class="col" style="">row1*col7</div>
+                        <div class="col" style="">row1*col8</div>
+                    </div>
+                        <div class="myrow" >
+                            <div class="col" style="">row2*col3</div>
+                            <div class="col" style="">row2*col4</div>
+                            <div class="col" style="">row2*col5</div>
+                            <div class="col" style="">row2*col6</div>
+                            <div class="col" style="">row2*col7</div>
+                            <div class="col" style="">row2*col8</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../scroller-master/src/Animate.js"></script>
+<script src="../scroller-master/src/Scroller.js"></script>
+
+<script>
+//    var mytable_conentent_Dom=document.getElementsByClassName("mytable_conentent")[0];
+    var mytable_fixedColumn_Dom=document.getElementsByClassName("mytable_fixedColumn")[0];
+    var mytable_header_left_Dom=document.getElementsByClassName("mytable_header_left")[0];
+//
+//    mytable_conentent_Dom.addEventListener("scroll",function(event){
+//        var target=event.target;
+//        mytable_fixedColumn_Dom.scrollTop=target.scrollTop;
+//        mytable_header_left_Dom.scrollLeft=target.scrollLeft;
+//    },false);
+
+    var EasyScroller = function(content, options) {
+      this.content = content;
+      this.container = content.parentNode;
+      this.options = options || {};
+      // create Scroller instance
+      var that = this;
+      this.scroller = new Scroller(function(left, top, zoom) {
+        that.render(left, top, zoom);
+      }, options);
+      // bind events
+      this.bindEvents();
+      // the content element needs a correct transform origin for zooming
+      this.content.style[EasyScroller.vendorPrefix + 'TransformOrigin'] = "left top";
+      // reflow for the first time
+      this.reflow();
+
+    };
+
+    EasyScroller.prototype.render = (function() {
+
+      var docStyle = document.documentElement.style;
+
+      var engine;
+      if (window.opera && Object.prototype.toString.call(opera) === '[object Opera]') {
+        engine = 'presto';
+      } else if ('MozAppearance' in docStyle) {
+        engine = 'gecko';
+      } else if ('WebkitAppearance' in docStyle) {
+        engine = 'webkit';
+      } else if (typeof navigator.cpuClass === 'string') {
+        engine = 'trident';
+      }
+
+      var vendorPrefix = EasyScroller.vendorPrefix = {
+        trident: 'ms',
+        gecko: 'Moz',
+        webkit: 'Webkit',
+        presto: 'O'
+      }[engine];
+
+      var helperElem = document.createElement("div");
+      var undef;
+
+      var perspectiveProperty = vendorPrefix + "Perspective";
+      var transformProperty = vendorPrefix + "Transform";
+
+      if (helperElem.style[perspectiveProperty] !== undef) {
+
+        return function(left, top, zoom) {
+          this.content.style[transformProperty] = 'translate3d(' + (-left) + 'px,' + (-top) + 'px,0) scale(' + zoom + ')';
+        };
+
+      } else if (helperElem.style[transformProperty] !== undef) {
+
+        return function(left, top, zoom) {
+          this.content.style[transformProperty] = 'translate(' + (-left) + 'px,' + (-top) + 'px) scale(' + zoom + ')';
+        };
+
+      } else {
+
+        return function(left, top, zoom) {
+          this.content.style.marginLeft = left ? (-left/zoom) + 'px' : '';
+          this.content.style.marginTop = top ? (-top/zoom) + 'px' : '';
+          this.content.style.zoom = zoom || '';
+        };
+
+      }
+    })();
+
+    EasyScroller.prototype.reflow = function() {
+
+      // set the right scroller dimensions
+      this.scroller.setDimensions(this.container.clientWidth, this.container.clientHeight, this.content.offsetWidth, this.content.offsetHeight);
+
+      // refresh the position for zooming purposes
+      var rect = this.container.getBoundingClientRect();
+      this.scroller.setPosition(rect.left + this.container.clientLeft, rect.top + this.container.clientTop);
+
+    };
+
+    EasyScroller.prototype.bindEvents = function() {
+
+      var that = this;
+
+      // reflow handling
+      window.addEventListener("resize", function() {
+        that.reflow();
+      }, false);
+
+      // touch devices bind touch events
+      if ('ontouchstart' in window) {
+        this.container.addEventListener("touchstart", function(e) {
+          // Don't react if initial down happens on a form element
+          if (e.touches[0] && e.touches[0].target && e.touches[0].target.tagName.match(/input|textarea|select/i)) {
+            return;
+          }
+
+          // reflow since the container may have changed
+          that.reflow();
+
+          that.scroller.doTouchStart(e.touches, e.timeStamp);
+        }, false);
+
+        this.container.addEventListener("touchmove", function(e) {
+          e.preventDefault();
+          that.scroller.doTouchMove(e.touches, e.timeStamp, e.scale);
+          //  在这里取到 offset 的值
+          console.log(that.scroller.getValues())
+          mytable_fixedColumn_Dom.scrollTop=that.scroller.getValues().top;
+          mytable_header_left_Dom.scrollLeft=that.scroller.getValues().left;
+
+        }, false);
+
+        this.container.addEventListener("touchend", function(e) {
+          that.scroller.doTouchEnd(e.timeStamp);
+        }, false);
+
+        this.container.addEventListener("touchcancel", function(e) {
+          that.scroller.doTouchEnd(e.timeStamp);
+        }, false);
+
+        // non-touch bind mouse events
+      } else {
+
+        var mousedown = false;
+        this.container.addEventListener("mousedown", function(e) {
+          if (e.target.tagName.match(/input|textarea|select/i)) {
+            return;
+          }
+          that.scroller.doTouchStart([{
+            pageX: e.pageX,
+            pageY: e.pageY
+          }], e.timeStamp);
+          mousedown = true;
+          // reflow since the container may have changed
+          that.reflow();
+          e.preventDefault();
+        }, false);
+        document.addEventListener("mousemove", function(e) {
+          if (!mousedown) {
+            return;
+          }
+
+          that.scroller.doTouchMove([{
+            pageX: e.pageX,
+            pageY: e.pageY
+          }], e.timeStamp);
+
+          mousedown = true;
+
+        }, false);
+
+        document.addEventListener("mouseup", function(e) {
+          if (!mousedown) {
+            return;
+          }
+          that.scroller.doTouchEnd(e.timeStamp);
+          mousedown = false;
+        }, false);
+        this.container.addEventListener("mousewheel", function(e) {
+          if(that.options.zooming) {
+            that.scroller.doMouseZoom(e.wheelDelta, e.timeStamp, e.pageX, e.pageY);
+            e.preventDefault();
+          }
+        }, false);
+      }
+    };
+    document.addEventListener("DOMContentLoaded", function() {
+      var elements = document.querySelectorAll('[data-scrollable]'), element;
+      for (var i = 0; i < elements.length; i++) {
+        element = elements[i];
+        var scrollable = element.attributes.getNamedItem('data-scrollable') ? element.attributes.getNamedItem('data-scrollable').value : null;
+        new EasyScroller(element, {
+          scrollingX: scrollable === 'true' || scrollable === 'x',
+          scrollingY: scrollable === 'true' || scrollable === 'y',
+          bouncing:false,
+        });
+      };
+    }, false);
+
+</script>
+</body>
+</html>

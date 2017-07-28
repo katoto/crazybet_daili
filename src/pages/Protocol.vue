@@ -63,7 +63,7 @@
     }
     .protocol{
         font-size: 0.36rem;
-        padding: 0.06rem 0.16rem 0.4rem;
+        padding: 0.06rem 0.16rem 0.5rem;
     }
     .protocol .headStyle p{
         font-size: 0.38rem;
