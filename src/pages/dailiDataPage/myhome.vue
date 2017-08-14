@@ -1,7 +1,6 @@
 <template>
     <div id="app">
         <p>我的后台统计页面 </p>
-
         <div class="page-datetime">
             <h1 class="page-title">Datetime Picker</h1>
             <div class="page-datetime-wrapper">
@@ -26,7 +25,6 @@
                     @confirm="handleChange">
             </mt-datetime-picker>
         </div>
-
         <div class="page-navbar">
             <div class="page-title">Navbar</div>
             <div class="page-part-contain">
@@ -39,13 +37,11 @@
                     <mt-tab-item id="5">选项三</mt-tab-item>
                 </mt-navbar>
             </div>
-
             <div>
                 <mt-cell class="page-part" title="当前选中">{{ selected }}</mt-cell>
             </div>
-
             <mt-tab-container v-model="selected">
-                <mt-tab-container-item id="1">
+                <mt-tab-container-item id="1">0
                     <mt-cell v-for="n in numbers" :key="n" :title="'内容 ' + n" />
                 </mt-tab-container-item>
                 <mt-tab-container-item id="2">
