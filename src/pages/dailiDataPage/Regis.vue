@@ -1,10 +1,5 @@
 <template>
     <div>
-        <div class="top">
-            <a href="javascript:;" class="btn font0 back">返回</a>
-            <a href="#" class="btn login">登录</a>
-            <h1>代理注册</h1>
-        </div>
         <div class="main">
             <div class="form reg-form">
                 <h2 class="use-msg">账号信息</h2>
@@ -52,7 +47,6 @@
             </div>
         </div>
     </div>
-
 </template>
 
 <script>
@@ -92,14 +86,5 @@
     }
 </script>
 <style>
-    input{
-        border: 1px solid #000;
-    }
-    p{
-        font-size: 0.42rem;
-    }
-
-
-
 
 </style>

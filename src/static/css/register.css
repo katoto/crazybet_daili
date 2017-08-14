@@ -114,6 +114,21 @@ i {
 .hide {
     display: none
 }
+.toast {
+    line-height: 44px;
+    width: 580px;
+    padding: 30px 40px;
+    background: rgba(0, 0, 0, .9);
+    color: #fff;
+    font-size: 32px;
+    border-radius: 8px;
+    position: fixed;
+    left: 50%;
+    top: 40%;
+    z-index: 99;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
 .wrapper {
     position: relative;
     width:100%;
@@ -192,7 +207,7 @@ i {
     font-size:28px;
     color: #c0bfc4;
 }
-.reg-input input[type="text"]{
+.reg-input input{
     position: absolute;
     z-index:1;
     left:0;

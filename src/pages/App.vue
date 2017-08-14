@@ -57,77 +57,7 @@
     }
 </script>
 <style>
-/*
-    @charset "utf-8";
-    !* CSS Document *!
-    body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td img{
-        margin: 0;
-        padding: 0;
-        border: 0;
-    }
-    * {
-        font-family:"Microsoft YaHei", "微软雅黑", '\65B0\5B8B\4F53', '\5B8B\4F53', Verdana;
-    }
-    fieldset, img {
-        border: 0;
-    }
-    abbr, acronym {
-        border: 0;
-        font-variant: normal;
-    }
-    a {
-        color:#fff;
-    }
-    body {
-        line-height: 1.5;
-        font-size: 14px;
-    }
-    ol, ul {
-        list-style: none;
-    }
-    table {
-        border-collapse: collapse;
-        border-spacing: 0;
-    }
-    caption, th {
-        text-align: left;
-    }
-    sup, sub {
-        font-size: 100%;
-        vertical-align: baseline;
-    }
-    blockquote, q {
-        quotes: none;
-    }
-    blockquote:before, blockquote:after, q:before, q:after {
-        content: '';
-        content: none;
-    }
-    :link, :visited {
-        text-decoration: none;
-    }
-    :focus {
-        outline: 0;
-    }
-    body {
-        width: 100%;
-        height: 100%;
-        margin:0 auto;
-        overflow: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-    !*清除浮动*!
-    .clearfix:after {content:""; display:block; clear:both;}
-    .clearfix {zoom:1;}
-    .opacity30 {
-        filter:alpha(opacity=30);
-        -moz-opacity:0.3;
-        -khtml-opacity:0.3;
-        opacity: 0.3;
-    }
-*/
 
-@charset "utf-8";
 body,
 p,
 h1,
@@ -415,4 +345,5 @@ i {
     font-size:24px;
     color: #808080;
 }
+
 </style>
