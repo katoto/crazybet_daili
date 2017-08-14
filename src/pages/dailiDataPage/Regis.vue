@@ -39,11 +39,11 @@
 
                 </div>
                 <div class="protocol">
-                    <input type="checkbox">
+                    <input type="checkbox" v-model="confirmbox">
                     <span>18岁以上，且同意</span>
-                    <a href="protocol.html">《代理合作协议》</a>
+                    <a v-tap="{ methods:goPageFn, target : 'protocol' }">《代理合作协议》</a>
                 </div>
-                <input type="submit" value="提交" name="submit">
+                <input type="submit" value="提交" name="submit" :class="{ 'unsubmit':confirmbox }">
                 <p class="check-time">3个工作日内完成审核</p>
                 <p class="contact-us">如需帮助请联系客服QQ : 3157085145</p>
             </div>
@@ -61,12 +61,29 @@
                 showCode:false,
                 codeType:'password',
                 showPassword:false,
+                confirmbox:false,
             }
         },
         components:{
             Header_all
         },
         methods: {
+            goPageFn ({ target }) {
+                target = target || '';
+                switch (target) {
+                    case 'protocol':
+                        _hmt.push(['_trackEvent', '代理注册页合作协议点击', 'click', '代理注册页合作协议']);
+                        this.$router.push(`/protocol`);
+                        break
+                    case 'login':
+                        _hmt.push(['_trackEvent', '代理注册页登陆点击', 'click', '代理注册页登陆'])
+                        this.$router.push(`/login`)
+                        break
+                    case 'backHistory':
+                        window.history.back()
+                        break
+                }
+            },
             showCodeFn(){
                 if(this.showCode){
                     document.getElementById('passDom').setAttribute('type','password')
