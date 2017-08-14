@@ -263,7 +263,7 @@
         font-size:28px;
         color: #c0bfc4;
     }
-    .reg-input input[type="submit"]{
+    .reg-input input{
         position: absolute;
         z-index:1;
         left:0;
@@ -317,6 +317,12 @@
         font-size:24px;
         color: #808080;
     }
+    .protocol2{
+        font-size:24px;
+        color: #6569c6;
+        text-align: center;
+        line-height:77px;
+    }
     .protocol input[type="checkbox"]{
         display: block;
         float: left;
@@ -329,12 +335,11 @@
     .protocol a{
         color: #6569c6;
     }
-    .reg-form input{
+    .reg-form>input,.check-refuse,.check-ing,.check-agree{
         display: block;
         width:100%;
         line-height:78px;
         text-align: center;
-        background: #6569c6;
         -webkit-border-radius: 6px;
         -moz-border-radius: 6px;
         border-radius: 6px;
@@ -342,6 +347,15 @@
         color: #fff;
         border:none;
         outline:none;
+    }
+    .reg-form>input,.check-agree{
+        background: #6569c6;
+    }
+    .check-refuse{
+        background: #c0bfc4;
+    }
+    .check-ing{
+        background: #a5a6d4;
     }
     .check-time{
         text-align: center;
@@ -358,5 +372,38 @@
         font-size:24px;
         color: #808080;
     }
-
+    /*注册信息*/
+    .regMsg-form{
+        color: #020202;
+    }
+    .reg-msg{
+        line-height:58px;
+        overflow: hidden;
+        font-size:28px;
+    }
+    .reg-msg span{
+        display: block;
+        max-width:30%;
+        float: left;
+        color: #c0bfc4;
+    }
+    .reg-msg p{
+        float: left;
+        max-width:70%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .user-phone{
+        margin:40px 0 38px 0;
+    }
+    .regMsg-form>p{
+        line-height:64px;
+        font-size:36px;
+    }
+    .user-line{
+        height:1px;
+        background: #ececec;
+        margin: 15px 0 10px 0;
+    }
 </style>
