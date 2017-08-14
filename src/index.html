@@ -21,10 +21,7 @@
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
     })();
-    window.onresize = function(){
-        document.documentElement.style.fontSize=document.documentElement.clientWidth / 7.5 + 'px';
-    };
-    document.documentElement.style.fontSize=document.documentElement.clientWidth / 7.5 + 'px';
+    !function(){var fontSize=parseFloat(getComputedStyle(document.getElementsByTagName('html')[0], null)['font-size']);function a(){document.documentElement.style.fontSize=document.documentElement.clientWidth/750*10/fontSize*1000+"%"}var b=null;window.addEventListener("resize",function(){clearTimeout(b);b=setTimeout(a,300)},!1);a()}(window);
 </script>
 <body>
 <div id="app">
