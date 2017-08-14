@@ -1,40 +1,42 @@
 <template>
     <div>
+        <Header_all></Header_all>
         <div class="main">
             <div class="form reg-form">
                 <h2 class="use-msg">账号信息</h2>
                 <div class="reg-input reg-phone">
                     <span class="prompt">*</span>
-                    <span class="reg-tips">11位手机号码，限中国大陆</span>
-                    <input type="text" name="phone" required>
+                    <span class="tips">11位手机号码，限中国大陆</span>
+                    <input type="text" v-model="telNumber" @input="inpEvent" @blur="checkTel" name="phone" required>
                 </div>
                 <div class="reg-input reg-check">
                     <span class="prompt">*</span>
-                    <span class="reg-tips">4位验证码</span>
-                    <input type="text" name="check" required>
-                    <a href="javascript:;" class="btn seng-code unable">发送验证码</a>
+                    <span class="tips">4位验证码</span>
+                    <input type="text" @input="inpEvent" name="check" required>
+                    <a href="javascript:;" v-tap="{ methods:sendCode }" class="btn seng-code" :class="{'unable':telNumber ===''}">发送验证码</a>
                 </div>
                 <div class="reg-input reg-pasw">
                     <span class="prompt">*</span>
-                    <span class="reg-tips">设置登录密码</span>
-                    <input type="text" name="password" required>
-                    <a href="javascript:;" class="btn eye eye-off"></a>
+                    <span class="tips">设置登录密码</span>
+                    <input type="text" @input="inpEvent" name="password" required>
+                    <a href="javascript:;" class="btn eye eye-on eye-off"></a>
                 </div>
                 <h2 class="rebate-msg">返佣信息</h2>
                 <div class="reg-input reg-name">
                     <span class="prompt">*</span>
-                    <span class="reg-tips">真实姓名</span>
-                    <input type="text" name="name" required>
+                    <span class="tips">真实姓名</span>
+                    <input type="text" @input="inpEvent"  name="name" required>
                 </div>
                 <div class="reg-input reg-alipay">
                     <span class="prompt">*</span>
-                    <span class="reg-tips">支付宝账号，不可修改</span>
-                    <input type="text" name="alipay" required>
+                    <span class="tips">支付宝账号，不可修改</span>
+                    <input type="text" @input="inpEvent" name="alipay" required>
                 </div>
                 <div class="reg-input reg-qq">
                     <span class="prompt">*</span>
-                    <span class="reg-tips">QQ</span>
-                    <input type="text" name="qq" required>
+                    <span class="tips">QQ</span>
+                    <input type="text" @input="inpEvent" name="qq" required>
+
                 </div>
                 <div class="protocol">
                     <input type="checkbox">
@@ -50,28 +52,66 @@
 </template>
 
 <script>
+    import Header_all from '~components/header.vue'
     export default {
         data(){
             return {
                 title: '',
+                telNumber:'',
                 showPassword:false,
             }
         },
-        watch: {},
+        components:{
+            Header_all
+        },
         methods: {
-            checkTel(e){
+            sendCode(){
+                if(this.telNumber === ''){ return false; }
                 let tel_reg = /^1[34578]\d{9}$/;
-                if( tel_reg.test( e.target.value) ){
+                if( tel_reg.test( this.telNumber ) ){
+                    /* 请求code */
                     console.log('手机号输入正确')
                 }else{
+                    this.$store.dispatch('showToast', {
+                        duration : 1000,
+                        message : '请输入正确的手机号'
+                    })
+                }
+            },
+            inpEvent(e){
+                if(e.target.value !=''){
+                    e.target.previousElementSibling.style.display = 'none';
+                } else{
+                    e.target.previousElementSibling.style.display = 'block';
+                }
+                if(e.target.name === 'check'){
+                    if(e.target.value.length >4){
+                        e.target.value = e.target.value.slice(0,4)
+                    }
+                }
+            },
+            checkTel(e){
+                let tel_reg = /^1[34578]\d{9}$/;
+                if(e.target.value !=''){
+                    e.target.previousElementSibling.style.display = 'none';
+                    if( tel_reg.test( e.target.value) ){
+                        console.log('手机号输入正确')
+                    }else{
+                        this.$store.dispatch('showToast', {
+                            duration : 1000,
+                            message : '请输入正确的手机号'
+                        })
+                    }
+                } else{
+                    e.target.previousElementSibling.style.display = 'block';
                 }
             },
             changeType(e){
                 if(!this.showPassword){
-                    document.getElementById('passDom').setAttribute('type','text')
+                    document.getElementById('passDom').setAttribute('type','text');
                     this.showPassword = true
                 }else{
-                    document.getElementById('passDom').setAttribute('type','password')
+                    document.getElementById('passDom').setAttribute('type','password');
                     this.showPassword = false
                 }
             },
@@ -81,7 +121,7 @@
             
         },
         mounted(){
-
+            console.log(this.telNumber)
         }
     }
 </script>

@@ -5,9 +5,7 @@
         <h1>代理注册</h1>
     </div>
 </template>
-
 <script>
-
     export default {
         props:['PersonTitle','IconStyle'],
         data () {

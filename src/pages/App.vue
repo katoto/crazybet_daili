@@ -10,7 +10,6 @@
 //    import '~static/css/mine.css'
 //    import '~static/css/media.css'
     import {getCk, isLowAndroidVersion, platform} from '~common/util'
-    import {actionTypes, mutationTypes} from '~store/home'
 
     export default {
         data () {
