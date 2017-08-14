@@ -58,9 +58,6 @@
 </script>
 <style>
     @charset "utf-8";
-
-
-
     /* CSS Document */
     body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td img{
         margin: 0;
@@ -115,6 +112,8 @@
         width: 100%;
         height: 100%;
         margin:0 auto;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
     }
     /*清除浮动*/
     .clearfix:after {content:""; display:block; clear:both;}
