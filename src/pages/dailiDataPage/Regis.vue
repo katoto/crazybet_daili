@@ -13,13 +13,13 @@
                     <span class="prompt">*</span>
                     <span class="tips">4位验证码</span>
                     <input type="text" @input="inpEvent" name="check" required>
-                    <a href="javascript:;" v-tap="{ methods:sendCode }" class="btn seng-code" :class="{'unable':telNumber ===''}">发送验证码</a>
+                    <a href="javascript:;" v-tap="{ methods:sendCodeFn }" class="btn seng-code" :class="{'unable':telNumber ===''}">发送验证码</a>
                 </div>
                 <div class="reg-input reg-pasw">
                     <span class="prompt">*</span>
                     <span class="tips">设置登录密码</span>
-                    <input type="text" @input="inpEvent" name="password" required>
-                    <a href="javascript:;" class="btn eye eye-on eye-off"></a>
+                    <input type="password" id="passDom" @input="inpEvent" name="password" required>
+                    <a href="javascript:;" v-tap="{ methods:showCodeFn}" class="btn eye" :class="{ 'eye-on':showCode ,'eye-off':!showCode }"></a>
                 </div>
                 <h2 class="rebate-msg">返佣信息</h2>
                 <div class="reg-input reg-name">
@@ -58,6 +58,8 @@
             return {
                 title: '',
                 telNumber:'',
+                showCode:false,
+                codeType:'password',
                 showPassword:false,
             }
         },
@@ -65,7 +67,15 @@
             Header_all
         },
         methods: {
-            sendCode(){
+            showCodeFn(){
+                if(this.showCode){
+                    document.getElementById('passDom').setAttribute('type','password')
+                }else{
+                    document.getElementById('passDom').setAttribute('type','text')
+                }
+                this.showCode = !(this.showCode)
+            },
+            sendCodeFn(){
                 if(this.telNumber === ''){ return false; }
                 let tel_reg = /^1[34578]\d{9}$/;
                 if( tel_reg.test( this.telNumber ) ){
