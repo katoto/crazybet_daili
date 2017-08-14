@@ -13,13 +13,13 @@
                     <span class="prompt">*</span>
                     <span class="tips">4位验证码</span>
                     <input type="text" @input="inpEvent" name="check" required>
-                    <a href="javascript:;" v-tap="{ methods:sendCode }" class="btn seng-code" :class="{'unable':telNumber ===''}">发送验证码</a>
+                    <a href="javascript:;" v-tap="{ methods:sendCodeFn }" class="btn seng-code" :class="{'unable':telNumber ===''}">发送验证码</a>
                 </div>
                 <div class="reg-input reg-pasw">
                     <span class="prompt">*</span>
                     <span class="tips">设置登录密码</span>
-                    <input type="text" @input="inpEvent" name="password" required>
-                    <a href="javascript:;" class="btn eye eye-on eye-off"></a>
+                    <input type="password" id="passDom" @input="inpEvent" name="password" required>
+                    <a href="javascript:;" v-tap="{ methods:showCodeFn}" class="btn eye" :class="{ 'eye-on':showCode ,'eye-off':!showCode }"></a>
                 </div>
                 <h2 class="rebate-msg">返佣信息</h2>
                 <div class="reg-input reg-name">
@@ -39,11 +39,11 @@
 
                 </div>
                 <div class="protocol">
-                    <input type="checkbox">
+                    <input type="checkbox" v-model="confirmbox">
                     <span>18岁以上，且同意</span>
-                    <a href="protocol.html">《代理合作协议》</a>
+                    <a v-tap="{ methods:goPageFn, target : 'protocol' }">《代理合作协议》</a>
                 </div>
-                <input type="submit" value="提交" name="submit">
+                <input type="submit" value="提交" name="submit" :class="{ 'unsubmit':confirmbox }">
                 <p class="check-time">3个工作日内完成审核</p>
                 <p class="contact-us">如需帮助请联系客服QQ : 3157085145</p>
             </div>
@@ -58,14 +58,41 @@
             return {
                 title: '',
                 telNumber:'',
+                showCode:false,
+                codeType:'password',
                 showPassword:false,
+                confirmbox:false,
             }
         },
         components:{
             Header_all
         },
         methods: {
-            sendCode(){
+            goPageFn ({ target }) {
+                target = target || '';
+                switch (target) {
+                    case 'protocol':
+                        _hmt.push(['_trackEvent', '代理注册页合作协议点击', 'click', '代理注册页合作协议']);
+                        this.$router.push(`/protocol`);
+                        break
+                    case 'login':
+                        _hmt.push(['_trackEvent', '代理注册页登陆点击', 'click', '代理注册页登陆'])
+                        this.$router.push(`/login`)
+                        break
+                    case 'backHistory':
+                        window.history.back()
+                        break
+                }
+            },
+            showCodeFn(){
+                if(this.showCode){
+                    document.getElementById('passDom').setAttribute('type','password')
+                }else{
+                    document.getElementById('passDom').setAttribute('type','text')
+                }
+                this.showCode = !(this.showCode)
+            },
+            sendCodeFn(){
                 if(this.telNumber === ''){ return false; }
                 let tel_reg = /^1[34578]\d{9}$/;
                 if( tel_reg.test( this.telNumber ) ){

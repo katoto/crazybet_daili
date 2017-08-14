@@ -28,7 +28,8 @@ const MyHomeRebate = () => import('~pages/dailiDataPage/myhomeRebate' /* webpack
 // 提现页面
 const MyHomePayApply = () => import('~pages/dailiDataPage/myhomePayApply' /* webpackChunkName: "chunks/myhome_pay_apply" */)
 const MyHomeApplyList = () => import('~pages/dailiDataPage/myhomeApplyList' /* webpackChunkName: "chunks/myhome_applyList" */)
-
+/* 个人信息 */
+const MyMessage = () => import('~pages/dailiDataPage/myMessage' /* webpackChunkName: "chunks/myMessage" */)
 // 代理合作协议
 const Protocol = () => import('~pages/Protocol'/* webpackChunkName: "chunks/protocol" */)
 
@@ -73,6 +74,10 @@ const router = new VueRouter({
         {
             path: '/forgetPass',
             component: ForgetPass
+        },
+        {
+            path: '/mymsg',
+            component: MyMessage
         },
         {
             path: '/help',
