@@ -46,7 +46,6 @@
                 <p class="contact-us">如需帮助请联系客服QQ : 3157085145</p>
             </div>
         </div>
-        <div class="toast hide">ID输入错误，请重新输入！</div>
     </div>
 </template>
 
@@ -87,4 +86,5 @@
     }
 </script>
 <style>
+
 </style>
