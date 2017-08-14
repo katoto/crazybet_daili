@@ -57,7 +57,6 @@
     }
 </script>
 <style>
-    @charset "utf-8";
     body,
     p,
     h1,
@@ -85,7 +84,6 @@
         margin: 0;
         padding: 0;
     }
-
     body,
     input,
     textarea,
@@ -95,7 +93,6 @@
         font-size: 14px;
         line-height: 1.25em;
     }
-
     html {
         height: 100%;
     }
@@ -110,7 +107,6 @@
         -webkit-tap-highlight-color: transparent;
         height: 100%;
     }
-
     table {
         border-collapse: collapse;
         border-spacing: 0
@@ -131,11 +127,9 @@
         color: #333;
         outline: none
     }
-
     img {
         vertical-align: middle
     }
-
     h1,
     h2,
     h3,
@@ -148,16 +142,13 @@
     button {
         font-size: 100%
     }
-
     ::-webkit-input-placeholder {
         color: #bbb;
     }
-
     input[type="text"], input[type="number"], input[type="password"] {
         -webkit-appearance: none;
         border-radius: 0;
     }
-
     em,
     i {
         font-style: normal
