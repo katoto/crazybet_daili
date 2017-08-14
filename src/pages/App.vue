@@ -206,9 +206,8 @@
         top:25px;
         width:31px;
         height:51px;
-        background-image: url("~/images/icon-sp.png");
-        background-size: 178px 51px;
-        background-position: 0 0;
+        background: url("../images/back.png") no-repeat center;
+        background-size: cover;
     }
     .login{
         position: absolute;
@@ -305,15 +304,13 @@
         width:61px;
         height:35px;
         overflow: hidden;
-        background-image: url("../images/icon-sp.png");
-        background-size: 178px 51px;
-        background-repeat: no-repeat;
+        background-size: cover;
     }
     .eye-on{
-        background-position:-65px 0;
+        background: url("../images/eye-on.png") no-repeat center;
     }
     .eye-off{
-        background-position: -116px 0;
+        background: url("../images/eye-off.png") no-repeat center;
     }
     .protocol{
         margin: 24px 0 66px 0;
