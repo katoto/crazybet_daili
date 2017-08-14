@@ -36,13 +36,14 @@
                     <span class="prompt">*</span>
                     <span class="tips">QQ</span>
                     <input type="text" @input="inpEvent" name="qq" required>
+
                 </div>
                 <div class="protocol">
                     <input type="checkbox">
                     <span>18岁以上，且同意</span>
                     <a href="protocol.html">《代理合作协议》</a>
                 </div>
-                <input type="submit" value="提交">
+                <input type="submit" value="提交" name="submit">
                 <p class="check-time">3个工作日内完成审核</p>
                 <p class="contact-us">如需帮助请联系客服QQ : 3157085145</p>
             </div>
