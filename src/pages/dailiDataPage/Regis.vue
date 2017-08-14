@@ -18,7 +18,7 @@
                     <span class="prompt">*</span>
                     <span class="tips">设置登录密码</span>
                     <input type="text" name="password" required>
-                    <a href="javascript:;" class="btn eye eye-on"></a>
+                    <a href="javascript:;" class="btn eye eye-on eye-off"></a>
                 </div>
                 <h2 class="rebate-msg">返佣信息</h2>
                 <div class="reg-input reg-name">
