@@ -612,6 +612,7 @@
         width:0.31rem;
         height:0.51rem;
         background: url("../images/back.png") no-repeat center;
+        background-size: cover;
     }
     .login{
         position: absolute;
@@ -885,23 +886,26 @@
         float: left;
         overflow: hidden;
         background-size: cover;
-        margin:27.0.05rem 0.23rem 0 0;
+        margin:0.275rem 0.23rem 0 0;
     }
     .forget-phone .forget-tips{
         width:0.28rem;
         height:0.39rem;
         background: url("../images/phone.png") no-repeat center;
+        background-size: cover;
     }
     .forger-code .forget-tips{
         width:0.3rem;
         height:0.45rem;
         background: url("../images/lock.png") no-repeat center;
+        background-size: cover;
     }
     .forget-password .forget-tips{
-        margin:27.0.05rem 0.23rem 0 0;
+        margin:0.275rem 0.23rem 0 0;
         width:0.3rem;
         height:0.47rem;
         background: url("../images/unlock.png") no-repeat center;
+        background-size: cover;
     }
     .forget-placehold{
         font-size:0.28rem;
