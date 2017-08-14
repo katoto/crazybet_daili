@@ -44,7 +44,7 @@
         },
         computed: {},
         mounted(){
-
+            this.$store.dispatch('showToast', '下单失败，请刷新再试一下~')
         }
     }
 </script>
