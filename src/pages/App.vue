@@ -322,6 +322,7 @@
         color: #6569c6;
         text-align: center;
         line-height:77px;
+        margin-top:316px;
     }
     .protocol input[type="checkbox"]{
         display: block;
