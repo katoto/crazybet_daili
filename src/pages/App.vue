@@ -304,11 +304,11 @@
         overflow: hidden;
     }
     .eye-on{
-        background: url("~/images/eye-on.png") no-repeat center;
+        background: url("../images/eye-on.png") no-repeat center;
         background-size: cover;
     }
     .eye-off{
-        background: url("~/images/eye-off.png") no-repeat center;
+    background: url("../images/eye-off.png") no-repeat center;
         background-size: cover;
     }
     .protocol{
