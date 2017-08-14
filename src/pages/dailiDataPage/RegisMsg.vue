@@ -4,7 +4,7 @@
             <span>帐号：</span>
             <p>188****5186</p>
         </div>
-        <p>返佣信息</p>
+        <p class="com-msg">返佣信息</p>
         <div class="reg-msg user-name">
             <span>姓名：</span>
             <p>testtesttesttesttesttesttesttesttesttesttesttesttesttesttest</p>

@@ -1,17 +1,19 @@
 <template>
-    <div>
-        <p>注册页面</p>
-
-        <mt-field label="手机号" placeholder="请输入手机号" :maxlength="11" @blur="checkTel" state="success" type="tel"></mt-field>
-        <mt-field label="密码" placeholder="设置登录密码，6~12位"  id="passDom" v-bind:disableClear=pickerValue type="password"></mt-field>
-
-        <mt-field label="验证码" >
-            <img src="" height="45px" width="100px">
-        </mt-field>
-
-        <button  @click="changeType" >点击显示密码</button>
-
-
+    <div class="form loginon">
+        <h1>使用账号密码登录</h1>
+        <div class="login-input login-phone">
+            <span class="login-tips">账号</span>
+            <span class="plaholder">手机号</span>
+            <input type="text" name="phone">
+        </div>
+        <div class="login-input login-psw">
+            <span class="login-tips">密码</span>
+            <span class="plaholder">请输入登录密码</span>
+            <input type="password" name="password">
+            <a href="javascript:;" class="btn eye eye-off"></a>
+        </div>
+        <input type="submit" name="submit" value="提交">
+        <a href="#" class="btn">忘记密码</a>
     </div>
 </template>
 
