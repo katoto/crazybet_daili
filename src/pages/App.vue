@@ -348,4 +348,6 @@
         font-size:24px;
         color: #808080;
     }
+/*注册信息*/
+
 </style>

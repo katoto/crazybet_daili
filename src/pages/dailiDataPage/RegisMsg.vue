@@ -1,6 +1,10 @@
 <template>
     <div>
-        <p>注册信息页和个人信息</p>
+       <div class="reg-msg">
+           <span>帐号：</span>
+           <p>188****5186</p>
+       </div>
+        
     </div>
 </template>
 
