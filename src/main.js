@@ -8,7 +8,6 @@ import App from '~pages/App.vue'
 // 可以按需加载
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
-
 // Vue.component(Button.name, Button);
 Vue.use(MintUI)
 // Vue.use(DatePicker)
