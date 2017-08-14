@@ -4,6 +4,10 @@
             <span>帐号：</span>
             <p>188****5186</p>
         </div>
+        <div class="reg-msg user-proxy">
+            <span>代理号：</span>
+            <p>QWE123</p>
+        </div>
         <p class="com-msg">返佣信息</p>
         <div class="reg-msg user-name">
             <span>姓名：</span>
@@ -23,9 +27,11 @@
             <p>699699699699699699699699699699699</p>
         </div>
         <a href="#" class="btn protocol2">《代理合作协议》</a>
-        <a href="javascript:;" class="btn check-refuse">审核不通过</a>
-        <!--<a href="javascript:;" class="btn check-ing">审核中</a>-->
-        <!--<a href="javascript:;" class="btn check-agree">审核通过</a>-->
+        <a href="javascript:;" class="btn check check-refuse">审核不通过</a>
+        <!--<a href="javascript:;" class="btn check check-ing">审核中</a>-->
+        <!--<a href="javascript:;" class="btn check check-agree">审核通过</a>-->
+        <p class="notice">*3个工作日内完成，审核成功将短信通知您</p>
+        <p class="notice">*可使用帐号登录查看审核进程</p>
         <p class="contact-us">如需帮助请联系客服QQ : 3157085145</p>
     </div>
 </template>
