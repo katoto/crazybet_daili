@@ -4,7 +4,7 @@
            <span>帐号：</span>
            <p>188****5186</p>
        </div>
-        
+
     </div>
 </template>
 
