@@ -6,12 +6,12 @@
             <div class="login-input login-phone">
                 <span class="login-tips">账号</span>
                 <span class="plaholder">手机号</span>
-                <input type="tel"  name="phone" @blur="checkTel" @input="inpEvent">
+                <input type="tel" v-model="loginTel" name="phone" @blur="checkTel" @input="inpEvent">
             </div>
             <div class="login-input login-psw">
                 <span class="login-tips">密码</span>
                 <span class="plaholder">请输入登录密码</span>
-                <input id="passDomLogin" type="password" @blur="checkPassWord" @input="inpEvent" name="password">
+                <input id="passDomLogin" v-model="loginPassWord" type="password" @blur="checkPassWord" @input="inpEvent" name="password">
                 <a href="javascript:;" v-tap="{ methods:showCodeFn}" class="btn eye" :class="{ 'eye-on':showCode ,'eye-off':!showCode }"></a>
             </div>
             <input type="submit" name="submit" value="提交"  v-tap="{ methods:Login}" >
@@ -26,6 +26,8 @@
         data(){
             return {
                 showCode:false,
+                loginTel:'',
+                loginPassWord:'',
             }
         },
         watch: {},
@@ -35,7 +37,24 @@
             },
             Login(){
                 /* function  登陆拿ck */
-
+                let loginData = null;
+                /* 提交 */
+                if(this.loginTel===''){
+                    this.$store.dispatch('showToast', {
+                        duration : 1000,
+                        message : '请输入手机号'
+                    });
+                    return false;
+                }else if(this.loginPassWord===''){
+                    this.$store.dispatch('showToast', {
+                        duration : 1000,
+                        message : '请设置6~12位数字、字母组合密码'
+                    });
+                    return false;
+                }
+                /* 提交数据 */
+                loginData =  Object.assign({},{ tel:this.loginTel , password:this.loginPassWord });
+                console.log(loginData);
             },
             showCodeFn(e){
                 /* 显示隐藏密码 */

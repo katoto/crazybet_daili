@@ -1,7 +1,7 @@
 <template>
     <div class="top">
         <a href="javascript:;" class="btn font0 back"  v-tap="{ methods:goBackFn, params : 'back' }">返回</a>
-        <a href="#" class="btn login"  v-tap="{ methods:jumpToPage }">{{ rightTitle }}</a>
+        <a href="#" class="btn login" :class="{'user':showUserIcon}" v-tap="{ methods:jumpToPage }">{{ rightTitle }}</a>
         <h1>{{ personTitle }}</h1>
     </div>
 </template>
@@ -11,19 +11,22 @@
         data () {
             return {
                 rightTitle:'',
+                showUserIcon:false,
             }
         },
         methods: {
             goBackFn ({ params }) {
                 switch (params ) {
                 case 'login':
-                    this.$router.push(`/my/betlist`)
-    
+                    this.$router.push(`/my/betlist`);
                     break
                 case 'regis':
-                    this.$router.push(`/my/charge`)
-    
+                    this.$router.push(`/my/charge`);
                     break
+                case 'goLand':
+                    /*  */
+                    alert('跳转落地页');
+                    break;
                 case 'back':
                     window.history.back() ;
                     break;
@@ -34,11 +37,14 @@
                     case 'login':
                         this.$router.push(`/login`);
 
-                        break
+                        break;
                     case 'regis':
                         this.$router.push(`/register`);
 
-                        break
+                        break;
+                    case 'userMsg':
+                        /*  */
+                        break;
                     default:window.history.back() ;
                 }
             },
@@ -55,6 +61,8 @@
                 this.rightTitle = '登录'
             }else if( this.iconStyle === 'regis' ){
                 this.rightTitle = '注册'
+            } else if( this.iconStyle === 'userMsg' ){
+                this.showUserIcon = true;
             }
         },
         filters: {

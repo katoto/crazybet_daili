@@ -11,8 +11,8 @@
                 <div class="forget-input forger-code">
                     <span class="forget-tips"></span>
                     <span class="forget-placehold">短信验证码</span>
-                    <input type="text"  @input="inpEvent" name="check" required>
-                    <a href="javascript:;" class="btn seng-code " :class="{'unable':telNumber ===''}">获取验证码</a>
+                    <input type="text" v-model="forgetCode"  @input="inpEvent" name="check" required>
+                    <a href="javascript:;" class="btn seng-code" v-tap="{ methods:sendCodeFn }" :class="{'unable':telNumber ==='' || addUnable}">{{ countDownStr }}</a>
                 </div>
             </div>
             <div class="forget-two" v-else>
@@ -40,12 +40,32 @@
                 telNumber:'',
                 setPassWord:true,
                 showCode:false,
+                forgetCode:'',
+                countDownStr:'发送验证码',
+                addUnable:false,
             };
         },
         methods: {
             forgetNext(){
                 /* 下一步  function */
-
+                let forgetData = null;
+                /* 提交 */
+                if(this.telNumber===''){
+                    this.$store.dispatch('showToast', {
+                        duration : 1000,
+                        message : '请输入手机号'
+                    });
+                    return false;
+                }else if(this.forgetCode===''){
+                    this.$store.dispatch('showToast', {
+                        duration : 1000,
+                        message : '请输入4位验证码'
+                    });
+                    return false;
+                }
+                /* 提交数据 */
+                forgetData =  Object.assign({},{ tel:this.telNumber , password:this.forgetCode });
+                console.log(forgetData);
             },
             againConfirm(){
                 /* 确认  function */
@@ -62,8 +82,27 @@
                 if(this.telNumber === ''){ return false; }
                 let tel_reg = /^1[34578]\d{9}$/;
                 if( tel_reg.test( this.telNumber ) ){
-                    /* 请求code */
-                    console.log('手机号输入正确')
+                    let codeTime = 10;
+                    let times = null;
+                    if( this.countDownStr !=='发送验证码' ){
+                        return false;
+                    }
+                    this.countDownStr = '重发（'+ codeTime +'s）';
+                    this.addUnable = true;
+                    /* function   请求code  */
+                    times = setInterval(()=>{
+                        codeTime = codeTime -1;
+                        if(codeTime === 0){
+                            this.countDownStr = '发送验证码';
+                            this.addUnable = false;
+                            codeTime = 10;
+                            clearInterval(times);
+                        }else{
+                            this.countDownStr = '重发（'+ codeTime +'s）';
+                            this.addUnable = true;
+                        }
+                    },1000)
+
                 }else{
                     this.$store.dispatch('showToast', {
                         duration : 1000,
