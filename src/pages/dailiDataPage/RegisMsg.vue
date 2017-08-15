@@ -4,10 +4,6 @@
             <span>帐号：</span>
             <p>188****5186</p>
         </div>
-        <div class="reg-msg user-proxy">
-            <span>代理号：</span>
-            <p>QWE123</p>
-        </div>
         <p class="com-msg">返佣信息</p>
         <div class="reg-msg user-name">
             <span>姓名：</span>

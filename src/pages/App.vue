@@ -205,6 +205,7 @@
         width:31px;
         height:51px;
         background: url("../images/back.png") no-repeat center;
+        background-size: cover;
     }
     .login{
         position: absolute;
@@ -212,6 +213,17 @@
         top:0;
         font-size:30px;
         color: #fff;
+    }
+    .user{
+        position: absolute;
+        right:35px;
+        top:28.5px;
+        width:44px;
+        height:43px;
+        overflow: hidden;
+        font-size:0;
+        background: url("../images/user.png") no-repeat center;
+        background-size: cover;
     }
     .top h1{
         text-align: center;
@@ -520,5 +532,174 @@
         background: transparent;
         font-size:28px;
         color: #020202;
+    }
+    /*疯狂猜球代理后台*/
+    .inquire{
+        position: relative;
+        height:100%;
+        background: #f2f2f2;
+    }
+    .bottom-home{
+        position: absolute;
+        left:0;
+        bottom:0;
+        padding:0 75px;
+    }
+    .bottom-home p,.bottom-home span{
+        font-size:24px;
+        color: #4c4c4c;
+        line-height:36px;
+    }
+    .bottom-home span{
+        position: absolute;
+        left:75px;
+        bottom:26px;
+        line-height:123px;
+    }
+    .my-code{
+        text-align: center;
+        line-height:123px;
+        margin-bottom:26px;
+        font-size:48px;
+        color: #020202;
+    }
+    .main-home{
+        width:100%;
+        overflow: hidden;
+        background: #fff;
+    }
+    .date{
+        width:100%;
+        height:43px;
+        overflow-x: scroll;
+        border-bottom:1px solid #e2e2e2;
+        padding-top:33px;
+        font-size:24px;
+        color: #c0c0c4;
+    }
+    .date ul{
+        width:4000px;
+        /*宽度需要动态获取*/
+        height:43px;
+        overflow-x: auto;
+        text-align: center;
+        display: flex;
+        display: -webkit-flex;
+        justify-content: space-around;
+    }
+    .date li{
+        width:143px;
+        height: 40px;
+        overflow: hidden;
+        line-height:40px;
+        display: inline-block;
+        border-bottom:3px solid #fff;
+    }
+    .date li.on{
+        color: #020202;
+        border-color: #545454;
+    }
+    .msg-home{
+        margin: 70px 0 10px 0;
+        text-align: center;
+        color: #020202;
+    }
+    .msg-home>div{
+        height:148px;
+        overflow: hidden;
+        background: url("../images/bg-line.jpg") center repeat-y;
+    }
+    .include,.member{
+        width:50%;
+        float: left;
+    }
+    .msg-home a{
+        font-size:28px;
+        color: #4c4c4c;
+        line-height:86px;
+    }
+    .include-t::before,.income-t::before{
+        margin-right:8px;
+        content: "";
+        display: inline-block;
+        width:34px;
+        height:67px;
+        overflow: hidden;
+        background: url("../images/sp-c.png") no-repeat center;
+        background-size: 34px 34px;
+    }
+    .include-t::before{
+        float: left;
+        margin-left:82.5px;
+    }
+    .include-t span{
+        display: inline-block;
+        float: left;
+        height:67px;
+        line-height:67px;
+        overflow: hidden;
+    }
+    .include-t,.member-t{
+        height:67px;
+        overflow: hidden;
+        line-height:67px;
+        font-size:28px;
+    }
+    .include-c,.member-c{
+        line-height:68px;
+        font-size:48px;
+    }
+    .include-c{
+        text-align: left;
+        text-indent:124.5px;
+    }
+    .income{
+        margin-top:23px;
+        background: #fff;
+        text-align: center;
+    }
+    .income-t{
+        font-size:28px;
+        color: #4c4c4c;
+    }
+    .income-t::before{
+        height:95px;
+    }
+    .income-t span{
+        display: inline-block;
+        height: 95px;
+        line-height: 95px;
+        overflow: hidden;
+    }
+    .income-c{
+        line-height:72px;
+        font-size:48px;
+        color: #020202;
+    }
+    .income-m{
+        line-height:140px;
+        margin-bottom:7px;
+        font-size:28px;
+        color: #6569c6;
+    }
+    /*个人信息*/
+    .main-mymsg{
+        height:721px;
+        padding:0 40px;
+        background: #fff;
+    }
+    .inquire .user-phone{
+        margin:0;
+    }
+    .inquire .user-proxy{
+        margin-bottom:38px;
+    }
+    .inquire .protocol2{
+        position: absolute;
+        left:0;
+        bottom:98px;
+        width:100%;
+        line-height:47px;
+        margin:0;
     }
 </style>

@@ -17,7 +17,7 @@
             <div class="forget-input forget-password">
                 <span class="forget-tips"></span>
                 <span class="forget-placehold">设置登录密码，6～12位</span>
-                <input type="text" name="my-psw">
+                <input type="password" name="my-psw">
                 <a href="javascript:;" class="btn eye eye-off"></a>
             </div>
         </div>
