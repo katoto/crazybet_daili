@@ -28,6 +28,8 @@
             <a href="javascript:;" class="btn check-refuse">审核不通过</a>
             <a href="javascript:;" class="btn check-ing">审核中</a>
             <a href="javascript:;" class="btn check-agree">审核通过</a>
+            <p class="notice">*3个工作日内完成，审核成功将短信通知您</p>
+            <p class="notice">*可使用帐号登录查看审核进程</p>
             <p class="contact-us">如需帮助请联系客服QQ : 3157085145</p>
         </div>
     </div>

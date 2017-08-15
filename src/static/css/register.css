@@ -1,4 +1,3 @@
-@charset "utf-8";
 body,
 p,
 h1,
@@ -147,9 +146,7 @@ i {
     top:25px;
     width:31px;
     height:51px;
-    background-image: url("../images/icon-sp.png");
-    background-size: 178px 51px;
-    background-position: 0 0;
+    background: url("../images/back.png") no-repeat center;
 }
 .login{
     position: absolute;
@@ -187,12 +184,12 @@ i {
 .rebate-msg{
     margin-top:54px;
 }
-.reg-input{
+.reg-input,.login-input{
     position: relative;
     width:100%;
     height:78px;
     overflow: hidden;
-    line-height:75px;
+    line-height:78px;
     border-bottom:1px solid #ededed;
 }
 .prompt{
@@ -200,7 +197,7 @@ i {
     color: #f64176;
     font-size:28px;
 }
-.tips{
+.reg-tips{
     float: left;
     margin-left:15px;
     line-height:78px;
@@ -238,6 +235,9 @@ i {
     color: #6569c6;
     line-height:66px;
 }
+.forget-psw .seng-code{
+    top:17px;
+}
 .eye{
     position: absolute;
     z-index:2;
@@ -246,15 +246,17 @@ i {
     width:61px;
     height:35px;
     overflow: hidden;
-    background-image: url("../images/icon-sp.png");
-    background-size: 178px 51px;
-    background-repeat: no-repeat;
 }
 .eye-on{
-    background-position:-65px 0;
+    background: url("../images/eye-on.png") no-repeat center;
+    background-size: cover;
 }
 .eye-off{
-    background-position: -116px 0;
+    background: url("../images/eye-off.png") no-repeat center;
+    background-size: cover;
+}
+.forget-psw .eye{
+    top:32.5px;
 }
 .protocol{
     margin: 24px 0 66px 0;
@@ -262,7 +264,16 @@ i {
     font-size:24px;
     color: #808080;
 }
-.protocol input{
+.protocol2{
+    font-size:24px;
+    color: #6569c6;
+    text-align: center;
+    line-height:77px;
+    margin-top:316px;
+}
+.protocol input[type="checkbox"]{
+    display: block;
+    float: left;
     width:23px;
     height:23px;
     overflow: hidden;
@@ -272,12 +283,11 @@ i {
 .protocol a{
     color: #6569c6;
 }
-.reg-form input[type="submit"]{
+.reg-form>input,.check-refuse,.check-ing,.check-agree,.loginon>input,.forget-next,.forget-sure{
     display: block;
     width:100%;
     line-height:78px;
     text-align: center;
-    background: #6569c6;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px;
@@ -286,11 +296,27 @@ i {
     border:none;
     outline:none;
 }
+.reg-form>input,.check-agree,.loginon>input,.forget-next,.forget-sure{
+    background: #6569c6;
+}
+.forget-next,.forget-sure{
+    width:670px;
+    margin:70px auto 0;
+}
+.check-refuse{
+    background: #c0bfc4;
+}
+.check-ing{
+    background: #a5a6d4;
+}
 .check-time{
     text-align: center;
     font-size:28px;
     color: #808080;
     line-height:60px;
+}
+.loginon>input{
+    margin-top:80px;
 }
 .contact-us{
     position: absolute;
@@ -300,4 +326,140 @@ i {
     text-align: center;
     font-size:24px;
     color: #808080;
+}
+.notice{
+    line-height:34px;
+    font-size:28px;
+    color: #808080;
+}
+.check{
+    margin-bottom:33px;
+}
+/*注册信息*/
+.regMsg-form{
+    color: #020202;
+}
+.reg-msg{
+    line-height:58px;
+    overflow: hidden;
+    font-size:28px;
+}
+.reg-msg span{
+    display: block;
+    max-width:30%;
+    float: left;
+    color: #c0bfc4;
+}
+.reg-msg p{
+    float: left;
+    max-width:70%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.user-phone{
+    margin:40px 0 38px 0;
+}
+.com-msg{
+    line-height:64px;
+    font-size:36px;
+}
+.user-line{
+    height:1px;
+    background: #ececec;
+    margin: 15px 0 10px 0;
+}
+/*登录*/
+.loginon h1{
+    font-size:48px;
+    color: #020202;
+    text-align: center;
+    margin: 92px 0 75px 0;
+}
+.login-tips{
+    display: block;
+    float: left;
+    width:146px;
+    font-size:28px;
+    color: #020202;
+}
+.plaholder{
+    font-size:28px;
+    color: #c0bfc4;
+}
+.login-input input{
+    position: absolute;
+    width:524px;
+    height:78px;
+    overflow: hidden;
+    top:0;
+    left:146px;
+    line-height:75px;
+    outline:none;
+    border:none;
+    font-size:28px;
+    color: #020202;
+    background: transparent;
+}
+.loginon a{
+    line-height:100px;
+    font-size:28px;
+    color: #808080;
+}
+/*忘记密码*/
+.forget-psw{
+    background: #f2f2f2;
+    padding-top:37px;
+}
+.forget-one,.forget-two{
+    width:100%;
+    background: #fff;
+}
+.forget-input{
+    position: relative;
+    margin:0 63px;
+    line-height:94px;
+    overflow: hidden;
+}
+.forget-input+.forget-input{
+    border-top:1px solid #e2e2e2;
+}
+.forget-tips{
+    display: block;
+    float: left;
+    overflow: hidden;
+    background-size: cover;
+    margin:27.5px 23px 0 0;
+}
+.forget-phone .forget-tips{
+    width:28px;
+    height:39px;
+    background: url("../images/phone.png") no-repeat center;
+}
+.forger-code .forget-tips{
+    width:30px;
+    height:45px;
+    background: url("../images/lock.png") no-repeat center;
+}
+.forget-password .forget-tips{
+    margin:27.5px 23px 0 0;
+    width:30px;
+    height:47px;
+    background: url("../images/unlock.png") no-repeat center;
+}
+.forget-placehold{
+    font-size:28px;
+    color: #c0bfc4;
+}
+.forget-input input{
+    position: absolute;
+    top:0;
+    left:51px;
+    width:570px;
+    height:100%;
+    outline:none;
+    border:none;
+    background: transparent;
+    font-size:28px;
+    color: #020202;
 }
