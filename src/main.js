@@ -9,7 +9,7 @@ import App from '~pages/App.vue'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 // Vue.component(Button.name, Button);
-Vue.use(MintUI)
+Vue.use(MintUI);
 // Vue.use(DatePicker)
 // Vue.use(Table)
 // Vue.use(TableColumn)
