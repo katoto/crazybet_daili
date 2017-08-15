@@ -488,6 +488,7 @@
     .forget-input{
         position: relative;
         margin:0 63px;
+        height:94px;
         line-height:94px;
         overflow: hidden;
     }
@@ -525,8 +526,9 @@
         position: absolute;
         top:0;
         left:51px;
-        width:570px;
-        height:100%;
+        width:270px;
+        height:94px;
+        overflow: hidden;
         outline:none;
         border:none;
         background: transparent;
