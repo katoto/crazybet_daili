@@ -27,6 +27,11 @@
                     <span class="tips">真实姓名</span>
                     <input type="text" @input="inpEvent" v-model="userName" name="name" required>
                 </div>
+                <div class="reg-input reg-id">
+                    <span class="prompt">*</span>
+                    <span class="tips">身份证号码</span>
+                    <input type="text" @input="inpEvent" v-model="id" name="id" required>
+                </div>
                 <div class="reg-input reg-alipay">
                     <span class="prompt">*</span>
                     <span class="tips">支付宝账号，不可修改</span>
