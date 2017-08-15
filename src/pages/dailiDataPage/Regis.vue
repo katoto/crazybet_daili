@@ -30,7 +30,7 @@
                 <div class="reg-input reg-id">
                     <span class="prompt">*</span>
                     <span class="tips">身份证号码</span>
-                    <input type="text" @input="inpEvent" v-model="id" name="id" required>
+                    <input type="text" @input="inpEvent" v-model="idCart" name="id" required>
                 </div>
                 <div class="reg-input reg-alipay">
                     <span class="prompt">*</span>
@@ -68,6 +68,7 @@
                 userName:'',
                 alipayName:'',
                 qqNumber:'',
+                idCart:'',
                 showCode:false,
                 codeType:'password',
                 confirmbox:false,
@@ -106,6 +107,12 @@
                         message : '请输入姓名'
                     });
                     return false;
+                }else if(this.idCart===''){
+                    this.$store.dispatch('showToast', {
+                        duration : 1000,
+                        message : '请输入身份证号码'
+                    });
+                    return false;
                 }else if(this.alipayName===''){
                     this.$store.dispatch('showToast', {
                         duration : 1000,
@@ -119,11 +126,17 @@
                     });
                     return false;
                 }
+                Indicator.open({
+                    text: '提交中...',
+                    spinnerType: 'fading-circle'
+                });
                 /* 提交数据 */
                 sendData =  Object.assign({},{ mobile:this.telNumber , code:this.telCode , passwd:this.userPassWord ,
-                    username:this.userName , alipay:this.alipayName, qq:this.qqNumber});
+                    username:this.userName , alipay:this.alipayName, qq:this.qqNumber,idcard:this.idCart});
                 console.log(sendData);
-                this.$store.dispatch('setRegis', sendData);
+                setTimeout(()=>{
+                    this.$store.dispatch('setRegis', sendData);
+                },2000);
                 /* function  */
             },
             goPageFn ({ target }) {
@@ -161,7 +174,7 @@
                     }
                     this.countDownStr = '重发（'+ codeTime +'s）';
                     this.addUnable = true;
-                    /* function   请求code  */
+                    /* function   请求code  type 1 注册 type 2  修改  */
                     this.$store.dispatch('getTelCode', Object.assign({},{ mobile:this.telNumber ,type:1 }));
                     times = setInterval(()=>{
                         codeTime = codeTime -1;
@@ -228,6 +241,9 @@
 
         },
         computed: {
+            regisAjaxData(){
+                return this.$store.state.formObj.regisAjaxData;
+            }
         },
         mounted(){
 
@@ -248,7 +264,21 @@
                 })
             },2000);  */
 
+
             console.log(this.telNumber)
+        },
+        watch:{
+            regisAjaxData( regisAjaxData ){
+                console.log(regisAjaxData);
+                Indicator.close();
+                this.$store.dispatch('showToast', {
+                    duration : 1000,
+                    message : '提交成功',
+                    cb:()=>{
+                        this.$router.push(`/registerMsg`);
+                    }
+                })
+            }
         }
     }
 </script>

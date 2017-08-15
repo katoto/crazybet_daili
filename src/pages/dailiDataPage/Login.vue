@@ -53,8 +53,9 @@
                     return false;
                 }
                 /* 提交数据 */
-                loginData =  Object.assign({},{ tel:this.loginTel , password:this.loginPassWord });
+                loginData =  Object.assign({},{ mobile:this.loginTel , passwd:this.loginPassWord });
                 console.log(loginData);
+                this.$store.dispatch('doLogin', loginData);
             },
             showCodeFn(e){
                 /* 显示隐藏密码 */
