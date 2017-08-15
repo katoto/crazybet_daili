@@ -52,8 +52,8 @@
 </template>
 
 <script>
-    import {Indicator} from 'mint-ui'
-    import Header_all from '~components/header_all.vue'
+    import {Indicator} from 'mint-ui';
+    import Header_all from '~components/header_all.vue';
     export default {
         data(){
             return {
@@ -115,9 +115,10 @@
                     return false;
                 }
                 /* 提交数据 */
-                sendData =  Object.assign({},{ tel:this.telNumber , code:this.telCode , password:this.userPassWord ,
-                    userName:this.userName , alipayName:this.alipayName, qq:this.qqNumber});
+                sendData =  Object.assign({},{ mobile:this.telNumber , code:this.telCode , passwd:this.userPassWord ,
+                    username:this.userName , alipay:this.alipayName, qq:this.qqNumber});
                 console.log(sendData);
+                this.$store.dispatch('setRegis', sendData);
                 /* function  */
             },
             goPageFn ({ target }) {
@@ -156,6 +157,7 @@
                     this.countDownStr = '重发（'+ codeTime +'s）';
                     this.addUnable = true;
                     /* function   请求code  */
+                    this.$store.dispatch('getTelCode', Object.assign({},{ mobile:this.telNumber ,type:1 }));
                     times = setInterval(()=>{
                         codeTime = codeTime -1;
                         if(codeTime === 0){
@@ -223,6 +225,7 @@
         computed: {
         },
         mounted(){
+
             /* 模拟提交 */
 
 /*            Indicator.open({

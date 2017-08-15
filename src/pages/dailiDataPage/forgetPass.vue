@@ -19,7 +19,7 @@
                 <div class="forget-input forget-password">
                     <span class="forget-tips"></span>
                     <span class="forget-placehold">设置登录密码，6～12位</span>
-                    <input type="text" id="againSetPassDom" @input="inpEvent" name="my-psw" @blur="checkPassWord">
+                    <input type="text" id="againSetPassDom" v-model="againPassWord" @input="inpEvent" name="my-psw" @blur="checkPassWord">
                     <a href="javascript:;" v-tap="{ methods:showCodeFn}" class="btn eye" :class="{ 'eye-on':showCode ,'eye-off':!showCode }"></a>
                 </div>
             </div>
@@ -43,6 +43,7 @@
                 forgetCode:'',
                 countDownStr:'发送验证码',
                 addUnable:false,
+                againPassWord:'',
             };
         },
         methods: {
@@ -69,6 +70,10 @@
             },
             againConfirm(){
                 /* 确认  function */
+                console.log('可点');
+                if(this.againPassWord ===''){
+
+                }
             },
             showCodeFn(){
                 if(this.showCode){
@@ -175,9 +180,9 @@
         },
         mounted(){
             this.setPassWord = false;
-//            setTimeout(()=>{
-//                this.setPassWord = true
-//            },1000)
+            setTimeout(()=>{
+                this.setPassWord = true
+            },1000)
         }
     }
 </script>
