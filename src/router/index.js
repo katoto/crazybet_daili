@@ -84,6 +84,10 @@ const router = new VueRouter({
             component: Help
         },
         {
+            path: '/myHomePayApply',
+            component: MyHomePayApply
+        },
+        {
             path: '*',
             redirect: '/login'
         }

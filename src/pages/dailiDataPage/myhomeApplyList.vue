@@ -1,5 +1,5 @@
 <template>
-    <div class="page-infinite">
+    <!--<div class="page-infinite">
         <h1 class="page-title">Infinite Scroll</h1>
         <div class="page-infinite-wrapper" ref="wrapper" :style="{ height: wrapperHeight + 'px' }">
             <ul class="page-infinite-list" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="50">
@@ -9,6 +9,88 @@
                 <mt-spinner type="fading-circle"></mt-spinner>
                 加载中...
             </p>
+        </div>
+    </div>-->
+    <div class="page-infinite">
+        <div class="top">
+            <a href="javascript:;" class="btn font0 back">返回</a>
+            <a href="#" class="btn home">主页</a>
+            <h1>提现记录</h1>
+        </div>
+        <div class="main-list">
+            <ul>
+                <li>
+                    <span class="list-date">2017-06-28</span>
+                    <span class="list-money">2000000000元</span>
+                    <span class="list-status">提现处理中</span>
+                </li>
+                <li>
+                    <span class="list-date">2017-06-28</span>
+                    <span class="list-money">2000000000元</span>
+                    <span class="list-status">提现处理中</span>
+                </li>
+                <li>
+                    <span class="list-date">2017-06-28</span>
+                    <span class="list-money">2000000000元</span>
+                    <span class="list-status">提现处理中</span>
+                </li>
+                <li>
+                    <span class="list-date">2017-06-28</span>
+                    <span class="list-money">2000000000元</span>
+                    <span class="list-status">提现处理中</span>
+                </li>
+                <li>
+                    <span class="list-date">2017-06-28</span>
+                    <span class="list-money">2000000000元</span>
+                    <span class="list-status">提现处理中</span>
+                </li>
+                <li>
+                    <span class="list-date">2017-06-28</span>
+                    <span class="list-money">2000000000元</span>
+                    <span class="list-status">提现处理中</span>
+                </li>
+                <li>
+                    <span class="list-date">2017-06-28</span>
+                    <span class="list-money">2000000000元</span>
+                    <span class="list-status">提现处理中</span>
+                </li>
+                <li>
+                    <span class="list-date">2017-06-28</span>
+                    <span class="list-money">2000000000元</span>
+                    <span class="list-status">提现处理中</span>
+                </li>
+                <li>
+                    <span class="list-date">2017-06-28</span>
+                    <span class="list-money">2000000000元</span>
+                    <span class="list-status">提现处理中</span>
+                </li>
+                <li>
+                    <span class="list-date">2017-06-28</span>
+                    <span class="list-money">2000000000元</span>
+                    <span class="list-status">提现处理中</span>
+                </li>
+                <li>
+                    <span class="list-date">2017-06-28</span>
+                    <span class="list-money">2000000000元</span>
+                    <span class="list-status">提现处理中</span>
+                </li>
+                <li>
+                    <span class="list-date">2017-06-28</span>
+                    <span class="list-money">2000000000元</span>
+                    <span class="list-status">提现处理中</span>
+                </li>
+                <li>
+                    <span class="list-date">2017-06-28</span>
+                    <span class="list-money">2000000000元</span>
+                    <span class="list-status">提现处理中</span>
+                </li>
+                <li>
+                    <span class="list-date">2017-06-28</span>
+                    <span class="list-money">2000000000元</span>
+                    <span class="list-status">提现处理中</span>
+                </li>
+            </ul>
+            <a href="javascript:;" class="btn more more-no">查看更多</a>
         </div>
     </div>
 </template>

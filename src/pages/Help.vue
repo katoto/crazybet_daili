@@ -60,12 +60,4 @@
     }
 </script>
 <style>
-    /*750  30px   */
-    p{
-        /* 750px */
-        font-size: 0.2rem;
-    }
-    h1{
-        font-size: 0.3rem;
-    }
 </style>

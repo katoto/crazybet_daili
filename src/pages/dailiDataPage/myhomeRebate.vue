@@ -1,6 +1,10 @@
 <template>
-    <div id="app">
-        <p> myhomeRebate </p>
+    <div id="rebate">
+        <div class="top">
+            <a href="javascript:;" class="btn font0 back">返回</a>
+            <a href="#" class="btn date-rebate">日期选择</a>
+            <h1>返佣详情</h1>
+        </div>
         <ul>
             <li>标1题</li>
             <li>标2题</li>

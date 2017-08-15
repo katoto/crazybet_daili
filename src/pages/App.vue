@@ -702,4 +702,170 @@
         line-height:47px;
         margin:0;
     }
+    /*提现申请*/
+    .payApply{
+        height:100%;
+        background: #f2f2f2;
+    }
+    .payList{
+        position: absolute;
+        right: 42px;
+        top: 31px;
+        width: 42px;
+        height: 38px;
+        overflow: hidden;
+        font-size: 0;
+        background: url("../images/calendar.png") no-repeat center;
+        background-size: cover;
+    }
+    .main-payApply{
+        height: 774px;
+        padding:38px 40px 0;
+        background: #fff;
+    }
+    .apply-user,.apply-ali{
+        width:100%;
+        height:62px;
+        overflow: hidden;
+        line-height:62px;
+        font-size:28px;
+    }
+    .apply-ali{
+        padding-bottom:38px;
+        border-bottom:1px solid #ececec;
+    }
+    .apply-user span,.apply-ali span{
+        display: block;
+        float: left;
+        color: #c0bfc4;
+    }
+    .apply-user div,.apply-ali div{
+        max-width:70%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space:nowrap;
+    }
+    .apply-can{
+        margin-top:32px;
+        line-height:64px;
+        font-size:28px;
+        color: #020202;
+    }
+    .apply-now{
+        line-height:63px;
+        padding-bottom:24px;
+        border-bottom:1px solid #ececec;
+    }
+    .apply-now span{
+        float: left;
+        font-size:36px;
+        color: #020202;
+    }
+    .apply-now input{
+        margin-left:20px;
+        border:none;
+        outline:none;
+        font-size:28px;
+        color: #c0bfc4;
+        height:63px;
+        line-height:63px;
+    }
+    .apply-tips{
+        height:112px;
+        line-height:112px;
+        margin-bottom:40px;
+        font-size:28px;
+        color: #c0bfc4;
+    }
+    .apply-tips a{
+        color: #6569c6;
+    }
+    .red{
+        color: #f64e7d;
+    }
+    .btn-apply{
+        width: 100%;
+        line-height: 78px;
+        text-align: center;
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+        font-size: 36px;
+        color: #fff;
+        background: #a5a6d4;
+    }
+    .apply-time{
+        line-height:90px;
+        font-size:28px;
+        color: #808080;
+        text-align: center;
+    }
+    .btn-sure{
+        background: #6569c6;
+    }
+    .bottom-payApply{
+        position: absolute;
+        left:0;
+        bottom:42px;
+        width:100%;
+        padding:0 40px;
+        line-height:30px;
+        font-size:24px;
+        color: #808080;
+    }
+    .bottom-payApply p:last-child{
+        margin-top:30px;
+    }
+     /*提现记录*/
+    .home{
+        position: absolute;
+        right: 45px;
+        top: 30px;
+        width: 46px;
+        height: 40px;
+        overflow: hidden;
+        font-size: 0;
+        background: url("../images/home.png") no-repeat center;
+        background-size: cover;
+    }
+    .main-list{
+        height:922px;
+    }
+    .main-list ul{
+        height:100%;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .main-list li{
+        display: flex;
+        display: -webkit-flex;
+        justify-content: space-between;
+        padding:0 40px;
+        line-height:90px;
+        background: #f2f2f2;
+        font-size:28px;
+        color: #5e5e5e;
+    }
+    .main-list li+li{
+        margin-top:14px;
+    }
+    .more{
+        width: 670px;
+        line-height: 78px;
+        text-align: center;
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+        font-size: 36px;
+        color: #fff;
+        background: #6569c6;
+        margin: 70px auto 0;
+    }
+    .more-no{
+        background: #a5a6d4;
+    }
+    /*返佣详情*/
+    .date-rebate{
+
+    }
 </style>
