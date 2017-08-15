@@ -6,7 +6,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import ajax from '~common/ajax'
 import {platform, src, wait, convertToQueryString, getCk, isLowAndroidVersion} from '~common/util'
-
+import {Indicator} from 'mint-ui';
 Vue.use(Vuex)
 
 let baseURL = 'ws://192.168.41.76:6999';
@@ -59,17 +59,22 @@ const actions = {
         localStorage.removeItem('ck')
     },
     async setRegis ({state, commit, dispatch},data) {
+        /* 注册 */
         data = convertToQueryString(data)
         console.log(data)
         try {
-            let regisData = await ajax.get(`/agent/register?${data}`);
-            console.log(regisData)
-            commit('regisAjaxData', regisData)
+            let regisData = await ajax.get(`/agent/register?${data}&platform=${platform}`);
+            if( regisData.tips !== '' ){
+                commit('regisAjaxData', regisData)
+            }
+            console.log(regisData);
         } catch (e) {
+            Indicator.close();
             dispatch('showToast', e.message + '/agent/register')
         }
     },
     async getTelCode ({state, commit, dispatch},data) {
+        // 获取code
         data = convertToQueryString(data)
         console.log(data)
         try {
@@ -80,16 +85,29 @@ const actions = {
         }
     },
     async doLogin ({commit, dispatch}, params) {
+        /* 登陆 */
         try {
-            let doLoginData = null
-            doLoginData = await ajax.get(`/login/cpuser?qq_ck=${params}&cptype=qqsd&src=${src}&platform=${platform}`)
-            localStorage.setItem('ck', doLoginData.ck)
-            localStorage.setItem('qq_uid', doLoginData.qq_uid)
-            commit('ck', doLoginData.ck)
-            dispatch('getUserInfo')
-            return doLoginData.ck
+            let doLoginData = null;
+            params = convertToQueryString(params);
+            doLoginData = await ajax.get(`agent/login?${params}&platform=${platform}`);
+            console.log(doLoginData);
+            localStorage.setItem('ck', doLoginData.token);
+            commit('ck', doLoginData.token);
+            // dispatch('getUserInfo')
+            return doLoginData.token
         } catch (e) {
-            dispatch('showToast', e.message + '/login/cpuser')
+            dispatch('showToast', e.message)
+        }
+    },
+    async passWdReset ({commit, dispatch}, params) {
+        /* 充值密码 */
+        try {
+            let resetData = null;
+            params = convertToQueryString(params);
+            resetData = await ajax.get(`passwd/reset?${params}&platform=${platform}`);
+            console.log(resetData);
+        } catch (e) {
+            dispatch('showToast', e.message)
         }
     },
     async showToast ({commit}, msg) {
@@ -105,19 +123,23 @@ const actions = {
         cb && cb()
     },
     async getUserInfo ({state, commit, dispatch}) {
+        /* 用户信息 */
         try {
-            let userInfo = await ajax.get(`/user/info?ck=${getCk()}&src=${src}`)
+            let userInfo = await ajax.get(`/agent/user/detail?token=${getCk()}&src=${src}`)
             commit('userInfo', userInfo)
         } catch (e) {
-            if (e.code === '136' || e.code === '102') {
-                dispatch('clearLoginState', 0)
-                //  再次调起登陆
-                dispatch('doLogin', state.qqsdCK)
-                return false
-            }
-            dispatch('showToast', e.message + '/user/info')
+            dispatch('showToast', e.message + 'agent/user/detail')
         }
     },
+    // async getUserInfo ({state, commit, dispatch}) {
+    //     /* 套现页面 */
+    //     try {
+    //         let userInfo = await ajax.get(`/agent/user/detail?token=${getCk()}&src=${src}`)
+    //         commit('userInfo', userInfo)
+    //     } catch (e) {
+    //         dispatch('showToast', e.message + 'agent/user/detail')
+    //     }
+    // },
     async localLogin ({commit}, code) {
         let {ck} = await ajax.get(`/login/guest?deviceid=${code}`)
         localStorage.setItem('ck', ck)

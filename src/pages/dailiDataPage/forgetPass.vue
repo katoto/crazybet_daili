@@ -67,6 +67,7 @@
                 /* 提交数据 */
                 forgetData =  Object.assign({},{ tel:this.telNumber , password:this.forgetCode });
                 console.log(forgetData);
+
             },
             againConfirm(){
                 /* 确认  function */
@@ -94,7 +95,8 @@
                     }
                     this.countDownStr = '重发（'+ codeTime +'s）';
                     this.addUnable = true;
-                    /* function   请求code  */
+                    /* function   请求code   type 1 注册 type 2   */
+                    this.$store.dispatch('getTelCode', Object.assign({},{ mobile:this.telNumber ,type:2 }));
                     times = setInterval(()=>{
                         codeTime = codeTime -1;
                         if(codeTime === 0){
@@ -180,9 +182,9 @@
         },
         mounted(){
             this.setPassWord = false;
-            setTimeout(()=>{
-                this.setPassWord = true
-            },1000)
+//            setTimeout(()=>{
+//                this.setPassWord = true
+//            },1000)
         }
     }
 </script>
