@@ -41,7 +41,7 @@ app.use(function (req, resp, next) {
             // host: 'crazybet.choopaoo.com',
             // ip: '106.75.138.85',
             path: req.originalUrl.replace('/api', ''),
-            port: '8090',
+            port: '9899',
             showLog: true
         })
         // 9899

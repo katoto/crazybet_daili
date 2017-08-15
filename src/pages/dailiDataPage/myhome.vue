@@ -55,11 +55,7 @@
     </div>
     -->
     <div class="inquire">
-        <div class="top">
-            <a href="javascript:;" class="btn font0 back">返回</a>
-            <a href="#" class="btn user">用户信息</a>
-            <h1>疯狂猜球代理后台</h1>
-        </div>
+        <Header_all person-title="疯狂猜球代理后台" :icon-style="'userMsg'"></Header_all>
         <div class="main-home">
             <div class="date">
                 <ul>
@@ -112,7 +108,7 @@
         <div class="income">
             <div class="income-t"><span>可提现佣金</span></div>
             <div class="income-c">7500</div>
-            <a href="#" class="btn income-m unable">可提现</a>
+            <a href="javascript:;" class="btn income-m unable">可提现</a>
         </div>
         <div class="bottom-home">
             <p>邀请好友在各大应用商店搜索“”。下载安装后输入您的代理号。剩下的交给我们，您什么都不用做，躺赚月薪无上限，就是这么简单！</p>
@@ -123,6 +119,7 @@
 </template>
 
 <script>
+    import Header_all from '~components/header_all.vue'
     export default {
         data() {
             return {
@@ -135,6 +132,9 @@
                 visible5: false,
                 selected: '1'
             };
+        },
+        components:{
+            Header_all
         },
         methods: {
             open(picker) {

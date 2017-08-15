@@ -13,7 +13,7 @@
                     <span class="prompt">*</span>
                     <span class="tips">4位验证码</span>
                     <input type="text" @input="inpEvent" v-model="telCode" name="check" required>
-                    <a href="javascript:;"  v-tap="{ methods:sendCodeFn }" class="btn seng-code" :class="{'unable':telNumber ===''}">发送验证码</a>
+                    <a href="javascript:;"  v-tap="{ methods:sendCodeFn }" class="btn seng-code" :class="{'unable':telNumber ==='' || addUnable}">{{ countDownStr }}</a>
                 </div>
                 <div class="reg-input reg-pasw">
                     <span class="prompt">*</span>
@@ -52,7 +52,8 @@
 </template>
 
 <script>
-    import Header_all from '~components/header_all.vue'
+    import {Indicator} from 'mint-ui';
+    import Header_all from '~components/header_all.vue';
     export default {
         data(){
             return {
@@ -65,6 +66,8 @@
                 showCode:false,
                 codeType:'password',
                 confirmbox:false,
+                countDownStr:'发送验证码',
+                addUnable:false,
             }
         },
         components:{
@@ -78,43 +81,44 @@
                     this.$store.dispatch('showToast', {
                         duration : 1000,
                         message : '请输入手机号'
-                    })
+                    });
                     return false;
                 }else if(this.telCode===''){
                     this.$store.dispatch('showToast', {
                         duration : 1000,
                         message : '请输入4位验证码'
-                    })
+                    });
                     return false;
                 }else if(this.userPassWord===''){
                     this.$store.dispatch('showToast', {
                         duration : 1000,
                         message : '请设置6~12位数字、字母组合密码'
-                    })
+                    });
                     return false;
                 }else if(this.userName===''){
                     this.$store.dispatch('showToast', {
                         duration : 1000,
                         message : '请输入姓名'
-                    })
+                    });
                     return false;
                 }else if(this.alipayName===''){
                     this.$store.dispatch('showToast', {
                         duration : 1000,
                         message : '请输入支付宝账号'
-                    })
+                    });
                     return false;
                 }else if(this.qqNumber===''){
                     this.$store.dispatch('showToast', {
                         duration : 1000,
                         message : '请输入qq号'
-                    })
+                    });
                     return false;
                 }
                 /* 提交数据 */
-                sendData =  Object.assign({},{ tel:this.telNumber , code:this.telCode , password:this.userPassWord ,
-                    userName:this.userName , alipayName:this.alipayName, qq:this.qqNumber});
+                sendData =  Object.assign({},{ mobile:this.telNumber , code:this.telCode , passwd:this.userPassWord ,
+                    username:this.userName , alipay:this.alipayName, qq:this.qqNumber});
                 console.log(sendData);
+                this.$store.dispatch('setRegis', sendData);
                 /* function  */
             },
             goPageFn ({ target }) {
@@ -145,8 +149,28 @@
                 if(this.telNumber === ''){ return false; }
                 let tel_reg = /^1[34578]\d{9}$/;
                 if( tel_reg.test( this.telNumber ) ){
-                    /* 请求code */
-                    console.log('手机号输入正确')
+                    let codeTime = 10;
+                    let times = null;
+                    if( this.countDownStr !=='发送验证码' ){
+                        return false;
+                    }
+                    this.countDownStr = '重发（'+ codeTime +'s）';
+                    this.addUnable = true;
+                    /* function   请求code  */
+                    this.$store.dispatch('getTelCode', Object.assign({},{ mobile:this.telNumber ,type:1 }));
+                    times = setInterval(()=>{
+                        codeTime = codeTime -1;
+                        if(codeTime === 0){
+                            this.countDownStr = '发送验证码';
+                            this.addUnable = false;
+                            codeTime = 10;
+                            clearInterval(times);
+                        }else{
+                            this.countDownStr = '重发（'+ codeTime +'s）';
+                            this.addUnable = true;
+                        }
+                    },1000)
+
                 }else{
                     this.$store.dispatch('showToast', {
                         duration : 1000,
@@ -199,9 +223,26 @@
 
         },
         computed: {
-            
         },
         mounted(){
+
+            /* 模拟提交 */
+
+/*            Indicator.open({
+                text: '加载中...',
+                spinnerType: 'fading-circle'
+            });
+            setTimeout(()=>{
+                Indicator.close();
+                this.$store.dispatch('showToast', {
+                    duration : 1000,
+                    message : '提交成功',
+                    cb:()=>{
+                        this.$router.push(`/registerMsg`);
+                    }
+                })
+            },2000);  */
+
             console.log(this.telNumber)
         }
     }

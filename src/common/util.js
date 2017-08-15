@@ -16,14 +16,8 @@ export const getCk = function () {
     return localStorage.getItem('ck') || ''
 }
 
-export const getCpuserid = function () {
-    return localStorage.getItem('cpuserid') || ''
-}
-
-export const src = 'qqsd'
+export const src = ''
 export const cptype = ''
-export const payUrl = 'http://m.500.com/payment/index'
-// let payUrl = 'http://m.500boss.com/payment/index';
 
 export const platform = (function () {
     return ~navigator.userAgent.indexOf('iPhone') ? 'ios' : 'android'
@@ -93,41 +87,6 @@ export function mapActions (acts, ns) {
         actions[aTypes[key]] = acts[key]
     })
     return {actions, aTypes}
-}
-
-export function invokeWxzf (data) {
-    return new Promise((resolve, reject) => {
-        const onBridgeReady = () => {
-            window.WeixinJSBridge && window.WeixinJSBridge.invoke(
-                'getBrandWCPayRequest', {
-                    'appId': data.appId,          // 公众号名称，由商户传入
-                    'timeStamp': data.timeStamp, // 时间戳，自1970年以来的秒数
-                    'nonceStr': data.nonceStr,   // 随机串
-                    'package': data.package,
-                    'signType': 'MD5',                // 微信签名方式：
-                    'paySign': data.paySign // 微信签名
-                },
-                function (res) {
-                    if (res.err_msg === 'get_brand_wcpay_request:ok') {
-                        resolve('ok')
-                    } else {
-                        const error = new Error(res.err_msg)
-                        error.code = '101'
-                        reject(error)
-                    }
-                })
-        }
-        if (typeof WeixinJSBridge === 'undefined') {
-            if (document.addEventListener) {
-                document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false)
-            } else if (document.attachEvent) {
-                document.attachEvent('WeixinJSBridgeReady', onBridgeReady)
-                document.attachEvent('onWeixinJSBridgeReady', onBridgeReady)
-            }
-        } else {
-            onBridgeReady()
-        }
-    })
 }
 
 export function mapMutations (muts, ns) {
