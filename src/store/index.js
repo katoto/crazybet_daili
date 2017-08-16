@@ -26,6 +26,7 @@ const state = {
         regisAjaxData:'',
         loginAjaxData:'',
         checkWdReset:'',
+        isSuccReset:null,
     },
     myHomeObj:{
 
@@ -60,6 +61,10 @@ const mutations = {
     checkWdReset( state, data ){
         state.formObj.checkWdReset = data;
     },
+    /* 重置密码code 数据 */
+    isSuccReset( state, data ){
+        state.formObj.isSuccReset = data;
+    },
 }
 const actions = {
     clearLoginState ({commit, dispatch}, data) {
@@ -90,7 +95,7 @@ const actions = {
             let codeData = await ajax.get(`/agent/verify/get?${data}`);
             console.log(codeData)
         } catch (e) {
-            dispatch('showToast', e.message + '/agent/verify/get')
+            dispatch('showToast', e.message)
         }
     },
     async doLogin ({commit, dispatch}, params) {
@@ -124,7 +129,8 @@ const actions = {
         try {
             let resetData = null;
             params = convertToQueryString(params);
-            resetData = await ajax.get(`passwd/reset?${params}&platform=${platform}`);
+            resetData = await ajax.get(`agent/passwd/reset?${params}&platform=${platform}`);
+            commit('isSuccReset', true);
             console.log(resetData);
         } catch (e) {
             dispatch('showToast', e.message)

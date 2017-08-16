@@ -200,9 +200,14 @@
                 } else{
                     e.target.previousElementSibling.style.display = 'block';
                 }
+                if(e.target.name === 'phone'){
+                    if(e.target.value.length >11){
+                        this.telNumber = e.target.value.slice(0,11)
+                    }
+                }
                 if(e.target.name === 'check'){
                     if(e.target.value.length >4){
-                        e.target.value = e.target.value.slice(0,4)
+                        this.telCode = e.target.value.slice(0,4)
                     }
                 }
                 if(e.target.name === 'name'){
