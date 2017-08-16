@@ -391,7 +391,6 @@
             box-sizing: border-box;
         }
     </style>-->
-
     <style>
         body,
         p,
@@ -518,18 +517,23 @@
         }
         /*澶撮儴寮€濮�*/
         .top{
-            position: relative;
+            position: fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:1rem;
             background: #333;
             line-height:1rem;
         }
         .back{
             position: absolute;
-            left:0.2rem;
-            top:0.25rem;
-            width:0.31rem;
-            height:0.51rem;
+            left:0;
+            top:0;
+            padding:0.25rem 0.2rem;
+            width: 0.31rem;
+            height: 0.51rem;
             background: url("../images/back.png") no-repeat center;
-            background-size: cover;
+            background-size: 0.31rem 0.51rem;
         }
         .login{
             position: absolute;
@@ -1027,15 +1031,6 @@
         }
         .payList{
             position: absolute;
-<<<<<<< HEAD
-            left:0;
-            top:0;
-            padding-left:20px;
-            padding-top:25px;
-            width:31px;
-            height:51px;
-            background: url("/images/back.png") no-repeat center;
-=======
             right: 0.42rem;
             top: 0.31rem;
             width: 0.42rem;
@@ -1043,7 +1038,6 @@
             overflow: hidden;
             font-size: 0;
             background: url("../images/calendar.png") no-repeat center;
->>>>>>> b18488f4fb5c04e0d2361a18f605a5794e654a41
             background-size: cover;
         }
         .main-payApply{
@@ -1203,6 +1197,9 @@
 
         }
         /*aa*/
+        .l-full .rebate-msg{
+            margin:1rem 0 0.2rem;
+        }
         .col{
             display: inline-block;
         }
@@ -1220,7 +1217,7 @@
         .mytable_fixedHeaderColumn{
             float:left;
             overflow: hidden;
-            width:1.19rem;
+            width:1.2rem;
             height:100%;
             border-right:1px solid #d2d2d2;
         }
@@ -1228,23 +1225,21 @@
             width:100%;
             height:100%;
             text-align: center;
-            line-height:;
         }
         .mytable_header_left{
-            display: flex;
-            display: -webkit-flex;
             float:left;
             overflow: hidden;
-            width:6.3rem;
             height:100%;
+            flex: 1;
+            -webkit-box-flex: 1;
         }
-        .mytable_header_left>div{
-            width:7rem;
-            overflow: auto;
+        .mytable_header_left>div,.mytable_conentent>div{
+            width:8rem;
+            overflow-x: hidden;
         }
         .mytable_header_left .headercol{
             float: left;
-            width:1.39rem;
+            width: 1.5rem;
             border-right:1px solid #d2d2d2;
         }
         .mytable_fixedColumn{
@@ -1253,6 +1248,8 @@
             width:1.2rem;
             height:100%;
             background: #f2f2f2;
+            border-right: 1px solid #d2d2d2;
+            -webkit-overflow-scrolling: touch; */
         }
         .myfixedrow{
             width:1.19rem;
@@ -1268,16 +1265,16 @@
         .mytable_conentent{
             float:left;
             overflow: auto;
-            width:6.3rem;
             height:100%;
             /*楂樺害闇€瑕佸姩鎬佽绠�*/
             background-color: #fff;
             /*-webkit-overflow-scrolling: touch;*/
-        }
-        .mytable_conentent>div{
-            width:8rem;
+            flex: 1;
+            -webkit-box-flex:1;
         }
         .mytable_header{
+            display: flex;
+            display: -webkit-flex;
             overflow:hidden;
             box-sizing: border-box;
             width:100%;
@@ -1289,10 +1286,11 @@
             color: #020202;
         }
         .myrow{
+            width: 100%;
             overflow: hidden;
         }
         .myrow div{
-            width: 1.39rem;
+            width: 1.5rem;
             height: 0.69rem;
             overflow: hidden;
             border: 1px solid #d2d2d2;
@@ -1361,9 +1359,9 @@
         }
 
         .l-flex-column {
-            display: -webkit-box;
             -webkit-box-orient: vertical;
             display: flex;
+            display: -webkit-box;
             flex-flow: column;
             height: 100%
         }
@@ -1404,7 +1402,7 @@
             height: 0.38rem;
             overflow: hidden;
             font-size: 0;
-            background: url("/images/calendar.png") no-repeat right center;
+            background: url("../images/calendar.png") no-repeat right center;
             background-size: cover;
         }
         .rebate-msg{
@@ -1444,9 +1442,14 @@
             color: #020202;
         }
         .mytable_container{
-            width:7.5rem;
-            height:4rem;
-            box-sizing: border-box;
+            display: flex;
+            display: -webkit-flex;
+            width:100%;
+            /* flex:1;
+             -webkit-box-flex:1;*/
+            -webkit-box-orient: horizontal;
+            /*楂樺害鍔ㄦ€佽幏鍙�*/
+            height: 3rem;
         }
     </style>
 </head>
@@ -1471,6 +1474,7 @@
                 <span>总返佣</span>
                 <div>65.3万</div>
             </li>
+
         </ul>
     </div>
     <div class="l-flex-1 l-relative">
@@ -1490,7 +1494,7 @@
                 </div>
             </div>
             <div class="mytable_container l-flex-1">
-                <div class="mytable_fixedColumn" >
+                <div class="mytable_fixedColumn">
                     <!--固定2列的行展示-->
                     <div class="myfixedrow">
                         <div class="col fixedcol" style="">1</div>
@@ -1525,86 +1529,216 @@
                     <div class="myfixedrow">
                         <div class="col fixedcol" style="">11</div>
                     </div>
+                    <div class="myfixedrow">
+                        <div class="col fixedcol" style="">12</div>
+                    </div>
+                    <div class="myfixedrow">
+                        <div class="col fixedcol" style="">1</div>
+                    </div>
+                    <div class="myfixedrow">
+                        <div class="col fixedcol" style="">2</div>
+                    </div>
+                    <div class="myfixedrow">
+                        <div class="col fixedcol" style="">3</div>
+                    </div>
+                    <div class="myfixedrow">
+                        <div class="col fixedcol" style="">4</div>
+                    </div>
+                    <div class="myfixedrow">
+                        <div class="col fixedcol" style="">5</div>
+                    </div>
+                    <div class="myfixedrow">
+                        <div class="col fixedcol" style="">6</div>
+                    </div>
+                    <div class="myfixedrow">
+                        <div class="col fixedcol" style="">7</div>
+                    </div>
+                    <div class="myfixedrow">
+                        <div class="col fixedcol" style="">8</div>
+                    </div>
+                    <div class="myfixedrow">
+                        <div class="col fixedcol" style="">9</div>
+                    </div>
+                    <div class="myfixedrow">
+                        <div class="col fixedcol" style="">10</div>
+                    </div>
+                    <div class="myfixedrow">
+                        <div class="col fixedcol" style="">11</div>
+                    </div>
+                    <div class="myfixedrow">
+                        <div class="col fixedcol" style="">12</div>
+                    </div>
                 </div>
                 <div class="mytable_conentent">
                     <!--非固定列数据-->
-                    <div data-scrollable="true">
+                    <div data-scrollable="true"  >
                         <div class="myrow" >
-                            <div class="col" style="">row1*col1</div>
-                            <div class="col" style="">row1*col2</div>
-                            <div class="col" style="">row1*col3</div>
-                            <div class="col" style="">row1*col4</div>
-                            <div class="col" style="">row1*col5</div>
+                            <div class="col">1</div>
+                            <div class="col">2</div>
+                            <div class="col">3</div>
+                            <div class="col">4</div>
+                            <div class="col">5</div>
                         </div>
                         <div class="myrow" >
-                            <div class="col" style="">row1*col1</div>
-                            <div class="col" style="">row1*col2</div>
-                            <div class="col" style="">row1*col3</div>
-                            <div class="col" style="">row1*col4</div>
-                            <div class="col" style="">row1*col5</div>
+                            <div class="col">1</div>
+                            <div class="col">2</div>
+                            <div class="col">3</div>
+                            <div class="col">4</div>
+                            <div class="col">5</div>
                         </div>
                         <div class="myrow" >
-                            <div class="col" style="">row1*col1</div>
-                            <div class="col" style="">row1*col2</div>
-                            <div class="col" style="">row1*col3</div>
-                            <div class="col" style="">row1*col4</div>
-                            <div class="col" style="">row1*col5</div>
+                            <div class="col">1</div>
+                            <div class="col">2</div>
+                            <div class="col">3</div>
+                            <div class="col">4</div>
+                            <div class="col">5</div>
                         </div>
                         <div class="myrow" >
-                            <div class="col" style="">row1*col1</div>
-                            <div class="col" style="">row1*col2</div>
-                            <div class="col" style="">row1*col3</div>
-                            <div class="col" style="">row1*col4</div>
-                            <div class="col" style="">row1*col5</div>
+                            <div class="col">1</div>
+                            <div class="col">2</div>
+                            <div class="col">3</div>
+                            <div class="col">4</div>
+                            <div class="col">5</div>
                         </div>
                         <div class="myrow" >
-                            <div class="col" style="">row1*col1</div>
-                            <div class="col" style="">row1*col2</div>
-                            <div class="col" style="">row1*col3</div>
-                            <div class="col" style="">row1*col4</div>
-                            <div class="col" style="">row1*col5</div>
+                            <div class="col">1</div>
+                            <div class="col">2</div>
+                            <div class="col">3</div>
+                            <div class="col">4</div>
+                            <div class="col">5</div>
                         </div>
                         <div class="myrow" >
-                            <div class="col" style="">row1*col1</div>
-                            <div class="col" style="">row1*col2</div>
-                            <div class="col" style="">row1*col3</div>
-                            <div class="col" style="">row1*col4</div>
-                            <div class="col" style="">row1*col5</div>
+                            <div class="col">1</div>
+                            <div class="col">2</div>
+                            <div class="col">3</div>
+                            <div class="col">4</div>
+                            <div class="col">5</div>
                         </div>
                         <div class="myrow" >
-                            <div class="col" style="">row1*col1</div>
-                            <div class="col" style="">row1*col2</div>
-                            <div class="col" style="">row1*col3</div>
-                            <div class="col" style="">row1*col4</div>
-                            <div class="col" style="">row1*col5</div>
+                            <div class="col">1</div>
+                            <div class="col">2</div>
+                            <div class="col">3</div>
+                            <div class="col">4</div>
+                            <div class="col">5</div>
                         </div>
                         <div class="myrow" >
-                            <div class="col" style="">row1*col1</div>
-                            <div class="col" style="">row1*col2</div>
-                            <div class="col" style="">row1*col3</div>
-                            <div class="col" style="">row1*col4</div>
-                            <div class="col" style="">row1*col5</div>
+                            <div class="col">1</div>
+                            <div class="col">2</div>
+                            <div class="col">3</div>
+                            <div class="col">4</div>
+                            <div class="col">5</div>
                         </div>
                         <div class="myrow" >
-                            <div class="col" style="">row1*col1</div>
-                            <div class="col" style="">row1*col2</div>
-                            <div class="col" style="">row1*col3</div>
-                            <div class="col" style="">row1*col4</div>
-                            <div class="col" style="">row1*col5</div>
+                            <div class="col">1</div>
+                            <div class="col">2</div>
+                            <div class="col">3</div>
+                            <div class="col">4</div>
+                            <div class="col">5</div>
                         </div>
                         <div class="myrow" >
-                            <div class="col" style="">row1*col1</div>
-                            <div class="col" style="">row1*col2</div>
-                            <div class="col" style="">row1*col3</div>
-                            <div class="col" style="">row1*col4</div>
-                            <div class="col" style="">row1*col5</div>
+                            <div class="col">1</div>
+                            <div class="col">2</div>
+                            <div class="col">3</div>
+                            <div class="col">4</div>
+                            <div class="col">5</div>
                         </div>
                         <div class="myrow" >
-                            <div class="col" style="">row1*col1</div>
-                            <div class="col" style="">row1*col2</div>
-                            <div class="col" style="">row1*col3</div>
-                            <div class="col" style="">row1*col4</div>
-                            <div class="col" style="">row1*col5</div>
+                            <div class="col">1</div>
+                            <div class="col">2</div>
+                            <div class="col">3</div>
+                            <div class="col">4</div>
+                            <div class="col">5</div>
+                        </div>
+                        <div class="myrow" >
+                            <div class="col">1</div>
+                            <div class="col">2</div>
+                            <div class="col">3</div>
+                            <div class="col">4</div>
+                            <div class="col">5</div>
+                        </div>
+                        <div class="myrow" >
+                            <div class="col">1</div>
+                            <div class="col">2</div>
+                            <div class="col">3</div>
+                            <div class="col">4</div>
+                            <div class="col">5</div>
+                        </div>
+                        <div class="myrow" >
+                            <div class="col">1</div>
+                            <div class="col">2</div>
+                            <div class="col">3</div>
+                            <div class="col">4</div>
+                            <div class="col">5</div>
+                        </div>
+                        <div class="myrow" >
+                            <div class="col">1</div>
+                            <div class="col">2</div>
+                            <div class="col">3</div>
+                            <div class="col">4</div>
+                            <div class="col">5</div>
+                        </div>
+                        <div class="myrow" >
+                            <div class="col">1</div>
+                            <div class="col">2</div>
+                            <div class="col">3</div>
+                            <div class="col">4</div>
+                            <div class="col">5</div>
+                        </div>
+                        <div class="myrow" >
+                            <div class="col">1</div>
+                            <div class="col">2</div>
+                            <div class="col">3</div>
+                            <div class="col">4</div>
+                            <div class="col">5</div>
+                        </div>
+                        <div class="myrow" >
+                            <div class="col">1</div>
+                            <div class="col">2</div>
+                            <div class="col">3</div>
+                            <div class="col">4</div>
+                            <div class="col">5</div>
+                        </div>
+                        <div class="myrow" >
+                            <div class="col">1</div>
+                            <div class="col">2</div>
+                            <div class="col">3</div>
+                            <div class="col">4</div>
+                            <div class="col">5</div>
+                        </div>
+                        <div class="myrow" >
+                            <div class="col">1</div>
+                            <div class="col">2</div>
+                            <div class="col">3</div>
+                            <div class="col">4</div>
+                            <div class="col">5</div>
+                        </div>
+                        <div class="myrow" >
+                            <div class="col">1</div>
+                            <div class="col">2</div>
+                            <div class="col">3</div>
+                            <div class="col">4</div>
+                            <div class="col">5</div>
+                        </div>
+                        <div class="myrow" >
+                            <div class="col">1</div>
+                            <div class="col">2</div>
+                            <div class="col">3</div>
+                            <div class="col">4</div>
+                            <div class="col">5</div>
+                        </div>
+                        <div class="myrow" >
+                            <div class="col">1</div>
+                            <div class="col">2</div>
+                            <div class="col">3</div>
+                            <div class="col">4</div>
+                            <div class="col">5</div>
+                        </div>
+                        <div class="myrow" >
+                            <div class="col">1</div>
+                            <div class="col">2</div>
+                            <div class="col">3</div>
+                            <div class="col">4</div>
+                            <div class="col">5</div>
                         </div>
                     </div>
                 </div>
