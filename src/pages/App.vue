@@ -97,13 +97,13 @@
     }
     body {
         min-width: 7.5rem;
-        font-size: 0.14rem;
+        font-size: 0.28rem;
         font-family: 'microsoft yahei', Verdana, Arial, Helvetica, sans-serif;
         color: #333;
         -webkit-text-size-adjust: none;
         -webkit-user-select: none;
         -webkit-tap-highlight-color: transparent;
-        height: 100%;
+        -webkit-overflow-scrolling: touch;
     }
     table {
         border-collapse: collapse;
@@ -177,8 +177,7 @@
     .wrapper {
         position: relative;
         width:100%;
-        height:100%;
-        overflow: hidden;
+        min-height:100%;
     }
     /*澶撮儴寮€濮�*/
     .top{
@@ -281,7 +280,7 @@
         position: absolute;
         z-index:2;
         right:0.08rem;
-        top:0.03rem;
+        top:0.04rem;
         width:2.52rem;
         height:0.66rem;
         overflow: hidden;
@@ -294,7 +293,7 @@
         line-height:0.66rem;
     }
     .forget-psw .seng-code{
-        top:0.17rem;
+        top:0.12rem;
     }
     .eye{
         position: absolute;
@@ -377,9 +376,8 @@
         margin-top:0.8rem;
     }
     .contact-us{
-        position: absolute;
-        left:0;
-        bottom:0.5rem;
+        margin-top:0.88rem;
+        line-height:1.16rem;
         width:100%;
         text-align: center;
         font-size:0.24rem;
@@ -488,24 +486,26 @@
         display: block;
         float: left;
         overflow: hidden;
-        background-size: cover;
         margin:0.275rem 0.23rem 0 0;
     }
     .forget-phone .forget-tips{
         width:0.28rem;
         height:0.39rem;
         background: url("../images/phone.png") no-repeat center;
+        background-size: 0.28rem 0.39rem;
     }
     .forger-code .forget-tips{
         width:0.3rem;
         height:0.45rem;
         background: url("../images/lock.png") no-repeat center;
+        background-size: 0.3rem 0.45rem;
     }
     .forget-password .forget-tips{
         margin:0.275rem 0.23rem 0 0;
         width:0.3rem;
         height:0.47rem;
         background: url("../images/unlock.png") no-repeat center;
+        background-size: 0.3rem 0.47rem;
     }
     .forget-placehold{
         font-size:0.28rem;
@@ -531,10 +531,7 @@
         background: #f2f2f2;
     }
     .bottom-home{
-        position: absolute;
-        left:0;
-        bottom:0;
-        padding:0 0.75rem;
+        padding:2.04rem 0.75rem 0;
     }
     .bottom-home p,.bottom-home span{
         font-size:0.24rem;
@@ -622,8 +619,10 @@
         width:2.06rem;
         height:0.34rem;
         overflow: hidden;
+        padding-left:0.1rem;
+        /*兼容安卓图片显示不全*/
         background: url("../images/include-t.png") no-repeat center;
-        background-size:cover;
+        background-size:2.06rem 0.34rem;
         font-size:0;
         margin:0.15rem auto;
     }
@@ -633,7 +632,7 @@
     }
     .include-c{
         text-align: left;
-        text-indent:1.85rem;
+        text-indent:1.25rem;
     }
     .income{
         margin-top:0.23rem;
@@ -646,7 +645,9 @@
         height:0.34rem;
         overflow: hidden;
         background: url("../images/income-t.png") no-repeat center;
-        background-size:cover;
+        background-size:1.81rem 0.34rem;
+        padding-left:0.1rem;
+        /*兼容安卓图片显示不全*/
         font-size:0;
         margin:0 auto 0.32rem;
     }
@@ -674,12 +675,13 @@
         margin-bottom:0.38rem;
     }
     .inquire .protocol2{
-        position: absolute;
-        left:0;
-        bottom:0.98rem;
         width:100%;
         line-height:0.47rem;
-        margin:0;
+        margin:3.12rem 0 0 0;
+    }
+    .inquire .contact-us{
+        margin:0 0 0.54rem 0;
+        line-height:0.5rem;
     }
     /*鎻愮幇鐢宠*/
     .payApply{
@@ -786,11 +788,7 @@
         background: #6569c6;
     }
     .bottom-payApply{
-        position: absolute;
-        left:0;
-        bottom:0.42rem;
-        width:100%;
-        padding:0 0.4rem;
+        padding:2.17rem 0.4rem 0.44rem;
         line-height:0.3rem;
         font-size:0.24rem;
         color: #808080;
