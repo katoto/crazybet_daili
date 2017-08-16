@@ -1263,7 +1263,7 @@
             /*-webkit-overflow-scrolling: touch;*/
         }
         .mytable_conentent>div{
-            width:7rem;
+            width:8rem;
         }
         .mytable_header{
             overflow:hidden;
@@ -1478,7 +1478,7 @@
                 </div>
             </div>
             <div class="mytable_container l-flex-1">
-                <div class="mytable_fixedColumn">
+                <div class="mytable_fixedColumn" >
                     <!--固定2列的行展示-->
                     <div class="myfixedrow">
                         <div class="col fixedcol" style="">1</div>
@@ -1646,6 +1646,8 @@
 
       if (helperElem.style[perspectiveProperty] !== undef) {
         return function(left, top, zoom) {
+//            mytable_fixedColumn_Dom.style.marginTop= -(top) +'px';
+//            mytable_header_left_Dom.style.marginLeft= -(left)+ 'px';
           this.content.style[transformProperty] = 'translate3d(' + (-left) + 'px,' + (-top) + 'px,0) scale(' + zoom + ')';
         };
       } else if (helperElem.style[transformProperty] !== undef) {
@@ -1692,8 +1694,8 @@
           e.preventDefault();
           that.scroller.doTouchMove(e.touches, e.timeStamp, e.scale);
           //  在这里取到 offset 的值
-          mytable_fixedColumn_Dom.scrollTop=that.scroller.getValues().top;
-          mytable_header_left_Dom.scrollLeft=that.scroller.getValues().left;
+//          mytable_fixedColumn_Dom.scrollTop=that.scroller.getValues().top;
+//          mytable_header_left_Dom.scrollLeft=that.scroller.getValues().left;
 
         }, false);
         this.container.addEventListener("touchend", function(e) {
