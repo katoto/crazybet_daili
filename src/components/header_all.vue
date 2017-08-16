@@ -1,7 +1,7 @@
 <template>
     <div class="top">
         <a href="javascript:;" class="btn font0 back"  v-tap="{ methods:goBackFn, params : 'back' }">返回</a>
-        <a href="#" class="btn login" :class="{'user':showUserIcon ,'home':showHomeIcon}" v-tap="{ methods:jumpToPage }">{{ rightTitle }}</a>
+        <a href="#" class="btn login" :class="{'user':showUserIcon ,'home':showHomeIcon ,'payList':showPayListIcon}" v-tap="{ methods:jumpToPage }">{{ rightTitle }}</a>
         <h1>{{ personTitle }}</h1>
     </div>
 </template>
@@ -13,7 +13,7 @@
                 rightTitle:'',
                 showUserIcon:false,
                 showHomeIcon:false,
-
+                showPayListIcon:false,
             }
         },
         methods: {
@@ -48,6 +48,9 @@
                     case 'myhome':
                         this.$router.push(`/myhome`);
                         break;
+                    case 'myHomeApplyList':
+                        this.$router.push(`/myHomeApplyList`);
+                        break;
                     default:window.history.back() ;
                 }
             },
@@ -68,6 +71,8 @@
                 this.showUserIcon = true;
             }else if( this.iconStyle === 'myhome' ){
                 this.showHomeIcon = true;
+            }else if( this.iconStyle === 'myHomeApplyList' ){
+                this.showPayListIcon = true;
             }
         },
         filters: {
