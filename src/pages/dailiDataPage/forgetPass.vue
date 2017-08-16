@@ -18,9 +18,9 @@
             <div class="forget-two" v-else>
                 <div class="forget-input forget-password">
                     <span class="forget-tips"></span>
-                    <span class="forget-placehold">设置登录密码，6～12位</span>
+                    <span class="forget-placehold" id="showPlaceHold">设置登录密码，6～12位</span>
                     <input type="text" id="againSetPassDom" v-model="againPassWord" @input="inpEvent" name="my-psw" @blur="checkPassWord">
-                    <a href="javascript:;" v-tap="{ methods:showCodeFn}" class="btn eye" :class="{ 'eye-on':showCode ,'eye-off':!showCode }"></a>
+                    <a href="javascript:;" v-tap="{ methods:showCodeFn }" class="btn eye" :class="{ 'eye-on':showCode ,'eye-off':!showCode }"></a>
                 </div>
             </div>
             <a href="javascript:;" class="btn forget-next" v-tap="{ methods:forgetNext}"  v-if="!setPassWord">下一步</a>
@@ -33,7 +33,6 @@
     /* 切看返回是否合适 */
     import {Indicator} from 'mint-ui'
     import Header_all from '~components/header_all.vue'
-
     export default {
         data() {
             return {
@@ -66,15 +65,27 @@
                 }
                 /* 提交数据 */
                 forgetData =  Object.assign({},{ mobile:this.telNumber , code:this.forgetCode });
-                console.log(forgetData);
-                this.$store.dispatch('checkWdReset',)
-
+                this.$store.dispatch('checkWdReset',forgetData )
             },
             againConfirm(){
                 /* 确认  function */
-                console.log('可点');
                 if(this.againPassWord ===''){
-
+                    this.$store.dispatch('showToast', {
+                        duration : 1000,
+                        message : '请输入重置密码'
+                    });
+                    return false;
+                }else{
+                    let pass_reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$/;
+                    if(! ( pass_reg.test( this.againPassWord)) ){
+                        this.$store.dispatch('showToast', {
+                            duration : 1000,
+                            message : '请设置6~12位数字、字母组合密码'
+                        });
+                        return false;
+                    }
+                    /* 重置密码 */
+                    this.$store.dispatch('passWdReset', Object.assign({},{ passwd:this.againPassWord},this.checkWdReset ));
                 }
             },
             showCodeFn(){
@@ -126,14 +137,18 @@
                 }
                 if(e.target.name === 'check'){
                     if(e.target.value.length >4){
-                        e.target.value = e.target.value.slice(0,4)
+                        this.forgetCode = e.target.value.slice(0,4)
+                    }
+                }
+                if(e.target.name === 'phone'){
+                    if(e.target.value.length >11){
+                        this.telNumber = e.target.value.slice(0,11)
                     }
                 }
             },
             checkPassWord(e){
                 let pass_reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$/;
                 if(e.target.value !=''){
-                    e.target.previousElementSibling.style.display = 'none';
                     if(! ( pass_reg.test( e.target.value)) ){
                         this.$store.dispatch('showToast', {
                             duration : 1000,
@@ -147,7 +162,6 @@
             checkTel(e){
                 let tel_reg = /^1[34578]\d{9}$/;
                 if(e.target.value !=''){
-                    e.target.previousElementSibling.style.display = 'none';
                     if( tel_reg.test( e.target.value) ){
                         console.log('手机号输入正确')
                     }else{
@@ -176,10 +190,36 @@
                 }else{
                     return '找回密码';
                 }
-            }
+            },
+            checkWdReset(){
+                return this.$store.state.formObj.checkWdReset;
+            },
+            isSuccReset(){
+                return this.$store.state.formObj.isSuccReset;
+            },
+
         },
         components:{
             Header_all
+        },
+        watch:{
+            isSuccReset( isSuccReset ){
+                if(isSuccReset){
+                    this.$store.dispatch('showToast', {
+                        duration : 800,
+                        message : '修改成功',
+                        cb:()=>{
+                            this.$router.push(`/login`);
+                        }
+                    });
+                }
+            },
+            checkWdReset( checkWdReset ){
+                this.setPassWord = true;
+                setTimeout(()=>{
+                    document.getElementById('showPlaceHold').style.display = 'block';
+                },10)
+            }
         },
         mounted(){
             this.setPassWord = false;
