@@ -6,40 +6,40 @@
                 <h2 class="use-msg">账号信息</h2>
                 <div class="reg-input reg-phone">
                     <span class="prompt">*</span>
-                    <span class="tips">11位手机号码，限中国大陆</span>
+                    <span class="reg-tips">11位手机号码，限中国大陆</span>
                     <input type="tel" v-model="telNumber" @input="inpEvent" @blur="checkTel" name="phone" required>
                 </div>
                 <div class="reg-input reg-check">
                     <span class="prompt">*</span>
-                    <span class="tips">4位验证码</span>
+                    <span class="reg-tips">4位验证码</span>
                     <input type="text" @input="inpEvent" v-model="telCode" name="check" required>
                     <a href="javascript:;"  v-tap="{ methods:sendCodeFn }" class="btn seng-code" :class="{'unable':telNumber ==='' || addUnable}">{{ countDownStr }}</a>
                 </div>
                 <div class="reg-input reg-pasw">
                     <span class="prompt">*</span>
-                    <span class="tips">设置登录密码</span>
+                    <span class="reg-tips">设置登录密码</span>
                     <input type="password" v-model="userPassWord" id="passDom" @blur="checkPassWord" @input="inpEvent" name="password" required>
                     <a href="javascript:;" v-tap="{ methods:showCodeFn}" class="btn eye" :class="{ 'eye-on':showCode ,'eye-off':!showCode }"></a>
                 </div>
                 <h2 class="rebate-msg">返佣信息</h2>
                 <div class="reg-input reg-name">
                     <span class="prompt">*</span>
-                    <span class="tips">真实姓名</span>
+                    <span class="reg-tips">真实姓名</span>
                     <input type="text" @input="inpEvent" v-model="userName" name="name" required>
                 </div>
                 <div class="reg-input reg-id">
                     <span class="prompt">*</span>
-                    <span class="tips">身份证号码</span>
+                    <span class="reg-tips">身份证号码</span>
                     <input type="text" @input="inpEvent" v-model="idCart" name="id" required>
                 </div>
                 <div class="reg-input reg-alipay">
                     <span class="prompt">*</span>
-                    <span class="tips">支付宝账号，不可修改</span>
+                    <span class="reg-tips">支付宝账号，不可修改</span>
                     <input type="text" @input="inpEvent" v-model="alipayName" name="alipay" required>
                 </div>
                 <div class="reg-input reg-qq">
                     <span class="prompt">*</span>
-                    <span class="tips">QQ</span>
+                    <span class="reg-tips">QQ</span>
                     <input type="text" @input="inpEvent"  v-model="qqNumber" name="qq" required>
                 </div>
                 <div class="protocol">

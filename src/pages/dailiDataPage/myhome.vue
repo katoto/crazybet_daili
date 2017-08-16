@@ -87,7 +87,7 @@
                 <div>
                     <div class="include">
                         <div class="include-t">
-                            <span>疯狂猜球盈利</span>
+                            疯狂猜球盈利
                         </div>
                         <div class="include-c">
                             500.3万
@@ -106,7 +106,7 @@
             </div>
         </div>
         <div class="income">
-            <div class="income-t"><span>可提现佣金</span></div>
+            <div class="income-t">可提现佣金</div>
             <div class="income-c">7500</div>
             <a href="javascript:;" class="btn income-m unable">可提现</a>
         </div>

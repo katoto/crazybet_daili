@@ -39,6 +39,7 @@
             计算方式等；代理有义务在本协议终止后仍执行机密文件及数据的保密。 合约终止之后，代理及疯狂猜球将不再履行双方的权利及义务。
             终止合约并不会解除代理于终止合约前所应履行的义务。
         </p>
+        <p></p>
     </div>
 </template>
 
@@ -62,8 +63,11 @@
         padding-bottom: 0.08rem;
     }
     .protocol{
+        height:100%;
+        overflow-y: scroll;
         font-size: 0.36rem;
         padding: 0.06rem 0.16rem 0.5rem;
+        -webkit-overflow-scrolling: touch;
     }
     .protocol .headStyle p{
         font-size: 0.38rem;
