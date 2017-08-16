@@ -24,6 +24,8 @@ const state = {
     isLowAndroidVersion: false,
     formObj:{
         regisAjaxData:'',
+        loginAjaxData:'',
+        checkWdReset:'',
     },
     myHomeObj:{
 
@@ -50,7 +52,14 @@ const mutations = {
     regisAjaxData( state, data ){
         state.formObj.regisAjaxData = data;
     },
-
+    /* 登陆 */
+    loginAjaxData( state, data ){
+        state.formObj.loginAjaxData = data;
+    },
+    /* 重置密码code 数据 */
+    checkWdReset( state, data ){
+        state.formObj.checkWdReset = data;
+    },
 }
 const actions = {
     clearLoginState ({commit, dispatch}, data) {
@@ -90,17 +99,28 @@ const actions = {
             let doLoginData = null;
             params = convertToQueryString(params);
             doLoginData = await ajax.get(`agent/login?${params}&platform=${platform}`);
-            console.log(doLoginData);
-            localStorage.setItem('ck', doLoginData.token);
-            commit('ck', doLoginData.token);
-            // dispatch('getUserInfo')
-            return doLoginData.token
+            if(doLoginData){
+                commit('loginAjaxData', doLoginData)
+            }
+
+        } catch (e) {
+            dispatch('showToast', e.message)
+        }
+    },
+    async checkWdReset ({commit, dispatch}, params) {
+        /*  重置密码验证手机code  */
+        try {
+            let checkData = null;
+            params = convertToQueryString(params);
+            checkData = await ajax.get(`agent/passwd/reset/check?${params}&platform=${platform}`);
+            commit('checkWdReset', checkData);
+            console.log(checkData);
         } catch (e) {
             dispatch('showToast', e.message)
         }
     },
     async passWdReset ({commit, dispatch}, params) {
-        /* 充值密码 */
+        /* 重置密码 */
         try {
             let resetData = null;
             params = convertToQueryString(params);

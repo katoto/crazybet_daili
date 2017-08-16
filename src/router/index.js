@@ -58,7 +58,7 @@ const router = new VueRouter({
             component: Login
         },
         {
-            path: '/myhome/:userCk',
+            path: '/myhome',
             component: MyHome,
             meta:{ requiresAuth:true },
         },
