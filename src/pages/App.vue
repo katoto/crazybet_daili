@@ -90,17 +90,14 @@
     select,
     button,
     table {
-        font-size: 14px;
-        line-height: 1.25em;
+        font-size: 0.14rem;
     }
-
     html {
         height: 100%;
     }
-
     body {
-        min-width: 750px;
-        font-size: 14px;
+        min-width: 7.5rem;
+        font-size: 0.14rem;
         font-family: 'microsoft yahei', Verdana, Arial, Helvetica, sans-serif;
         color: #333;
         -webkit-text-size-adjust: none;
@@ -108,32 +105,26 @@
         -webkit-tap-highlight-color: transparent;
         height: 100%;
     }
-
     table {
         border-collapse: collapse;
         border-spacing: 0
     }
-
     fieldset,
     img,
     button {
         border: 0;
     }
-
     li {
         list-style: none
     }
-
     a {
         text-decoration: none;
         color: #333;
         outline: none
     }
-
     img {
         vertical-align: middle
     }
-
     h1,
     h2,
     h3,
@@ -146,16 +137,13 @@
     button {
         font-size: 100%
     }
-
     ::-webkit-input-placeholder {
         color: #bbb;
     }
-
-    input[type="text"], input[type="number"], input[type="password"] {
+    input[type="text"], input[type="number"], input[type="password"],.input[type="button"], input[type="submit"], input[type="reset"]{
         -webkit-appearance: none;
         border-radius: 0;
     }
-
     em,
     i {
         font-style: normal
@@ -166,19 +154,19 @@
     }
     .font0{
         font-size:0;
-        text-indent:-99999px;
+        text-indent:-999.99rem;
     }
     .hide {
         display: none
     }
     .toast {
-        line-height: 44px;
-        width: 580px;
-        padding: 30px 40px;
+        line-height: 0.44rem;
+        width: 5.8rem;
+        padding: 0.3rem 0.4rem;
         background: rgba(0, 0, 0, .9);
         color: #fff;
-        font-size: 32px;
-        border-radius: 8px;
+        font-size: 0.32rem;
+        border-radius: 0.08rem;
         position: fixed;
         left: 50%;
         top: 40%;
@@ -192,34 +180,34 @@
         height:100%;
         overflow: hidden;
     }
-    /*头部开始*/
+    /*澶撮儴寮€濮�*/
     .top{
         position: relative;
         background: #333;
-        line-height:100px;
+        line-height:1rem;
     }
     .back{
         position: absolute;
-        left:20px;
-        top:25px;
-        width:31px;
-        height:51px;
+        left:0.2rem;
+        top:0.25rem;
+        width:0.31rem;
+        height:0.51rem;
         background: url("../images/back.png") no-repeat center;
         background-size: cover;
     }
     .login{
         position: absolute;
-        right:35px;
+        right:0.35rem;
         top:0;
-        font-size:30px;
+        font-size:0.3rem;
         color: #fff;
     }
     .user{
         position: absolute;
-        right:35px;
-        top:28.5px;
-        width:44px;
-        height:43px;
+        right:0.35rem;
+        top:0.285rem;
+        width:0.44rem;
+        height:0.43rem;
         overflow: hidden;
         font-size:0;
         background: url("../images/user.png") no-repeat center;
@@ -227,51 +215,51 @@
     }
     .top h1{
         text-align: center;
-        font-size:36px;
+        font-size:0.36rem;
         color: #fff;
         font-weight:normal;
     }
-    /*头部结束*/
+    /*澶撮儴缁撴潫*/
     .form{
-        padding:0 40px;
+        padding:0 0.4rem;
     }
     .form .prompt{
 
     }
     .form h2{
-        font-size:36px;
+        font-size:0.36rem;
         color: #020202;
         font-weight:normal;
-        line-height:48px;
+        line-height:0.48rem;
     }
     .unable{
         color: #c0bfc4 !important;
         border-color: #c0bfc4 !important;
     }
     .use-msg{
-        margin-top:30px;
+        margin-top:0.3rem;
     }
     .rebate-msg{
-        margin-top:54px;
+        margin-top:0.54rem;
     }
     .reg-input,.login-input{
         position: relative;
         width:100%;
-        height:78px;
+        height:0.78rem;
         overflow: hidden;
-        line-height:78px;
+        line-height:0.78rem;
         border-bottom:1px solid #ededed;
     }
     .prompt{
         float: left;
         color: #f64176;
-        font-size:28px;
+        font-size:0.28rem;
     }
     .reg-tips{
         float: left;
-        margin-left:15px;
-        line-height:78px;
-        font-size:28px;
+        margin-left:0.15rem;
+        line-height:0.78rem;
+        font-size:0.28rem;
         color: #c0bfc4;
     }
     .reg-input input{
@@ -279,42 +267,42 @@
         z-index:1;
         left:0;
         top:0;
-        width:100%;
+        width:50%;
         height:100%;
-        line-height:78px;
-        font-size:28px;
+        line-height:0.78rem;
+        font-size:0.28rem;
         color: #000;
         outline:none;
         border:none;
         background: transparent;
-        text-indent:30px;
+        text-indent:0.3rem;
     }
     .seng-code{
         position: absolute;
         z-index:2;
-        right:8px;
-        top:6px;
-        width:252px;
-        height:66px;
+        right:0.08rem;
+        top:0.03rem;
+        width:2.52rem;
+        height:0.66rem;
         overflow: hidden;
         border:1px solid #6569c6;
-        -webkit-border-radius: 6px;
-        -moz-border-radius: 6px;
-        border-radius: 6px;
-        font-size:28px;
+        -webkit-border-radius: 0.06rem;
+        -moz-border-radius: 0.06rem;
+        border-radius: 0.06rem;
+        font-size:0.28rem;
         color: #6569c6;
-        line-height:66px;
+        line-height:0.66rem;
     }
     .forget-psw .seng-code{
-        top:17px;
+        top:0.17rem;
     }
     .eye{
         position: absolute;
         z-index:2;
-        top:22px;
-        right:30px;
-        width:61px;
-        height:35px;
+        top:0.22rem;
+        right:0.3rem;
+        width:0.61rem;
+        height:0.35rem;
         overflow: hidden;
     }
     .eye-on{
@@ -322,30 +310,30 @@
         background-size: cover;
     }
     .eye-off{
-    background: url("../images/eye-off.png") no-repeat center;
+        background: url("../images/eye-off.png") no-repeat center;
         background-size: cover;
     }
     .forget-psw .eye{
-        top:32.5px;
+        top:0.325rem;
     }
-    .protocol{
-        margin: 24px 0 66px 0;
-        line-height:24px;
-        font-size:24px;
+    .reg-form .protocol{
+        margin: 0.24rem 0 0.66rem 0;
+        line-height:0.46rem;
+        font-size:0.24rem;
         color: #808080;
     }
     .protocol2{
-        font-size:24px;
+        font-size:0.24rem;
         color: #6569c6;
         text-align: center;
-        line-height:77px;
-        margin-top:316px;
+        line-height:0.77rem;
+        margin-top:3.16rem;
     }
     .protocol input[type="checkbox"]{
         display: block;
         float: left;
-        width:23px;
-        height:23px;
+        width:0.44rem;
+        height:0.44rem;
         overflow: hidden;
         background: #f0f0f0;
         border:1px solid #ddd;
@@ -356,12 +344,12 @@
     .reg-form>input,.check-refuse,.check-ing,.check-agree,.loginon>input,.forget-next,.forget-sure{
         display: block;
         width:100%;
-        line-height:78px;
+        line-height:0.78rem;
         text-align: center;
-        -webkit-border-radius: 6px;
-        -moz-border-radius: 6px;
-        border-radius: 6px;
-        font-size:36px;
+        -webkit-border-radius: 0.06rem;
+        -moz-border-radius: 0.06rem;
+        border-radius: 0.06rem;
+        font-size:0.36rem;
         color: #fff;
         border:none;
         outline:none;
@@ -370,8 +358,8 @@
         background: #6569c6;
     }
     .forget-next,.forget-sure{
-        width:670px;
-        margin:70px auto 0;
+        width:6.7rem;
+        margin:0.7rem auto 0;
     }
     .check-refuse{
         background: #c0bfc4;
@@ -381,38 +369,39 @@
     }
     .check-time{
         text-align: center;
-        font-size:28px;
+        font-size:0.28rem;
         color: #808080;
-        line-height:60px;
+        line-height:0.6rem;
     }
     .loginon>input{
-         margin-top:80px;
-     }
+        margin-top:0.8rem;
+    }
     .contact-us{
         position: absolute;
         left:0;
-        bottom:50px;
+        bottom:0.5rem;
         width:100%;
         text-align: center;
-        font-size:24px;
+        font-size:0.24rem;
         color: #808080;
     }
     .notice{
-        line-height:34px;
-        font-size:28px;
+        height:0.34rem;
+        line-height:0.34rem;
+        font-size:0.28rem;
         color: #808080;
     }
     .check{
-        margin-bottom:33px;
+        margin-bottom:0.33rem;
     }
-    /*注册信息*/
+    /*娉ㄥ唽淇℃伅*/
     .regMsg-form{
         color: #020202;
     }
     .reg-msg{
-        line-height:58px;
+        line-height:0.58rem;
         overflow: hidden;
-        font-size:28px;
+        font-size:0.28rem;
     }
     .reg-msg span{
         display: block;
@@ -428,58 +417,58 @@
         text-overflow: ellipsis;
     }
     .user-phone{
-        margin:40px 0 38px 0;
+        margin:0.4rem 0 0.38rem 0;
     }
     .com-msg{
-        line-height:64px;
-        font-size:36px;
+        line-height:0.64rem;
+        font-size:0.36rem;
     }
     .user-line{
         height:1px;
         background: #ececec;
-        margin: 15px 0 10px 0;
+        margin: 0.15rem 0 0.1rem 0;
     }
-    /*登录*/
+    /*鐧诲綍*/
     .loginon h1{
-        font-size:48px;
+        font-size:0.48rem;
         color: #020202;
         text-align: center;
-        margin: 92px 0 75px 0;
+        margin: 0.92rem 0 0.75rem 0;
     }
     .login-tips{
         display: block;
         float: left;
-        width:146px;
-        font-size:28px;
+        width:1.46rem;
+        font-size:0.28rem;
         color: #020202;
     }
     .plaholder{
-        font-size:28px;
+        font-size:0.28rem;
         color: #c0bfc4;
     }
     .login-input input{
         position: absolute;
-        width:524px;
-        height:78px;
+        width:5.24rem;
+        height:0.78rem;
         overflow: hidden;
         top:0;
-        left:146px;
-        line-height:75px;
+        left:1.46rem;
+        line-height:0.75rem;
         outline:none;
         border:none;
-        font-size:28px;
+        font-size:0.28rem;
         color: #020202;
         background: transparent;
     }
     .loginon a{
-        line-height:100px;
-        font-size:28px;
+        line-height:1rem;
+        font-size:0.28rem;
         color: #808080;
     }
-    /*忘记密码*/
+    /*蹇樿瀵嗙爜*/
     .forget-psw{
         background: #f2f2f2;
-        padding-top:37px;
+        padding-top:0.37rem;
     }
     .forget-one,.forget-two{
         width:100%;
@@ -487,9 +476,9 @@
     }
     .forget-input{
         position: relative;
-        margin:0 63px;
-        height:94px;
-        line-height:94px;
+        margin:0 0.63rem;
+        height:0.94rem;
+        line-height:0.94rem;
         overflow: hidden;
     }
     .forget-input+.forget-input{
@@ -500,42 +489,42 @@
         float: left;
         overflow: hidden;
         background-size: cover;
-        margin:27.5px 23px 0 0;
+        margin:0.275rem 0.23rem 0 0;
     }
     .forget-phone .forget-tips{
-        width:28px;
-        height:39px;
+        width:0.28rem;
+        height:0.39rem;
         background: url("../images/phone.png") no-repeat center;
     }
     .forger-code .forget-tips{
-        width:30px;
-        height:45px;
+        width:0.3rem;
+        height:0.45rem;
         background: url("../images/lock.png") no-repeat center;
     }
     .forget-password .forget-tips{
-        margin:27.5px 23px 0 0;
-        width:30px;
-        height:47px;
+        margin:0.275rem 0.23rem 0 0;
+        width:0.3rem;
+        height:0.47rem;
         background: url("../images/unlock.png") no-repeat center;
     }
     .forget-placehold{
-        font-size:28px;
+        font-size:0.28rem;
         color: #c0bfc4;
     }
     .forget-input input{
         position: absolute;
         top:0;
-        left:51px;
-        width:270px;
-        height:94px;
+        left:0.51rem;
+        width:2.7rem;
+        height:0.94rem;
         overflow: hidden;
         outline:none;
         border:none;
         background: transparent;
-        font-size:28px;
+        font-size:0.28rem;
         color: #020202;
     }
-    /*疯狂猜球代理后台*/
+    /*鐤媯鐚滅悆浠ｇ悊鍚庡彴*/
     .inquire{
         position: relative;
         height:100%;
@@ -545,24 +534,24 @@
         position: absolute;
         left:0;
         bottom:0;
-        padding:0 75px;
+        padding:0 0.75rem;
     }
     .bottom-home p,.bottom-home span{
-        font-size:24px;
+        font-size:0.24rem;
         color: #4c4c4c;
-        line-height:36px;
+        line-height:0.36rem;
     }
     .bottom-home span{
         position: absolute;
-        left:75px;
-        bottom:26px;
-        line-height:123px;
+        left:0.75rem;
+        bottom:0.26rem;
+        line-height:1.23rem;
     }
     .my-code{
         text-align: center;
-        line-height:123px;
-        margin-bottom:26px;
-        font-size:48px;
+        line-height:1.23rem;
+        margin-bottom:0.26rem;
+        font-size:0.48rem;
         color: #020202;
     }
     .main-home{
@@ -572,17 +561,17 @@
     }
     .date{
         width:100%;
-        height:43px;
+        height:0.43rem;
         overflow-x: scroll;
         border-bottom:1px solid #e2e2e2;
-        padding-top:33px;
-        font-size:24px;
+        padding-top:0.33rem;
+        font-size:0.24rem;
         color: #c0c0c4;
     }
     .date ul{
-        width:4000px;
-        /*宽度需要动态获取*/
-        height:43px;
+        width:40rem;
+        /*瀹藉害闇€瑕佸姩鎬佽幏鍙�*/
+        height:0.43rem;
         overflow-x: auto;
         text-align: center;
         display: flex;
@@ -590,24 +579,24 @@
         justify-content: space-around;
     }
     .date li{
-        width:143px;
-        height: 40px;
+        width:1.43rem;
+        height: 0.4rem;
         overflow: hidden;
-        line-height:40px;
+        line-height:0.4rem;
         display: inline-block;
-        border-bottom:3px solid #fff;
+        border-bottom:0.03rem solid #fff;
     }
     .date li.on{
         color: #020202;
         border-color: #545454;
     }
     .msg-home{
-        margin: 70px 0 10px 0;
+        margin: 0.7rem 0 0.1rem 0;
         text-align: center;
         color: #020202;
     }
     .msg-home>div{
-        height:148px;
+        height:1.48rem;
         overflow: hidden;
         background: url("../images/bg-line.jpg") center repeat-y;
     }
@@ -616,124 +605,112 @@
         float: left;
     }
     .msg-home a{
-        font-size:28px;
+        font-size:0.28rem;
         color: #4c4c4c;
-        line-height:86px;
+        line-height:0.86rem;
     }
-    .include-t::before,.income-t::before{
-        margin-right:8px;
-        content: "";
-        display: inline-block;
-        width:34px;
-        height:67px;
+    .member-t{
+        width:1.38rem;
+        height:0.34rem;
         overflow: hidden;
-        background: url("../images/sp-c.png") no-repeat center;
-        background-size: 34px 34px;
+        background: url("../images/member-t.png") no-repeat center;
+        background-size:1.38rem ;
+        font-size:0;
+        margin:0.15rem auto;
     }
-    .include-t::before{
-        float: left;
-        margin-left:82.5px;
-    }
-    .include-t span{
-        display: inline-block;
-        float: left;
-        height:67px;
-        line-height:67px;
+    .include-t{
+        width:2.06rem;
+        height:0.34rem;
         overflow: hidden;
-    }
-    .include-t,.member-t{
-        height:67px;
-        overflow: hidden;
-        line-height:67px;
-        font-size:28px;
+        background: url("../images/include-t.png") no-repeat center;
+        background-size:cover;
+        font-size:0;
+        margin:0.15rem auto;
     }
     .include-c,.member-c{
-        line-height:68px;
-        font-size:48px;
+        line-height:0.68rem;
+        font-size:0.48rem;
     }
     .include-c{
         text-align: left;
-        text-indent:124.5px;
+        text-indent:1.85rem;
     }
     .income{
-        margin-top:23px;
+        margin-top:0.23rem;
+        padding-top:0.32rem;
         background: #fff;
         text-align: center;
     }
     .income-t{
-        font-size:28px;
-        color: #4c4c4c;
-    }
-    .income-t::before{
-        height:95px;
-    }
-    .income-t span{
-        display: inline-block;
-        height: 95px;
-        line-height: 95px;
+        width:1.81rem;
+        height:0.34rem;
         overflow: hidden;
+        background: url("../images/income-t.png") no-repeat center;
+        background-size:cover;
+        font-size:0;
+        margin:0 auto 0.32rem;
     }
     .income-c{
-        line-height:72px;
-        font-size:48px;
+        line-height:0.68rem;
+        font-size:0.48rem;
         color: #020202;
     }
     .income-m{
-        line-height:140px;
-        margin-bottom:7px;
-        font-size:28px;
+        line-height:1.42rem;
+        margin-bottom:0.06rem;
+        font-size:0.28rem;
         color: #6569c6;
     }
-    /*个人信息*/
+    /*涓汉淇℃伅*/
     .main-mymsg{
-        height:721px;
-        padding:0 40px;
+        height:6.8rem;
+        padding:0.4rem 0.4rem 0;
         background: #fff;
     }
     .inquire .user-phone{
         margin:0;
     }
     .inquire .user-proxy{
-        margin-bottom:38px;
+        margin-bottom:0.38rem;
     }
     .inquire .protocol2{
         position: absolute;
         left:0;
-        bottom:98px;
+        bottom:0.98rem;
         width:100%;
-        line-height:47px;
+        line-height:0.47rem;
         margin:0;
     }
-    /*提现申请*/
+    /*鎻愮幇鐢宠*/
     .payApply{
         height:100%;
         background: #f2f2f2;
     }
     .payList{
         position: absolute;
-        right: 42px;
-        top: 31px;
-        width: 42px;
-        height: 38px;
+        right: 0.42rem;
+        top: 0.31rem;
+        width: 0.42rem;
+        height: 0.38rem;
         overflow: hidden;
         font-size: 0;
         background: url("../images/calendar.png") no-repeat center;
         background-size: cover;
     }
     .main-payApply{
-        height: 774px;
-        padding:38px 40px 0;
+        height: 7.74rem;
+        padding:0.38rem 0.4rem 0;
         background: #fff;
     }
     .apply-user,.apply-ali{
         width:100%;
-        height:62px;
+        height:0.62rem;
         overflow: hidden;
-        line-height:62px;
-        font-size:28px;
+        line-height:0.62rem;
+        font-size:0.28rem;
     }
     .apply-ali{
-        padding-bottom:38px;
+        padding-bottom:0.38rem;
         border-bottom:1px solid #ececec;
     }
     .apply-user span,.apply-ali span{
@@ -748,35 +725,38 @@
         white-space:nowrap;
     }
     .apply-can{
-        margin-top:32px;
-        line-height:64px;
-        font-size:28px;
+        margin-top:0.32rem;
+        line-height:0.64rem;
+        font-size:0.28rem;
         color: #020202;
     }
     .apply-now{
-        line-height:63px;
-        padding-bottom:24px;
+        line-height:0.63rem;
+        padding-bottom:0.24rem;
         border-bottom:1px solid #ececec;
     }
     .apply-now span{
         float: left;
-        font-size:36px;
+        font-size:0.36rem;
         color: #020202;
     }
     .apply-now input{
-        margin-left:20px;
+        margin-left:0.2rem;
         border:none;
         outline:none;
-        font-size:28px;
-        color: #c0bfc4;
-        height:63px;
-        line-height:63px;
+        height:0.63rem;
+        line-height:0.63rem;
+        font-size:0.36rem;
+        color: #020202;
+    }
+    .apply-now ::-webkit-input-placeholder { /* WebKit browsers */
+        font-size:0.28rem;
     }
     .apply-tips{
-        height:112px;
-        line-height:112px;
-        margin-bottom:40px;
-        font-size:28px;
+        height:1.12rem;
+        line-height:1.12rem;
+        margin-bottom:0.4rem;
+        font-size:0.28rem;
         color: #c0bfc4;
     }
     .apply-tips a{
@@ -787,18 +767,18 @@
     }
     .btn-apply{
         width: 100%;
-        line-height: 78px;
+        line-height: 0.78rem;
         text-align: center;
-        -webkit-border-radius: 6px;
-        -moz-border-radius: 6px;
-        border-radius: 6px;
-        font-size: 36px;
+        -webkit-border-radius: 0.06rem;
+        -moz-border-radius: 0.06rem;
+        border-radius: 0.06rem;
+        font-size: 0.36rem;
         color: #fff;
         background: #a5a6d4;
     }
     .apply-time{
-        line-height:90px;
-        font-size:28px;
+        line-height:0.9rem;
+        font-size:0.28rem;
         color: #808080;
         text-align: center;
     }
@@ -808,30 +788,30 @@
     .bottom-payApply{
         position: absolute;
         left:0;
-        bottom:42px;
+        bottom:0.42rem;
         width:100%;
-        padding:0 40px;
-        line-height:30px;
-        font-size:24px;
+        padding:0 0.4rem;
+        line-height:0.3rem;
+        font-size:0.24rem;
         color: #808080;
     }
     .bottom-payApply p:last-child{
-        margin-top:30px;
+        margin-top:0.3rem;
     }
-     /*提现记录*/
+    /*鎻愮幇璁板綍*/
     .home{
         position: absolute;
-        right: 45px;
-        top: 30px;
-        width: 46px;
-        height: 40px;
+        right: 0.45rem;
+        top: 0.3rem;
+        width: 0.46rem;
+        height: 0.4rem;
         overflow: hidden;
         font-size: 0;
         background: url("../images/home.png") no-repeat center;
         background-size: cover;
     }
     .main-list{
-        height:922px;
+        height:9.22rem;
     }
     .main-list ul{
         height:100%;
@@ -842,31 +822,38 @@
         display: flex;
         display: -webkit-flex;
         justify-content: space-between;
-        padding:0 40px;
-        line-height:90px;
+        padding:0 0.4rem;
+        line-height:0.9rem;
         background: #f2f2f2;
-        font-size:28px;
+        font-size:0.28rem;
         color: #5e5e5e;
     }
     .main-list li+li{
-        margin-top:14px;
+        margin-top:0.14rem;
+    }
+    .list-money{
+        max-width:50%;
+        height:0.9rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space:nowrap;
     }
     .more{
-        width: 670px;
-        line-height: 78px;
+        width: 6.7rem;
+        line-height: 0.78rem;
         text-align: center;
-        -webkit-border-radius: 6px;
-        -moz-border-radius: 6px;
-        border-radius: 6px;
-        font-size: 36px;
+        -webkit-border-radius: 0.06rem;
+        -moz-border-radius: 0.06rem;
+        border-radius: 0.06rem;
+        font-size: 0.36rem;
         color: #fff;
         background: #6569c6;
-        margin: 70px auto 0;
+        margin: 0.7rem auto 0;
     }
     .more-no{
         background: #a5a6d4;
     }
-    /*返佣详情*/
+    /*杩斾剑璇︽儏*/
     .date-rebate{
 
     }
