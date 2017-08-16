@@ -1097,7 +1097,6 @@
     .mytable_container{
         width:7.5rem;
         height:4rem;
-        /*楂樺害鍔ㄦ€佽幏鍙�*/
         box-sizing: border-box;
     }
 </style>
