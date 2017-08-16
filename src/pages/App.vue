@@ -226,6 +226,7 @@
     /*澶撮儴缁撴潫*/
     .form{
         padding:0 0.4rem;
+        margin-top:1rem;
     }
     .form .prompt{
 
@@ -241,7 +242,7 @@
         border-color: #c0bfc4 !important;
     }
     .use-msg{
-        margin-top:0.3rem;
+        padding-top:0.3rem;
     }
     .rebate-msg{
         margin-top:0.54rem;
@@ -420,7 +421,8 @@
         text-overflow: ellipsis;
     }
     .user-phone{
-        margin:0.4rem 0 0.38rem 0;
+        padding-top:0.4rem;
+        margin:0 0 0.38rem 0;
     }
     .com-msg{
         line-height:0.64rem;
@@ -436,7 +438,8 @@
         font-size:0.48rem;
         color: #020202;
         text-align: center;
-        margin: 0.92rem 0 0.75rem 0;
+        margin: 0 0 0.75rem 0;
+        padding-top: 0.92rem;
     }
     .login-tips{
         display: block;
@@ -471,7 +474,7 @@
     /*蹇樿瀵嗙爜*/
     .forget-psw{
         background: #f2f2f2;
-        padding-top:0.37rem;
+        padding-top:1.37rem;
     }
     .forget-one,.forget-two{
         width:100%;
@@ -560,6 +563,7 @@
         width:100%;
         overflow: hidden;
         background: #fff;
+        margin-top:1rem;
     }
     .date{
         width:100%;
@@ -670,7 +674,7 @@
     /*涓汉淇℃伅*/
     .main-mymsg{
         height:6.8rem;
-        padding:0.4rem 0.4rem 0;
+        padding:1.4rem 0.4rem 0;
         background: #fff;
     }
     .inquire .user-phone{
@@ -706,7 +710,7 @@
     }
     .main-payApply{
         height: 7.74rem;
-        padding:0.38rem 0.4rem 0;
+        padding:1.38rem 0.4rem 0;
         background: #fff;
     }
     .apply-user,.apply-ali{
@@ -814,7 +818,6 @@
         background-size: cover;
     }
     .main-list{
-        height:8.28rem;
     }
     .main-list ul{
         height:100%;
