@@ -187,12 +187,13 @@
     }
     .back{
         position: absolute;
-        left:0.2rem;
-        top:0.25rem;
-        width:0.31rem;
-        height:0.51rem;
+        left: 0;
+        top: 0;
+        padding: 0.25rem 0.2rem;
+        width: 0.31rem;
+        height: 0.51rem;
         background: url("../images/back.png") no-repeat center;
-        background-size: cover;
+        background-size: 0.31rem 0.51rem;
     }
     .login{
         position: absolute;
@@ -1055,7 +1056,7 @@
         height: 0.38rem;
         overflow: hidden;
         font-size: 0;
-        background: url("/images/calendar.png") no-repeat right center;
+        background: url("../images/calendar.png") no-repeat right center;
         background-size: cover;
     }
     .rebate-msg{

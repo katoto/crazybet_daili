@@ -2,7 +2,7 @@
     <div class="inquire">
         <Header_all person-title="疯狂猜球代理后台" :icon-style="'userMsg'"></Header_all>
         <div class="main-home">
-            <div class="date">
+            <div class="date" id="date">
                 <ul>
                     <li class="on">7月</li>
                     <li>8月</li>
@@ -15,17 +15,17 @@
                     <li>11月</li>
                     <li>12月</li>
                     <li>13月</li>
-                    <li class="on">7月</li>
-                    <li>8月</li>
-                    <li>9月</li>
-                    <li>10月</li>
-                    <li>11月</li>
-                    <li>12月</li>
-                    <li>13月</li>
-                    <li>10月</li>
-                    <li>11月</li>
-                    <li>12月</li>
-                    <li>13月</li>
+                    <li>2016年7月</li>
+                    <li>2016年8月</li>
+                    <li>2016年9月</li>
+                    <li>2016年10月</li>
+                    <li>2016年11月</li>
+                    <li>2016年12月</li>
+                    <li>2016年13月</li>
+                    <li>2016年10月</li>
+                    <li>2016年11月</li>
+                    <li>2016年12月</li>
+                    <li>2016年13月</li>
                 </ul>
             </div>
             <div class="msg-home">
@@ -62,7 +62,8 @@
         </div>
     </div>
 </template>
-
+<script src="http://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js">
+</script>
 <script>
     import Header_all from '~components/header_all.vue'
     export default {
@@ -103,5 +104,8 @@
 
 </script>
 <style>
+    ::-webkit-scrollbar {
+        display: none;/*隐藏滚轮*/
+    }
 
 </style>
