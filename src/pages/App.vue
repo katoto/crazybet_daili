@@ -809,7 +809,7 @@
         background-size: cover;
     }
     .main-list{
-        height:9.22rem;
+        height:8.28rem;
     }
     .main-list ul{
         height:100%;
@@ -854,5 +854,250 @@
     /*杩斾剑璇︽儏*/
     .date-rebate{
 
+    }
+    /*aa*/
+    .col{
+        display: inline-block;
+    }
+    .header .col:last-child{
+        border:1px solid #cccccc;
+    }
+    .row .col:last-child{
+        border:1px solid #cccccc;
+    }
+    .mytable_fixed{
+        overflow: hidden;
+        width:8rem;
+        height:4.5rem;
+    }
+    .mytable_fixedHeaderColumn{
+        float:left;
+        overflow: hidden;
+        width:1.19rem;
+        height:100%;
+        border-right:1px solid #d2d2d2;
+    }
+    .mytable_fixedHeaderColumn .headercol{
+        width:100%;
+        height:100%;
+        text-align: center;
+        line-height:;
+    }
+    .mytable_header_left{
+        float:left;
+        overflow: hidden;
+        width:6.3rem;
+        height:100%;
+    }
+    .mytable_header_left>div{
+        width:7rem;
+        overflow: auto;
+    }
+    .mytable_header_left .headercol{
+        float: left;
+        width:1.39rem;
+        border-right:1px solid #d2d2d2;
+    }
+    .mytable_fixedColumn{
+        float:left;
+        overflow: hidden;
+        width:1.2rem;
+        height:100%;
+        background: #f2f2f2;
+    }
+    .myfixedrow{
+        width:1.19rem;
+        height:0.69rem;
+        overflow: hidden;
+        border:1px solid #d2d2d2;
+        border-bottom:none;
+        border-left:none;
+        line-height:0.7rem;
+        font-size:0.22rem;
+        color: #6c6c6c;
+    }
+    .mytable_conentent{
+        float:left;
+        overflow: auto;
+        width:6.3rem;
+        height:100%;
+        /*楂樺害闇€瑕佸姩鎬佽绠�*/
+        background-color: #fff;
+        /*-webkit-overflow-scrolling: touch;*/
+    }
+    .mytable_conentent>div{
+        width:7rem;
+    }
+    .mytable_header{
+        overflow:hidden;
+        box-sizing: border-box;
+        width:100%;
+        height:0.82rem;
+        text-align: center;
+        line-height:0.82rem;
+        background-color: #e4e4e4;
+        font-size:0.22rem;
+        color: #020202;
+    }
+    .myrow{
+        overflow: hidden;
+    }
+    .myrow div{
+        width: 1.39rem;
+        height: 0.69rem;
+        overflow: hidden;
+        border: 1px solid #d2d2d2;
+        border-bottom: none;
+        border-left: none;
+        line-height: 0.7rem;
+        font-size: 0.24rem;
+        color: #020202;
+        float: left;
+    }
+    .l-box-center {
+        display: -webkit-box;
+        -webkit-box-align: center;
+        -webkit-box-pack: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        -webkit-box-orient: vertical;
+        flex-flow: column;
+    }
+    .l-box-vertical-center {
+        display: -webkit-box;
+        -webkit-box-align: center;
+        display: flex;
+        align-items: center;
+        -webkit-box-orient: horizontal;
+        flex-flow: row;
+    }
+    .l-box-vertical-center-justify {
+        display: -webkit-box;
+        -webkit-box-orient: horizontal;
+        flex-flow: row;
+        -webkit-box-align: center;
+        -webkit-box-pack: justify;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .l-box-vertical-center-begin {
+        display: -webkit-box;
+        -webkit-box-orient: horizontal;
+        flex-flow: row;
+        -webkit-box-align: center;
+        -webkit-box-pack: start;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    .l-box-vertical-center-end {
+        display: -webkit-box;
+        -webkit-box-orient: horizontal;
+        flex-flow: row;
+        -webkit-box-align: center;
+        -webkit-box-pack: end;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    .l-box-horizontal-center {
+        display: -webkit-box;
+        -webkit-box-pack: center;
+        display: flex;
+        justify-content: center;
+        -webkit-box-orient: horizontal;
+        flex-flow: row;
+    }
+
+    .l-flex-column {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        display: flex;
+        flex-flow: column;
+        height: 100%
+    }
+    .l-flex-row {
+        display: -webkit-box;
+        -webkit-box-orient: horizontal;
+        display: flex;
+        flex-flow: row;
+        width: 100%
+    }
+    .l-flex-1 {
+        -webkit-box-flex: 1;
+        flex: 1;
+        overflow: hidden
+    }
+    .l-scroll-y {
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .l-full {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0
+    }
+    .l-relative {
+        position: relative;
+        text-align: center;
+    }
+
+    /*--杩斾剑璇︽儏--*/
+    .date-rebate{
+        position: absolute;
+        right: 0.42rem;
+        top: 0.31rem;
+        min-width: 0.42rem;
+        height: 0.38rem;
+        overflow: hidden;
+        font-size: 0;
+        background: url("/images/calendar.png") no-repeat right center;
+        background-size: cover;
+    }
+    .rebate-msg{
+        width:100%;
+        height:1.07rem;
+        overflow: hidden;
+        background: #ededed;
+    }
+    .rebate-msg ul{
+        display: flex;
+        display: -webkit-flex;
+        justify-content: space-between;
+    }
+    .rebate-msg li{
+        flex:1;
+        text-align: center;
+    }
+    .rebate-msg li span::before{
+        margin-right: 0.08rem;
+        content: "";
+        display: inline-block;
+        width: 0.34rem;
+        height: 0.44rem;
+        overflow: hidden;
+        background: url(../images/sp-c.png) no-repeat center;
+        background-size: 0.34rem 0.34rem;
+    }
+    .rebate-msg li span{
+        display: block;
+        line-height:0.44rem;
+        font-size:0.22rem;
+        color: #a4a4a4;
+    }
+    .rebate-msg li div{
+        line-height:0.3rem;
+        font-size:0.24rem;
+        color: #020202;
+    }
+    .mytable_container{
+        width:7.5rem;
+        height:4rem;
+        /*楂樺害鍔ㄦ€佽幏鍙�*/
+        box-sizing: border-box;
     }
 </style>
