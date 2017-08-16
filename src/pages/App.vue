@@ -267,7 +267,7 @@
         z-index:1;
         left:0;
         top:0;
-        width:50%;
+        width:100%;
         height:100%;
         line-height:0.78rem;
         font-size:0.28rem;

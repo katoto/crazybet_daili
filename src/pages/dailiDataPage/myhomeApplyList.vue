@@ -21,7 +21,7 @@
             <ul>
                 <li>
                     <span class="list-date">2017-06-28</span>
-                    <span class="list-money">2000000002000000000元</span>
+                    <span class="list-money">200000002222222202000000000元</span>
                     <span class="list-status">提现成功</span>
                 </li>
                 <li>
