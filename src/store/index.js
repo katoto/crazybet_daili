@@ -151,7 +151,7 @@ const actions = {
     async getUserInfo ({state, commit, dispatch}) {
         /* 用户信息 审核的 */
         try {
-            let userInfo = await ajax.get(`/agent/user/detail?token=${getCk()}&src=${src}`);
+            let userInfo = await ajax.get(`/agent/user/detail?token=${getCk()}&platform=${platform}`);
             commit('userInfo', userInfo)
         } catch (e) {
             dispatch('showToast', e.message)
