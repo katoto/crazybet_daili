@@ -36,14 +36,13 @@
                 switch (this.iconStyle) {
                     case 'login':
                         this.$router.push(`/login`);
-
                         break;
                     case 'regis':
                         this.$router.push(`/register`);
-
                         break;
                     case 'userMsg':
                         /*  */
+                        this.$router.push(`/mymsg`);
                         break;
                     default:window.history.back() ;
                 }

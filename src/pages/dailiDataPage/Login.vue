@@ -41,7 +41,7 @@
                         this.$router.push(`/myhome`);
                     }else {
                         /* 调整审核页面 */
-                        console.log(convertToQueryString(loginAjaxData))
+                        console.log(convertToQueryString(loginAjaxData));
                         localStorage.setItem('regisMsg', convertToQueryString(loginAjaxData));
                         this.$router.push(`/registerMsg`);
                     }

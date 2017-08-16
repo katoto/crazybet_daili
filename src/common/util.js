@@ -38,7 +38,7 @@ export const isLowAndroidVersion = (function () {
 })()
 
 export const convertToQueryString = function (obj) {
-    let result = []
+    let result = [];
     if (Object.keys(obj).length <= 0) {
         return false
     }

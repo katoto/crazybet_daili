@@ -149,12 +149,21 @@ const actions = {
         cb && cb()
     },
     async getUserInfo ({state, commit, dispatch}) {
-        /* 用户信息 */
+        /* 用户信息 审核的 */
         try {
-            let userInfo = await ajax.get(`/agent/user/detail?token=${getCk()}&src=${src}`)
+            let userInfo = await ajax.get(`/agent/user/detail?token=${getCk()}&platform=${platform}`);
             commit('userInfo', userInfo)
         } catch (e) {
-            dispatch('showToast', e.message + 'agent/user/detail')
+            dispatch('showToast', e.message)
+        }
+    },
+    async getUserHomeInfo ({state, commit, dispatch}) {
+        /* 用户信息 后台的 */
+        try {
+            let userHomeInfo = await ajax.get(`/agent/user/detail?token=${getCk()}&src=${src}`);
+            commit('userHomeInfo', userHomeInfo)
+        } catch (e) {
+            dispatch('showToast', e.message)
         }
     },
     // async getUserInfo ({state, commit, dispatch}) {
