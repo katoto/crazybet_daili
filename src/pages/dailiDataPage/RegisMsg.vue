@@ -79,6 +79,7 @@
                 console.log(convertToObj(regisMsg));
                 if(regisMsg && regisMsg !=='undefined'){
                     this.$store.commit('loginAjaxData',convertToObj(regisMsg));
+                    localStorage.setItem('regisMsg',null);
                 }
             }
             /* function  请求用户信息 */
