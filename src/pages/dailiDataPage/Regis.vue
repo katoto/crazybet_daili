@@ -59,6 +59,7 @@
 <script>
     import {Indicator} from 'mint-ui';
     import Header_all from '~components/header_all.vue';
+    import { convertToQueryString} from '~common/util'
     export default {
         data(){
             return {
@@ -133,10 +134,7 @@
                 /* 提交数据 */
                 sendData =  Object.assign({},{ mobile:this.telNumber , code:this.telCode , passwd:this.userPassWord ,
                     username:this.userName , alipay:this.alipayName, qq:this.qqNumber,idcard:this.idCart});
-                console.log(sendData);
-                setTimeout(()=>{
-                    this.$store.dispatch('setRegis', sendData);
-                },2000);
+                this.$store.dispatch('setRegis', sendData);
                 /* function  */
             },
             goPageFn ({ target }) {
@@ -207,6 +205,26 @@
                         e.target.value = e.target.value.slice(0,4)
                     }
                 }
+                if(e.target.name === 'name'){
+                    if(e.target.value.length >6){
+                        this.userName = e.target.value.slice(0,6)
+                    }
+                }
+                if(e.target.name === 'id'){
+                    if(e.target.value.length >22){
+                        this.idCart = e.target.value.slice(0,22)
+                    }
+                }
+                if(e.target.name === 'alipay'){
+                    if(e.target.value.length >20){
+                        this.alipayName = e.target.value.slice(0,20)
+                    }
+                }
+                if(e.target.name === 'qq'){
+                    if(e.target.value.length >20){
+                        this.qqNumber = e.target.value.slice(0,20)
+                    }
+                }
             },
             checkPassWord(e){
                 let pass_reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$/;
@@ -246,7 +264,6 @@
             }
         },
         mounted(){
-
             /* 模拟提交 */
 
 /*            Indicator.open({
@@ -269,15 +286,15 @@
         },
         watch:{
             regisAjaxData( regisAjaxData ){
-                console.log(regisAjaxData);
                 Indicator.close();
                 this.$store.dispatch('showToast', {
                     duration : 1000,
                     message : '提交成功',
                     cb:()=>{
+                        localStorage.setItem('regisMsg', convertToQueryString(regisAjaxData));
                         this.$router.push(`/registerMsg`);
                     }
-                })
+                });
             }
         }
     }

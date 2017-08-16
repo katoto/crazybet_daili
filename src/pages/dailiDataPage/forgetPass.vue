@@ -65,8 +65,9 @@
                     return false;
                 }
                 /* 提交数据 */
-                forgetData =  Object.assign({},{ tel:this.telNumber , password:this.forgetCode });
+                forgetData =  Object.assign({},{ mobile:this.telNumber , code:this.forgetCode });
                 console.log(forgetData);
+                this.$store.dispatch('checkWdReset',)
 
             },
             againConfirm(){

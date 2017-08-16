@@ -22,6 +22,7 @@
 
 <script>
     import Header_all from '~components/header_all.vue'
+    import { convertToQueryString} from '~common/util'
     export default {
         data(){
             return {
@@ -30,7 +31,28 @@
                 loginPassWord:'',
             }
         },
-        watch: {},
+        watch: {
+            loginAjaxData( loginAjaxData ){
+                console.log(loginAjaxData);
+                if( loginAjaxData ){
+                    if(loginAjaxData.v_status === '0'){
+                        /* 可以到后台 */
+                        this.$store.commit('ck', loginAjaxData.token);
+                        this.$router.push(`/myhome`);
+                    }else {
+                        /* 调整审核页面 */
+                        console.log(convertToQueryString(loginAjaxData))
+                        localStorage.setItem('regisMsg', convertToQueryString(loginAjaxData));
+                        this.$router.push(`/registerMsg`);
+                    }
+                }
+            }
+        },
+        computed: {
+            loginAjaxData(){
+                return this.$store.state.formObj.loginAjaxData;
+            }
+        },
         methods: {
             getPassFn(){
                 this.$router.push(`/forgetPass`);
@@ -106,9 +128,6 @@
                     e.target.previousElementSibling.style.display = 'block';
                 }
             },
-        },
-        computed: {
-
         },
         components:{
             Header_all
