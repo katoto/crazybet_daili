@@ -1,10 +1,6 @@
 <template>
     <div class="payApply">
-        <div class="top">
-            <a href="javascript:;" class="btn font0 back">返回</a>
-            <a href="#" class="btn payList">提现记录</a>
-            <h1>提现申请</h1>
-        </div>
+        <Header_all person-title="提现申请" :icon-style="'myHomeApplyList'"></Header_all>
         <div class="main-payApply">
             <div class="apply-user">
                 <span>姓名：</span>
@@ -34,6 +30,7 @@
 </template>
 
 <script>
+    import Header_all from '~components/header_all.vue'
     export default {
         data(){
             return {
@@ -43,6 +40,9 @@
         watch: {},
         methods: {},
         computed: {},
+        components:{
+            Header_all
+        },
         mounted(){
 
         }
