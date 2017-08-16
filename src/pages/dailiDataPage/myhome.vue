@@ -74,13 +74,29 @@
             Header_all
         },
         methods: {
+            monthFormate(startTime ,endTime){
+                var arr = [];
+                if(typeof startTime === 'string'){
+                    startTime = +startTime;
+                }
+                if(typeof endTime === 'string'){
+                    endTime = +endTime;
+                }
+                if(isNaN(startTime)) {
+                    startTime = 0;
+                }
+                if( isNaN(endTime) ){
+                    endTime = 0
+                }
 
+
+
+            }
         },
         mounted(){
-            console.log(1111);
-            console.log(1502875438820);
-            console.log(1502875438820);
-//            function month
+            /*  做一个日期处理  */
+            this.monthFormate( new Date().getTime() , '1502875428820' )
+
         }
     };
 </script>
