@@ -62,8 +62,6 @@
         </div>
     </div>
 </template>
-<script src="http://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js">
-</script>
 <script>
     import Header_all from '~components/header_all.vue'
     export default {
@@ -85,7 +83,6 @@
 //            function month
         }
     };
-
 </script>
 <style>
     ::-webkit-scrollbar {

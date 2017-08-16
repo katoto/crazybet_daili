@@ -177,19 +177,23 @@
     .wrapper {
         position: relative;
         width:100%;
-        min-height:100%;
     }
     /*澶撮儴寮€濮�*/
     .top{
-        position: relative;
+        position: fixed;
+        top:0;
+        left:0;
+        z-index:99;
+        width:100%;
+        height:1rem;
         background: #333;
         line-height:1rem;
     }
     .back{
         position: absolute;
-        left: 0;
-        top: 0;
-        padding: 0.25rem 0.2rem;
+        left:0;
+        top:0;
+        padding:0.25rem 0.2rem;
         width: 0.31rem;
         height: 0.51rem;
         background: url("../images/back.png") no-repeat center;
@@ -857,197 +861,14 @@
 
     }
     /*aa*/
-    .col{
-        display: inline-block;
-    }
-    .header .col:last-child{
-        border:1px solid #cccccc;
-    }
-    .row .col:last-child{
-        border:1px solid #cccccc;
-    }
-    .mytable_fixed{
-        overflow: hidden;
-        width:8rem;
-        height:4.5rem;
-    }
-    .mytable_fixedHeaderColumn{
-        float:left;
-        overflow: hidden;
-        width:1.19rem;
-        height:100%;
-        border-right:1px solid #d2d2d2;
-    }
-    .mytable_fixedHeaderColumn .headercol{
-        width:100%;
-        height:100%;
-        text-align: center;
-        line-height:;
-    }
-    .mytable_header_left{
-        float:left;
-        overflow: hidden;
-        width:6.3rem;
-        height:100%;
-    }
-    .mytable_header_left>div{
-        width:7rem;
-        overflow: auto;
-    }
-    .mytable_header_left .headercol{
-        float: left;
-        width:1.39rem;
-        border-right:1px solid #d2d2d2;
-    }
-    .mytable_fixedColumn{
-        float:left;
-        overflow: hidden;
-        width:1.2rem;
-        height:100%;
-        background: #f2f2f2;
-    }
-    .myfixedrow{
-        width:1.19rem;
-        height:0.69rem;
-        overflow: hidden;
-        border:1px solid #d2d2d2;
-        border-bottom:none;
-        border-left:none;
-        line-height:0.7rem;
-        font-size:0.22rem;
-        color: #6c6c6c;
-    }
-    .mytable_conentent{
-        float:left;
-        overflow: auto;
-        width:6.3rem;
-        height:100%;
-        /*楂樺害闇€瑕佸姩鎬佽绠�*/
-        background-color: #fff;
-        /*-webkit-overflow-scrolling: touch;*/
-    }
-    .mytable_conentent>div{
-        width:7rem;
-    }
-    .mytable_header{
-        overflow:hidden;
-        box-sizing: border-box;
-        width:100%;
-        height:0.82rem;
-        text-align: center;
-        line-height:0.82rem;
-        background-color: #e4e4e4;
-        font-size:0.22rem;
-        color: #020202;
-    }
-    .myrow{
-        overflow: hidden;
-    }
-    .myrow div{
-        width: 1.39rem;
-        height: 0.69rem;
-        overflow: hidden;
-        border: 1px solid #d2d2d2;
-        border-bottom: none;
-        border-left: none;
-        line-height: 0.7rem;
-        font-size: 0.24rem;
-        color: #020202;
-        float: left;
-    }
-    .l-box-center {
-        display: -webkit-box;
-        -webkit-box-align: center;
-        -webkit-box-pack: center;
+    .rebate{
         display: flex;
-        justify-content: center;
-        align-items: center;
-        -webkit-box-orient: vertical;
-        flex-flow: column;
-    }
-    .l-box-vertical-center {
-        display: -webkit-box;
-        -webkit-box-align: center;
-        display: flex;
-        align-items: center;
-        -webkit-box-orient: horizontal;
-        flex-flow: row;
-    }
-    .l-box-vertical-center-justify {
-        display: -webkit-box;
-        -webkit-box-orient: horizontal;
-        flex-flow: row;
-        -webkit-box-align: center;
-        -webkit-box-pack: justify;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    .l-box-vertical-center-begin {
-        display: -webkit-box;
-        -webkit-box-orient: horizontal;
-        flex-flow: row;
-        -webkit-box-align: center;
-        -webkit-box-pack: start;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-    }
-    .l-box-vertical-center-end {
-        display: -webkit-box;
-        -webkit-box-orient: horizontal;
-        flex-flow: row;
-        -webkit-box-align: center;
-        -webkit-box-pack: end;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-    }
-    .l-box-horizontal-center {
-        display: -webkit-box;
-        -webkit-box-pack: center;
-        display: flex;
-        justify-content: center;
-        -webkit-box-orient: horizontal;
-        flex-flow: row;
-    }
-
-    .l-flex-column {
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        display: flex;
-        flex-flow: column;
-        height: 100%
-    }
-    .l-flex-row {
-        display: -webkit-box;
-        -webkit-box-orient: horizontal;
-        display: flex;
-        flex-flow: row;
-        width: 100%
-    }
-    .l-flex-1 {
-        -webkit-box-flex: 1;
-        flex: 1;
-        overflow: hidden
-    }
-    .l-scroll-y {
-        overflow: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-    .l-full {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0
-    }
-    .l-relative {
+        display: -webkit-flex;
+        flex-direction: column;
         position: relative;
-        text-align: center;
+        height:100%;
+        overflow: hidden;
     }
-
-    /*--杩斾剑璇︽儏--*/
     .date-rebate{
         position: absolute;
         right: 0.42rem;
@@ -1056,48 +877,103 @@
         height: 0.38rem;
         overflow: hidden;
         font-size: 0;
-        background: url("../images/calendar.png") no-repeat right center;
+        background: url(../images/calendar.png) no-repeat right center;
         background-size: cover;
     }
-    .rebate-msg{
+    .rebate .rebate-msg{
         width:100%;
         height:1.07rem;
         overflow: hidden;
         background: #ededed;
+        margin-top:1rem;
     }
     .rebate-msg ul{
-        display: flex;
-        display: -webkit-flex;
-        justify-content: space-between;
+        overflow: hidden;
+        background: url(../images/rebate-line.png) no-repeat center;
+        background-size: 1px 0.57rem;
     }
     .rebate-msg li{
-        flex:1;
+        float: left;
+        width:50%;
+        height:1.07rem;
         text-align: center;
-    }
-    .rebate-msg li span::before{
-        margin-right: 0.08rem;
-        content: "";
-        display: inline-block;
-        width: 0.34rem;
-        height: 0.44rem;
-        overflow: hidden;
-        background: url(../images/sp-c.png) no-repeat center;
-        background-size: 0.34rem 0.34rem;
     }
     .rebate-msg li span{
         display: block;
-        line-height:0.44rem;
-        font-size:0.22rem;
-        color: #a4a4a4;
+        width:1.06rem;
+        height: 0.34rem;
+        overflow: hidden;
+        font-size:0;
+        margin:0.16rem auto 0.1rem;
+    }
+    .rebate-msg1 span{
+        background: url("../images/rebate-msg1.png") no-repeat center;
+        background-size: cover;
+    }
+    .rebate-msg2 span{
+        background: url("../images/rebate-msg2.png") no-repeat center;
+        background-size: cover;
     }
     .rebate-msg li div{
         line-height:0.3rem;
         font-size:0.24rem;
         color: #020202;
     }
-    .mytable_container{
-        width:7.5rem;
-        height:4rem;
-        box-sizing: border-box;
+    .rebate-view{
+        margin-top:0.2rem;
+        overflow: hidden;
+        flex:1;
+        -webkit-box-flex: 1;
+    }
+    .view-t{
+        width:100%;
+        overflow: hidden;
+        background: #e4e4e4;
+        height:0.82rem;
+    }
+    .view-c{
+        height:100%;
+        overflow: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+    .view-t ul{
+        display: flex;
+        display: -webkit-flex;
+        border-bottom:1px solid #e4e4e4;
+    }
+    .view-c ul{
+        height:7.8rem;
+        overflow-y: auto;
+    }
+    .view-t li,.view-c li{
+        flex:1;
+        -webkit-box-flex: 1;
+        text-align: center;
+        line-height:0.82rem;
+        font-size:0.22rem;
+        color: #020202;
+    }
+    .view-t li+li{
+        border-left:1px solid #d2d2d2;
+    }
+    .view-c li{
+        display: flex;
+        display: -webkit-flex;
+        line-height:0.7rem;
+        border-bottom:1px solid #d2d2d2;
+    }
+    .view-c span{
+        flex:1;
+        font-size:0.24rem;
+        color: #020202;
+    }
+    .view-c span:first-child{
+        background: #f2f2f2;
+        text-align: center;
+        font-size:0.22rem;
+        color: #6c6c6c;
+    }
+    .view-c li span+span{
+        border-left:1px solid #d2d2d2;
     }
 </style>
