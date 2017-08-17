@@ -212,6 +212,7 @@
         top:0.285rem;
         width:0.44rem;
         height:0.43rem;
+        padding-top:0.01rem;
         overflow: hidden;
         font-size:0;
         background: url("../images/user.png") no-repeat center;
@@ -818,6 +819,7 @@
         background-size: cover;
     }
     .main-list{
+        margin-top:1rem;
     }
     .main-list ul{
         height:100%;
