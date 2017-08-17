@@ -116,7 +116,7 @@
                         /* 中间有多少 */
                         for( var i=1,len =yearIndex;i<len;i++ ){
                             for( var j=12;j>= 1  ;j-- ){
-                                AjaxTime.push( Date_startTime.getFullYear() +'-'+ j);
+                                AjaxTime.push( Date_startTime.getFullYear()-i +'-'+ j);
                                 monthStr.push( (Date_startTime.getFullYear()-i).toString().slice(2,4) +'年'+(j) +'月');
                             }
                         }
