@@ -24,7 +24,7 @@
                 </ul>
             </div>
             <div class="view-c">
-                    <ul class="view-scroll">
+                <ul class="view-scroll">
                     <li>
                         <span>1111111111111111111111111</span>
                         <span>2111111111111111111111111</span>
@@ -233,7 +233,6 @@
         </div>
     </div>
 </template>
-
 <script>
     import Header_all from '~components/header_all.vue'
     export default {
