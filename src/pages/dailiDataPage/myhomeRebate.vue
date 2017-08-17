@@ -17,7 +17,6 @@
                 </li>
             </ul>
         </div>
-
         <div class="rebate-view">
             <div class="view-t">
                 <ul>
