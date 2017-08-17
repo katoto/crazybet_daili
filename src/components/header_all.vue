@@ -1,7 +1,7 @@
 <template>
     <div class="top">
         <a href="javascript:;" class="btn font0 back"  v-tap="{ methods:goBackFn, params : 'back' }">返回</a>
-        <a href="#" class="btn login" :class="{'user':showUserIcon ,'home':showHomeIcon ,'payList':showPayListIcon}" v-tap="{ methods:jumpToPage }">{{ rightTitle }}</a>
+        <a href="javascript:;" class="btn login" :class="{'user':showUserIcon ,'home':showHomeIcon ,'payList':showPayListIcon ,'date-rebate':showRebate}" v-tap="{ methods:jumpToPage }">{{ rightTitle }}</a>
         <h1>{{ personTitle }}</h1>
     </div>
 </template>
@@ -14,6 +14,7 @@
                 showUserIcon:false,
                 showHomeIcon:false,
                 showPayListIcon:false,
+                showRebate:false
             }
         },
         methods: {
@@ -21,10 +22,10 @@
                 switch (params ) {
                 case 'login':
                     this.$router.push(`/my/betlist`);
-                    break
+                    break;
                 case 'regis':
                     this.$router.push(`/my/charge`);
-                    break
+                    break;
                 case 'goLand':
                     /*  */
                     alert('跳转落地页');
@@ -51,6 +52,10 @@
                     case 'myHomeApplyList':
                         this.$router.push(`/myHomeApplyList`);
                         break;
+                    case 'dateRebate':
+                        /* 显示日历 */
+                        this.$store.commit('setCalendar',new Date().getTime());
+                        break;
                     default:window.history.back() ;
                 }
             },
@@ -60,7 +65,9 @@
 
         },
         computed: {
-
+            showCalendar(){
+                return this.$store.state.myHomeObj.showCalendar
+            }
         },
         mounted () {
             if( this.iconStyle === 'login' ){
@@ -73,6 +80,8 @@
                 this.showHomeIcon = true;
             }else if( this.iconStyle === 'myHomeApplyList' ){
                 this.showPayListIcon = true;
+            } else if( this.iconStyle === 'dateRebate'){
+                this.showRebate = true;
             }
         },
         filters: {
