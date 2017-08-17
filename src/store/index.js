@@ -29,7 +29,7 @@ const state = {
         isSuccReset:null,
     },
     myHomeObj:{
-
+        showCalendar:false,
     },
 }
 const mutations = {
@@ -64,6 +64,10 @@ const mutations = {
     /* 重置密码code 数据 */
     isSuccReset( state, data ){
         state.formObj.isSuccReset = data;
+    },
+    /* showCalendar 修改日历 */
+    setCalendar( state, data ){
+        state.myHomeObj.showCalendar = data;
     },
 }
 const actions = {

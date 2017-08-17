@@ -218,7 +218,7 @@
                 this.setPassWord = true;
                 setTimeout(()=>{
                     document.getElementById('showPlaceHold').style.display = 'block';
-                },10)
+                },100)
             }
         },
         mounted(){
