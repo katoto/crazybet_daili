@@ -17,6 +17,7 @@
                 </li>
             </ul>
         </div>
+
         <div class="rebate-view">
             <div class="view-t">
                 <ul>
@@ -28,7 +29,6 @@
                 </ul>
             </div>
             <div class="view-c">
-
                     <ul class="view-scroll">
                     <li>
                         <span>1111111111111111111111111</span>
@@ -220,7 +220,6 @@
                         <span>final</span>
                     </li>
                 </ul>
-
             </div>
         </div>
     </div>

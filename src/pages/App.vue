@@ -186,6 +186,7 @@
         z-index:99;
         width:100%;
         height:1rem;
+        overflow: hidden;
         background: #333;
         line-height:1rem;
     }
@@ -926,10 +927,11 @@
     }
     .rebate-view{
         display: flex;
+        display: -webkit-flex;
         margin-top:0.2rem;
         overflow: hidden;
         flex:1;
-        -webkit-box-flex: 1;
+        -webkit-flex: 1;
         flex-direction: column;
     }
     .view-t{
@@ -963,7 +965,7 @@
     }
     .view-t li,.view-c li{
         flex:1;
-        -webkit-box-flex: 1;
+        -webkit-flex: 1;
         text-align: center;
         line-height:0.82rem;
         font-size:0.22rem;
@@ -982,11 +984,14 @@
     }
     .view-c span{
         flex:1;
+        -webkit-flex: 1;
         font-size:0.24rem;
         color: #020202;
         display: inline-block;
         width:20%;
         overflow: hidden;
+        text-overflow: ellipsis;
+        white-space:nowrap;
     }
     .view-c span:first-child{
         background: #f2f2f2;

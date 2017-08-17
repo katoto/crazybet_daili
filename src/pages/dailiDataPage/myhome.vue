@@ -62,6 +62,7 @@
         </div>
     </div>
 </template>
+
 <script>
     import Header_all from '~components/header_all.vue'
     export default {
@@ -75,7 +76,8 @@
         },
         methods: {
             monthFormate(startTime ,endTime){
-                var arr = [];
+//                endTime 为注册时间
+                var  monthStr = [], timeIndex, yearIndex ,Date_startTime ,Date_endTime ,nowMonth ;
                 if(typeof startTime === 'string'){
                     startTime = +startTime;
                 }
@@ -84,19 +86,51 @@
                 }
                 if(isNaN(startTime)) {
                     startTime = 0;
+                    return false;
                 }
                 if( isNaN(endTime) ){
-                    endTime = 0
+                    endTime = 0;
+                    return false;
                 }
+                Date_startTime = new Date(startTime);
+                Date_endTime = new Date(endTime);
+                /* 年超过的情况 */
+                monthStr.push( '本月');
+                if( Date_startTime.getFullYear() !==  Date_endTime.getFullYear()){
+                    yearIndex = Date_startTime.getFullYear() - Date_endTime.getFullYear() ;
+                    if( yearIndex > 1){
+                        /*  中间有12个月  */
+                        /* 开始了多少 */
+                        for( var i=0,len = Date_startTime.getMonth();i<= len  ;i++ ){
+                            monthStr.push( nowMonth );
+                            len -- ;
+                        }
+                        /* 中间有多少 */
+                        /* 结束了多少 */
+                    }
+
+                    console.log(0);
 
 
 
+                }else{
+                    /* 无超过 */
+                    nowMonth = Date_startTime.getMonth();
+                    timeIndex =  nowMonth - Date_endTime.getMonth();
+                    if( timeIndex !== 0 ){
+                        for( var i=0;i< timeIndex;i++ ){
+                            monthStr.push( nowMonth +'');
+                            nowMonth -- ;
+                        }
+                    }
+                }
+                return monthStr.reverse();
             }
         },
         mounted(){
             /*  做一个日期处理  */
-            this.monthFormate( new Date().getTime() , '1502875428820' )
-
+            var a = this.monthFormate( new Date().getTime() , '1492373208820' );
+            console.log(a)
         }
     };
 </script>

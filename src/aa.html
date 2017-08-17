@@ -1792,8 +1792,8 @@
 
       if (helperElem.style[perspectiveProperty] !== undef) {
         return function(left, top, zoom) {
-//            mytable_fixedColumn_Dom.style.marginTop= -(top) +'px';
-//            mytable_header_left_Dom.style.marginLeft= -(left)+ 'px';
+            mytable_fixedColumn_Dom.style.marginTop= -(top) +'px';
+            mytable_header_left_Dom.style.marginLeft= -(left)+ 'px';
           this.content.style[transformProperty] = 'translate3d(' + (-left) + 'px,' + (-top) + 'px,0) scale(' + zoom + ')';
         };
       } else if (helperElem.style[transformProperty] !== undef) {
