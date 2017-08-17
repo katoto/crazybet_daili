@@ -186,6 +186,7 @@
         z-index:99;
         width:100%;
         height:1rem;
+        overflow: hidden;
         background: #333;
         line-height:1rem;
     }
@@ -925,10 +926,13 @@
         color: #020202;
     }
     .rebate-view{
+        display: flex;
+        display: -webkit-flex;
         margin-top:0.2rem;
         overflow: hidden;
         flex:1;
-        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        flex-direction: column;
     }
     .view-t{
         width:100%;
@@ -937,8 +941,18 @@
         height:0.82rem;
     }
     .view-c{
-        height:100%;
-        overflow: hidden;
+        flex:1;
+        -webkit-flex: 1;
+        width:100%;
+        position: relative;
+    }
+    .view-scroll {
+        position: absolute;
+        left:0;
+        top:0;
+        right: 0;
+        bottom:0;
+        overflow: auto;
         -webkit-overflow-scrolling: touch;
     }
     .view-t ul{
@@ -947,12 +961,11 @@
         border-bottom:1px solid #e4e4e4;
     }
     .view-c ul{
-        height:7.8rem;
-        overflow-y: auto;
+
     }
     .view-t li,.view-c li{
         flex:1;
-        -webkit-box-flex: 1;
+        -webkit-flex: 1;
         text-align: center;
         line-height:0.82rem;
         font-size:0.22rem;
@@ -964,13 +977,21 @@
     .view-c li{
         display: flex;
         display: -webkit-flex;
+        height:0.7rem;
         line-height:0.7rem;
+        overflow: hidden;
         border-bottom:1px solid #d2d2d2;
     }
     .view-c span{
         flex:1;
+        -webkit-flex: 1;
         font-size:0.24rem;
         color: #020202;
+        display: inline-block;
+        width:20%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space:nowrap;
     }
     .view-c span:first-child{
         background: #f2f2f2;
