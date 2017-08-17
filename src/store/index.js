@@ -29,7 +29,10 @@ const state = {
         isSuccReset:null,
     },
     myHomeObj:{
-        showCalendar:false,
+        showCalendar:false, // 显示日历
+        myhomeData:null, // 代理后台数据
+        homeApplyList:null, // 提现记录
+        payApply:null, // 提现申请
     },
 }
 const mutations = {
@@ -37,7 +40,7 @@ const mutations = {
         state.isLowAndroidVersion = data
     },
     ck (state, ck) {
-        state.ck = ck
+        state.ck = ck;
         localStorage.setItem('ck', ck)
     },
     userInfo (state, userInfo) {
@@ -69,11 +72,19 @@ const mutations = {
     setCalendar( state, data ){
         state.myHomeObj.showCalendar = data;
     },
+    /* myhomeData 代理后台数据 */
+    setMyHomeData( state, data ){
+        state.myHomeObj.myhomeData = data;
+    },
+    /* homeApplyList 代理后台数据 */
+    sethomeApplyList( state, data ){
+        state.myHomeObj.homeApplyList = data;
+    },
 }
 const actions = {
     clearLoginState ({commit, dispatch}, data) {
-        commit('ck', '0')
-        localStorage.setItem('qq_uid', 0)
+        commit('ck', '0');
+        localStorage.setItem('qq_uid', 0);
         localStorage.removeItem('ck')
     },
     async setRegis ({state, commit, dispatch},data) {
@@ -165,7 +176,7 @@ const actions = {
         /* 用户信息 后台的 */
         try {
             let userHomeInfo = await ajax.get(`/agent/user/detail?token=${getCk()}&src=${src}`);
-            commit('userHomeInfo', userHomeInfo)
+            commit('setMyHomeData', userHomeInfo)
         } catch (e) {
             dispatch('showToast', e.message)
         }

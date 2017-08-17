@@ -13,12 +13,12 @@
             <p class="apply-can">提现金额</p>
             <div class="apply-now">
                 <span>￥</span>
-                <input type="text" name="apply" placeholder="请输入10的倍数">
+                <input type="text" v-model="applyCash" name="apply" placeholder="请输入10的倍数">
             </div>
             <div class="apply-tips red">
-                本次最多可提现<i>120</i>元，<a href="javascript:;">全部提现</a>
+                本次最多可提现<i>{{ money | moneyFormate }}</i>元，<a href="javascript:;" v-tap="{ methods:allIn}">全部提现</a>
             </div>
-            <a href="javascript:;" class="btn btn-apply btn-sure">确认提现</a>
+            <a href="javascript:;" class="btn btn-apply btn-sure" v-tap="{ methods:confirmApply }" >确认提现</a>
             <p class="apply-time">确认无误后一个工作日内到帐</p>
         </div>
         <div class="bottom-payApply">
@@ -34,17 +34,51 @@
     export default {
         data(){
             return {
-                title: ''
+                title: '',
+                money:'76732139',
+                applyCash:'',
             }
         },
         watch: {},
-        methods: {},
-        computed: {},
+        methods: {
+            allIn(){
+                this.applyCash = this.moneyFormate( this.money)
+            },
+            moneyFormate(num){
+                num = Number(num);
+                num = parseInt(num/10) *10;
+                if (num < 10000) {
+                    return num
+                } else if (num < 100000000) {
+                    return Math.round(num / 10000 * 10) / 10 + '万'
+                } else {
+                    return Math.round(num / 100000000 * 10) / 10 + '亿'
+                }
+            },
+            confirmApply(){
+                /* 确认提现 */
+            }
+        },
+        computed: {
+
+        },
         components:{
             Header_all
         },
         mounted(){
-
+        },
+        filters: {
+            moneyFormate: (num) => {
+                num = Number(num);
+                num = parseInt(num/10) *10;
+                if (num < 10000) {
+                    return num
+                } else if (num < 100000000) {
+                    return Math.round(num / 10000 * 10) / 10 + '万'
+                } else {
+                    return Math.round(num / 100000000 * 10) / 10 + '亿'
+                }
+            }
         }
     }
 </script>

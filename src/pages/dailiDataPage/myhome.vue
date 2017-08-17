@@ -4,28 +4,8 @@
         <div class="main-home">
             <div class="date" id="date">
                 <ul>
-                    <li class="on">7月</li>
-                    <li>8月</li>
-                    <li>9月</li>
-                    <li>10月</li>
-                    <li>11月</li>
-                    <li>12月</li>
-                    <li>13月</li>
-                    <li>10月</li>
-                    <li>11月</li>
-                    <li>12月</li>
-                    <li>13月</li>
-                    <li>2016年7月</li>
-                    <li>2016年8月</li>
-                    <li>2016年9月</li>
-                    <li>2016年10月</li>
-                    <li>2016年11月</li>
-                    <li>2016年12月</li>
-                    <li>2016年13月</li>
-                    <li>2016年10月</li>
-                    <li>2016年11月</li>
-                    <li>2016年12月</li>
-                    <li>2016年13月</li>
+                    <li class="" v-for="item in titleStr">{{ item }}</li>
+                    <li class="on">sss</li>
                 </ul>
             </div>
             <div class="msg-home">
@@ -69,7 +49,13 @@
         data() {
             return {
                 visible4: false,
+                titleStr:false,
             };
+        },
+        computed:{
+            myhomeData(){
+                return this.$store.state.myHomeObj.myhomeData
+            }
         },
         components:{
             Header_all
@@ -160,7 +146,8 @@
         mounted(){
             /*  做一个日期处理  */
             var a = this.monthFormate( new Date().getTime() , '1413973208820');
-            console.log(a)
+            this.titleStr = a.titleStr
+            console.log(this.titleStr)
         }
     };
 </script>
