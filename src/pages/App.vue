@@ -579,8 +579,8 @@
         color: #c0c0c4;
     }
     .date ul{
-        width:40rem;
-        /*瀹藉害闇€瑕佸姩鎬佽幏鍙�*/
+        width:100rem;
+        /*动态获取*/
         height:0.43rem;
         overflow-x: auto;
         text-align: center;
