@@ -202,22 +202,23 @@
     }
     .login{
         position: absolute;
-        right:0.35rem;
+        right:0;
         top:0;
         font-size:0.3rem;
         color: #fff;
+        padding:0 0.35rem;
     }
     .user{
         position: absolute;
-        right:0.35rem;
-        top:0.285rem;
+        right:0rem;
+        top:0rem;
         width:0.44rem;
-        height:0.43rem;
+        height:100%;
         padding-top:0.01rem;
         overflow: hidden;
         font-size:0;
         background: url("../images/user.png") no-repeat center;
-        background-size: cover;
+        background-size: 0.44rem 0.43rem;
     }
     .top h1{
         text-align: center;
@@ -306,19 +307,20 @@
     .eye{
         position: absolute;
         z-index:2;
-        top:0.22rem;
-        right:0.3rem;
+        top:0;
+        right:0;
+        padding:0.22rem 0.3rem;
         width:0.61rem;
         height:0.35rem;
         overflow: hidden;
     }
     .eye-on{
         background: url("../images/eye-on.png") no-repeat center;
-        background-size: cover;
+        background-size: 0.61rem 0.35rem;
     }
     .eye-off{
         background: url("../images/eye-off.png") no-repeat center;
-        background-size: cover;
+        background-size: 0.61rem 0.35rem;
     }
     .forget-psw .eye{
         top:0.325rem;
@@ -863,9 +865,6 @@
         background: #a5a6d4;
     }
     /*杩斾剑璇︽儏*/
-    .date-rebate{
-
-    }
     /*aa*/
     .rebate{
         display: flex;
@@ -877,14 +876,15 @@
     }
     .date-rebate{
         position: absolute;
-        right: 0.42rem;
-        top: 0.31rem;
-        min-width: 0.42rem;
-        height: 0.38rem;
+        right: 0;
+        top: 0;
+        width: 0.42rem;
+        height: 100%;
         overflow: hidden;
+        padding:0 0.42rem;
         font-size: 0;
-        background: url(../images/calendar.png) no-repeat right center;
-        background-size: cover;
+        background: url(../images/calendar.png) no-repeat center;
+        background-size: 0.41rem 0.38rem;
     }
     .rebate .rebate-msg{
         width:100%;

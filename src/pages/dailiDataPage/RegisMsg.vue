@@ -24,7 +24,7 @@
                 <span>QQ：</span>
                 <p>{{ loginAjaxData.qq  }}</p>
             </div>
-            <a href="#" class="btn protocol2" v-tap="{ methods:goPageFn, target : 'protocol' }">《代理合作协议》</a>
+            <a href="#" class="btn protocol2" v-tap="{ methods:goPageFn, target : 'protocol' }">《推广合伙人协议》</a>
             <a href="javascript:;" class="btn check-refuse" v-if="loginAjaxData.v_status === '-1'">审核不通过</a>
             <a href="javascript:;" class="btn check-ing"  v-if="loginAjaxData.v_status === '1'">审核中</a>
             <p class="notice"></p>

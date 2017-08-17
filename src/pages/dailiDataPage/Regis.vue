@@ -45,7 +45,7 @@
                 <div class="protocol">
                     <input type="checkbox" v-model="confirmbox">
                     <span>18岁以上，且同意</span>
-                    <a v-tap="{ methods:goPageFn, target : 'protocol' }">《代理合作协议》</a>
+                    <a v-tap="{ methods:goPageFn, target : 'protocol' }">《推广合伙人协议》</a>
                 </div>
                 <input type="submit" v-tap="{ methods:sendSubmit}" value="提交" name="submit" key="sub2" v-if="confirmbox">
                 <input type="submit" value="提交" name="submit" key="sub1"  class="unsubmit" v-else>
@@ -73,7 +73,7 @@
                 showCode:false,
                 codeType:'password',
                 confirmbox:false,
-                countDownStr:'发送验证码',
+                countDownStr:'获取验证码',
                 addUnable:false,
             }
         },
@@ -167,7 +167,7 @@
                 if( tel_reg.test( this.telNumber ) ){
                     let codeTime = 10;
                     let times = null;
-                    if( this.countDownStr !=='发送验证码' ){
+                    if( this.countDownStr !=='获取验证码' ){
                         return false;
                     }
                     this.countDownStr = '重发（'+ codeTime +'s）';
@@ -177,7 +177,7 @@
                     times = setInterval(()=>{
                         codeTime = codeTime -1;
                         if(codeTime === 0){
-                            this.countDownStr = '发送验证码';
+                            this.countDownStr = '获取验证码';
                             this.addUnable = false;
                             codeTime = 10;
                             clearInterval(times);
