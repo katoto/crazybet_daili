@@ -1,6 +1,11 @@
 <template>
-    <div class="l-full l-flex-column">
-        <p>fdasfdsaf</p>
+
+    <div class="rebate">
+        <div class="top">
+            <a href="javascript:;" class="btn font0 back">返回</a>
+            <a href="#" class="btn date-rebate">日期选择</a>
+            <h1>返佣详情</h1>
+        </div>
         <div class="rebate-msg">
             <ul>
                 <li class="rebate-msg1">
@@ -9,281 +14,214 @@
                 </li>
                 <li class="rebate-msg2">
                     <span>总盈亏</span>
-                    <div>65.3万</div>
+                    <div>62万</div>
                 </li>
-                <li class="rebate-msg3">
-                    <span>总返佣</span>
-                    <div>65.3万</div>
-                </li>
-
             </ul>
         </div>
-        <div class="l-flex-1 l-relative">
-            <div class="mytable_fixed l-full l-flex-column">
-                <div class="mytable_header">
-                    <div class="mytable_fixedHeaderColumn">
-                        <div class="col headercol">用户</div>
-                    </div>
-                    <div class="mytable_header_left">
-                        <div>
-                            <div class="col headercol">投注</div>
-                            <div class="col headercol">盈亏</div>
-                            <div class="col headercol">返佣</div>
-                            <div class="col headercol">手续费</div>
-                            <div class="col headercol">兑换奖品成本</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="mytable_container l-flex-1">
-                    <div class="mytable_fixedColumn">
-                        <!--固定2列的行展示-->
-                        <div class="myfixedrow">
-                            <div class="col fixedcol" style="">1</div>
-                        </div>
-                        <div class="myfixedrow">
-                            <div class="col fixedcol" style="">2</div>
-                        </div>
-                        <div class="myfixedrow">
-                            <div class="col fixedcol" style="">3</div>
-                        </div>
-                        <div class="myfixedrow">
-                            <div class="col fixedcol" style="">4</div>
-                        </div>
-                        <div class="myfixedrow">
-                            <div class="col fixedcol" style="">5</div>
-                        </div>
-                        <div class="myfixedrow">
-                            <div class="col fixedcol" style="">6</div>
-                        </div>
-                        <div class="myfixedrow">
-                            <div class="col fixedcol" style="">7</div>
-                        </div>
-                        <div class="myfixedrow">
-                            <div class="col fixedcol" style="">8</div>
-                        </div>
-                        <div class="myfixedrow">
-                            <div class="col fixedcol" style="">9</div>
-                        </div>
-                        <div class="myfixedrow">
-                            <div class="col fixedcol" style="">10</div>
-                        </div>
-                        <div class="myfixedrow">
-                            <div class="col fixedcol" style="">11</div>
-                        </div>
-                        <div class="myfixedrow">
-                            <div class="col fixedcol" style="">12</div>
-                        </div>
-                        <div class="myfixedrow">
-                            <div class="col fixedcol" style="">1</div>
-                        </div>
-                        <div class="myfixedrow">
-                            <div class="col fixedcol" style="">2</div>
-                        </div>
-                        <div class="myfixedrow">
-                            <div class="col fixedcol" style="">3</div>
-                        </div>
-                        <div class="myfixedrow">
-                            <div class="col fixedcol" style="">4</div>
-                        </div>
-                        <div class="myfixedrow">
-                            <div class="col fixedcol" style="">5</div>
-                        </div>
-                        <div class="myfixedrow">
-                            <div class="col fixedcol" style="">6</div>
-                        </div>
-                        <div class="myfixedrow">
-                            <div class="col fixedcol" style="">7</div>
-                        </div>
-                        <div class="myfixedrow">
-                            <div class="col fixedcol" style="">8</div>
-                        </div>
-                        <div class="myfixedrow">
-                            <div class="col fixedcol" style="">9</div>
-                        </div>
-                        <div class="myfixedrow">
-                            <div class="col fixedcol" style="">10</div>
-                        </div>
-                        <div class="myfixedrow">
-                            <div class="col fixedcol" style="">11</div>
-                        </div>
-                        <div class="myfixedrow">
-                            <div class="col fixedcol" style="">12</div>
-                        </div>
-                    </div>
-                    <div class="mytable_conentent">
-                        <!--非固定列数据-->
-                        <div data-scrollable="true"  >
-                            <div class="myrow" >
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col">3</div>
-                                <div class="col">4</div>
-                                <div class="col">5</div>
-                            </div>
-                            <div class="myrow" >
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col">3</div>
-                                <div class="col">4</div>
-                                <div class="col">5</div>
-                            </div>
-                            <div class="myrow" >
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col">3</div>
-                                <div class="col">4</div>
-                                <div class="col">5</div>
-                            </div>
-                            <div class="myrow" >
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col">3</div>
-                                <div class="col">4</div>
-                                <div class="col">5</div>
-                            </div>
-                            <div class="myrow" >
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col">3</div>
-                                <div class="col">4</div>
-                                <div class="col">5</div>
-                            </div>
-                            <div class="myrow" >
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col">3</div>
-                                <div class="col">4</div>
-                                <div class="col">5</div>
-                            </div>
-                            <div class="myrow" >
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col">3</div>
-                                <div class="col">4</div>
-                                <div class="col">5</div>
-                            </div>
-                            <div class="myrow" >
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col">3</div>
-                                <div class="col">4</div>
-                                <div class="col">5</div>
-                            </div>
-                            <div class="myrow" >
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col">3</div>
-                                <div class="col">4</div>
-                                <div class="col">5</div>
-                            </div>
-                            <div class="myrow" >
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col">3</div>
-                                <div class="col">4</div>
-                                <div class="col">5</div>
-                            </div>
-                            <div class="myrow" >
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col">3</div>
-                                <div class="col">4</div>
-                                <div class="col">5</div>
-                            </div>
-                            <div class="myrow" >
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col">3</div>
-                                <div class="col">4</div>
-                                <div class="col">5</div>
-                            </div>
-                            <div class="myrow" >
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col">3</div>
-                                <div class="col">4</div>
-                                <div class="col">5</div>
-                            </div>
-                            <div class="myrow" >
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col">3</div>
-                                <div class="col">4</div>
-                                <div class="col">5</div>
-                            </div>
-                            <div class="myrow" >
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col">3</div>
-                                <div class="col">4</div>
-                                <div class="col">5</div>
-                            </div>
-                            <div class="myrow" >
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col">3</div>
-                                <div class="col">4</div>
-                                <div class="col">5</div>
-                            </div>
-                            <div class="myrow" >
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col">3</div>
-                                <div class="col">4</div>
-                                <div class="col">5</div>
-                            </div>
-                            <div class="myrow" >
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col">3</div>
-                                <div class="col">4</div>
-                                <div class="col">5</div>
-                            </div>
-                            <div class="myrow" >
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col">3</div>
-                                <div class="col">4</div>
-                                <div class="col">5</div>
-                            </div>
-                            <div class="myrow" >
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col">3</div>
-                                <div class="col">4</div>
-                                <div class="col">5</div>
-                            </div>
-                            <div class="myrow" >
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col">3</div>
-                                <div class="col">4</div>
-                                <div class="col">5</div>
-                            </div>
-                            <div class="myrow" >
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col">3</div>
-                                <div class="col">4</div>
-                                <div class="col">5</div>
-                            </div>
-                            <div class="myrow" >
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col">3</div>
-                                <div class="col">4</div>
-                                <div class="col">5</div>
-                            </div>
-                            <div class="myrow" >
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col">3</div>
-                                <div class="col">4</div>
-                                <div class="col">5</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+        <div class="rebate-view">
+            <div class="view-t">
+                <ul>
+                    <li>用户</li>
+                    <li>投注</li>
+                    <li>盈亏</li>
+                    <li>手续费</li>
+                    <li>奖品成本</li>
+                </ul>
+            </div>
+            <div class="view-c">
+                <ul>
+                    <li>
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                    </li>
+                    <li>
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                    </li>
+                    <li>
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                    </li>
+                    <li>
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                    </li>
+                    <li>
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                    </li>
+                    <li>
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                    </li>
+                    <li>
+                        <span>133</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                    </li>
+                    <li>
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                    </li>
+                    <li>
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                    </li>
+                    <li>
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                    </li>
+                    <li>
+                        <span>144</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                    </li>
+                    <li>
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                    </li>
+                    <li>
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                    </li>
+                    <li>
+                        <span>133</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                    </li>
+                    <li>
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                    </li>
+                    <li>
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                    </li>
+                    <li>
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                    </li>
+                    <li>
+                        <span>144</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                    </li>
+                    <li>
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                    </li>
+                    <li>
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                    </li>
+                    <li>
+                        <span>333</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                    </li>
+                    <li>
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                    </li>
+                    <li>
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                    </li>
+                    <li>
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                    </li>
+                    <li>
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                    </li>
+                    <li>
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                    </li>
+                    <li>
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>final</span>
+                    </li>
+                </ul>
+>>>>>>> 91ff372d9b9f7209727ecc7b8caae8c02f20c09f
             </div>
         </div>
     </div>
@@ -304,4 +242,9 @@
         }
     }
 </script>
-
+<style>
+    html,body,.wrapper{
+        height:100%;
+        overflow: hidden;
+    }
+</style>
