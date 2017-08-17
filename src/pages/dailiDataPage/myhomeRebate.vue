@@ -28,11 +28,12 @@
                 </ul>
             </div>
             <div class="view-c">
-                <ul>
+
+                    <ul class="view-scroll">
                     <li>
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
+                        <span>1111111111111111111111111</span>
+                        <span>2111111111111111111111111</span>
+                        <span>3222222222222222</span>
                         <span>4</span>
                         <span>5</span>
                     </li>
@@ -219,6 +220,7 @@
                         <span>final</span>
                     </li>
                 </ul>
+
             </div>
         </div>
     </div>
