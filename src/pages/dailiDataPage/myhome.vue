@@ -148,6 +148,7 @@
             var a = this.monthFormate( new Date().getTime() , '1413973208820');
             this.titleStr = a.titleStr
             console.log(this.titleStr)
+
         }
     };
 </script>

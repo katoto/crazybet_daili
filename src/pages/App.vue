@@ -572,17 +572,17 @@
     .date{
         width:100%;
         height:0.43rem;
-        overflow-x: scroll;
+        overflow-x: auto;
         border-bottom:1px solid #e2e2e2;
         padding-top:0.33rem;
         font-size:0.24rem;
         color: #c0c0c4;
     }
     .date ul{
-        width:40rem;
-        /*瀹藉害闇€瑕佸姩鎬佽幏鍙�*/
+        min-width:100%;
+        width:15rem;
+        /*动态获取*/
         height:0.43rem;
-        overflow-x: auto;
         text-align: center;
         display: flex;
         display: -webkit-flex;
