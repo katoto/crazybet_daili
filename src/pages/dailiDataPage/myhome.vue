@@ -160,13 +160,9 @@
         mounted(){
             /*  做一个日期处理  */
             var a = this.monthFormate( new Date().getTime() , '1413973208820');
-            console.log(a)
+            console.log(a);
         }
     };
-
-
-
-
 </script>
 <style>
     ::-webkit-scrollbar {
