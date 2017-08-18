@@ -5,11 +5,11 @@
             <ul>
                 <li class="rebate-msg1">
                     <span>总投注</span>
-                    <div>65.3万</div>
+                    <div v-if="total_profit">{{ total_profit | moneyFormate }}</div>
                 </li>
                 <li class="rebate-msg2">
                     <span>总盈亏</span>
-                    <div>62万</div>
+                    <div v-if="total_recharge">{{ total_recharge | moneyFormate }}</div>
                 </li>
             </ul>
         </div>
@@ -24,195 +24,13 @@
                 </ul>
             </div>
             <div class="view-c">
-                <ul class="view-scroll">
-                    <li>
-                        <span>1111111111111111111111111</span>
-                        <span>2111111111111111111111111</span>
-                        <span>3222222222222222</span>
-                        <span>4</span>
-                        <span>5</span>
-                    </li>
-                    <li>
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                    </li>
-                    <li>
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                    </li>
-                    <li>
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                    </li>
-                    <li>
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                    </li>
-                    <li>
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                    </li>
-                    <li>
-                        <span>133</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                    </li>
-                    <li>
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                    </li>
-                    <li>
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                    </li>
-                    <li>
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                    </li>
-                    <li>
-                        <span>144</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                    </li>
-                    <li>
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                    </li>
-                    <li>
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                    </li>
-                    <li>
-                        <span>133</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                    </li>
-                    <li>
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                    </li>
-                    <li>
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                    </li>
-                    <li>
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                    </li>
-                    <li>
-                        <span>144</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                    </li>
-                    <li>
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                    </li>
-                    <li>
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                    </li>
-                    <li>
-                        <span>333</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                    </li>
-                    <li>
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                    </li>
-                    <li>
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                    </li>
-                    <li>
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                    </li>
-                    <li>
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                    </li>
-                    <li>
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                    </li>
-                    <li>
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>final</span>
+                <ul class="view-scroll" v-if="inviteList">
+                    <li v-for="item in inviteList.invitee_list">
+                        <span>{{ item.name }}</span>
+                        <span>{{ item.recharge }}</span>
+                        <span>{{ item.profit }}</span>
+                        <span>{{ item.tax }}</span>
+                        <span>{{ item.cost }}</span>
                     </li>
                 </ul>
             </div>
@@ -229,7 +47,6 @@
                     date-format="{value} 日"
                     @confirm="handleChange">
             </mt-datetime-picker>
-
         </div>
     </div>
 </template>
@@ -284,6 +101,19 @@
         computed: {
             showCalendar(){
                 return this.$store.state.myHomeObj.showCalendar
+            },
+            inviteList(){
+                return this.$store.state.myHomeObj.inviteList
+            },
+            total_profit(){
+                if(this.inviteList){
+                    return this.inviteList.total_profit
+                }
+            },
+            total_recharge(){
+                if(this.inviteList){
+                    return this.inviteList.total_recharge
+                }
             }
         },
         components:{
@@ -291,6 +121,7 @@
         },
         mounted(){
             this.valueTime = this.matchTimeThunder(new Date());
+            this.$store.dispatch('getInviteList')
         },
         filters:{
             matchTimeThunder (time, format = 'yyyy-MM-dd') {
@@ -316,6 +147,17 @@
                             return tf(t.getSeconds())
                     }
                 })
+            },
+            moneyFormate: (num) => {
+                num = Number(num);
+                num = parseInt(num/10) *10;
+                if (num < 10000) {
+                    return num
+                } else if (num < 100000000) {
+                    return Math.round(num / 10000 * 10) / 10 + '万'
+                } else {
+                    return Math.round(num / 100000000 * 10) / 10 + '亿'
+                }
             }
         }
     }

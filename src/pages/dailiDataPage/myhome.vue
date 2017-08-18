@@ -3,29 +3,9 @@
         <Header_all person-title="疯狂猜球代理后台" :icon-style="'userMsg'"></Header_all>
         <div class="main-home">
             <div class="date" id="date">
-                <ul>
-                    <li class="on">7月</li>
-                    <li>8月</li>
-                    <li>9月</li>
-                    <li>10月</li>
-                    <li>11月</li>
-                    <li>12月</li>
-                    <li>13月</li>
-                    <li>10月</li>
-                    <li>11月</li>
-                    <li>12月</li>
-                    <li>13月</li>
-                    <li>2016年7月</li>
-                    <li>2016年8月</li>
-                    <li>2016年9月</li>
-                    <li>2016年10月</li>
-                    <li>2016年11月</li>
-                    <li>2016年12月</li>
-                    <li>2016年13月</li>
-                    <li>2016年10月</li>
-                    <li>2016年11月</li>
-                    <li>2016年12月</li>
-                    <li>2016年13月</li>
+                <!--,  scrollLeft:computeMargin  -->
+                <ul id="myhomeTitle" :style="{ width: computeWidth}" v-tap="{ methods:selTitleTime}">
+                    <li v-for="(item,index) in titleStr" :class="{'on': selectOn === index } " :data-time="index" >{{ item }}</li>
                 </ul>
             </div>
             <div class="msg-home">
@@ -69,12 +49,34 @@
         data() {
             return {
                 visible4: false,
+                titleStr:false,
+                selectOn:'',
             };
+        },
+        computed:{
+            myhomeData(){
+                return this.$store.state.myHomeObj.myhomeData
+            },
+            computeWidth(){
+                return ( this.titleStr.length *1.43 )+'rem'
+            },
+            computeMargin(){
+                if( this.titleStr.length > 5 ){
+                    return (( this.titleStr.length -5 ) *1.43 )+'rem'
+                }
+                return ''
+            }
         },
         components:{
             Header_all
         },
         methods: {
+            selTitleTime(e){
+                if(e.event.target){
+                    this.selectOn = +( e.event.target.getAttribute('data-time'));
+                    console.log(this.selectOn)
+                }
+            },
             monthFormate(startTime ,endTime){
                     /*startTime 现在时间*/
 //                endTime 为注册时间
@@ -96,8 +98,8 @@
                 Date_startTime = new Date(startTime);
                 Date_endTime = new Date(endTime);
                 /* 年超过的情况 */
-                monthStr.push( '本月');
-                AjaxTime.push(Date_startTime.getFullYear() +'-'+(Date_startTime.getMonth()+1));
+                monthStr.unshift( '本月');
+                AjaxTime.unshift(Date_startTime.getFullYear() +'-'+(Date_startTime.getMonth()+1));
                 nowMonth = Date_startTime.getMonth();
                 endMonth = Date_endTime.getMonth(); // 注册的时间
                 if( Date_startTime.getFullYear() !==  Date_endTime.getFullYear()){
@@ -110,33 +112,33 @@
                         /* 开始了多少 */
                         for( var i=0,len = nowMonth;i< len  ;i++ ){
                             nowMonth -- ;
-                            AjaxTime.push( Date_startTime.getFullYear() +'-'+(nowMonth+1) );
-                            monthStr.push( (nowMonth+1)+'月' );
+                            AjaxTime.unshift( Date_startTime.getFullYear() +'-'+(nowMonth+1) );
+                            monthStr.unshift( (nowMonth+1)+'月' );
                         }
                         /* 中间有多少 */
                         for( var i=1,len =yearIndex;i<len;i++ ){
                             for( var j=12;j>= 1  ;j-- ){
-                                AjaxTime.push( Date_startTime.getFullYear()-i +'-'+ j);
-                                monthStr.push( (Date_startTime.getFullYear()-i).toString().slice(2,4) +'年'+(j) +'月');
+                                AjaxTime.unshift( Date_startTime.getFullYear()-i +'-'+ j);
+                                monthStr.unshift( (Date_startTime.getFullYear()-i).toString().slice(2,4) +'年'+(j) +'月');
                             }
                         }
                         /* 结束了多少 */
                         for( var i=12 ,len = (endMonth+1);i>=len  ;i-- ){
-                            AjaxTime.push(  Date_endTime.getFullYear() +'-'+(i) );
-                            monthStr.push( Date_endTime.getFullYear().toString().slice(2,4) +'年'+(i) +'月');
+                            AjaxTime.unshift(  Date_endTime.getFullYear() +'-'+(i) );
+                            monthStr.unshift( Date_endTime.getFullYear().toString().slice(2,4) +'年'+(i) +'月');
                         }
                     }else{
 //                        中间无12个月
                         /* 开始了多少 */
                         for( var i=0,len = nowMonth;i< len  ;i++ ){
                             nowMonth -- ;
-                            AjaxTime.push( Date_startTime.getFullYear() +'-'+(nowMonth+1) );
-                            monthStr.push( (nowMonth+1)+'月' );
+                            AjaxTime.unshift( Date_startTime.getFullYear() +'-'+(nowMonth+1) );
+                            monthStr.unshift( (nowMonth+1)+'月' );
                         }
                         /* 结束了多少 */
                         for( var i=12 ,len = (endMonth+1);i>=len  ;i-- ){
-                            AjaxTime.push(  Date_endTime.getFullYear() +'-'+(i) );
-                            monthStr.push( Date_endTime.getFullYear().toString().slice(2,4) +'年'+(i) +'月');
+                            AjaxTime.unshift(  Date_endTime.getFullYear() +'-'+(i) );
+                            monthStr.unshift( Date_endTime.getFullYear().toString().slice(2,4) +'年'+(i) +'月');
                         }
                     }
 
@@ -146,21 +148,24 @@
                     if( timeIndex !== 0 ){
                         for( var i=0;i< timeIndex;i++ ){
                             nowMonth -- ;
-                            AjaxTime.push( Date_startTime.getFullYear() +'-'+(nowMonth+1) );
-                            monthStr.push( (nowMonth+1)+'月' );
+                            AjaxTime.unshift( Date_startTime.getFullYear() +'-'+(nowMonth+1) );
+                            monthStr.unshift( (nowMonth+1)+'月' );
                         }
                     }
                 }
                 return {
-                    titleStr:monthStr.reverse(),
-                    AjaxStr:AjaxTime.reverse()
+                    titleStr:monthStr,
+                    AjaxStr:AjaxTime
                 }
             }
         },
         mounted(){
             /*  做一个日期处理  */
-            var a = this.monthFormate( new Date().getTime() , '1413973208820');
-            console.log(a);
+            var a = this.monthFormate( new Date().getTime() , '1488973208820');
+            this.titleStr = a.titleStr;
+            this.selectOn =   this.titleStr.length -1;
+            console.log(this.titleStr)
+
         }
     };
 </script>

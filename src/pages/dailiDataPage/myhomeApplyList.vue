@@ -2,6 +2,7 @@
     <div class="page-infinite">
         <Header_all person-title="提现记录" :icon-style="'myhome'"></Header_all>
         <div class="main-list">
+            {{ homeApplyList }}
             <ul>
                 <li>
                     <span class="list-date">2017-06-28</span>
@@ -90,6 +91,11 @@
         },
         methods: {
 
+        },
+        computed:{
+            homeApplyList(){
+                return this.$store.state.myHomeObj.homeApplyList
+            }
         },
         components:{
             Header_all
