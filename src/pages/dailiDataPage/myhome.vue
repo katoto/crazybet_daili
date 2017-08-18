@@ -3,7 +3,6 @@
         <Header_all person-title="疯狂猜球代理后台" :icon-style="'userMsg'"></Header_all>
         <div class="main-home">
             <div class="date" id="date">
-                <!--,  scrollLeft:computeMargin  -->
                 <ul id="myhomeTitle" :style="{ width: computeWidth}" v-tap="{ methods:selTitleTime}">
                     <li v-for="(item,index) in titleStr" :class="{'on': selectOn === index } " :data-time="index" >{{ item }}</li>
                 </ul>
@@ -40,13 +39,20 @@
         <div class="bottom-home">
             <p>邀请好友在各大应用商店搜索“疯狂猜球”。下载安装后输入您的代理号。剩下的交给我们，您什么都不用做，躺赚月薪无上限，就是这么简单！</p>
             <span style="display: inline-block;height: 1.23rem">专属代理号</span>
-            <div class="my-code" style="height: 1.23rem" v-if="myhomeData">{{ myhomeData.share_code }}</div>
+            <div class="my-code" style="height: 1.23rem" v-if="myhomeData"
+                 v-clipboard:success="succCopy"
+                 v-clipboard:error="onError"
+                 v-clipboard:copy="myhomeData.share_code"
+            >{{ myhomeData.share_code }}</div>
         </div>
     </div>
 </template>
 
 <script>
+    import Vue from 'vue'
     import Header_all from '~components/header_all.vue'
+    import vueClipboard2 from 'vue-clipboard2'
+    Vue.use(vueClipboard2);
     export default {
         data() {
             return {
@@ -86,6 +92,12 @@
             Header_all
         },
         methods: {
+            succCopy (){
+                this.$store.dispatch('showToast', '复制成功')
+            },
+            onError (){
+                this.$store.dispatch('showToast', '你手机不支持复制，收到输入~')
+            },
             jumpToPage({ go }){
                 switch ( go ) {
                     case 'myhomeRebate':
