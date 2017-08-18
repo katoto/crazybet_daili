@@ -24,7 +24,7 @@
                 </ul>
             </div>
             <div class="view-c">
-                <ul class="view-scroll" v-if="inviteList">
+                <ul class="view-scroll" v-if="inviteList && inviteList.invitee_list && inviteList.invitee_list.length>0">
                     <li v-for="item in inviteList.invitee_list">
                         <span>{{ item.name }}</span>
                         <span>{{ item.recharge }}</span>
@@ -32,6 +32,9 @@
                         <span>{{ item.tax }}</span>
                         <span>{{ item.cost }}</span>
                     </li>
+                </ul>
+                <ul class="view-scroll" v-else>
+                    <p style="text-align: center;margin-top: 2rem;font-size: 0.33rem">暂无数据哦~</p>
                 </ul>
             </div>
         </div>
@@ -72,8 +75,14 @@
                 this.$refs[picker].open();
             },
             handleChange(value) {
+                let nowDate = this.matchTimeThunder(new Date(),'MM-dd');
+                let selDate = this.matchTimeThunder(value,'MM-dd');
                 this.valueTime = this.matchTimeThunder(value);
-                this.titleTime = this.matchTimeThunder(new Date(),'MM-dd');
+                if(selDate === nowDate){
+                    this.titleTime = nowDate+' 今天';
+                }else{
+                    this.titleTime = selDate;
+                }
                 this.$store.dispatch('getInviteList',this.valueTime)
             },
             matchTimeThunder (time, format = 'yyyy-MM-dd') {

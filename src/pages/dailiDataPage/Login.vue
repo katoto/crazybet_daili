@@ -39,8 +39,11 @@
                         /* 可以到后台 */
                         this.$store.commit('ck', loginAjaxData.token);
                         this.$router.push(`/myhome`);
+                        setTimeout(()=>{
+                            this.$store.dispatch('getUserInfo')
+                        },10)
                     }else {
-                        /* 调整审核页面 */
+                        /* 审核页面 */
                         console.log(convertToQueryString(loginAjaxData));
                         localStorage.setItem('regisMsg', convertToQueryString(loginAjaxData));
                         this.$router.push(`/registerMsg`);

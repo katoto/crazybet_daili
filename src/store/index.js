@@ -30,7 +30,7 @@ const state = {
     },
     myHomeObj:{
         showCalendar:false, // 显示日历
-        myhomeData:null, // 代理后台数据
+        myhomeData:null, // 代理后台数据 myhome
         homeApplyList:null, // 提现记录
         payApply:null, // 提现申请
         inviteList:null, // 返佣详情
@@ -177,10 +177,10 @@ const actions = {
             dispatch('showToast', e.message)
         }
     },
-    async getUserHomeInfo ({state, commit, dispatch}) {
+    async getUserHomeInfo ({state, commit, dispatch},date) {
         /* 用户信息 后台的 */
         try {
-            let userHomeInfo = await ajax.get(`/agent/user/detail?token=${getCk()}&src=${src}`);
+            let userHomeInfo = await ajax.get(`/agent/invite/summary?token=${getCk()}&platform=${platform}&date=${date}`);
             commit('setMyHomeData', userHomeInfo)
         } catch (e) {
             dispatch('showToast', e.message)

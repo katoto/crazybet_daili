@@ -8,14 +8,14 @@
                     <li v-for="(item,index) in titleStr" :class="{'on': selectOn === index } " :data-time="index" >{{ item }}</li>
                 </ul>
             </div>
-            <div class="msg-home">
+            <div class="msg-home" v-if="myhomeData">
                 <div>
                     <div class="include">
                         <div class="include-t">
                             疯狂猜球盈利
                         </div>
                         <div class="include-c">
-                            500.3万
+                            {{ myhomeData.profits }}
                         </div>
                     </div>
                     <div class="member">
@@ -23,22 +23,24 @@
                             有效会员数
                         </div>
                         <div class="member-c">
-                            5
+                            {{ myhomeData.eff_user }}
                         </div>
                     </div>
                 </div>
-                <a href="#" class="btn">返佣详情</a>
+                <a href="javascript:;" class="btn" v-tap="{ methods: jumpToPage,go: 'myhomeRebate'  }">返佣详情</a>
             </div>
         </div>
-        <div class="income">
+        <div class="income" v-if="myhomeData">
             <div class="income-t">可提现佣金</div>
-            <div class="income-c">7500</div>
-            <a href="javascript:;" class="btn income-m unable">可提现</a>
+            <div class="income-c">{{ myhomeData.refound }}</div>
+            <a href="javascript:;" class="btn income-m" v-if="myhomeData.refound_status==='1'"  v-tap="{ methods: jumpToPage,go: 'myHomePayApply'  }">可提现</a>
+            <a href="javascript:;" class="btn income-m" v-if="myhomeData.refound_status==='0'"  v-tap="{ methods: jumpToPage,go: 'myHomePayApply'  }">查看</a>
+            <a href="javascript:;" class="btn income-m unable" v-if="myhomeData.refound_status==='2'">提现处理中</a>
         </div>
         <div class="bottom-home">
             <p>邀请好友在各大应用商店搜索“疯狂猜球”。下载安装后输入您的代理号。剩下的交给我们，您什么都不用做，躺赚月薪无上限，就是这么简单！</p>
-            <span>专属代理号</span>
-            <div class="my-code">QWE123</div>
+            <span style="display: inline-block;height: 1.23rem">专属代理号</span>
+            <div class="my-code" style="height: 1.23rem" v-if="myhomeData">{{ myhomeData.share_code }}</div>
         </div>
     </div>
 </template>
@@ -49,8 +51,9 @@
         data() {
             return {
                 visible4: false,
-                titleStr:false,
+                titleStr:'',
                 selectOn:'',
+                forTiltleTime:'',
             };
         },
         computed:{
@@ -65,22 +68,75 @@
                     return (( this.titleStr.length -5 ) *1.43 )+'rem'
                 }
                 return ''
+            },
+        },
+        watch:{
+            myhomeData(data,backdata){
+                if(data && data.cur_time && data.reg_time){
+                    let forTiltleTime = this.monthFormate( parseFloat(data.cur_time)*1000 ,parseFloat(data.reg_time)*1000 - 10022220000 );
+                    this.forTiltleTime = forTiltleTime;
+                    this.titleStr = forTiltleTime.titleStr;
+                    if(!backdata){
+                        this.selectOn =   this.titleStr.length -1;
+                    }
+                }
             }
         },
         components:{
             Header_all
         },
         methods: {
+            jumpToPage({ go }){
+                switch ( go ) {
+                    case 'myhomeRebate':
+                        this.$router.push(`/myhomeRebate`);
+                        break;
+                    case 'myHomePayApply':
+                        this.$router.push(`/myHomePayApply`);
+                        break;
+                    case 'back':
+                        window.history.back() ;
+                        break;
+                }
+            },
+
             selTitleTime(e){
                 if(e.event.target){
                     this.selectOn = +( e.event.target.getAttribute('data-time'));
-                    console.log(this.selectOn)
+                    this.$store.dispatch('getUserHomeInfo',this.forTiltleTime.AjaxStr[this.selectOn]);
                 }
+            },
+            matchTimeThunder (time, format = 'yyyy-MM-dd') {
+                let t = time
+                let tf = function (i) {
+                    return (i < 10 ? '0' : '') + i
+                }
+                return format.replace(/year|yyyy|MM|dd|HH|mm|ss/g, function (a) {
+                    switch (a) {
+                        case 'year':
+                            return tf(t.getFullYear()).slice(2)
+                        case 'yyyy':
+                            return tf(t.getFullYear())
+                        case 'MM':
+                            return tf(t.getMonth() + 1)
+                        case 'mm':
+                            return tf(t.getMinutes())
+                        case 'dd':
+                            return tf(t.getDate())
+                        case 'HH':
+                            return tf(t.getHours())
+                        case 'ss':
+                            return tf(t.getSeconds())
+                    }
+                })
             },
             monthFormate(startTime ,endTime){
                     /*startTime 现在时间*/
 //                endTime 为注册时间
                 var  monthStr = [],AjaxTime = [], timeIndex, yearIndex ,Date_startTime ,Date_endTime ,nowMonth ,endMonth;
+                let tf = function (i) {
+                    return (i < 10 ? '0' : '') + i
+                }
                 if(typeof startTime === 'string'){
                     startTime = +startTime;
                 }
@@ -99,7 +155,7 @@
                 Date_endTime = new Date(endTime);
                 /* 年超过的情况 */
                 monthStr.unshift( '本月');
-                AjaxTime.unshift(Date_startTime.getFullYear() +'-'+(Date_startTime.getMonth()+1));
+                AjaxTime.unshift(Date_startTime.getFullYear() +'-'+tf(Date_startTime.getMonth()+1));
                 nowMonth = Date_startTime.getMonth();
                 endMonth = Date_endTime.getMonth(); // 注册的时间
                 if( Date_startTime.getFullYear() !==  Date_endTime.getFullYear()){
@@ -112,19 +168,19 @@
                         /* 开始了多少 */
                         for( var i=0,len = nowMonth;i< len  ;i++ ){
                             nowMonth -- ;
-                            AjaxTime.unshift( Date_startTime.getFullYear() +'-'+(nowMonth+1) );
+                            AjaxTime.unshift( Date_startTime.getFullYear() +'-'+tf(nowMonth+1) );
                             monthStr.unshift( (nowMonth+1)+'月' );
                         }
                         /* 中间有多少 */
                         for( var i=1,len =yearIndex;i<len;i++ ){
                             for( var j=12;j>= 1  ;j-- ){
-                                AjaxTime.unshift( Date_startTime.getFullYear()-i +'-'+ j);
+                                AjaxTime.unshift( Date_startTime.getFullYear()-i +'-'+ tf(j));
                                 monthStr.unshift( (Date_startTime.getFullYear()-i).toString().slice(2,4) +'年'+(j) +'月');
                             }
                         }
                         /* 结束了多少 */
                         for( var i=12 ,len = (endMonth+1);i>=len  ;i-- ){
-                            AjaxTime.unshift(  Date_endTime.getFullYear() +'-'+(i) );
+                            AjaxTime.unshift(  Date_endTime.getFullYear() +'-'+tf(i) );
                             monthStr.unshift( Date_endTime.getFullYear().toString().slice(2,4) +'年'+(i) +'月');
                         }
                     }else{
@@ -132,12 +188,12 @@
                         /* 开始了多少 */
                         for( var i=0,len = nowMonth;i< len  ;i++ ){
                             nowMonth -- ;
-                            AjaxTime.unshift( Date_startTime.getFullYear() +'-'+(nowMonth+1) );
+                            AjaxTime.unshift( Date_startTime.getFullYear() +'-'+tf(nowMonth+1) );
                             monthStr.unshift( (nowMonth+1)+'月' );
                         }
                         /* 结束了多少 */
                         for( var i=12 ,len = (endMonth+1);i>=len  ;i-- ){
-                            AjaxTime.unshift(  Date_endTime.getFullYear() +'-'+(i) );
+                            AjaxTime.unshift(  Date_endTime.getFullYear() +'-'+tf(i) );
                             monthStr.unshift( Date_endTime.getFullYear().toString().slice(2,4) +'年'+(i) +'月');
                         }
                     }
@@ -148,7 +204,7 @@
                     if( timeIndex !== 0 ){
                         for( var i=0;i< timeIndex;i++ ){
                             nowMonth -- ;
-                            AjaxTime.unshift( Date_startTime.getFullYear() +'-'+(nowMonth+1) );
+                            AjaxTime.unshift( Date_startTime.getFullYear() +'-'+tf(nowMonth+1) );
                             monthStr.unshift( (nowMonth+1)+'月' );
                         }
                     }
@@ -160,12 +216,14 @@
             }
         },
         mounted(){
-            /*  做一个日期处理  */
-            var a = this.monthFormate( new Date().getTime() , '1488973208820');
-            this.titleStr = a.titleStr;
-            this.selectOn =   this.titleStr.length -1;
-            console.log(this.titleStr)
-
+            console.log(this.forTiltleTime)
+            this.$store.dispatch('getUserHomeInfo',this.matchTimeThunder( new Date(),'yyyy-MM') )
+            if(this.myhomeData){
+                this.selectOn =   this.titleStr.length -1;
+            }
+        },
+        beforeDestroy(){
+            this.$store.commit('setMyHomeData',null)
         }
     };
 </script>

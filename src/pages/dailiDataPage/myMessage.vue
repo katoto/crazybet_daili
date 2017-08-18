@@ -29,7 +29,7 @@
                <p>{{ userInfo.qq }}</p>
            </div>
         </div>
-        <a href="#" class="btn protocol2">《代理合作协议》</a>
+        <a href="#" class="btn protocol2" v-tap="{ methods: jumpToPage,go: 'protocol' }">《代理合作协议》</a>
         <p class="contact-us">如需帮助请联系客服QQ : 3157085145</p>
     </div>
 </template>
@@ -43,7 +43,21 @@
             }
         },
         watch: {},
-        methods: {},
+        methods: {
+            jumpToPage({ go }){
+                switch ( go ) {
+                    case 'protocol':
+                        this.$router.push(`/protocol`);
+                        break;
+                    case 'myHomePayApply':
+                        this.$router.push(`/myHomePayApply`);
+                        break;
+                    case 'back':
+                        window.history.back() ;
+                        break;
+                }
+            },
+        },
         components:{
             Header_all
         },
