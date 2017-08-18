@@ -97,35 +97,35 @@
 <script type="text/babel">
     import Header_all from '~components/header_all.vue'
     import Vue from 'vue'
-    import { InfiniteScroll } from 'mint-ui';
-    Vue.use(InfiniteScroll);
+    import { InfiniteScroll } from 'mint-ui'
+Vue.use(InfiniteScroll)
 
-    export default {
-        data() {
+export default {
+        data () {
             return {
                 list: [],
                 loading: false,
                 allLoaded: false,
                 wrapperHeight: 0
-            };
-        },
-        methods: {
-            loadMore() {
-                this.loading = true;
-                setTimeout(() => {
-                    let last = this.list[this.list.length - 1];
-                    for (let i = 1; i <= 10; i++) {
-                        this.list.push(last + i);
-                    }
-                    this.loading = false;
-                }, 500);
             }
         },
-        mounted() {
+        methods: {
+            loadMore () {
+                this.loading = true
+                setTimeout(() => {
+                    let last = this.list[this.list.length - 1]
+                    for (let i = 1; i <= 10; i++) {
+                        this.list.push(last + i)
+                    }
+                    this.loading = false
+                }, 500)
+            }
+        },
+        mounted () {
 //            this.wrapperHeight = document.documentElement.clientHeight - this.$refs.wrapper.getBoundingClientRect().top;
 //            for (let i = 1; i <= 20; i++) {
 //                this.list.push(i);
 //            }
         }
-    };
+    }
 </script>

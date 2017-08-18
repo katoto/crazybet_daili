@@ -37,36 +37,36 @@
 <script>
     import Header_all from '~components/header_all.vue'
     export default {
-        data(){
+        data () {
             return {
                 title: ''
             }
         },
         watch: {},
         methods: {
-            jumpToPage({ go }){
-                switch ( go ) {
-                    case 'protocol':
-                        this.$router.push(`/protocol`);
-                        break;
-                    case 'myHomePayApply':
-                        this.$router.push(`/myHomePayApply`);
-                        break;
-                    case 'back':
-                        window.history.back() ;
-                        break;
+            jumpToPage ({ go }) {
+                switch (go) {
+                case 'protocol':
+                    this.$router.push(`/protocol`)
+                    break
+                case 'myHomePayApply':
+                    this.$router.push(`/myHomePayApply`)
+                    break
+                case 'back':
+                    window.history.back()
+                    break
                 }
-            },
+            }
         },
-        components:{
+        components: {
             Header_all
         },
         computed: {
-            userInfo(){
-                return this.$store.state.userInfo;
+            userInfo () {
+                return this.$store.state.userInfo
             }
         },
-        mounted(){
+        mounted () {
             this.$store.dispatch('getUserInfo')
         }
     }

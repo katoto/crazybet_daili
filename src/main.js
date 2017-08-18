@@ -8,24 +8,24 @@ import App from '~pages/App.vue'
 // 可以按需加载
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
-// Vue.component(Button.name, Button);
-Vue.use(MintUI);
-// Vue.use(DatePicker)
-// Vue.use(Table)
-// Vue.use(TableColumn)
-
 import storeFactory from './store/index'
 import router from './router'
 import { sync } from 'vuex-router-sync'
 import vueTap from 'v-tap'
-const store = storeFactory();
-sync(store, router);
-Vue.use(vueTap);
+// Vue.component(Button.name, Button);
+Vue.use(MintUI)
+// Vue.use(DatePicker)
+// Vue.use(Table)
+// Vue.use(TableColumn)
+
+const store = storeFactory()
+sync(store, router)
+Vue.use(vueTap)
 
 const app = new Vue(Object.assign({
     router,
-    store,
-}, App));
-app.$mount('#app');
+    store
+}, App))
+app.$mount('#app')
 
 export { app, router, store }

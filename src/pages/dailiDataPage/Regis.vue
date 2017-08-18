@@ -57,218 +57,222 @@
 </template>
 
 <script>
-    import {Indicator} from 'mint-ui';
-    import Header_all from '~components/header_all.vue';
-    import { convertToQueryString} from '~common/util'
+    import {Indicator} from 'mint-ui'
+import Header_all from '~components/header_all.vue'
+import { convertToQueryString} from '~common/util'
     export default {
-        data(){
+        data () {
             return {
-                telNumber:'',
-                telCode:'',
-                userPassWord:'',
-                userName:'',
-                alipayName:'',
-                qqNumber:'',
-                idCart:'',
-                showCode:false,
-                codeType:'password',
-                confirmbox:false,
-                countDownStr:'获取验证码',
-                addUnable:false,
+                telNumber: '',
+                telCode: '',
+                userPassWord: '',
+                userName: '',
+                alipayName: '',
+                qqNumber: '',
+                idCart: '',
+                showCode: false,
+                codeType: 'password',
+                confirmbox: false,
+                countDownStr: '获取验证码',
+                addUnable: false
             }
         },
-        components:{
+        components: {
             Header_all
         },
         methods: {
-            sendSubmit(){
-                let sendData = null;
-                /* 提交 */
-                if(this.telNumber===''){
+            sendSubmit () {
+                let sendData = null
+            /* 提交 */
+                if (this.telNumber === '') {
                     this.$store.dispatch('showToast', {
-                        duration : 1000,
-                        message : '请输入手机号'
-                    });
-                    return false;
-                }else if(this.telCode===''){
+                        duration: 1000,
+                        message: '请输入手机号'
+                    })
+                    return false
+                } else if (this.telCode === '') {
                     this.$store.dispatch('showToast', {
-                        duration : 1000,
-                        message : '请输入4位验证码'
-                    });
-                    return false;
-                }else if(this.userPassWord===''){
+                        duration: 1000,
+                        message: '请输入4位验证码'
+                    })
+                    return false
+                } else if (this.userPassWord === '') {
                     this.$store.dispatch('showToast', {
-                        duration : 1000,
-                        message : '请设置6~12位数字、字母组合密码'
-                    });
-                    return false;
-                }else if(this.userName===''){
+                        duration: 1000,
+                        message: '请设置6~12位数字、字母组合密码'
+                    })
+                    return false
+                } else if (this.userName === '') {
                     this.$store.dispatch('showToast', {
-                        duration : 1000,
-                        message : '请输入姓名'
-                    });
-                    return false;
-                }else if(this.idCart===''){
+                        duration: 1000,
+                        message: '请输入姓名'
+                    })
+                    return false
+                } else if (this.idCart === '') {
                     this.$store.dispatch('showToast', {
-                        duration : 1000,
-                        message : '请输入身份证号码'
-                    });
-                    return false;
-                }else if(this.alipayName===''){
+                        duration: 1000,
+                        message: '请输入身份证号码'
+                    })
+                    return false
+                } else if (this.alipayName === '') {
                     this.$store.dispatch('showToast', {
-                        duration : 1000,
-                        message : '请输入支付宝账号'
-                    });
-                    return false;
-                }else if(this.qqNumber===''){
+                        duration: 1000,
+                        message: '请输入支付宝账号'
+                    })
+                    return false
+                } else if (this.qqNumber === '') {
                     this.$store.dispatch('showToast', {
-                        duration : 1000,
-                        message : '请输入qq号'
-                    });
-                    return false;
+                        duration: 1000,
+                        message: '请输入qq号'
+                    })
+                    return false
                 }
                 Indicator.open({
                     text: '提交中...',
                     spinnerType: 'fading-circle'
-                });
-                /* 提交数据 */
-                sendData =  Object.assign({},{ mobile:this.telNumber , code:this.telCode , passwd:this.userPassWord ,
-                    username:this.userName , alipay:this.alipayName, qq:this.qqNumber,idcard:this.idCart});
-                this.$store.dispatch('setRegis', sendData);
-                /* function  */
+                })
+            /* 提交数据 */
+                sendData = Object.assign({}, { mobile: this.telNumber,
+                    code: this.telCode,
+                    passwd: this.userPassWord,
+                    username: this.userName,
+                    alipay: this.alipayName,
+                    qq: this.qqNumber,
+                    idcard: this.idCart})
+                this.$store.dispatch('setRegis', sendData)
+            /* function  */
             },
             goPageFn ({ target }) {
-                target = target || '';
+                target = target || ''
                 switch (target) {
-                    case 'protocol':
-                        _hmt.push(['_trackEvent', '代理注册页合作协议点击', 'click', '代理注册页合作协议']);
-                        this.$router.push(`/protocol`);
-                        break;
-                    case 'login':
-                        _hmt.push(['_trackEvent', '代理注册页登陆点击', 'click', '代理注册页登陆']);
-                        this.$router.push(`/login`);
-                        break;
-                    case 'backHistory':
-                        window.history.back();
-                        break
+                case 'protocol':
+                    _hmt.push(['_trackEvent', '代理注册页合作协议点击', 'click', '代理注册页合作协议'])
+                    this.$router.push(`/protocol`)
+                    break
+                case 'login':
+                    _hmt.push(['_trackEvent', '代理注册页登陆点击', 'click', '代理注册页登陆'])
+                    this.$router.push(`/login`)
+                    break
+                case 'backHistory':
+                    window.history.back()
+                    break
                 }
             },
-            showCodeFn(){
-                if(this.showCode){
-                    document.getElementById('passDom').setAttribute('type','password')
-                }else{
-                    document.getElementById('passDom').setAttribute('type','text')
+            showCodeFn () {
+                if (this.showCode) {
+                    document.getElementById('passDom').setAttribute('type', 'password')
+                } else {
+                    document.getElementById('passDom').setAttribute('type', 'text')
                 }
                 this.showCode = !(this.showCode)
             },
-            sendCodeFn(){
-                if(this.telNumber === ''){ return false; }
-                let tel_reg = /^1[34578]\d{9}$/;
-                if( tel_reg.test( this.telNumber ) ){
-                    let codeTime = 10;
-                    let times = null;
-                    if( this.countDownStr !=='获取验证码' ){
-                        return false;
+            sendCodeFn () {
+                if (this.telNumber === '') { return false }
+                let tel_reg = /^1[34578]\d{9}$/
+                if (tel_reg.test(this.telNumber)) {
+                    let codeTime = 10
+                    let times = null
+                    if (this.countDownStr !== '获取验证码') {
+                        return false
                     }
-                    this.countDownStr = '重发（'+ codeTime +'s）';
-                    this.addUnable = true;
-                    /* function   请求code  type 1 注册 type 2  修改  */
-                    this.$store.dispatch('getTelCode', Object.assign({},{ mobile:this.telNumber ,type:1 }));
-                    times = setInterval(()=>{
-                        codeTime = codeTime -1;
-                        if(codeTime === 0){
-                            this.countDownStr = '获取验证码';
-                            this.addUnable = false;
-                            codeTime = 10;
-                            clearInterval(times);
-                        }else{
-                            this.countDownStr = '重发（'+ codeTime +'s）';
-                            this.addUnable = true;
+                    this.countDownStr = '重发（' + codeTime + 's）'
+                    this.addUnable = true
+                /* function   请求code  type 1 注册 type 2  修改  */
+                    this.$store.dispatch('getTelCode', Object.assign({}, { mobile: this.telNumber, type: 1 }))
+                    times = setInterval(() => {
+                        codeTime = codeTime - 1
+                        if (codeTime === 0) {
+                            this.countDownStr = '获取验证码'
+                            this.addUnable = false
+                            codeTime = 10
+                            clearInterval(times)
+                        } else {
+                            this.countDownStr = '重发（' + codeTime + 's）'
+                            this.addUnable = true
                         }
-                    },1000)
-
-                }else{
+                    }, 1000)
+                } else {
                     this.$store.dispatch('showToast', {
-                        duration : 1000,
-                        message : '请输入正确的手机号'
+                        duration: 1000,
+                        message: '请输入正确的手机号'
                     })
                 }
             },
-            inpEvent(e){
-                if(e.target.value !=''){
-                    e.target.previousElementSibling.style.display = 'none';
-                } else{
-                    e.target.previousElementSibling.style.display = 'block';
+            inpEvent (e) {
+                if (e.target.value != '') {
+                    e.target.previousElementSibling.style.display = 'none'
+                } else {
+                    e.target.previousElementSibling.style.display = 'block'
                 }
-                if(e.target.name === 'phone'){
-                    if(e.target.value.length >11){
-                        this.telNumber = e.target.value.slice(0,11)
+                if (e.target.name === 'phone') {
+                    if (e.target.value.length > 11) {
+                        this.telNumber = e.target.value.slice(0, 11)
                     }
                 }
-                if(e.target.name === 'check'){
-                    if(e.target.value.length >4){
-                        this.telCode = e.target.value.slice(0,4)
+                if (e.target.name === 'check') {
+                    if (e.target.value.length > 4) {
+                        this.telCode = e.target.value.slice(0, 4)
                     }
                 }
-                if(e.target.name === 'name'){
-                    if(e.target.value.length >6){
-                        this.userName = e.target.value.slice(0,6)
+                if (e.target.name === 'name') {
+                    if (e.target.value.length > 6) {
+                        this.userName = e.target.value.slice(0, 6)
                     }
                 }
-                if(e.target.name === 'id'){
-                    if(e.target.value.length >22){
-                        this.idCart = e.target.value.slice(0,22)
+                if (e.target.name === 'id') {
+                    if (e.target.value.length > 22) {
+                        this.idCart = e.target.value.slice(0, 22)
                     }
                 }
-                if(e.target.name === 'alipay'){
-                    if(e.target.value.length >20){
-                        this.alipayName = e.target.value.slice(0,20)
+                if (e.target.name === 'alipay') {
+                    if (e.target.value.length > 20) {
+                        this.alipayName = e.target.value.slice(0, 20)
                     }
                 }
-                if(e.target.name === 'qq'){
-                    if(e.target.value.length >20){
-                        this.qqNumber = e.target.value.slice(0,20)
+                if (e.target.name === 'qq') {
+                    if (e.target.value.length > 20) {
+                        this.qqNumber = e.target.value.slice(0, 20)
                     }
                 }
             },
-            checkPassWord(e){
-                let pass_reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$/;
-                if(e.target.value !=''){
-                    e.target.previousElementSibling.style.display = 'none';
-                    if(! ( pass_reg.test( e.target.value)) ){
+            checkPassWord (e) {
+                let pass_reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$/
+                if (e.target.value != '') {
+                    e.target.previousElementSibling.style.display = 'none'
+                    if (!(pass_reg.test(e.target.value))) {
                         this.$store.dispatch('showToast', {
-                            duration : 1000,
-                            message : '请设置6~12位数字、字母组合密码'
+                            duration: 1000,
+                            message: '请设置6~12位数字、字母组合密码'
                         })
                     }
-                } else{
-                    e.target.previousElementSibling.style.display = 'block';
+                } else {
+                    e.target.previousElementSibling.style.display = 'block'
                 }
             },
-            checkTel(e){
-                let tel_reg = /^1[34578]\d{9}$/;
-                if(e.target.value !=''){
-                    e.target.previousElementSibling.style.display = 'none';
-                    if( tel_reg.test( e.target.value) ){
+            checkTel (e) {
+                let tel_reg = /^1[34578]\d{9}$/
+                if (e.target.value != '') {
+                    e.target.previousElementSibling.style.display = 'none'
+                    if (tel_reg.test(e.target.value)) {
                         console.log('手机号输入正确')
-                    }else{
+                    } else {
                         this.$store.dispatch('showToast', {
-                            duration : 1000,
-                            message : '请输入正确的手机号'
+                            duration: 1000,
+                            message: '请输入正确的手机号'
                         })
                     }
-                } else{
-                    e.target.previousElementSibling.style.display = 'block';
+                } else {
+                    e.target.previousElementSibling.style.display = 'block'
                 }
-            },
+            }
 
         },
         computed: {
-            regisAjaxData(){
-                return this.$store.state.formObj.regisAjaxData;
+            regisAjaxData () {
+                return this.$store.state.formObj.regisAjaxData
             }
         },
-        mounted(){
+        mounted () {
             /* 模拟提交 */
 
 /*            Indicator.open({
@@ -286,20 +290,19 @@
                 })
             },2000);  */
 
-
             console.log(this.telNumber)
         },
-        watch:{
-            regisAjaxData( regisAjaxData ){
-                Indicator.close();
+        watch: {
+            regisAjaxData (regisAjaxData) {
+                Indicator.close()
                 this.$store.dispatch('showToast', {
-                    duration : 1000,
-                    message : '提交成功',
-                    cb:()=>{
-                        localStorage.setItem('regisMsg', convertToQueryString(regisAjaxData));
-                        this.$router.push(`/registerMsg`);
+                    duration: 1000,
+                    message: '提交成功',
+                    cb: () => {
+                        localStorage.setItem('regisMsg', convertToQueryString(regisAjaxData))
+                        this.$router.push(`/registerMsg`)
                     }
-                });
+                })
             }
         }
     }

@@ -84,24 +84,23 @@
     import Vue from 'vue'
 
     export default {
-        data() {
+        data () {
             return {
-                allLoaded: false,
-            };
+                allLoaded: false
+            }
         },
         methods: {
 
-
         },
-        computed:{
-            homeApplyList(){
+        computed: {
+            homeApplyList () {
                 return this.$store.state.myHomeObj.homeApplyList
             }
         },
-        components:{
+        components: {
             Header_all
         },
-        mounted() {
+        mounted () {
         }
-    };
+    }
 </script>

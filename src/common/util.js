@@ -38,7 +38,7 @@ export const isLowAndroidVersion = (function () {
 })()
 
 export const convertToQueryString = function (obj) {
-    let result = [];
+    let result = []
     if (Object.keys(obj).length <= 0) {
         return false
     }
@@ -48,23 +48,23 @@ export const convertToQueryString = function (obj) {
     return result.join('&')
 }
 export const convertToObj = function (str) {
-    let result = {};
-    let seg = [];
-    let len ,i ,s;
+    let result = {}
+    let seg = []
+    let len, i, s
     if (str.length <= 0) {
         return false
     }
-    seg = str.split('&');
-    len = seg.length;
-    i = 0;
+    seg = str.split('&')
+    len = seg.length
+    i = 0
     for (; i < len; i++) {
         if (!seg[i]) {
-            continue;
+            continue
         }
-        s = seg[i].split('=');
-        result[s[0]] = s[1];
+        s = seg[i].split('=')
+        result[s[0]] = s[1]
     }
-    return result;
+    return result
 }
 
 export const wait = function (duration) {

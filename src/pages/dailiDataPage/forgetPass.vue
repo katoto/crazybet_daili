@@ -34,197 +34,196 @@
     import {Indicator} from 'mint-ui'
     import Header_all from '~components/header_all.vue'
     export default {
-        data() {
+        data () {
             return {
-                telNumber:'',
-                setPassWord:true,
-                showCode:false,
-                forgetCode:'',
-                countDownStr:'发送验证码',
-                addUnable:false,
-                againPassWord:'',
-            };
+                telNumber: '',
+                setPassWord: true,
+                showCode: false,
+                forgetCode: '',
+                countDownStr: '发送验证码',
+                addUnable: false,
+                againPassWord: ''
+            }
         },
         methods: {
-            forgetNext(){
+            forgetNext () {
                 /* 下一步  function */
-                let forgetData = null;
-                /* 提交 */
-                if(this.telNumber===''){
+                let forgetData = null
+            /* 提交 */
+                if (this.telNumber === '') {
                     this.$store.dispatch('showToast', {
-                        duration : 1000,
-                        message : '请输入手机号'
-                    });
-                    return false;
-                }else if(this.forgetCode===''){
+                        duration: 1000,
+                        message: '请输入手机号'
+                    })
+                    return false
+                } else if (this.forgetCode === '') {
                     this.$store.dispatch('showToast', {
-                        duration : 1000,
-                        message : '请输入4位验证码'
-                    });
-                    return false;
+                        duration: 1000,
+                        message: '请输入4位验证码'
+                    })
+                    return false
                 }
                 /* 提交数据 */
-                forgetData =  Object.assign({},{ mobile:this.telNumber , code:this.forgetCode });
-                this.$store.dispatch('checkWdReset',forgetData )
+                forgetData = Object.assign({}, { mobile: this.telNumber, code: this.forgetCode })
+                this.$store.dispatch('checkWdReset', forgetData)
             },
-            againConfirm(){
+            againConfirm () {
                 /* 确认  function */
-                if(this.againPassWord ===''){
+                if (this.againPassWord === '') {
                     this.$store.dispatch('showToast', {
-                        duration : 1000,
-                        message : '请输入重置密码'
-                    });
-                    return false;
-                }else{
-                    let pass_reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$/;
-                    if(! ( pass_reg.test( this.againPassWord)) ){
+                        duration: 1000,
+                        message: '请输入重置密码'
+                    })
+                    return false
+                } else {
+                    let pass_reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$/
+                    if (!(pass_reg.test(this.againPassWord))) {
                         this.$store.dispatch('showToast', {
-                            duration : 1000,
-                            message : '请设置6~12位数字、字母组合密码'
-                        });
-                        return false;
+                            duration: 1000,
+                            message: '请设置6~12位数字、字母组合密码'
+                        })
+                        return false
                     }
                     /* 重置密码 */
-                    this.$store.dispatch('passWdReset', Object.assign({},{ passwd:this.againPassWord},this.checkWdReset ));
+                    this.$store.dispatch('passWdReset', Object.assign({}, { passwd: this.againPassWord}, this.checkWdReset))
                 }
             },
-            showCodeFn(){
-                if(this.showCode){
-                    document.getElementById('againSetPassDom').setAttribute('type','password')
-                }else{
-                    document.getElementById('againSetPassDom').setAttribute('type','text')
+            showCodeFn () {
+                if (this.showCode) {
+                    document.getElementById('againSetPassDom').setAttribute('type', 'password')
+                } else {
+                    document.getElementById('againSetPassDom').setAttribute('type', 'text')
                 }
                 this.showCode = !(this.showCode)
             },
-            sendCodeFn(){
-                if(this.telNumber === ''){ return false; }
-                let tel_reg = /^1[34578]\d{9}$/;
-                if( tel_reg.test( this.telNumber ) ){
-                    let codeTime = 10;
-                    let times = null;
-                    if( this.countDownStr !=='发送验证码' ){
-                        return false;
+            sendCodeFn () {
+                if (this.telNumber === '') { return false }
+                let tel_reg = /^1[34578]\d{9}$/
+                if (tel_reg.test(this.telNumber)) {
+                    let codeTime = 10
+                    let times = null
+                    if (this.countDownStr !== '发送验证码') {
+                        return false
                     }
-                    this.countDownStr = '重发（'+ codeTime +'s）';
-                    this.addUnable = true;
-                    /* function   请求code   type 1 注册 type 2   */
-                    this.$store.dispatch('getTelCode', Object.assign({},{ mobile:this.telNumber ,type:2 }));
-                    times = setInterval(()=>{
-                        codeTime = codeTime -1;
-                        if(codeTime === 0){
-                            this.countDownStr = '发送验证码';
-                            this.addUnable = false;
-                            codeTime = 10;
-                            clearInterval(times);
-                        }else{
-                            this.countDownStr = '重发（'+ codeTime +'s）';
-                            this.addUnable = true;
+                    this.countDownStr = '重发（' + codeTime + 's）'
+                    this.addUnable = true
+                /* function   请求code   type 1 注册 type 2   */
+                    this.$store.dispatch('getTelCode', Object.assign({}, { mobile: this.telNumber, type: 2 }))
+                    times = setInterval(() => {
+                        codeTime = codeTime - 1
+                        if (codeTime === 0) {
+                            this.countDownStr = '发送验证码'
+                            this.addUnable = false
+                            codeTime = 10
+                            clearInterval(times)
+                        } else {
+                            this.countDownStr = '重发（' + codeTime + 's）'
+                            this.addUnable = true
                         }
-                    },1000)
-
-                }else{
+                    }, 1000)
+                } else {
                     this.$store.dispatch('showToast', {
-                        duration : 1000,
-                        message : '请输入正确的手机号'
+                        duration: 1000,
+                        message: '请输入正确的手机号'
                     })
                 }
             },
-            inpEvent(e){
-                if(e.target.value !=''){
-                    e.target.previousElementSibling.style.display = 'none';
-                } else{
-                    e.target.previousElementSibling.style.display = 'block';
+            inpEvent (e) {
+                if (e.target.value != '') {
+                    e.target.previousElementSibling.style.display = 'none'
+                } else {
+                    e.target.previousElementSibling.style.display = 'block'
                 }
-                if(e.target.name === 'check'){
-                    if(e.target.value.length >4){
-                        this.forgetCode = e.target.value.slice(0,4)
+                if (e.target.name === 'check') {
+                    if (e.target.value.length > 4) {
+                        this.forgetCode = e.target.value.slice(0, 4)
                     }
                 }
-                if(e.target.name === 'phone'){
-                    if(e.target.value.length >11){
-                        this.telNumber = e.target.value.slice(0,11)
+                if (e.target.name === 'phone') {
+                    if (e.target.value.length > 11) {
+                        this.telNumber = e.target.value.slice(0, 11)
                     }
                 }
             },
-            checkPassWord(e){
-                let pass_reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$/;
-                if(e.target.value !=''){
-                    if(! ( pass_reg.test( e.target.value)) ){
+            checkPassWord (e) {
+                let pass_reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$/
+                if (e.target.value != '') {
+                    if (!(pass_reg.test(e.target.value))) {
                         this.$store.dispatch('showToast', {
-                            duration : 1000,
-                            message : '请设置6~12位数字、字母组合密码'
+                            duration: 1000,
+                            message: '请设置6~12位数字、字母组合密码'
                         })
                     }
-                } else{
-                    e.target.previousElementSibling.style.display = 'block';
+                } else {
+                    e.target.previousElementSibling.style.display = 'block'
                 }
             },
-            checkTel(e){
-                let tel_reg = /^1[34578]\d{9}$/;
-                if(e.target.value !=''){
-                    if( tel_reg.test( e.target.value) ){
+            checkTel (e) {
+                let tel_reg = /^1[34578]\d{9}$/
+                if (e.target.value != '') {
+                    if (tel_reg.test(e.target.value)) {
                         console.log('手机号输入正确')
-                    }else{
+                    } else {
                         this.$store.dispatch('showToast', {
-                            duration : 1000,
-                            message : '请输入正确的手机号'
+                            duration: 1000,
+                            message: '请输入正确的手机号'
                         })
                     }
-                } else{
-                    e.target.previousElementSibling.style.display = 'block';
+                } else {
+                    e.target.previousElementSibling.style.display = 'block'
                 }
             },
 
             /*  是否有个小圆点 */
-            showTips(){
+            showTips () {
                 Indicator.open({
                     spinnerType: 'fading-circle'
-                });
-            },
+                })
+            }
 
         },
         computed: {
-            headerTitle(){
-                if(this.setPassWord){
-                    return '重置密码';
-                }else{
-                    return '找回密码';
+            headerTitle () {
+                if (this.setPassWord) {
+                    return '重置密码'
+                } else {
+                    return '找回密码'
                 }
             },
-            checkWdReset(){
-                return this.$store.state.formObj.checkWdReset;
+            checkWdReset () {
+                return this.$store.state.formObj.checkWdReset
             },
-            isSuccReset(){
-                return this.$store.state.formObj.isSuccReset;
-            },
+            isSuccReset () {
+                return this.$store.state.formObj.isSuccReset
+            }
 
         },
-        components:{
+        components: {
             Header_all
         },
-        watch:{
-            isSuccReset( isSuccReset ){
-                if(isSuccReset){
+        watch: {
+            isSuccReset (isSuccReset) {
+                if (isSuccReset) {
                     this.$store.dispatch('showToast', {
-                        duration : 800,
-                        message : '修改成功',
-                        cb:()=>{
-                            this.$router.push(`/login`);
+                        duration: 800,
+                        message: '修改成功',
+                        cb: () => {
+                            this.$router.push(`/login`)
                         }
-                    });
+                    })
                 }
             },
-            checkWdReset( checkWdReset ){
-                this.setPassWord = true;
-                setTimeout(()=>{
-                    if(document.getElementById('showPlaceHold')){
-                        document.getElementById('showPlaceHold').style.display = 'block';
+            checkWdReset (checkWdReset) {
+                this.setPassWord = true
+                setTimeout(() => {
+                    if (document.getElementById('showPlaceHold')) {
+                        document.getElementById('showPlaceHold').style.display = 'block'
                     }
-                },100)
+                }, 100)
             }
         },
-        mounted(){
-            this.setPassWord = false;
+        mounted () {
+            this.setPassWord = false
 //            setTimeout(()=>{
 //                this.setPassWord = true
 //            },1000)

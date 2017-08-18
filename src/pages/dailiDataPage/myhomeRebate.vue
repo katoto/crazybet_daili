@@ -56,87 +56,87 @@
 <script>
     import Header_all from '~components/header_all.vue'
     export default {
-        data(){
+        data () {
             return {
                 title: '',
                 valueTime: '2016-12-11',
-                pickerValue:new Date(new Date().getFullYear() - 1, 0, 1),
-                endDate:new Date(),
-                titleTime:'',
+                pickerValue: new Date(new Date().getFullYear() - 1, 0, 1),
+                endDate: new Date(),
+                titleTime: ''
             }
         },
         watch: {
-            showCalendar(){
+            showCalendar () {
                 this.open('picker')
             }
         },
         methods: {
-            open(picker) {
-                this.$refs[picker].open();
+            open (picker) {
+                this.$refs[picker].open()
             },
-            handleChange(value) {
-                let nowDate = this.matchTimeThunder(new Date(),'MM-dd');
-                let selDate = this.matchTimeThunder(value,'MM-dd');
-                this.valueTime = this.matchTimeThunder(value);
-                if(selDate === nowDate){
-                    this.titleTime = nowDate+' 今天';
-                }else{
-                    this.titleTime = selDate;
+            handleChange (value) {
+                let nowDate = this.matchTimeThunder(new Date(), 'MM-dd')
+                let selDate = this.matchTimeThunder(value, 'MM-dd')
+                this.valueTime = this.matchTimeThunder(value)
+                if (selDate === nowDate) {
+                    this.titleTime = nowDate + ' 今天'
+                } else {
+                    this.titleTime = selDate
                 }
-                this.$store.dispatch('getInviteList',this.valueTime)
+                this.$store.dispatch('getInviteList', this.valueTime)
             },
             matchTimeThunder (time, format = 'yyyy-MM-dd') {
-                let t = new Date(time);
+                let t = new Date(time)
                 let tf = function (i) {
                     return (i < 10 ? '0' : '') + i
-                };
+                }
                 return format.replace(/year|yyyy|MM|dd|HH|mm|ss/g, function (a) {
                     switch (a) {
-                        case 'year':
-                            return tf(t.getFullYear()).slice(2);
-                        case 'yyyy':
-                            return tf(t.getFullYear());
-                        case 'MM':
-                            return tf(t.getMonth() + 1);
-                        case 'mm':
-                            return tf(t.getMinutes());
-                        case 'dd':
-                            return tf(t.getDate());
-                        case 'HH':
-                            return tf(t.getHours());
-                        case 'ss':
-                            return tf(t.getSeconds())
+                    case 'year':
+                        return tf(t.getFullYear()).slice(2)
+                    case 'yyyy':
+                        return tf(t.getFullYear())
+                    case 'MM':
+                        return tf(t.getMonth() + 1)
+                    case 'mm':
+                        return tf(t.getMinutes())
+                    case 'dd':
+                        return tf(t.getDate())
+                    case 'HH':
+                        return tf(t.getHours())
+                    case 'ss':
+                        return tf(t.getSeconds())
                     }
                 })
             }
         },
         computed: {
-            showCalendar(){
+            showCalendar () {
                 return this.$store.state.myHomeObj.showCalendar
             },
-            inviteList(){
+            inviteList () {
                 return this.$store.state.myHomeObj.inviteList
             },
-            total_profit(){
-                if(this.inviteList){
+            total_profit () {
+                if (this.inviteList) {
                     return this.inviteList.total_profit
                 }
             },
-            total_recharge(){
-                if(this.inviteList){
+            total_recharge () {
+                if (this.inviteList) {
                     return this.inviteList.total_recharge
                 }
             }
         },
-        components:{
+        components: {
             Header_all
         },
-        mounted(){
-            this.valueTime = this.matchTimeThunder(new Date());
-            this.titleTime = this.matchTimeThunder(new Date(),'MM-dd')+' 今天';
-            this.$store.dispatch('getInviteList',this.valueTime)
+        mounted () {
+            this.valueTime = this.matchTimeThunder(new Date())
+            this.titleTime = this.matchTimeThunder(new Date(), 'MM-dd') + ' 今天'
+            this.$store.dispatch('getInviteList', this.valueTime)
         },
-        filters:{
+        filters: {
             matchTimeThunder (time, format = 'yyyy-MM-dd') {
                 let t = new Date(+time * 1000)
                 let tf = function (i) {
@@ -144,26 +144,26 @@
                 }
                 return format.replace(/year|yyyy|MM|dd|HH|mm|ss/g, function (a) {
                     switch (a) {
-                        case 'year':
-                            return tf(t.getFullYear()).slice(2)
-                        case 'yyyy':
-                            return tf(t.getFullYear())
-                        case 'MM':
-                            return tf(t.getMonth() + 1)
-                        case 'mm':
-                            return tf(t.getMinutes())
-                        case 'dd':
-                            return tf(t.getDate())
-                        case 'HH':
-                            return tf(t.getHours())
-                        case 'ss':
-                            return tf(t.getSeconds())
+                    case 'year':
+                        return tf(t.getFullYear()).slice(2)
+                    case 'yyyy':
+                        return tf(t.getFullYear())
+                    case 'MM':
+                        return tf(t.getMonth() + 1)
+                    case 'mm':
+                        return tf(t.getMinutes())
+                    case 'dd':
+                        return tf(t.getDate())
+                    case 'HH':
+                        return tf(t.getHours())
+                    case 'ss':
+                        return tf(t.getSeconds())
                     }
                 })
             },
             moneyFormate: (num) => {
-                num = Number(num);
-                num = parseInt(num/10) *10;
+                num = Number(num)
+                num = parseInt(num / 10) * 10
                 if (num < 10000) {
                     return num
                 } else if (num < 100000000) {

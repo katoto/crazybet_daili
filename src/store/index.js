@@ -6,12 +6,12 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import ajax from '~common/ajax'
 import {platform, src, wait, convertToQueryString, getCk, isLowAndroidVersion} from '~common/util'
-import {Indicator} from 'mint-ui';
+import {Indicator} from 'mint-ui'
 Vue.use(Vuex)
 
-let baseURL = 'ws://192.168.41.76:6999';
+let baseURL = 'ws://192.168.41.76:6999'
 if (process.env.NODE_ENV === 'production') {
-    baseURL = 'wss://crazybet.choopaoo.com/wss';
+    baseURL = 'wss://crazybet.choopaoo.com/wss'
 } else if (process.env.NODE_ENV === 'preRelease') {
     baseURL = 'ws://192.168.41.76:6999'
 }
@@ -22,26 +22,26 @@ const state = {
     userInfo: null,
     toastMsg: null,
     isLowAndroidVersion: false,
-    formObj:{
-        regisAjaxData:'',
-        loginAjaxData:'',
-        checkWdReset:'',
-        isSuccReset:null,
+    formObj: {
+        regisAjaxData: '',
+        loginAjaxData: '',
+        checkWdReset: '',
+        isSuccReset: null
     },
-    myHomeObj:{
-        showCalendar:false, // 显示日历
-        myhomeData:null, // 代理后台数据 myhome
-        homeApplyList:null, // 提现记录
-        payApply:null, // 提现申请
-        inviteList:null, // 返佣详情
-    },
+    myHomeObj: {
+        showCalendar: false, // 显示日历
+        myhomeData: null, // 代理后台数据 myhome
+        homeApplyList: null, // 提现记录
+        payApply: null, // 提现申请
+        inviteList: null // 返佣详情
+    }
 }
 const mutations = {
     setisLowAndroidVersion (state, data) {
         state.isLowAndroidVersion = data
     },
     ck (state, ck) {
-        state.ck = ck;
+        state.ck = ck
         localStorage.setItem('ck', ck)
     },
     userInfo (state, userInfo) {
@@ -54,65 +54,65 @@ const mutations = {
         state.toastMsg = msg
     },
     /* 注册 */
-    regisAjaxData( state, data ){
-        state.formObj.regisAjaxData = data;
+    regisAjaxData (state, data) {
+        state.formObj.regisAjaxData = data
     },
     /* 登陆 */
-    loginAjaxData( state, data ){
-        state.formObj.loginAjaxData = data;
+    loginAjaxData (state, data) {
+        state.formObj.loginAjaxData = data
     },
     /* 重置密码code 数据 */
-    checkWdReset( state, data ){
-        state.formObj.checkWdReset = data;
+    checkWdReset (state, data) {
+        state.formObj.checkWdReset = data
     },
     /* 重置密码code 数据 */
-    isSuccReset( state, data ){
-        state.formObj.isSuccReset = data;
+    isSuccReset (state, data) {
+        state.formObj.isSuccReset = data
     },
     /* showCalendar 修改日历 */
-    setCalendar( state, data ){
-        state.myHomeObj.showCalendar = data;
+    setCalendar (state, data) {
+        state.myHomeObj.showCalendar = data
     },
     /* myhomeData 代理后台数据 */
-    setMyHomeData( state, data ){
-        state.myHomeObj.myhomeData = data;
+    setMyHomeData (state, data) {
+        state.myHomeObj.myhomeData = data
     },
     /* homeApplyList 代理后台数据 */
-    sethomeApplyList( state, data ){
-        state.myHomeObj.homeApplyList = data;
+    sethomeApplyList (state, data) {
+        state.myHomeObj.homeApplyList = data
     },
     /* setInviteList 返佣详情数据 */
-    setInviteList( state, data ){
-        state.myHomeObj.inviteList = data;
-    },
+    setInviteList (state, data) {
+        state.myHomeObj.inviteList = data
+    }
 }
 const actions = {
     clearLoginState ({commit, dispatch}, data) {
-        commit('ck', '0');
-        localStorage.setItem('qq_uid', 0);
+        commit('ck', '0')
+        localStorage.setItem('qq_uid', 0)
         localStorage.removeItem('ck')
     },
-    async setRegis ({state, commit, dispatch},data) {
+    async setRegis ({state, commit, dispatch}, data) {
         /* 注册 */
         data = convertToQueryString(data)
         console.log(data)
         try {
-            let regisData = await ajax.get(`/agent/register?${data}&platform=${platform}`);
-            if( regisData.tips !== '' ){
+            let regisData = await ajax.get(`/agent/register?${data}&platform=${platform}`)
+            if (regisData.tips !== '') {
                 commit('regisAjaxData', regisData)
             }
-            console.log(regisData);
+            console.log(regisData)
         } catch (e) {
-            Indicator.close();
+            Indicator.close()
             dispatch('showToast', e.message + '/agent/register')
         }
     },
-    async getTelCode ({state, commit, dispatch},data) {
+    async getTelCode ({state, commit, dispatch}, data) {
         // 获取code
         data = convertToQueryString(data)
         console.log(data)
         try {
-            let codeData = await ajax.get(`/agent/verify/get?${data}`);
+            let codeData = await ajax.get(`/agent/verify/get?${data}`)
             console.log(codeData)
         } catch (e) {
             dispatch('showToast', e.message)
@@ -121,13 +121,12 @@ const actions = {
     async doLogin ({commit, dispatch}, params) {
         /* 登陆 */
         try {
-            let doLoginData = null;
-            params = convertToQueryString(params);
-            doLoginData = await ajax.get(`agent/login?${params}&platform=${platform}`);
-            if(doLoginData){
+            let doLoginData = null
+            params = convertToQueryString(params)
+            doLoginData = await ajax.get(`agent/login?${params}&platform=${platform}`)
+            if (doLoginData) {
                 commit('loginAjaxData', doLoginData)
             }
-
         } catch (e) {
             dispatch('showToast', e.message)
         }
@@ -135,11 +134,11 @@ const actions = {
     async checkWdReset ({commit, dispatch}, params) {
         /*  重置密码验证手机code  */
         try {
-            let checkData = null;
-            params = convertToQueryString(params);
-            checkData = await ajax.get(`agent/passwd/reset/check?${params}&platform=${platform}`);
-            commit('checkWdReset', checkData);
-            console.log(checkData);
+            let checkData = null
+            params = convertToQueryString(params)
+            checkData = await ajax.get(`agent/passwd/reset/check?${params}&platform=${platform}`)
+            commit('checkWdReset', checkData)
+            console.log(checkData)
         } catch (e) {
             dispatch('showToast', e.message)
         }
@@ -147,11 +146,11 @@ const actions = {
     async passWdReset ({commit, dispatch}, params) {
         /* 重置密码 */
         try {
-            let resetData = null;
-            params = convertToQueryString(params);
-            resetData = await ajax.get(`agent/passwd/reset?${params}&platform=${platform}`);
-            commit('isSuccReset', true);
-            console.log(resetData);
+            let resetData = null
+            params = convertToQueryString(params)
+            resetData = await ajax.get(`agent/passwd/reset?${params}&platform=${platform}`)
+            commit('isSuccReset', true)
+            console.log(resetData)
         } catch (e) {
             dispatch('showToast', e.message)
         }
@@ -171,25 +170,25 @@ const actions = {
     async getUserInfo ({state, commit, dispatch}) {
         /* 用户信息 审核的 */
         try {
-            let userInfo = await ajax.get(`/agent/user/detail?token=${getCk()}&platform=${platform}`);
+            let userInfo = await ajax.get(`/agent/user/detail?token=${getCk()}&platform=${platform}`)
             commit('userInfo', userInfo)
         } catch (e) {
             dispatch('showToast', e.message)
         }
     },
-    async getUserHomeInfo ({state, commit, dispatch},date) {
+    async getUserHomeInfo ({state, commit, dispatch}, date) {
         /* 用户信息 后台的 */
         try {
-            let userHomeInfo = await ajax.get(`/agent/invite/summary?token=${getCk()}&platform=${platform}&date=${date}`);
+            let userHomeInfo = await ajax.get(`/agent/invite/summary?token=${getCk()}&platform=${platform}&date=${date}`)
             commit('setMyHomeData', userHomeInfo)
         } catch (e) {
             dispatch('showToast', e.message)
         }
     },
-    async getInviteList ({state, commit, dispatch},date) {
+    async getInviteList ({state, commit, dispatch}, date) {
         /* 用户信息 后台的 */
         try {
-            let inviteList = await ajax.get(`/agent/invite/list?token=${getCk()}&platform=${platform}&date=${date}`);
+            let inviteList = await ajax.get(`/agent/invite/list?token=${getCk()}&platform=${platform}&date=${date}`)
             // let inviteList = await ajax.get(`http://192.168.41.76:9899/agent/invite/list?token=e800a0720d624241a018e321b7bbbc1e&date=2017-08`);
             commit('setInviteList', inviteList)
         } catch (e) {
@@ -209,11 +208,11 @@ const actions = {
         let {ck} = await ajax.get(`/login/guest?deviceid=${code}`)
         localStorage.setItem('ck', ck)
         commit('ck', ck)
-    },
+    }
 }
 
 export default () => new Vuex.Store({
     state,
     actions,
-    mutations,
+    mutations
 })

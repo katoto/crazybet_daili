@@ -24,118 +24,118 @@
     import Header_all from '~components/header_all.vue'
     import { convertToQueryString} from '~common/util'
     export default {
-        data(){
+        data () {
             return {
-                showCode:false,
-                loginTel:'',
-                loginPassWord:'',
+                showCode: false,
+                loginTel: '',
+                loginPassWord: ''
             }
         },
         watch: {
-            loginAjaxData( loginAjaxData ){
-                console.log(loginAjaxData);
-                if( loginAjaxData ){
-                    if(loginAjaxData.v_status === '0'){
+            loginAjaxData (loginAjaxData) {
+                console.log(loginAjaxData)
+                if (loginAjaxData) {
+                    if (loginAjaxData.v_status === '0') {
                         /* 可以到后台 */
-                        this.$store.commit('ck', loginAjaxData.token);
-                        this.$router.push(`/myhome`);
-                        setTimeout(()=>{
+                        this.$store.commit('ck', loginAjaxData.token)
+                        this.$router.push(`/myhome`)
+                        setTimeout(() => {
                             this.$store.dispatch('getUserInfo')
-                        },10)
-                    }else {
+                        }, 10)
+                    } else {
                         /* 审核页面 */
-                        console.log(convertToQueryString(loginAjaxData));
-                        localStorage.setItem('regisMsg', convertToQueryString(loginAjaxData));
-                        this.$router.push(`/registerMsg`);
+                        console.log(convertToQueryString(loginAjaxData))
+                        localStorage.setItem('regisMsg', convertToQueryString(loginAjaxData))
+                        this.$router.push(`/registerMsg`)
                     }
                 }
             }
         },
         computed: {
-            loginAjaxData(){
-                return this.$store.state.formObj.loginAjaxData;
+            loginAjaxData () {
+                return this.$store.state.formObj.loginAjaxData
             }
         },
         methods: {
-            getPassFn(){
-                this.$router.push(`/forgetPass`);
+            getPassFn () {
+                this.$router.push(`/forgetPass`)
             },
-            Login(){
+            Login () {
                 /* function  登陆拿ck */
-                let loginData = null;
-                /* 提交 */
-                if(this.loginTel===''){
+                let loginData = null
+            /* 提交 */
+                if (this.loginTel === '') {
                     this.$store.dispatch('showToast', {
-                        duration : 1000,
-                        message : '请输入手机号'
-                    });
-                    return false;
-                }else if(this.loginPassWord===''){
+                        duration: 1000,
+                        message: '请输入手机号'
+                    })
+                    return false
+                } else if (this.loginPassWord === '') {
                     this.$store.dispatch('showToast', {
-                        duration : 1000,
-                        message : '请设置6~12位数字、字母组合密码'
-                    });
-                    return false;
+                        duration: 1000,
+                        message: '请设置6~12位数字、字母组合密码'
+                    })
+                    return false
                 }
                 /* 提交数据 */
-                loginData =  Object.assign({},{ mobile:this.loginTel , passwd:this.loginPassWord });
-                console.log(loginData);
-                this.$store.dispatch('doLogin', loginData);
+                loginData = Object.assign({}, { mobile: this.loginTel, passwd: this.loginPassWord })
+                console.log(loginData)
+                this.$store.dispatch('doLogin', loginData)
             },
-            showCodeFn(e){
+            showCodeFn (e) {
                 /* 显示隐藏密码 */
-                if(this.showCode){
-                    document.getElementById('passDomLogin').setAttribute('type','password')
-                }else{
-                    document.getElementById('passDomLogin').setAttribute('type','text')
+                if (this.showCode) {
+                    document.getElementById('passDomLogin').setAttribute('type', 'password')
+                } else {
+                    document.getElementById('passDomLogin').setAttribute('type', 'text')
                 }
                 this.showCode = !(this.showCode)
             },
-            inpEvent(e){
-                if(e.target.value !=''){
-                    e.target.previousElementSibling.style.display = 'none';
-                } else{
-                    e.target.previousElementSibling.style.display = 'block';
+            inpEvent (e) {
+                if (e.target.value != '') {
+                    e.target.previousElementSibling.style.display = 'none'
+                } else {
+                    e.target.previousElementSibling.style.display = 'block'
                 }
-                if(e.target.name === 'phone'){
-                    if(e.target.value.length >11){
-                        this.loginTel = e.target.value.slice(0,11)
+                if (e.target.name === 'phone') {
+                    if (e.target.value.length > 11) {
+                        this.loginTel = e.target.value.slice(0, 11)
                     }
                 }
             },
-            checkPassWord(e){
-                let pass_reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$/;
-                if(e.target.value !=''){
-                    e.target.previousElementSibling.style.display = 'none';
-                    if(! ( pass_reg.test( e.target.value)) ){
+            checkPassWord (e) {
+                let pass_reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$/
+                if (e.target.value != '') {
+                    e.target.previousElementSibling.style.display = 'none'
+                    if (!(pass_reg.test(e.target.value))) {
                         this.$store.dispatch('showToast', {
-                            duration : 1000,
-                            message : '密码有误，请重新输入'
+                            duration: 1000,
+                            message: '密码有误，请重新输入'
                         })
                     }
-                } else{
-                    e.target.previousElementSibling.style.display = 'block';
+                } else {
+                    e.target.previousElementSibling.style.display = 'block'
                 }
             },
-            checkTel(e){
-                let tel_reg = /^1[34578]\d{9}$/;
-                if(e.target.value !=''){
-                    e.target.previousElementSibling.style.display = 'none';
-                    if(! ( tel_reg.test( e.target.value) ) ){
+            checkTel (e) {
+                let tel_reg = /^1[34578]\d{9}$/
+                if (e.target.value != '') {
+                    e.target.previousElementSibling.style.display = 'none'
+                    if (!(tel_reg.test(e.target.value))) {
                         this.$store.dispatch('showToast', {
-                            duration : 1000,
-                            message : '请输入正确的手机号'
+                            duration: 1000,
+                            message: '请输入正确的手机号'
                         })
                     }
-                } else{
-                    e.target.previousElementSibling.style.display = 'block';
+                } else {
+                    e.target.previousElementSibling.style.display = 'block'
                 }
-            },
+            }
         },
-        components:{
+        components: {
             Header_all
         },
-        mounted(){
+        mounted () {
 
         }
     }

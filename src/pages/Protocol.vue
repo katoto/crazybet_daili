@@ -36,7 +36,7 @@
 <script>
     import Header_all from '~components/header_all.vue'
     export default {
-        data(){
+        data () {
             return {
                 title: ''
             }
@@ -44,10 +44,10 @@
         watch: {},
         methods: {},
         computed: {},
-        components:{
+        components: {
             Header_all
         },
-        mounted(){
+        mounted () {
 
         }
     }

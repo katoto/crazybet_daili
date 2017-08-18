@@ -39,7 +39,7 @@
     import Header_all from '~components/header_all.vue'
     import { convertToQueryString, convertToObj} from '~common/util'
     export default {
-        data(){
+        data () {
             return {
                 title: ''
             }
@@ -49,37 +49,37 @@
         },
         methods: {
             goPageFn ({ target }) {
-                target = target || '';
+                target = target || ''
                 switch (target) {
-                    case 'protocol':
-                        _hmt.push(['_trackEvent', '代理注册页合作协议点击', 'click', '代理注册页合作协议']);
-                        this.$router.push(`/protocol`);
-                        break;
-                    case 'login':
-                        _hmt.push(['_trackEvent', '代理注册页登陆点击', 'click', '代理注册页登陆']);
-                        this.$router.push(`/login`);
-                        break;
-                    case 'backHistory':
-                        window.history.back();
-                        break
+                case 'protocol':
+                    _hmt.push(['_trackEvent', '代理注册页合作协议点击', 'click', '代理注册页合作协议'])
+                    this.$router.push(`/protocol`)
+                    break
+                case 'login':
+                    _hmt.push(['_trackEvent', '代理注册页登陆点击', 'click', '代理注册页登陆'])
+                    this.$router.push(`/login`)
+                    break
+                case 'backHistory':
+                    window.history.back()
+                    break
                 }
-            },
-        },
-        computed: {
-            loginAjaxData(){
-                return this.$store.state.formObj.loginAjaxData;
             }
         },
-        components:{
+        computed: {
+            loginAjaxData () {
+                return this.$store.state.formObj.loginAjaxData
+            }
+        },
+        components: {
             Header_all
         },
-        mounted(){
-            if(this.loginAjaxData === ''){
-                let regisMsg = localStorage.getItem('regisMsg');
-                console.log(convertToObj(regisMsg));
-                if(regisMsg && regisMsg !=='undefined'){
-                    this.$store.commit('loginAjaxData',convertToObj(regisMsg));
-                    localStorage.setItem('regisMsg',null);
+        mounted () {
+            if (this.loginAjaxData === '') {
+                let regisMsg = localStorage.getItem('regisMsg')
+                console.log(convertToObj(regisMsg))
+                if (regisMsg && regisMsg !== 'undefined') {
+                    this.$store.commit('loginAjaxData', convertToObj(regisMsg))
+                    localStorage.setItem('regisMsg', null)
                 }
             }
             /* function  请求用户信息 */

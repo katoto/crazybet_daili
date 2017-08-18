@@ -60,12 +60,12 @@ const router = new VueRouter({
         {
             path: '/myhome',
             component: MyHome,
-            meta:{ requiresAuth:true },
+            meta: { requiresAuth: true }
         },
         {
             path: '/myhomeRebate',
             component: MyHomeRebate,
-            meta:{ requiresAuth:true },
+            meta: { requiresAuth: true }
         },
         {
             path: '/myhomeApplyList',

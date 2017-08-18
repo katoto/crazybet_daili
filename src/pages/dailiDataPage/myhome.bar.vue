@@ -121,31 +121,31 @@
 <script>
     import Header_all from '~components/header_all.vue'
     export default {
-        data() {
+        data () {
             return {
                 numbers: [ 1, 2, 3, 4, 5 ],
                 value4: '2016-12-11',
                 value5: '04:32',
                 visible4: false,
-                pickerValue:new Date(new Date().getFullYear() - 1, 0, 1),
-                endDate:new Date(new Date().getFullYear() +1, 0, 1),
+                pickerValue: new Date(new Date().getFullYear() - 1, 0, 1),
+                endDate: new Date(new Date().getFullYear() + 1, 0, 1),
                 visible5: false,
                 selected: '1'
-            };
+            }
         },
-        components:{
+        components: {
             Header_all
         },
         methods: {
-            open(picker) {
-                this.$refs[picker].open();
+            open (picker) {
+                this.$refs[picker].open()
             },
-            handleChange(value) {
+            handleChange (value) {
                 alert(value.toString())
                 console.log(value)
             }
         }
-    };
+    }
 
 </script>
 <style>

@@ -52,70 +52,70 @@
     import Vue from 'vue'
     import Header_all from '~components/header_all.vue'
     import vueClipboard2 from 'vue-clipboard2'
-    Vue.use(vueClipboard2);
-    export default {
-        data() {
+    Vue.use(vueClipboard2)
+export default {
+        data () {
             return {
                 visible4: false,
-                titleStr:'',
-                selectOn:'',
-                forTiltleTime:'',
-            };
+                titleStr: '',
+                selectOn: '',
+                forTiltleTime: ''
+            }
         },
-        computed:{
-            myhomeData(){
+        computed: {
+            myhomeData () {
                 return this.$store.state.myHomeObj.myhomeData
             },
-            computeWidth(){
-                return ( this.titleStr.length *1.43 )+'rem'
+            computeWidth () {
+                return (this.titleStr.length * 1.43) + 'rem'
             },
-            computeMargin(){
-                if( this.titleStr.length > 5 ){
-                    return (( this.titleStr.length -5 ) *1.43 )+'rem'
+            computeMargin () {
+                if (this.titleStr.length > 5) {
+                    return ((this.titleStr.length - 5) * 1.43) + 'rem'
                 }
                 return ''
-            },
+            }
         },
-        watch:{
-            myhomeData(data,backdata){
-                if(data && data.cur_time && data.reg_time){
-                    let forTiltleTime = this.monthFormate( parseFloat(data.cur_time)*1000 ,parseFloat(data.reg_time)*1000 - 10022220000 );
-                    this.forTiltleTime = forTiltleTime;
-                    this.titleStr = forTiltleTime.titleStr;
-                    if(!backdata){
-                        this.selectOn =   this.titleStr.length -1;
+        watch: {
+            myhomeData (data, backdata) {
+                if (data && data.cur_time && data.reg_time) {
+                    let forTiltleTime = this.monthFormate(parseFloat(data.cur_time) * 1000, parseFloat(data.reg_time) * 1000 - 10022220000)
+                    this.forTiltleTime = forTiltleTime
+                    this.titleStr = forTiltleTime.titleStr
+                    if (!backdata) {
+                        this.selectOn = this.titleStr.length - 1
                     }
                 }
             }
         },
-        components:{
+        components: {
             Header_all
         },
         methods: {
-            succCopy (){
+            succCopy () {
                 this.$store.dispatch('showToast', '复制成功')
             },
-            onError (){
+            onError () {
                 this.$store.dispatch('showToast', '你手机不支持复制，收到输入~')
             },
-            jumpToPage({ go }){
-                switch ( go ) {
-                    case 'myhomeRebate':
-                        this.$router.push(`/myhomeRebate`);
-                        break;
-                    case 'myHomePayApply':
-                        this.$router.push(`/myHomePayApply`);
-                        break;
-                    case 'back':
-                        window.history.back() ;
-                        break;
+            jumpToPage ({ go }) {
+                switch (go) {
+                case 'myhomeRebate':
+                    this.$router.push(`/myhomeRebate`)
+                    break
+                case 'myHomePayApply':
+                    this.$router.push(`/myHomePayApply`)
+                    break
+                case 'back':
+                    window.history.back()
+                    break
                 }
             },
 
-            selTitleTime(e){
-                if(e.event.target){
-                    this.selectOn = +( e.event.target.getAttribute('data-time'));
-                    this.$store.dispatch('getUserHomeInfo',this.forTiltleTime.AjaxStr[this.selectOn]);
+            selTitleTime (e) {
+                if (e.event.target) {
+                    this.selectOn = +(e.event.target.getAttribute('data-time'))
+                    this.$store.dispatch('getUserHomeInfo', this.forTiltleTime.AjaxStr[this.selectOn])
                 }
             },
             matchTimeThunder (time, format = 'yyyy-MM-dd') {
@@ -125,119 +125,118 @@
                 }
                 return format.replace(/year|yyyy|MM|dd|HH|mm|ss/g, function (a) {
                     switch (a) {
-                        case 'year':
-                            return tf(t.getFullYear()).slice(2)
-                        case 'yyyy':
-                            return tf(t.getFullYear())
-                        case 'MM':
-                            return tf(t.getMonth() + 1)
-                        case 'mm':
-                            return tf(t.getMinutes())
-                        case 'dd':
-                            return tf(t.getDate())
-                        case 'HH':
-                            return tf(t.getHours())
-                        case 'ss':
-                            return tf(t.getSeconds())
+                    case 'year':
+                        return tf(t.getFullYear()).slice(2)
+                    case 'yyyy':
+                        return tf(t.getFullYear())
+                    case 'MM':
+                        return tf(t.getMonth() + 1)
+                    case 'mm':
+                        return tf(t.getMinutes())
+                    case 'dd':
+                        return tf(t.getDate())
+                    case 'HH':
+                        return tf(t.getHours())
+                    case 'ss':
+                        return tf(t.getSeconds())
                     }
                 })
             },
-            monthFormate(startTime ,endTime){
-                    /*startTime 现在时间*/
+            monthFormate (startTime, endTime) {
+                    /* startTime 现在时间 */
 //                endTime 为注册时间
-                var  monthStr = [],AjaxTime = [], timeIndex, yearIndex ,Date_startTime ,Date_endTime ,nowMonth ,endMonth;
+                var monthStr = [], AjaxTime = [], timeIndex, yearIndex, Date_startTime, Date_endTime, nowMonth, endMonth
                 let tf = function (i) {
                     return (i < 10 ? '0' : '') + i
                 }
-                if(typeof startTime === 'string'){
-                    startTime = +startTime;
+                if (typeof startTime === 'string') {
+                    startTime = +startTime
                 }
-                if(typeof endTime === 'string'){
-                    endTime = +endTime;
+                if (typeof endTime === 'string') {
+                    endTime = +endTime
                 }
-                if(isNaN(startTime)) {
-                    startTime = 0;
-                    return false;
+                if (isNaN(startTime)) {
+                    startTime = 0
+                    return false
                 }
-                if( isNaN(endTime) ){
-                    endTime = 0;
-                    return false;
+                if (isNaN(endTime)) {
+                    endTime = 0
+                    return false
                 }
-                Date_startTime = new Date(startTime);
-                Date_endTime = new Date(endTime);
-                /* 年超过的情况 */
-                monthStr.unshift( '本月');
-                AjaxTime.unshift(Date_startTime.getFullYear() +'-'+tf(Date_startTime.getMonth()+1));
-                nowMonth = Date_startTime.getMonth();
-                endMonth = Date_endTime.getMonth(); // 注册的时间
-                if( Date_startTime.getFullYear() !==  Date_endTime.getFullYear()){
+                Date_startTime = new Date(startTime)
+                Date_endTime = new Date(endTime)
+            /* 年超过的情况 */
+                monthStr.unshift('本月')
+                AjaxTime.unshift(Date_startTime.getFullYear() + '-' + tf(Date_startTime.getMonth() + 1))
+                nowMonth = Date_startTime.getMonth()
+                endMonth = Date_endTime.getMonth() // 注册的时间
+                if (Date_startTime.getFullYear() !== Date_endTime.getFullYear()) {
                     console.log(Date_startTime.getFullYear())
                     console.log(Date_endTime.getFullYear())
-                    yearIndex = Date_startTime.getFullYear() - Date_endTime.getFullYear() ;
-                    console.log(yearIndex);
-                    if( yearIndex > 1){
+                    yearIndex = Date_startTime.getFullYear() - Date_endTime.getFullYear()
+                    console.log(yearIndex)
+                    if (yearIndex > 1) {
                         /*  中间有12个月  */
                         /* 开始了多少 */
-                        for( var i=0,len = nowMonth;i< len  ;i++ ){
-                            nowMonth -- ;
-                            AjaxTime.unshift( Date_startTime.getFullYear() +'-'+tf(nowMonth+1) );
-                            monthStr.unshift( (nowMonth+1)+'月' );
+                        for (var i = 0, len = nowMonth; i < len; i++) {
+                            nowMonth--
+                            AjaxTime.unshift(Date_startTime.getFullYear() + '-' + tf(nowMonth + 1))
+                            monthStr.unshift((nowMonth + 1) + '月')
                         }
                         /* 中间有多少 */
-                        for( var i=1,len =yearIndex;i<len;i++ ){
-                            for( var j=12;j>= 1  ;j-- ){
-                                AjaxTime.unshift( Date_startTime.getFullYear()-i +'-'+ tf(j));
-                                monthStr.unshift( (Date_startTime.getFullYear()-i).toString().slice(2,4) +'年'+(j) +'月');
+                        for (var i = 1, len = yearIndex; i < len; i++) {
+                            for (var j = 12; j >= 1; j--) {
+                                AjaxTime.unshift(Date_startTime.getFullYear() - i + '-' + tf(j))
+                                monthStr.unshift((Date_startTime.getFullYear() - i).toString().slice(2, 4) + '年' + (j) + '月')
                             }
                         }
                         /* 结束了多少 */
-                        for( var i=12 ,len = (endMonth+1);i>=len  ;i-- ){
-                            AjaxTime.unshift(  Date_endTime.getFullYear() +'-'+tf(i) );
-                            monthStr.unshift( Date_endTime.getFullYear().toString().slice(2,4) +'年'+(i) +'月');
+                        for (var i = 12, len = (endMonth + 1); i >= len; i--) {
+                            AjaxTime.unshift(Date_endTime.getFullYear() + '-' + tf(i))
+                            monthStr.unshift(Date_endTime.getFullYear().toString().slice(2, 4) + '年' + (i) + '月')
                         }
-                    }else{
+                    } else {
 //                        中间无12个月
                         /* 开始了多少 */
-                        for( var i=0,len = nowMonth;i< len  ;i++ ){
-                            nowMonth -- ;
-                            AjaxTime.unshift( Date_startTime.getFullYear() +'-'+tf(nowMonth+1) );
-                            monthStr.unshift( (nowMonth+1)+'月' );
+                        for (var i = 0, len = nowMonth; i < len; i++) {
+                            nowMonth--
+                            AjaxTime.unshift(Date_startTime.getFullYear() + '-' + tf(nowMonth + 1))
+                            monthStr.unshift((nowMonth + 1) + '月')
                         }
                         /* 结束了多少 */
-                        for( var i=12 ,len = (endMonth+1);i>=len  ;i-- ){
-                            AjaxTime.unshift(  Date_endTime.getFullYear() +'-'+tf(i) );
-                            monthStr.unshift( Date_endTime.getFullYear().toString().slice(2,4) +'年'+(i) +'月');
+                        for (var i = 12, len = (endMonth + 1); i >= len; i--) {
+                            AjaxTime.unshift(Date_endTime.getFullYear() + '-' + tf(i))
+                            monthStr.unshift(Date_endTime.getFullYear().toString().slice(2, 4) + '年' + (i) + '月')
                         }
                     }
-
-                }else{
+                } else {
                     /* 无超过 */
-                    timeIndex =  nowMonth - endMonth;
-                    if( timeIndex !== 0 ){
-                        for( var i=0;i< timeIndex;i++ ){
-                            nowMonth -- ;
-                            AjaxTime.unshift( Date_startTime.getFullYear() +'-'+tf(nowMonth+1) );
-                            monthStr.unshift( (nowMonth+1)+'月' );
+                    timeIndex = nowMonth - endMonth
+                    if (timeIndex !== 0) {
+                        for (var i = 0; i < timeIndex; i++) {
+                            nowMonth--
+                            AjaxTime.unshift(Date_startTime.getFullYear() + '-' + tf(nowMonth + 1))
+                            monthStr.unshift((nowMonth + 1) + '月')
                         }
                     }
                 }
                 return {
-                    titleStr:monthStr,
-                    AjaxStr:AjaxTime
+                    titleStr: monthStr,
+                    AjaxStr: AjaxTime
                 }
             }
         },
-        mounted(){
-            console.log(this.forTiltleTime);
-            this.$store.dispatch('getUserHomeInfo',this.matchTimeThunder( new Date(),'yyyy-MM') )
-            if(this.myhomeData){
-                this.selectOn =   this.titleStr.length -1;
+        mounted () {
+            console.log(this.forTiltleTime)
+            this.$store.dispatch('getUserHomeInfo', this.matchTimeThunder(new Date(), 'yyyy-MM'))
+            if (this.myhomeData) {
+                this.selectOn = this.titleStr.length - 1
             }
         },
-        beforeDestroy(){
-            this.$store.commit('setMyHomeData',null)
+        beforeDestroy () {
+            this.$store.commit('setMyHomeData', null)
         }
-    };
+    }
 </script>
 <style>
     ::-webkit-scrollbar {

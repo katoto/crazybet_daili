@@ -32,21 +32,21 @@
 <script>
     import Header_all from '~components/header_all.vue'
     export default {
-        data(){
+        data () {
             return {
                 title: '',
-                money:'76732139',
-                applyCash:'',
+                money: '76732139',
+                applyCash: ''
             }
         },
         watch: {},
         methods: {
-            allIn(){
-                this.applyCash = this.moneyFormate( this.money)
+            allIn () {
+                this.applyCash = this.moneyFormate(this.money)
             },
-            moneyFormate(num){
-                num = Number(num);
-                num = parseInt(num/10) *10;
+            moneyFormate (num) {
+                num = Number(num)
+                num = parseInt(num / 10) * 10
                 if (num < 10000) {
                     return num
                 } else if (num < 100000000) {
@@ -55,22 +55,22 @@
                     return Math.round(num / 100000000 * 10) / 10 + '亿'
                 }
             },
-            confirmApply(){
+            confirmApply () {
                 /* 确认提现 */
             }
         },
         computed: {
 
         },
-        components:{
+        components: {
             Header_all
         },
-        mounted(){
+        mounted () {
         },
         filters: {
             moneyFormate: (num) => {
-                num = Number(num);
-                num = parseInt(num/10) *10;
+                num = Number(num)
+                num = parseInt(num / 10) * 10
                 if (num < 10000) {
                     return num
                 } else if (num < 100000000) {

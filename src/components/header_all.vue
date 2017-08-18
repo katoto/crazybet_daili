@@ -8,86 +8,86 @@
 </template>
 <script>
     export default {
-        props:['personTitle','iconStyle','timeTitle'],
+        props: ['personTitle', 'iconStyle', 'timeTitle'],
         data () {
             return {
-                rightTitle:'',
-                showUserIcon:false,
-                showHomeIcon:false,
-                showPayListIcon:false,
-                showRebate:false
+                rightTitle: '',
+                showUserIcon: false,
+                showHomeIcon: false,
+                showPayListIcon: false,
+                showRebate: false
             }
         },
         methods: {
             goBackFn ({ params }) {
-                switch (params ) {
+                switch (params) {
                 case 'login':
-                    this.$router.push(`/my/betlist`);
-                    break;
+                    this.$router.push(`/my/betlist`)
+                    break
                 case 'regis':
-                    this.$router.push(`/my/charge`);
-                    break;
+                    this.$router.push(`/my/charge`)
+                    break
                 case 'goLand':
                     /*  */
-                    alert('跳转落地页');
-                    break;
+                    alert('跳转落地页')
+                    break
                 case 'back':
-                    window.history.back() ;
-                    break;
+                    window.history.back()
+                    break
                 }
             },
             jumpToPage () {
                 switch (this.iconStyle) {
-                    case 'login':
-                        this.$router.push(`/login`);
-                        break;
-                    case 'regis':
-                        this.$router.push(`/register`);
-                        break;
-                    case 'userMsg':
-                        this.$router.push(`/mymsg`);
-                        break;
-                    case 'myhome':
-                        this.$router.push(`/myhome`);
-                        break;
-                    case 'myHomeApplyList':
-                        this.$router.push(`/myHomeApplyList`);
-                        break;
-                    case 'dateRebate':
+                case 'login':
+                    this.$router.push(`/login`)
+                    break
+                case 'regis':
+                    this.$router.push(`/register`)
+                    break
+                case 'userMsg':
+                    this.$router.push(`/mymsg`)
+                    break
+                case 'myhome':
+                    this.$router.push(`/myhome`)
+                    break
+                case 'myHomeApplyList':
+                    this.$router.push(`/myHomeApplyList`)
+                    break
+                case 'dateRebate':
                         /* 显示日历 */
-                        this.$store.commit('setCalendar',new Date().getTime());
-                        break;
-                    default:window.history.back() ;
+                    this.$store.commit('setCalendar', new Date().getTime())
+                    break
+                default:window.history.back()
                 }
             },
             imgOnError (that) {
                 that.target.setAttribute('src', 'http://img.choopaoo.com/esun/upload/be/83/be837ad8049611e797ef.png')
-            },
+            }
 
         },
         computed: {
-            showCalendar(){
+            showCalendar () {
                 return this.$store.state.myHomeObj.showCalendar
             }
         },
         mounted () {
-            if( this.iconStyle === 'login' ){
+            if (this.iconStyle === 'login') {
                 this.rightTitle = '登录'
-            }else if( this.iconStyle === 'regis' ){
+            } else if (this.iconStyle === 'regis') {
                 this.rightTitle = '注册'
-            } else if( this.iconStyle === 'userMsg' ){
-                this.showUserIcon = true;
-            }else if( this.iconStyle === 'myhome' ){
-                this.showHomeIcon = true;
-            }else if( this.iconStyle === 'myHomeApplyList' ){
-                this.showPayListIcon = true;
-            } else if( this.iconStyle === 'dateRebate'){
-                this.showRebate = true;
+            } else if (this.iconStyle === 'userMsg') {
+                this.showUserIcon = true
+            } else if (this.iconStyle === 'myhome') {
+                this.showHomeIcon = true
+            } else if (this.iconStyle === 'myHomeApplyList') {
+                this.showPayListIcon = true
+            } else if (this.iconStyle === 'dateRebate') {
+                this.showRebate = true
             }
         },
         filters: {
             format: (num) => {
-                num = Number(num);
+                num = Number(num)
                 if (num < 10000) {
                     return num
                 } else if (num < 100000000) {

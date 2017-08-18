@@ -6,7 +6,6 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.config.js --progress --hide-modules",
     "prod": "cross-env NODE_ENV=preRelease webpack --config build/webpack.prod.config.js --progress --hide-modules",
-    "dev": "node server.js",
     "localdev": "cross-env LOCAL_ENV=true PORT=80 node server.js",
     "clean": "rimraf dist/*",
     "lint": "eslint --ext .js,.vue src",

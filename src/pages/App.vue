@@ -9,18 +9,18 @@
 //    import '~static/css/live.css'
 //    import '~static/css/mine.css'
 //    import '~static/css/media.css'
-    import {getCk, isLowAndroidVersion, platform} from '~common/util'
+//    import {getCk, isLowAndroidVersion, platform} from '~common/util'
 
     export default {
         data () {
             return {
-                ready: false,
+                ready: false
             }
         },
         computed: {
             toastMsg () {
                 return this.$store.state.toastMsg
-            },
+            }
         },
         async mounted () {
             this.ready = true
