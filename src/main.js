@@ -12,20 +12,16 @@ import storeFactory from './store/index'
 import router from './router'
 import { sync } from 'vuex-router-sync'
 import vueTap from 'v-tap'
-// Vue.component(Button.name, Button);
-Vue.use(MintUI)
-// Vue.use(DatePicker)
-// Vue.use(Table)
-// Vue.use(TableColumn)
+Vue.use(MintUI);
 
-const store = storeFactory()
-sync(store, router)
-Vue.use(vueTap)
+const store = storeFactory();
+sync(store, router);
+Vue.use(vueTap);
 
 const app = new Vue(Object.assign({
     router,
     store
-}, App))
-app.$mount('#app')
+}, App));
+app.$mount('#app');
 
 export { app, router, store }

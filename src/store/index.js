@@ -33,7 +33,8 @@ const state = {
         myhomeData: null, // 代理后台数据 myhome
         homeApplyList: null, // 提现记录
         payApply: null, // 提现申请
-        inviteList: null // 返佣详情
+        inviteList: null, // 返佣详情
+        moneyNumber:null,
     }
 }
 const mutations = {
@@ -84,12 +85,17 @@ const mutations = {
     /* setInviteList 返佣详情数据 */
     setInviteList (state, data) {
         state.myHomeObj.inviteList = data
+    },
+    /* setMoneyNumber  存金额 */
+    setMoneyNumber (state, data) {
+        state.myHomeObj.moneyNumber = data
     }
+
 }
 const actions = {
     clearLoginState ({commit, dispatch}, data) {
-        commit('ck', '0')
-        localStorage.setItem('qq_uid', 0)
+        commit('ck', '0');
+        localStorage.setItem('qq_uid', 0);
         localStorage.removeItem('ck')
     },
     async setRegis ({state, commit, dispatch}, data) {

@@ -80,8 +80,9 @@ export default {
             myhomeData (data, backdata) {
                 if (data && data.cur_time && data.reg_time) {
                     let forTiltleTime = this.monthFormate(parseFloat(data.cur_time) * 1000, parseFloat(data.reg_time) * 1000 - 10022220000)
-                    this.forTiltleTime = forTiltleTime
-                    this.titleStr = forTiltleTime.titleStr
+                    this.$store.commit('setMoneyNumber',data.refound);
+                    this.forTiltleTime = forTiltleTime;
+                    this.titleStr = forTiltleTime.titleStr;
                     if (!backdata) {
                         this.selectOn = this.titleStr.length - 1
                     }
