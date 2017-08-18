@@ -1,6 +1,7 @@
 <template>
     <div class="rebate">
         <Header_all person-title="返佣详情" :icon-style="'dateRebate'"></Header_all>
+
         <div class="rebate-msg">
             <ul>
                 <li class="rebate-msg1">
