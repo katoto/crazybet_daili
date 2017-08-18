@@ -327,7 +327,7 @@
     }
     .reg-form .protocol{
         margin: 0.24rem 0 0.66rem 0;
-        line-height:0.46rem;
+        line-height:0.35rem;
         font-size:0.24rem;
         color: #808080;
     }
@@ -341,8 +341,8 @@
     .protocol input[type="checkbox"]{
         display: block;
         float: left;
-        width:0.44rem;
-        height:0.44rem;
+        width:0.33rem;
+        height:0.33rem;
         overflow: hidden;
         background: #f0f0f0;
         border:1px solid #ddd;
@@ -365,6 +365,10 @@
     }
     .reg-form>input,.check-agree,.loginon>input,.forget-next,.forget-sure{
         background: #6569c6;
+    }
+    .unsubmit{
+        background: #c0bfc4 !important;
+        color: #fff !important;
     }
     .forget-next,.forget-sure{
         width:6.7rem;
