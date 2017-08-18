@@ -8,8 +8,8 @@
                     <li v-for="(item,index) in titleStr" :class="{'on': selectOn === index } " :data-time="index" >{{ item }}</li>
                 </ul>
             </div>
-            <div class="msg-home" v-if="myhomeData">
-                <div>
+            <div class="msg-home">
+                <div v-if="myhomeData">
                     <div class="include">
                         <div class="include-t">
                             疯狂猜球盈利
@@ -216,7 +216,7 @@
             }
         },
         mounted(){
-            console.log(this.forTiltleTime)
+            console.log(this.forTiltleTime);
             this.$store.dispatch('getUserHomeInfo',this.matchTimeThunder( new Date(),'yyyy-MM') )
             if(this.myhomeData){
                 this.selectOn =   this.titleStr.length -1;
