@@ -33,6 +33,7 @@ const state = {
         myhomeData:null, // 代理后台数据
         homeApplyList:null, // 提现记录
         payApply:null, // 提现申请
+        inviteList:null, // 返佣详情
     },
 }
 const mutations = {
@@ -79,6 +80,10 @@ const mutations = {
     /* homeApplyList 代理后台数据 */
     sethomeApplyList( state, data ){
         state.myHomeObj.homeApplyList = data;
+    },
+    /* setInviteList 返佣详情数据 */
+    setInviteList( state, data ){
+        state.myHomeObj.inviteList = data;
     },
 }
 const actions = {
@@ -177,6 +182,16 @@ const actions = {
         try {
             let userHomeInfo = await ajax.get(`/agent/user/detail?token=${getCk()}&src=${src}`);
             commit('setMyHomeData', userHomeInfo)
+        } catch (e) {
+            dispatch('showToast', e.message)
+        }
+    },
+    async getInviteList ({state, commit, dispatch}) {
+        /* 用户信息 后台的 */
+        try {
+            // let inviteList = await ajax.get(`/agent/invite/list?token=${getCk()}&src=${src}`);
+            let inviteList = await ajax.get(`http://192.168.41.76:9899/agent/invite/list?token=e800a0720d624241a018e321b7bbbc1e&date=2017-08`);
+            commit('setInviteList', inviteList)
         } catch (e) {
             dispatch('showToast', e.message)
         }
