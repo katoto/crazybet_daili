@@ -99,7 +99,7 @@
                 }
                 if(e.target.name === 'phone'){
                     if(e.target.value.length >11){
-                        e.target.value = e.target.value.slice(0,11)
+                        this.loginTel = e.target.value.slice(0,11)
                     }
                 }
             },
