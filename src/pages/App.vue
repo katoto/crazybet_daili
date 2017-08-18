@@ -886,6 +886,15 @@
         background: url(../images/calendar.png) no-repeat center;
         background-size: 0.41rem 0.38rem;
     }
+    .data-tips{
+        display: block;
+        position: absolute;
+        right:0.95rem;
+        top:0;
+        line-height:1rem;
+        font-size:0.24rem;
+        color: #fff;
+    }
     .rebate .rebate-msg{
         width:100%;
         height:1.07rem;

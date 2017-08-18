@@ -36,7 +36,7 @@
             <a href="javascript:;" class="btn income-m unable">可提现</a>
         </div>
         <div class="bottom-home">
-            <p>邀请好友在各大应用商店搜索“”。下载安装后输入您的代理号。剩下的交给我们，您什么都不用做，躺赚月薪无上限，就是这么简单！</p>
+            <p>邀请好友在各大应用商店搜索“疯狂猜球”。下载安装后输入您的代理号。剩下的交给我们，您什么都不用做，躺赚月薪无上限，就是这么简单！</p>
             <span>专属代理号</span>
             <div class="my-code">QWE123</div>
         </div>

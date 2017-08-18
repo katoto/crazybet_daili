@@ -1,6 +1,12 @@
 <template>
     <div class="rebate">
         <Header_all person-title="返佣详情" :icon-style="'dateRebate'"></Header_all>
+        <div class="top" style="top: 1rem;">
+            <a href="javascript:;" class="btn font0 back">返回</a>
+            <a href="javascript:;" class="btn date-rebate"></a>
+            <span class="data-tips">07-10  今天</span>
+            <h1>返佣详情</h1>
+        </div>
         <div class="rebate-msg">
             <ul>
                 <li class="rebate-msg1">
