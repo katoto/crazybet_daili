@@ -309,9 +309,9 @@
         z-index:2;
         top:0;
         right:0;
-        padding:0.22rem 0.3rem;
+        padding:0 0.3rem;
         width:0.61rem;
-        height:0.35rem;
+        height:100%;
         overflow: hidden;
     }
     .eye-on{
@@ -321,9 +321,6 @@
     .eye-off{
         background: url("../images/eye-off.png") no-repeat center;
         background-size: 0.61rem 0.35rem;
-    }
-    .forget-psw .eye{
-        top:0.325rem;
     }
     .reg-form .protocol{
         margin: 0.24rem 0 0.66rem 0;
@@ -531,7 +528,7 @@
         position: absolute;
         top:0;
         left:0.51rem;
-        width:2.7rem;
+        width:70%;
         height:0.94rem;
         overflow: hidden;
         outline:none;
