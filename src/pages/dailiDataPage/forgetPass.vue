@@ -19,7 +19,7 @@
                 <div class="forget-input forget-password">
                     <span class="forget-tips"></span>
                     <span class="forget-placehold" id="showPlaceHold">设置登录密码，6～12位</span>
-                    <input type="text" id="againSetPassDom" v-model="againPassWord" @input="inpEvent" name="my-psw" @blur="checkPassWord">
+                    <input type="password" id="againSetPassDom" v-model="againPassWord" @input="inpEvent" name="my-psw" @blur="checkPassWord">
                     <a href="javascript:;" v-tap="{ methods:showCodeFn }" class="btn eye" :class="{ 'eye-on':showCode ,'eye-off':!showCode }"></a>
                 </div>
             </div>
