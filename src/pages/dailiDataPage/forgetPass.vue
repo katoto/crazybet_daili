@@ -2,7 +2,7 @@
     <div>
         <Header_all :person-title="headerTitle" :icon-style="''"></Header_all>
         <div class="forget-psw">
-            <div class="forget-one" v-if="!setPassWord||1">
+            <div class="forget-one" v-if="!setPassWord">
                 <div class="forget-input forget-phone">
                     <span class="forget-tips"></span>
                     <span class="forget-placehold">手机号码</span>
@@ -217,7 +217,9 @@
             checkWdReset( checkWdReset ){
                 this.setPassWord = true;
                 setTimeout(()=>{
-                    document.getElementById('showPlaceHold').style.display = 'block';
+                    if(document.getElementById('showPlaceHold')){
+                        document.getElementById('showPlaceHold').style.display = 'block';
+                    }
                 },100)
             }
         },

@@ -48,7 +48,7 @@
                     <a v-tap="{ methods:goPageFn, target : 'protocol' }">《推广合伙人协议》</a>
                 </div>
                 <input type="submit" v-tap="{ methods:sendSubmit}" value="提交" name="submit" key="sub2" v-if="confirmbox">
-                <input type="submit" value="提交" name="submit" key="sub1"  class="unsubmit" v-else>
+                <input type="submit" value="提交" name="submit" key="sub1" class="unsubmit" v-else>
                 <p class="check-time">3个工作日内完成审核</p>
                 <p class="contact-us">如需帮助请联系客服QQ : 3157085145</p>
             </div>
