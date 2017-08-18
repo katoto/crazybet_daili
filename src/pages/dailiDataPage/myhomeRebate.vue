@@ -1,7 +1,6 @@
 <template>
     <div class="rebate">
-        <Header_all person-title="返佣详情" :icon-style="'dateRebate'"></Header_all>
-
+        <Header_all person-title="返佣详情" :icon-style="'dateRebate'" :time-title="titleTime"></Header_all>
         <div class="rebate-msg">
             <ul>
                 <li class="rebate-msg1">
@@ -60,6 +59,7 @@
                 valueTime: '2016-12-11',
                 pickerValue:new Date(new Date().getFullYear() - 1, 0, 1),
                 endDate:new Date(),
+                titleTime:'',
             }
         },
         watch: {
@@ -73,6 +73,8 @@
             },
             handleChange(value) {
                 this.valueTime = this.matchTimeThunder(value);
+                this.titleTime = this.matchTimeThunder(new Date(),'MM-dd');
+                this.$store.dispatch('getInviteList',this.valueTime)
             },
             matchTimeThunder (time, format = 'yyyy-MM-dd') {
                 let t = new Date(time);
@@ -122,7 +124,8 @@
         },
         mounted(){
             this.valueTime = this.matchTimeThunder(new Date());
-            this.$store.dispatch('getInviteList')
+            this.titleTime = this.matchTimeThunder(new Date(),'MM-dd')+' 今天';
+            this.$store.dispatch('getInviteList',this.valueTime)
         },
         filters:{
             matchTimeThunder (time, format = 'yyyy-MM-dd') {

@@ -2,12 +2,13 @@
     <div class="top">
         <a href="javascript:;" class="btn font0 back"  v-tap="{ methods:goBackFn, params : 'back' }">返回</a>
         <a href="javascript:;" class="btn login" :class="{'user':showUserIcon ,'home':showHomeIcon ,'payList':showPayListIcon ,'date-rebate':showRebate}" v-tap="{ methods:jumpToPage }">{{ rightTitle }}</a>
+        <span class="data-tips" v-if="showRebate">{{ timeTitle }}</span>
         <h1>{{ personTitle }}</h1>
     </div>
 </template>
 <script>
     export default {
-        props:['personTitle','iconStyle'],
+        props:['personTitle','iconStyle','timeTitle'],
         data () {
             return {
                 rightTitle:'',

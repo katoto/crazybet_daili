@@ -186,11 +186,11 @@ const actions = {
             dispatch('showToast', e.message)
         }
     },
-    async getInviteList ({state, commit, dispatch}) {
+    async getInviteList ({state, commit, dispatch},date) {
         /* 用户信息 后台的 */
         try {
-            // let inviteList = await ajax.get(`/agent/invite/list?token=${getCk()}&src=${src}`);
-            let inviteList = await ajax.get(`http://192.168.41.76:9899/agent/invite/list?token=e800a0720d624241a018e321b7bbbc1e&date=2017-08`);
+            let inviteList = await ajax.get(`/agent/invite/list?token=${getCk()}&platform=${platform}&date=${date}`);
+            // let inviteList = await ajax.get(`http://192.168.41.76:9899/agent/invite/list?token=e800a0720d624241a018e321b7bbbc1e&date=2017-08`);
             commit('setInviteList', inviteList)
         } catch (e) {
             dispatch('showToast', e.message)
