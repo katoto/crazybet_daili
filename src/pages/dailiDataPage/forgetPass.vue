@@ -30,7 +30,6 @@
 </template>
 
 <script>
-    /* 切看返回是否合适 */
     import {Indicator} from 'mint-ui'
     import Header_all from '~components/header_all.vue'
     export default {
@@ -48,7 +47,7 @@
         methods: {
             forgetNext () {
                 /* 下一步  function */
-                let forgetData = null
+                let forgetData = null;
             /* 提交 */
                 if (this.telNumber === '') {
                     this.$store.dispatch('showToast', {
@@ -64,7 +63,7 @@
                     return false
                 }
                 /* 提交数据 */
-                forgetData = Object.assign({}, { mobile: this.telNumber, code: this.forgetCode })
+                forgetData = Object.assign({}, { mobile: this.telNumber, code: this.forgetCode });
                 this.$store.dispatch('checkWdReset', forgetData)
             },
             againConfirm () {
@@ -73,10 +72,10 @@
                     this.$store.dispatch('showToast', {
                         duration: 1000,
                         message: '请输入重置密码'
-                    })
+                    });
                     return false
                 } else {
-                    let pass_reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$/
+                    let pass_reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$/;
                     if (!(pass_reg.test(this.againPassWord))) {
                         this.$store.dispatch('showToast', {
                             duration: 1000,
@@ -98,26 +97,26 @@
             },
             sendCodeFn () {
                 if (this.telNumber === '') { return false }
-                let tel_reg = /^1[34578]\d{9}$/
+                let tel_reg = /^1[34578]\d{9}$/;
                 if (tel_reg.test(this.telNumber)) {
-                    let codeTime = 10
-                    let times = null
+                    let codeTime = 60;
+                    let times = null;
                     if (this.countDownStr !== '发送验证码') {
                         return false
                     }
-                    this.countDownStr = '重发（' + codeTime + 's）'
-                    this.addUnable = true
+                    this.countDownStr = '重发（' + codeTime + 's）';
+                    this.addUnable = true;
                 /* function   请求code   type 1 注册 type 2   */
                     this.$store.dispatch('getTelCode', Object.assign({}, { mobile: this.telNumber, type: 2 }))
                     times = setInterval(() => {
-                        codeTime = codeTime - 1
+                        codeTime = codeTime - 1;
                         if (codeTime === 0) {
-                            this.countDownStr = '发送验证码'
-                            this.addUnable = false
-                            codeTime = 10
+                            this.countDownStr = '发送验证码';
+                            this.addUnable = false;
+                            codeTime = 60;
                             clearInterval(times)
                         } else {
-                            this.countDownStr = '重发（' + codeTime + 's）'
+                            this.countDownStr = '重发（' + codeTime + 's）';
                             this.addUnable = true
                         }
                     }, 1000)
@@ -144,9 +143,14 @@
                         this.telNumber = e.target.value.slice(0, 11)
                     }
                 }
+                if (e.target.name === 'my-psw') {
+                    if (e.target.value.length > 23) {
+                        this.againPassWord = e.target.value.slice(0, 23)
+                    }
+                }
             },
             checkPassWord (e) {
-                let pass_reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$/
+                let pass_reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$/;
                 if (e.target.value != '') {
                     if (!(pass_reg.test(e.target.value))) {
                         this.$store.dispatch('showToast', {
@@ -173,7 +177,6 @@
                     e.target.previousElementSibling.style.display = 'block'
                 }
             },
-
             /*  是否有个小圆点 */
             showTips () {
                 Indicator.open({
@@ -214,7 +217,7 @@
                 }
             },
             checkWdReset (checkWdReset) {
-                this.setPassWord = true
+                this.setPassWord = true;
                 setTimeout(() => {
                     if (document.getElementById('showPlaceHold')) {
                         document.getElementById('showPlaceHold').style.display = 'block'
@@ -223,10 +226,7 @@
             }
         },
         mounted () {
-            this.setPassWord = false
-//            setTimeout(()=>{
-//                this.setPassWord = true
-//            },1000)
+            this.setPassWord = false;
         }
     }
 </script>

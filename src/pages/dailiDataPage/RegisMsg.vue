@@ -28,8 +28,8 @@
             <a href="javascript:;" class="btn check-refuse" v-if="loginAjaxData.v_status === '-1'">审核不通过</a>
             <a href="javascript:;" class="btn check-ing"  v-if="loginAjaxData.v_status === '1'">审核中</a>
             <p class="notice"></p>
-            <p class="notice">*3个工作日内完成，审核成功将短信通知您</p>
-            <p class="notice">*可使用帐号登录查看审核进程</p>
+            <p class="notice">* 3个工作日内完成，审核成功将短信通知您</p>
+            <p class="notice">* 可使用帐号登录查看审核进程</p>
             <p class="contact-us">如需帮助请联系客服QQ : 3157085145</p>
         </div>
     </div>
@@ -44,23 +44,20 @@
                 title: ''
             }
         },
-        watch: {
-
-        },
         methods: {
             goPageFn ({ target }) {
-                target = target || ''
+                target = target || '';
                 switch (target) {
                 case 'protocol':
-                    _hmt.push(['_trackEvent', '代理注册页合作协议点击', 'click', '代理注册页合作协议'])
-                    this.$router.push(`/protocol`)
-                    break
+                    _hmt.push(['_trackEvent', '代理注册页合作协议点击', 'click', '代理注册页合作协议']);
+                    this.$router.push(`/protocol`);
+                    break;
                 case 'login':
-                    _hmt.push(['_trackEvent', '代理注册页登陆点击', 'click', '代理注册页登陆'])
-                    this.$router.push(`/login`)
-                    break
+                    _hmt.push(['_trackEvent', '代理注册页登陆点击', 'click', '代理注册页登陆']);
+                    this.$router.push(`/login`);
+                    break;
                 case 'backHistory':
-                    window.history.back()
+                    window.history.back();
                     break
                 }
             }
@@ -75,10 +72,10 @@
         },
         mounted () {
             if (this.loginAjaxData === '') {
-                let regisMsg = localStorage.getItem('regisMsg')
-                console.log(convertToObj(regisMsg))
+                let regisMsg = localStorage.getItem('regisMsg');
+                console.log(convertToObj(regisMsg));
                 if (regisMsg && regisMsg !== 'undefined') {
-                    this.$store.commit('loginAjaxData', convertToObj(regisMsg))
+                    this.$store.commit('loginAjaxData', convertToObj(regisMsg));
                     localStorage.setItem('regisMsg', null)
                 }
             }
@@ -86,5 +83,3 @@
         }
     }
 </script>
-<style>
-</style>
