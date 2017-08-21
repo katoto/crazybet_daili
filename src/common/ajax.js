@@ -3,7 +3,7 @@
  */
 import axios from 'axios'
 
-const options = {}
+const options = {};
 if (process.env.NODE_ENV === 'production') {
     options.baseURL = 'http://crazybet.choopaoo.com:6899'
 } else if (process.env.NODE_ENV === 'preRelease') {
@@ -11,14 +11,16 @@ if (process.env.NODE_ENV === 'production') {
 } else {
     options.baseURL = '/api'
 }
-const _axios = axios.create(options)
+const _axios = axios.create(options);
 
 const ajax = function (url, config) {
     return _axios.get(url, config).then((response) => {
         if (response.status === 200) {
             return response.data
         } else {
-            throw new Error(response.message)
+            const error = new Error(response.message)
+            error.code = response.status
+            throw error
         }
     }).then(resp => {
         if (resp.status === '100') {
@@ -35,7 +37,9 @@ ajax.get = function (url, config) {
         if (response.status === 200) {
             return response.data
         } else {
-            throw new Error(response.message)
+            const error = new Error(response.message)
+            error.code = response.status
+            throw error
         }
     }).then(resp => {
         if (resp.status === '100') {
@@ -52,7 +56,9 @@ ajax.post = function (url, param, config) {
         if (response.status === 200) {
             return response.data
         } else {
-            throw new Error(response.message)
+            const error = new Error(response.message)
+            error.code = response.status
+            throw error
         }
     }).then(resp => {
         if (resp.status === '100') {

@@ -35,6 +35,7 @@ const state = {
         payApply: null, // 提现申请
         inviteList: null, // 返佣详情
         moneyNumber:null,
+        isSuccApply:null,
     }
 }
 const mutations = {
@@ -78,7 +79,7 @@ const mutations = {
     setMyHomeData (state, data) {
         state.myHomeObj.myhomeData = data
     },
-    /* homeApplyList 代理后台数据 */
+    /* homeApplyList 代理提现申请 */
     sethomeApplyList (state, data) {
         state.myHomeObj.homeApplyList = data
     },
@@ -89,9 +90,11 @@ const mutations = {
     /* setMoneyNumber  存金额 */
     setMoneyNumber (state, data) {
         state.myHomeObj.moneyNumber = data
+    },
+    setSuccApply(state,data){
+        state.myHomeObj.isSuccApply = data
     }
-
-}
+};
 const actions = {
     clearLoginState ({commit, dispatch}, data) {
         commit('ck', '0');
@@ -100,17 +103,17 @@ const actions = {
     },
     async setRegis ({state, commit, dispatch}, data) {
         /* 注册 */
-        data = convertToQueryString(data)
-        console.log(data)
+        data = convertToQueryString(data);
+        console.log(data);
         try {
-            let regisData = await ajax.get(`/agent/register?${data}&platform=${platform}`)
+            let regisData = await ajax.get(`/agent/register?${data}&platform=${platform}`);
             if (regisData.tips !== '') {
                 commit('regisAjaxData', regisData)
             }
             console.log(regisData)
         } catch (e) {
-            Indicator.close()
-            dispatch('showToast', e.message + '/agent/register')
+            Indicator.close();
+            dispatch('showToast', e.message)
         }
     },
     async getTelCode ({state, commit, dispatch}, data) {
@@ -121,15 +124,27 @@ const actions = {
             let codeData = await ajax.get(`/agent/verify/get?${data}`)
             console.log(codeData)
         } catch (e) {
-            dispatch('showToast', e.message)
+            if(e.code){
+                if(e.code === '816'){
+                    dispatch('showToast', {
+                        duration: 1500,
+                        message: e.message,
+                        cb:()=>{
+                            window.location.href = window.location.origin +'/crazybet_daili/#/login';
+                        }
+                    })
+                }
+            }else{
+                dispatch('showToast', e.message)
+            }
         }
     },
     async doLogin ({commit, dispatch}, params) {
         /* 登陆 */
         try {
-            let doLoginData = null
-            params = convertToQueryString(params)
-            doLoginData = await ajax.get(`agent/login?${params}&platform=${platform}`)
+            let doLoginData = null;
+            params = convertToQueryString(params);
+            doLoginData = await ajax.get(`agent/login?${params}&platform=${platform}`);
             if (doLoginData) {
                 commit('loginAjaxData', doLoginData)
             }
@@ -140,13 +155,25 @@ const actions = {
     async checkWdReset ({commit, dispatch}, params) {
         /*  重置密码验证手机code  */
         try {
-            let checkData = null
-            params = convertToQueryString(params)
-            checkData = await ajax.get(`agent/passwd/reset/check?${params}&platform=${platform}`)
-            commit('checkWdReset', checkData)
+            let checkData = null;
+            params = convertToQueryString(params);
+            checkData = await ajax.get(`agent/passwd/reset/check?${params}&platform=${platform}`);
+            commit('checkWdReset', checkData);
             console.log(checkData)
         } catch (e) {
-            dispatch('showToast', e.message)
+            if(e.code){
+                if(e.code === '816'){
+                    dispatch('showToast', {
+                        duration: 1500,
+                        message: e.message,
+                        cb:()=>{
+                            window.location.href = window.location.origin +'/crazybet_daili/#/login';
+                        }
+                    })
+                }
+            }else{
+                dispatch('showToast', e.message)
+            }
         }
     },
     async passWdReset ({commit, dispatch}, params) {
@@ -158,7 +185,19 @@ const actions = {
             commit('isSuccReset', true)
             console.log(resetData)
         } catch (e) {
-            dispatch('showToast', e.message)
+            if(e.code){
+                if(e.code === '816'){
+                    dispatch('showToast', {
+                        duration: 1500,
+                        message: e.message,
+                        cb:()=>{
+                            window.location.href = window.location.origin +'/crazybet_daili/#/login';
+                        }
+                    })
+                }
+            }else{
+                dispatch('showToast', e.message)
+            }
         }
     },
     async showToast ({commit}, msg) {
@@ -179,7 +218,31 @@ const actions = {
             let userInfo = await ajax.get(`/agent/user/detail?token=${getCk()}&platform=${platform}`)
             commit('userInfo', userInfo)
         } catch (e) {
-            dispatch('showToast', e.message)
+            if(e.code){
+                if(e.code === '816'){
+                    dispatch('showToast', {
+                        duration: 1500,
+                        message: e.message,
+                        cb:()=>{
+                            window.location.href = window.location.origin +'/crazybet_daili/#/login';
+                        }
+                    })
+                }
+            }else{
+                if(e.code){
+                    if(e.code === '816'){
+                        dispatch('showToast', {
+                            duration: 1500,
+                            message: e.message,
+                            cb:()=>{
+                                window.location.href = window.location.origin +'/crazybet_daili/#/login';
+                            }
+                        })
+                    }
+                }else{
+                    dispatch('showToast', e.message)
+                }
+            }
         }
     },
     async getUserHomeInfo ({state, commit, dispatch}, date) {
@@ -188,34 +251,73 @@ const actions = {
             let userHomeInfo = await ajax.get(`/agent/invite/summary?token=${getCk()}&platform=${platform}&date=${date}`)
             commit('setMyHomeData', userHomeInfo)
         } catch (e) {
-            dispatch('showToast', e.message)
+            if(e.code){
+                if(e.code === '816'){
+                    dispatch('showToast', {
+                        duration: 1500,
+                        message: e.message,
+                        cb:()=>{
+                            window.location.href = window.location.origin +'/crazybet_daili/#/login';
+                        }
+                    })
+                }
+            }else{
+                dispatch('showToast', e.message)
+            }
+        }
+    },
+    async gethomeApplyList ({state, commit, dispatch}, date) {
+        /*  代理套现记录   */
+        try {
+            let applyList = await ajax.get(`/agent/cashout/record?token=${getCk()}&platform=${platform}`);
+            commit('sethomeApplyList', applyList)
+        } catch (e) {
+            if(e.code){
+                if(e.code === '816'){
+                    dispatch('showToast', {
+                        duration: 1500,
+                        message: e.message,
+                        cb:()=>{
+                            window.location.href = window.location.origin +'/crazybet_daili/#/login';
+                        }
+                    })
+                }
+            }else{
+                dispatch('showToast', e.message)
+            }
         }
     },
     async getInviteList ({state, commit, dispatch}, date) {
         /* 用户信息 后台的 */
         try {
-            let inviteList = await ajax.get(`/agent/invite/list?token=${getCk()}&platform=${platform}&date=${date}`)
-            // let inviteList = await ajax.get(`http://192.168.41.76:9899/agent/invite/list?token=e800a0720d624241a018e321b7bbbc1e&date=2017-08`);
+            let inviteList = await ajax.get(`/agent/invite/list?token=${getCk()}&platform=${platform}&date=${date}`);
             commit('setInviteList', inviteList)
         } catch (e) {
+            if(e.code){
+                console.error(e.code);
+            }
             dispatch('showToast', e.message)
         }
     },
-    // async getUserInfo ({state, commit, dispatch}) {
-    //     /* 套现页面 */
-    //     try {
-    //         let userInfo = await ajax.get(`/agent/user/detail?token=${getCk()}&src=${src}`)
-    //         commit('userInfo', userInfo)
-    //     } catch (e) {
-    //         dispatch('showToast', e.message + 'agent/user/detail')
-    //     }
-    // },
+    async setApplyMoney ({state, commit, dispatch}, money) {
+        /*   申请提现 */
+        try {
+            let applyBack = await ajax.get(`/agent/refound/apply?token=${getCk()}&platform=${platform}&money=${money}`);
+            commit('setSuccApply', applyBack)
+        } catch (e) {
+            console.log(e)
+            if(e.code){
+                console.error(e.code);
+            }
+            dispatch('showToast', e.message)
+        }
+    },
     async localLogin ({commit}, code) {
-        let {ck} = await ajax.get(`/login/guest?deviceid=${code}`)
-        localStorage.setItem('ck', ck)
+        let {ck} = await ajax.get(`/login/guest?deviceid=${code}`);
+        localStorage.setItem('ck', ck);
         commit('ck', ck)
     }
-}
+};
 
 export default () => new Vuex.Store({
     state,

@@ -15,7 +15,7 @@
                 <a href="javascript:;" v-tap="{ methods:showCodeFn}" class="btn eye" :class="{ 'eye-on':showCode ,'eye-off':!showCode }"></a>
             </div>
             <input type="submit" name="submit" value="提交"  v-tap="{ methods:Login}" >
-            <a href="#" class="btn" v-tap="{ methods:getPassFn}" >忘记密码</a>
+            <a href="javascript:;" class="btn" v-tap="{ methods:getPassFn}" >忘记密码</a>
         </div>
     </div>
 </template>
@@ -37,8 +37,8 @@
                 if (loginAjaxData) {
                     if (loginAjaxData.v_status === '0') {
                         /* 可以到后台 */
-                        this.$store.commit('ck', loginAjaxData.token)
-                        this.$router.push(`/myhome`)
+                        this.$store.commit('ck', loginAjaxData.token);
+                        this.$router.push(`/myhome`);
                         setTimeout(() => {
                             this.$store.dispatch('getUserInfo')
                         }, 10)
@@ -62,24 +62,24 @@
             },
             Login () {
                 /* function  登陆拿ck */
-                let loginData = null
+                let loginData = null;
             /* 提交 */
                 if (this.loginTel === '') {
                     this.$store.dispatch('showToast', {
                         duration: 1000,
                         message: '请输入手机号'
-                    })
+                    });
                     return false
                 } else if (this.loginPassWord === '') {
                     this.$store.dispatch('showToast', {
                         duration: 1000,
                         message: '请设置6~12位数字、字母组合密码'
-                    })
+                    });
                     return false
                 }
                 /* 提交数据 */
                 loginData = Object.assign({}, { mobile: this.loginTel, passwd: this.loginPassWord })
-                console.log(loginData)
+                console.log(loginData);
                 this.$store.dispatch('doLogin', loginData)
             },
             showCodeFn (e) {
@@ -102,15 +102,20 @@
                         this.loginTel = e.target.value.slice(0, 11)
                     }
                 }
+                if (e.target.name === 'password') {
+                    if (e.target.value.length > 25) {
+                        this.loginPassWord = e.target.value.slice(0, 25)
+                    }
+                }
             },
             checkPassWord (e) {
-                let pass_reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$/
+                let pass_reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$/;
                 if (e.target.value != '') {
-                    e.target.previousElementSibling.style.display = 'none'
+                    e.target.previousElementSibling.style.display = 'none';
                     if (!(pass_reg.test(e.target.value))) {
                         this.$store.dispatch('showToast', {
                             duration: 1000,
-                            message: '密码有误，请重新输入'
+                            message: '请设置6~12位数字、字母组合密码'
                         })
                     }
                 } else {
@@ -118,9 +123,9 @@
                 }
             },
             checkTel (e) {
-                let tel_reg = /^1[34578]\d{9}$/
+                let tel_reg = /^1[34578]\d{9}$/;
                 if (e.target.value != '') {
-                    e.target.previousElementSibling.style.display = 'none'
+                    e.target.previousElementSibling.style.display = 'none';
                     if (!(tel_reg.test(e.target.value))) {
                         this.$store.dispatch('showToast', {
                             duration: 1000,
@@ -134,9 +139,6 @@
         },
         components: {
             Header_all
-        },
-        mounted () {
-
         }
     }
 </script>

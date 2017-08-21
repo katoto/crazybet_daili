@@ -82,55 +82,55 @@ import { convertToQueryString} from '~common/util'
         },
         methods: {
             sendSubmit () {
-                let sendData = null
+                let sendData = null;
             /* 提交 */
                 if (this.telNumber === '') {
                     this.$store.dispatch('showToast', {
                         duration: 1000,
                         message: '请输入手机号'
-                    })
+                    });
                     return false
                 } else if (this.telCode === '') {
                     this.$store.dispatch('showToast', {
                         duration: 1000,
                         message: '请输入4位验证码'
-                    })
+                    });
                     return false
                 } else if (this.userPassWord === '') {
                     this.$store.dispatch('showToast', {
                         duration: 1000,
                         message: '请设置6~12位数字、字母组合密码'
-                    })
+                    });
                     return false
                 } else if (this.userName === '') {
                     this.$store.dispatch('showToast', {
                         duration: 1000,
                         message: '请输入姓名'
-                    })
+                    });
                     return false
                 } else if (this.idCart === '') {
                     this.$store.dispatch('showToast', {
                         duration: 1000,
                         message: '请输入身份证号码'
-                    })
+                    });
                     return false
                 } else if (this.alipayName === '') {
                     this.$store.dispatch('showToast', {
                         duration: 1000,
                         message: '请输入支付宝账号'
-                    })
+                    });
                     return false
                 } else if (this.qqNumber === '') {
                     this.$store.dispatch('showToast', {
                         duration: 1000,
                         message: '请输入qq号'
-                    })
+                    });
                     return false
                 }
                 Indicator.open({
                     text: '提交中...',
                     spinnerType: 'fading-circle'
-                })
+                });
             /* 提交数据 */
                 sendData = Object.assign({}, { mobile: this.telNumber,
                     code: this.telCode,
@@ -138,23 +138,23 @@ import { convertToQueryString} from '~common/util'
                     username: this.userName,
                     alipay: this.alipayName,
                     qq: this.qqNumber,
-                    idcard: this.idCart})
-                this.$store.dispatch('setRegis', sendData)
+                    idcard: this.idCart});
+                this.$store.dispatch('setRegis', sendData);
             /* function  */
             },
             goPageFn ({ target }) {
-                target = target || ''
+                target = target || '';
                 switch (target) {
                 case 'protocol':
-                    _hmt.push(['_trackEvent', '代理注册页合作协议点击', 'click', '代理注册页合作协议'])
-                    this.$router.push(`/protocol`)
-                    break
+                    _hmt.push(['_trackEvent', '代理注册页合作协议点击', 'click', '代理注册页合作协议']);
+                    this.$router.push(`/protocol`);
+                    break;
                 case 'login':
-                    _hmt.push(['_trackEvent', '代理注册页登陆点击', 'click', '代理注册页登陆'])
-                    this.$router.push(`/login`)
-                    break
+                    _hmt.push(['_trackEvent', '代理注册页登陆点击', 'click', '代理注册页登陆']);
+                    this.$router.push(`/login`);
+                    break;
                 case 'backHistory':
-                    window.history.back()
+                    window.history.back();
                     break
                 }
             },
@@ -168,26 +168,26 @@ import { convertToQueryString} from '~common/util'
             },
             sendCodeFn () {
                 if (this.telNumber === '') { return false }
-                let tel_reg = /^1[34578]\d{9}$/
+                let tel_reg = /^1[34578]\d{9}$/;
                 if (tel_reg.test(this.telNumber)) {
-                    let codeTime = 10
-                    let times = null
+                    let codeTime = 60;
+                    let times = null;
                     if (this.countDownStr !== '获取验证码') {
                         return false
                     }
-                    this.countDownStr = '重发（' + codeTime + 's）'
-                    this.addUnable = true
+                    this.countDownStr = '重发（' + codeTime + 's）';
+                    this.addUnable = true;
                 /* function   请求code  type 1 注册 type 2  修改  */
-                    this.$store.dispatch('getTelCode', Object.assign({}, { mobile: this.telNumber, type: 1 }))
+                    this.$store.dispatch('getTelCode', Object.assign({}, { mobile: this.telNumber, type: 1 }));
                     times = setInterval(() => {
-                        codeTime = codeTime - 1
+                        codeTime = codeTime - 1;
                         if (codeTime === 0) {
-                            this.countDownStr = '获取验证码'
-                            this.addUnable = false
-                            codeTime = 10
+                            this.countDownStr = '获取验证码';
+                            this.addUnable = false;
+                            codeTime = 60;
                             clearInterval(times)
                         } else {
-                            this.countDownStr = '重发（' + codeTime + 's）'
+                            this.countDownStr = '重发（' + codeTime + 's）';
                             this.addUnable = true
                         }
                     }, 1000)
@@ -234,11 +234,16 @@ import { convertToQueryString} from '~common/util'
                         this.qqNumber = e.target.value.slice(0, 20)
                     }
                 }
+                if (e.target.name === 'password') {
+                    if (e.target.value.length > 25) {
+                        this.userPassWord = e.target.value.slice(0, 25)
+                    }
+                }
             },
             checkPassWord (e) {
-                let pass_reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$/
+                let pass_reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$/;
                 if (e.target.value != '') {
-                    e.target.previousElementSibling.style.display = 'none'
+                    e.target.previousElementSibling.style.display = 'none';
                     if (!(pass_reg.test(e.target.value))) {
                         this.$store.dispatch('showToast', {
                             duration: 1000,
@@ -252,7 +257,7 @@ import { convertToQueryString} from '~common/util'
             checkTel (e) {
                 let tel_reg = /^1[34578]\d{9}$/
                 if (e.target.value != '') {
-                    e.target.previousElementSibling.style.display = 'none'
+                    e.target.previousElementSibling.style.display = 'none';
                     if (tel_reg.test(e.target.value)) {
                         console.log('手机号输入正确')
                     } else {
