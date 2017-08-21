@@ -175,7 +175,7 @@
         }
     }
 </script>
-<style scope>
+<style scoped>
     html,body,.wrapper{
         height:100%;
         overflow: hidden;
