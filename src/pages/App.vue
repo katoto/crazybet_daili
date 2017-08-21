@@ -544,6 +544,7 @@
         background: #f2f2f2;
     }
     .bottom-home{
+        position: relative;
         padding:2.04rem 0.75rem 0;
     }
     .bottom-home p,.bottom-home span{
@@ -554,7 +555,7 @@
     .bottom-home span{
         position: absolute;
         left:0.75rem;
-        bottom:0.26rem;
+        bottom:0;
         line-height:1.23rem;
     }
     .my-code{
