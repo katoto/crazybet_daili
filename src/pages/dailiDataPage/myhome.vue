@@ -37,8 +37,8 @@
             <a href="javascript:;" class="btn income-m unable" v-if="myhomeData.refound_status==='2'">提现处理中</a>
         </div>
         <div class="bottom-home">
-            <p>邀请好友在各大应用商店搜索“疯狂猜球”。下载安装后输入您的代理号。剩下的交给我们，您什么都不用做，躺赚月薪无上限，就是这么简单！</p>
-            <span style="display: inline-block;height: 1.23rem">专属代理号</span>
+            <p>邀请好友在各大应用商店搜索“疯狂猜球”。下载安装后输入您的推广合作号。剩下的交给我们，您什么都不用做，躺赚月薪无上限，就是这么简单！</p>
+            <span style="display: inline-block;height: 1.23rem">专属推广合作号</span>
             <div class="my-code" style="height: 1.23rem" v-if="myhomeData"
                  v-clipboard:success="succCopy"
                  v-clipboard:error="onError"

@@ -100,8 +100,4 @@
     }
 </script>
 <style>
-    .home,.payList{
-        padding: 0 !important;
-    }
-
 </style>

@@ -705,14 +705,14 @@
     }
     .payList{
         position: absolute;
-        right: 0.42rem;
-        top: 0.31rem;
-        width: 0.42rem;
-        height: 0.38rem;
+        right:0;
+        top: 0;
+        width: 0.40rem;
+        height: 100%;
         overflow: hidden;
         font-size: 0;
         background: url("../images/calendar.png") no-repeat center;
-        background-size: cover;
+        background-size: 0.42rem 0.38rem;
     }
     .main-payApply{
         height: 7.74rem;
@@ -814,14 +814,14 @@
     /*鎻愮幇璁板綍*/
     .home{
         position: absolute;
-        right: 0.45rem;
-        top: 0.3rem;
+        right: 0;
+        top: 0;
         width: 0.46rem;
-        height: 0.4rem;
+        height: 100%;
         overflow: hidden;
         font-size: 0;
         background: url("../images/home.png") no-repeat center;
-        background-size: cover;
+        background-size: 0.46rem 0.4rem;
     }
     .main-list{
         margin-top:1rem;
