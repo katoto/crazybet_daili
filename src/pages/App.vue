@@ -1013,4 +1013,42 @@
     .view-c li span+span{
         border-left:1px solid #d2d2d2;
     }
+    /*首页-疯狂猜球推广合作*/
+    .bg-coop{
+        position: relative;
+        width: 7.5rem;
+        height:12.06rem;
+        overflow: hidden;
+        margin-top:1rem;
+        background:#16003d url("../images/bg-coop.jpg") no-repeat center;
+        background-size: cover;
+    }
+    .to-reg{
+        width: 3.92rem;
+        height:0.96rem;
+        overflow: hidden;
+        margin:10.2rem auto 0;
+        background: url("../images/to-reg.png") no-repeat center;
+        background-size: cover;
+    }
+    .coop-tips{
+        margin: 0 1.4rem;
+        display: flex;
+        display: -webkit-flex;
+        justify-content: space-between;
+        overflow: hidden;
+        line-height: 0.84rem;
+    }
+    .coop-tips p{
+        float: left;
+        font-size:0.22rem;
+        color: #928d9d;
+    }
+    .to-login {
+        float: right;
+        font-size:0.32rem;
+        color: #ffc601;
+        margin-left:0.1rem;
+        line-height:0.78rem;
+    }
 </style>
