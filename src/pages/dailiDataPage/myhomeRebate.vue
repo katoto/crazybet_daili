@@ -75,9 +75,9 @@
                 this.$refs[picker].open()
             },
             handleChange (value) {
-                let nowDate = this.matchTimeThunder(new Date(), 'MM-dd')
-                let selDate = this.matchTimeThunder(value, 'MM-dd')
-                this.valueTime = this.matchTimeThunder(value)
+                let nowDate = this.matchTimeThunder(new Date(), 'MM-dd');
+                let selDate = this.matchTimeThunder(value, 'MM-dd');
+                this.valueTime = this.matchTimeThunder(value);
                 if (selDate === nowDate) {
                     this.titleTime = nowDate + ' 今天'
                 } else {
@@ -86,24 +86,24 @@
                 this.$store.dispatch('getInviteList', this.valueTime)
             },
             matchTimeThunder (time, format = 'yyyy-MM-dd') {
-                let t = new Date(time)
+                let t = new Date(time);
                 let tf = function (i) {
                     return (i < 10 ? '0' : '') + i
-                }
+                };
                 return format.replace(/year|yyyy|MM|dd|HH|mm|ss/g, function (a) {
                     switch (a) {
                     case 'year':
-                        return tf(t.getFullYear()).slice(2)
+                        return tf(t.getFullYear()).slice(2);
                     case 'yyyy':
-                        return tf(t.getFullYear())
+                        return tf(t.getFullYear());
                     case 'MM':
-                        return tf(t.getMonth() + 1)
+                        return tf(t.getMonth() + 1);
                     case 'mm':
-                        return tf(t.getMinutes())
+                        return tf(t.getMinutes());
                     case 'dd':
-                        return tf(t.getDate())
+                        return tf(t.getDate());
                     case 'HH':
-                        return tf(t.getHours())
+                        return tf(t.getHours());
                     case 'ss':
                         return tf(t.getSeconds())
                     }
@@ -132,38 +132,38 @@
             Header_all
         },
         mounted () {
-            this.valueTime = this.matchTimeThunder(new Date())
-            this.titleTime = this.matchTimeThunder(new Date(), 'MM-dd') + ' 今天'
+            this.valueTime = this.matchTimeThunder(new Date());
+            this.titleTime = this.matchTimeThunder(new Date(), 'MM-dd') + ' 今天';
             this.$store.dispatch('getInviteList', this.valueTime)
         },
         filters: {
             matchTimeThunder (time, format = 'yyyy-MM-dd') {
-                let t = new Date(+time * 1000)
+                let t = new Date(+time * 1000);
                 let tf = function (i) {
                     return (i < 10 ? '0' : '') + i
-                }
+                };
                 return format.replace(/year|yyyy|MM|dd|HH|mm|ss/g, function (a) {
                     switch (a) {
                     case 'year':
-                        return tf(t.getFullYear()).slice(2)
+                        return tf(t.getFullYear()).slice(2);
                     case 'yyyy':
-                        return tf(t.getFullYear())
+                        return tf(t.getFullYear());
                     case 'MM':
-                        return tf(t.getMonth() + 1)
+                        return tf(t.getMonth() + 1);
                     case 'mm':
-                        return tf(t.getMinutes())
+                        return tf(t.getMinutes());
                     case 'dd':
-                        return tf(t.getDate())
+                        return tf(t.getDate());
                     case 'HH':
-                        return tf(t.getHours())
+                        return tf(t.getHours());
                     case 'ss':
                         return tf(t.getSeconds())
                     }
                 })
             },
             moneyFormate: (num) => {
-                num = Number(num)
-                num = parseInt(num / 10) * 10
+                num = Number(num);
+                num = parseInt(num / 10) * 10;
                 if (num < 10000) {
                     return num
                 } else if (num < 100000000) {

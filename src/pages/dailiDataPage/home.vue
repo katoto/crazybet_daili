@@ -27,6 +27,8 @@
         },
         methods: {
             jumpToPage({ go }){
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+                scrollTop = 0;
                 go = go || '';
                 switch (go) {
                     case 'regis':
