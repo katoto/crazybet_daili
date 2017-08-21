@@ -112,6 +112,8 @@ export default {
                 this.$store.dispatch('showToast', '你手机不支持复制，收到输入~')
             },
             jumpToPage ({ go }) {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+                scrollTop = 0;
                 switch (go) {
                 case 'myhomeRebate':
                     this.$router.push(`/myhomeRebate`);

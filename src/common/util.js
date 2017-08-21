@@ -23,6 +23,7 @@ export const platform = (function () {
     return ~navigator.userAgent.indexOf('iPhone') ? 'ios' : 'android'
 })()
 
+
 export const isLowAndroidVersion = (function () {
     let userAgent = window.navigator.userAgent
     let indexAndroid = userAgent.indexOf('Android')

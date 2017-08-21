@@ -59,7 +59,7 @@
 <script>
     import {Indicator} from 'mint-ui'
 import Header_all from '~components/header_all.vue'
-import { convertToQueryString} from '~common/util'
+import { convertToQueryString } from '~common/util'
     export default {
         data () {
             return {
@@ -144,6 +144,8 @@ import { convertToQueryString} from '~common/util'
             },
             goPageFn ({ target }) {
                 target = target || '';
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+                scrollTop = 0;
                 switch (target) {
                 case 'protocol':
                     _hmt.push(['_trackEvent', '代理注册页合作协议点击', 'click', '代理注册页合作协议']);
