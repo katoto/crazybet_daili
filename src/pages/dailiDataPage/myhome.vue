@@ -90,7 +90,8 @@ export default {
             },
             myhomeData (data, backdata) {
                 if (data && data.cur_time && data.reg_time) {
-                    let forTiltleTime = this.monthFormate(parseFloat(data.cur_time) * 1000, parseFloat(data.reg_time) * 1000 - 20322220000);
+//                    let forTiltleTime = this.monthFormate(parseFloat(data.cur_time) * 1000, parseFloat(data.reg_time) * 1000 - 30322220000);
+                    let forTiltleTime = this.monthFormate(parseFloat(data.cur_time) * 1000, parseFloat(data.reg_time) * 1000);
                     this.$store.commit('setMoneyNumber',data.refound);
                     this.forTiltleTime = forTiltleTime;
                     this.titleStr = forTiltleTime.titleStr;
@@ -193,18 +194,18 @@ export default {
                         for (var i = 0, len = nowMonth; i < len; i++) {
                             nowMonth--
                             AjaxTime.unshift(Date_startTime.getFullYear() + '-' + tf(nowMonth + 1))
-                            monthStr.unshift((nowMonth + 1) + '月')
+                            monthStr.unshift((nowMonth + 1) + '月');
                         }
                         /* 中间有多少 */
                         for (var i = 1, len = yearIndex; i < len; i++) {
                             for (var j = 12; j >= 1; j--) {
-                                AjaxTime.unshift(Date_startTime.getFullYear() - i + '-' + tf(j))
+                                AjaxTime.unshift(Date_startTime.getFullYear() - i + '-' + tf(j));
                                 monthStr.unshift((Date_startTime.getFullYear() - i).toString().slice(2, 4) + '年' + (j) + '月')
                             }
                         }
                         /* 结束了多少 */
                         for (var i = 12, len = (endMonth + 1); i >= len; i--) {
-                            AjaxTime.unshift(Date_endTime.getFullYear() + '-' + tf(i))
+                            AjaxTime.unshift(Date_endTime.getFullYear() + '-' + tf(i));
                             monthStr.unshift(Date_endTime.getFullYear().toString().slice(2, 4) + '年' + (i) + '月')
                         }
                     } else {
@@ -212,12 +213,12 @@ export default {
                         /* 开始了多少 */
                         for (var i = 0, len = nowMonth; i < len; i++) {
                             nowMonth--
-                            AjaxTime.unshift(Date_startTime.getFullYear() + '-' + tf(nowMonth + 1))
+                            AjaxTime.unshift(Date_startTime.getFullYear() + '-' + tf(nowMonth + 1));
                             monthStr.unshift((nowMonth + 1) + '月')
                         }
                         /* 结束了多少 */
                         for (var i = 12, len = (endMonth + 1); i >= len; i--) {
-                            AjaxTime.unshift(Date_endTime.getFullYear() + '-' + tf(i))
+                            AjaxTime.unshift(Date_endTime.getFullYear() + '-' + tf(i));
                             monthStr.unshift(Date_endTime.getFullYear().toString().slice(2, 4) + '年' + (i) + '月')
                         }
                     }

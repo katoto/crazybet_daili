@@ -257,7 +257,7 @@ import { convertToQueryString} from '~common/util'
             checkTel (e) {
                 let tel_reg = /^1[34578]\d{9}$/
                 if (e.target.value != '') {
-                    e.target.previousElementSibling.style.display = 'none'
+                    e.target.previousElementSibling.style.display = 'none';
                     if (tel_reg.test(e.target.value)) {
                         console.log('手机号输入正确')
                     } else {
