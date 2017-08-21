@@ -9,7 +9,7 @@ Vue.use(VueRouter)
 const Help = () => import('~pages/Help' /* webpackChunkName: "chunks/help" */)
 
 //  落地 home 主页
-
+const home = () => import('~pages/dailiDataPage/home' /* webpackChunkName: "chunks/home" */)
 // 注册页
 const Regis = () => import('~pages/dailiDataPage/Regis' /* webpackChunkName: "chunks/regis" */)
 // 注册信息   个人信息
@@ -40,6 +40,10 @@ const router = new VueRouter({
         {
             path: '/home/:from',
             component: Help
+        },
+        {
+            path: '/home',
+            component: home
         },
         {
             path: '/protocol',
