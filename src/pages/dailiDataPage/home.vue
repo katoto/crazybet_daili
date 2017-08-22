@@ -8,7 +8,7 @@
                     <p>客服QQ：3157085145</p>
                 </span>
                 <span>
-                    <p>已经是代理</p>
+                    <p>已经是合伙人</p>
                     <a href="javascript:;" class="btn to-login" v-tap="{ methods:jumpToPage,go:'login'}">登录</a>
                 </span>
             </div>

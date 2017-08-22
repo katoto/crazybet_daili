@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Header_all person-title="代理注册" :icon-style="'login'"></Header_all>
+        <Header_all person-title="合伙人注册" :icon-style="'login'"></Header_all>
         <div class="main">
             <div class="form reg-form">
                 <h2 class="use-msg">账号信息</h2>
@@ -148,11 +148,11 @@ import { convertToQueryString } from '~common/util'
                 scrollTop = 0;
                 switch (target) {
                 case 'protocol':
-                    _hmt.push(['_trackEvent', '代理注册页合作协议点击', 'click', '代理注册页合作协议']);
+                    _hmt.push(['_trackEvent', '合伙人注册页合作协议点击', 'click', '合伙人注册页合作协议']);
                     this.$router.push(`/protocol`);
                     break;
                 case 'login':
-                    _hmt.push(['_trackEvent', '代理注册页登陆点击', 'click', '代理注册页登陆']);
+                    _hmt.push(['_trackEvent', '合伙人注册页登陆点击', 'click', '合伙人注册页登陆']);
                     this.$router.push(`/login`);
                     break;
                 case 'backHistory':

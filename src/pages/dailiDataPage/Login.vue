@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Header_all person-title="代理登陆" :icon-style="'regis'"></Header_all>
+        <Header_all person-title="合伙人登陆" :icon-style="'regis'"></Header_all>
         <div class="form loginon">
             <h1>使用账号密码登录</h1>
             <div class="login-input login-phone">
