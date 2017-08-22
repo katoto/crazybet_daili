@@ -1,6 +1,6 @@
 <template>
     <div class="inquire">
-        <Header_all person-title="疯狂猜球代理后台" :icon-style="'userMsg'"></Header_all>
+        <Header_all person-title="疯狂猜球合伙人后台" :icon-style="'userMsg'"></Header_all>
         <div class="main-home">
             <div class="date" id="date">
                 <ul id="myhomeTitle" :style="{ width: computeWidth}" v-tap="{ methods:selTitleTime}">
