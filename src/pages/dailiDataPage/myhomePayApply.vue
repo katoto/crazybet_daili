@@ -55,7 +55,7 @@
                     return false
                 }
                 if(parseInt(this.applyCash) > parseInt(this.moneyFormate(this.moneyNumber) )){
-                    this.showPayTips = '提现超出可提现金额';
+                    this.showPayTips = '超出可提现额度';
                     this.showPay = false;
                     return false
                 }
