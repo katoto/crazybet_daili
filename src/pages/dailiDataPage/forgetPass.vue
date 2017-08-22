@@ -39,7 +39,7 @@
                 setPassWord: true,
                 showCode: false,
                 forgetCode: '',
-                countDownStr: '发送验证码',
+                countDownStr: '获取验证码',
                 addUnable: false,
                 againPassWord: ''
             }
@@ -101,7 +101,7 @@
                 if (tel_reg.test(this.telNumber)) {
                     let codeTime = 60;
                     let times = null;
-                    if (this.countDownStr !== '发送验证码') {
+                    if (this.countDownStr !== '获取验证码') {
                         return false
                     }
                     this.countDownStr = '重发（' + codeTime + 's）';
@@ -111,7 +111,7 @@
                     times = setInterval(() => {
                         codeTime = codeTime - 1;
                         if (codeTime === 0) {
-                            this.countDownStr = '发送验证码';
+                            this.countDownStr = '获取验证码';
                             this.addUnable = false;
                             codeTime = 60;
                             clearInterval(times)
