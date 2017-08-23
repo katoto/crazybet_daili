@@ -73,12 +73,12 @@
                 } else if (this.loginPassWord === '') {
                     this.$store.dispatch('showToast', {
                         duration: 1000,
-                        message: '请设置6~12位数字、字母组合密码'
+                        message: '请输入密码'
                     });
                     return false
                 }
                 /* 提交数据 */
-                loginData = Object.assign({}, { mobile: this.loginTel, passwd: this.loginPassWord })
+                loginData = Object.assign({}, { mobile: this.loginTel, passwd: this.loginPassWord });
                 console.log(loginData);
                 this.$store.dispatch('doLogin', loginData)
             },
@@ -115,7 +115,7 @@
                     if (!(pass_reg.test(e.target.value))) {
                         this.$store.dispatch('showToast', {
                             duration: 1000,
-                            message: '请设置6~12位数字、字母组合密码'
+                            message: '请输入密码'
                         })
                     }
                 } else {
