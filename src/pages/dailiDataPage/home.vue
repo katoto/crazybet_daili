@@ -42,8 +42,9 @@
 
     }
 </script>
-<style>
+<style scoped>
     html{
         height:auto;
+        background: #0e0028;
     }
 </style>

@@ -1019,7 +1019,6 @@
         width: 7.5rem;
         height:12.06rem;
         overflow: hidden;
-        margin-top:1rem;
         background:#16003d url("../images/bg-coop.jpg") no-repeat center;
         background-size: cover;
     }
