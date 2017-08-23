@@ -143,8 +143,9 @@ const actions = {
         /* 登陆 */
         try {
             let doLoginData = null;
-            params = convertToQueryString(params);
-            doLoginData = await ajax.get(`agent/login?${params}&platform=${platform}`);
+            // params = convertToQueryString(params);
+            // doLoginData = await ajax.get(`agent/login?${params}&platform=${platform}`);
+            doLoginData = await ajax.post(`agent/login`,params);
             if (doLoginData) {
                 commit('loginAjaxData', doLoginData)
             }

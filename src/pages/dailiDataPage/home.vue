@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Header_all person-title="疯狂猜球推广合作" :icon-style="''"></Header_all>
         <div class="bg-coop">
             <a href="javascript:;" class="to-reg btn font0" v-tap="{ methods:jumpToPage,go:'regis'}">立即加盟</a>
             <div class="coop-tips">
@@ -13,7 +12,6 @@
 </template>
 
 <script>
-    import Header_all from '~components/header_all.vue'
     export default {
         data () {
             return {
@@ -40,9 +38,6 @@
                         break
                 }
             }
-        },
-        components: {
-            Header_all
         },
 
     }

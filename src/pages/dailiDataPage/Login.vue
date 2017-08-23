@@ -14,7 +14,7 @@
                 <input id="passDomLogin" v-model="loginPassWord" type="password" @blur="checkPassWord" @input="inpEvent" name="password">
                 <a href="javascript:;" v-tap="{ methods:showCodeFn}" class="btn eye" :class="{ 'eye-on':showCode ,'eye-off':!showCode }"></a>
             </div>
-            <input type="submit" name="submit" value="提交"  v-tap="{ methods:Login}" >
+            <input type="submit" name="submit" value="提交"  v-tap="{ methods:LoginFn }" >
             <a href="javascript:;" class="btn" v-tap="{ methods:getPassFn}" >忘记密码</a>
         </div>
     </div>
@@ -33,7 +33,7 @@
         },
         watch: {
             loginAjaxData (loginAjaxData) {
-                console.log(loginAjaxData)
+                console.log(loginAjaxData);
                 if (loginAjaxData) {
                     if (loginAjaxData.v_status === '0') {
                         /* 可以到后台 */
@@ -60,7 +60,7 @@
             getPassFn () {
                 this.$router.push(`/forgetPass`)
             },
-            Login () {
+            LoginFn () {
                 /* function  登陆拿ck */
                 let loginData = null;
             /* 提交 */
@@ -80,6 +80,7 @@
                 /* 提交数据 */
                 loginData = Object.assign({}, { mobile: this.loginTel, passwd: this.loginPassWord });
                 console.log(loginData);
+
                 this.$store.dispatch('doLogin', loginData)
             },
             showCodeFn (e) {
