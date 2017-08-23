@@ -1027,28 +1027,24 @@
         width: 3.92rem;
         height:0.96rem;
         overflow: hidden;
-        margin:10.2rem auto 0;
-        background: url("../images/to-reg.png") no-repeat center;
+        margin:9.2rem auto 0;
+        background: url("../images/btn-reg.png") no-repeat center;
         background-size: cover;
     }
     .coop-tips{
         margin: 0 1.4rem;
-        display: flex;
-        display: -webkit-flex;
-        justify-content: space-between;
         overflow: hidden;
-        line-height: 0.84rem;
+        line-height: 1.08rem;
+        text-align: center;
     }
     .coop-tips p{
-        float: left;
+        display: inline-block;
         font-size:0.22rem;
         color: #928d9d;
     }
     .to-login {
-        float: right;
+        display: inline-block;
         font-size:0.32rem;
         color: #ffc601;
-        margin-left:0.1rem;
-        line-height:0.78rem;
     }
 </style>

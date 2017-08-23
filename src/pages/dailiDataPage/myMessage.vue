@@ -7,7 +7,7 @@
                <p>{{ userInfo.mobile }}</p>
            </div>
            <div class="reg-msg user-proxy">
-               <span>代理号：</span>
+               <span>推广合作号：</span>
                <p>{{ userInfo.share_code }}</p>
            </div>
            <p class="com-msg">返佣信息</p>
@@ -29,7 +29,7 @@
                <p>{{ userInfo.qq }}</p>
            </div>
         </div>
-        <a href="#" class="btn protocol2" v-tap="{ methods: jumpToPage,go: 'protocol' }">《代理合作协议》</a>
+        <a href="#" class="btn protocol2" v-tap="{ methods: jumpToPage,go: 'protocol' }">《推广合伙人协议》</a>
         <p class="contact-us">如需帮助请联系客服QQ : 3157085145</p>
     </div>
 </template>

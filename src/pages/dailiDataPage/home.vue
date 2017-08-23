@@ -4,13 +4,9 @@
         <div class="bg-coop">
             <a href="javascript:;" class="to-reg btn font0" v-tap="{ methods:jumpToPage,go:'regis'}">立即加盟</a>
             <div class="coop-tips">
-                <span>
-                    <p>客服QQ：3157085145</p>
-                </span>
-                <span>
-                    <p>已经是合伙人</p>
-                    <a href="javascript:;" class="btn to-login" v-tap="{ methods:jumpToPage,go:'login'}">登录</a>
-                </span>
+                <p>已经是合伙人</p>
+                <a href="javascript:;" class="btn to-login" v-tap="{ methods:jumpToPage,go:'login'}">登录</a>
+                <p>&gt</p>
             </div>
         </div>
     </div>
