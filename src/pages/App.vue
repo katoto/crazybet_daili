@@ -1023,10 +1023,10 @@
         background-size: cover;
     }
     .to-reg{
-        width: 3.92rem;
-        height:0.96rem;
+        width: 4.39rem;
+        height:1.06rem;
         overflow: hidden;
-        margin:9.2rem auto 0;
+        margin:9rem auto 0;
         background: url("../images/btn-reg.png") no-repeat center;
         background-size: cover;
     }
@@ -1038,12 +1038,13 @@
     }
     .coop-tips p{
         display: inline-block;
-        font-size:0.22rem;
-        color: #928d9d;
+        font-size:0.28rem;
+        color: #fff;
     }
     .to-login {
         display: inline-block;
-        font-size:0.32rem;
+        font-size:0.28rem;
         color: #ffc601;
+        font-weight:bold;
     }
 </style>
