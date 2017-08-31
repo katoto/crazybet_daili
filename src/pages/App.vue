@@ -93,7 +93,7 @@
         font-size: 0.14rem;
     }
     html {
-        height: 100%;
+        min-height: 100%;
     }
     body {
         min-width: 7.5rem;
@@ -545,7 +545,7 @@
     }
     .bottom-home{
         position: relative;
-        padding:2.04rem 0.75rem 0;
+        padding:0.5rem 0.75rem 0;
     }
     .bottom-home p,.bottom-home span{
         font-size:0.24rem;
@@ -631,13 +631,13 @@
         margin:0.15rem auto;
     }
     .include-t{
-        width:2.06rem;
+        width:1.24rem;
         height:0.34rem;
         overflow: hidden;
         padding-left:0.1rem;
         /*兼容安卓图片显示不全*/
         background: url("../images/include-t.png") no-repeat center;
-        background-size:2.06rem 0.34rem;
+        background-size:1.24rem 0.34rem;
         font-size:0;
         margin:0.15rem auto;
     }
