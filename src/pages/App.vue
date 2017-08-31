@@ -93,7 +93,7 @@
         font-size: 0.14rem;
     }
     html {
-        height: 100%;
+        min-height: 100%;
     }
     body {
         min-width: 7.5rem;
