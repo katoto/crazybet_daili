@@ -13,9 +13,9 @@
             <p class="apply-can">提现金额</p>
             <div class="apply-now">
                 <span>￥</span>
-                <input type="tel" @input="checkInpCash" v-model="applyCash" name="apply" placeholder="请输入10的倍数">
+                <input type="tel" id="moneyInp" @input="checkInpCash" v-model="applyCash" name="apply" placeholder="请输入10的倍数">
             </div>
-            <div class="apply-tips">
+            <div class="apply-tips" v-tap="{ methods:inpBlur}">
                 <p v-if="showPay">本次最多可提现<i>{{ moneyNumber | moneyFormate }}</i>元，<a href="javascript:;" v-tap="{ methods:allIn}">全部提现</a></p>
                 <p v-else style="color:red;">{{ showPayTips }}</p>
             </div>
@@ -44,13 +44,16 @@
         },
         watch: {},
         methods: {
+            inpBlur(){
+                document.getElementById('moneyInp').blur();
+            },
             checkInpCash(){
                 if(this.applyCash === ''){
                     this.showPay = true;
                     return false
                 }
-                if(parseInt(this.applyCash) % 10 !== 0 ){
-                    this.showPayTips = '请输入10的倍数';
+                if(parseInt(this.applyCash) % 100 !== 0 ){
+                    this.showPayTips = '请输入100的倍数';
                     this.showPay = false;
                     return false
                 }
@@ -92,6 +95,11 @@
                 }
                 if(!this.applyCash || parseInt(this.applyCash) === 0 ||this.applyCash === '0' ){
                     this.$store.dispatch('showToast', '提现金额有误');
+                    this.applyCash = '';
+                    return false;
+                }
+                if( parseInt(this.applyCash) <= 100  ){
+                    this.$store.dispatch('showToast', '提现金额最低100元');
                     this.applyCash = '';
                     return false;
                 }

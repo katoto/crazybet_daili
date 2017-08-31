@@ -5,7 +5,7 @@
             <ul>
                 <li class="rebate-msg1">
                     <span>总投注</span>
-                    <div v-if="total_profit">{{ total_profit | moneyFormate }}</div>
+                    <div v-if="total_places">{{ total_places | moneyFormate }}</div>
                 </li>
                 <li class="rebate-msg2">
                     <span>总盈亏</span>
@@ -18,19 +18,19 @@
                 <ul>
                     <li>用户</li>
                     <li>充值</li>
-                    <li>盈亏</li>
+                    <li>投注</li>
                     <li>手续费</li>
                     <li>奖品成本</li>
                 </ul>
             </div>
-            <div class="view-c">
+            <div class="view-c" style="height: 12rem">
                 <ul class="view-scroll" v-if="inviteList && inviteList.invitee_list && inviteList.invitee_list.length>0">
                     <li v-for="item in inviteList.invitee_list">
                         <span>{{ item.name }}</span>
                         <span>{{ item.recharge }}</span>
-                        <span>{{ item.profit }}</span>
+                        <span>{{ item.places |moneyFormate }}</span>
                         <span>{{ item.tax }}</span>
-                        <span>{{ item.cost }}</span>
+                        <span>{{ item.cost |moneyFormate }}</span>
                     </li>
                 </ul>
                 <ul class="view-scroll" v-else>
@@ -117,9 +117,9 @@
             inviteList () {
                 return this.$store.state.myHomeObj.inviteList
             },
-            total_profit () {
+            total_places () {
                 if (this.inviteList) {
-                    return this.inviteList.total_profit
+                    return this.inviteList.total_places
                 }
             },
             total_recharge () {
@@ -163,13 +163,13 @@
             },
             moneyFormate: (num) => {
                 num = Number(num);
-                num = parseInt(num / 10) * 10;
+                num = parseInt(num);
                 if (num < 10000) {
                     return num
                 } else if (num < 100000000) {
-                    return Math.round(num / 10000 * 10) / 10 + '万'
+                    return Math.round(num / 10000 * 100) / 100 + '万'
                 } else {
-                    return Math.round(num / 100000000 * 10) / 10 + '亿'
+                    return Math.round(num / 100000000 * 100) / 100 + '亿'
                 }
             }
         }

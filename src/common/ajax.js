@@ -7,7 +7,7 @@ const options = {};
 if (process.env.NODE_ENV === 'production') {
     options.baseURL = 'http://crazybet.choopaoo.com:6899'
 } else if (process.env.NODE_ENV === 'preRelease') {
-    options.baseURL = 'http://crazybet.choopaoo.com:7899'
+    options.baseURL = 'http://crazybet.choopaoo.com:9899'
 } else {
     options.baseURL = '/api'
 }

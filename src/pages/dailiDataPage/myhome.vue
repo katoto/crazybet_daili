@@ -14,7 +14,7 @@
                             疯狂猜球盈利
                         </div>
                         <div class="include-c">
-                            {{ myhomeData.profits }}
+                            {{ myhomeData.places |moneyFormate}}
                         </div>
                     </div>
                     <div class="member">
@@ -26,7 +26,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="javascript:;" class="btn" v-tap="{ methods: jumpToPage,go: 'myhomeRebate'  }">返佣详情</a>
+                <a href="javascript:;" class="btn" v-tap="{ methods: jumpToPage,go: 'myhomeRebate'  }" style="color: #6569c6;">返佣详情</a>
             </div>
         </div>
         <div class="income" v-if="myhomeData">
@@ -249,6 +249,19 @@ export default {
         },
         beforeDestroy () {
             this.$store.commit('setMyHomeData', null)
+        },
+        filters: {
+            moneyFormate: (num) => {
+                num = Number(num);
+                num = parseInt(num);
+                if (num < 10000) {
+                    return num
+                } else if (num < 100000000) {
+                    return Math.round(num / 10000 * 100) / 100 + '万'
+                } else {
+                    return Math.round(num / 100000000 * 100) / 100 + '亿'
+                }
+            }
         }
     }
 </script>
