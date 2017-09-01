@@ -67,7 +67,7 @@ const router = new VueRouter({
             meta: { requiresAuth: true }
         },
         {
-            path: '/myhomeRebate',
+            path: '/myhomeRebate/:time',
             component: MyHomeRebate,
             meta: { requiresAuth: true }
         },

@@ -59,7 +59,8 @@ export default {
                 visible4: false,
                 titleStr: '',
                 selectOn: '',
-                forTiltleTime: ''
+                forTiltleTime: '',
+                currMonth:''
             }
         },
         computed: {
@@ -116,7 +117,7 @@ export default {
                 scrollTop = 0;
                 switch (go) {
                 case 'myhomeRebate':
-                    this.$router.push(`/myhomeRebate`);
+                    this.$router.push(`/myhomeRebate/${this.currMonth}-01`);
                     break;
                 case 'myHomePayApply':
                     this.$router.push(`/myHomePayApply`);
@@ -130,6 +131,7 @@ export default {
             selTitleTime (e) {
                 if (e.event.target) {
                     this.selectOn = +(e.event.target.getAttribute('data-time'));
+                    this.currMonth = this.forTiltleTime.AjaxStr[this.selectOn];
                     this.$store.dispatch('getUserHomeInfo', this.forTiltleTime.AjaxStr[this.selectOn])
                 }
             },
@@ -242,6 +244,7 @@ export default {
             }
         },
         mounted () {
+            this.currMonth = this.matchTimeThunder(new Date(), 'yyyy-MM');
             this.$store.dispatch('getUserHomeInfo', this.matchTimeThunder(new Date(), 'yyyy-MM'));
             if (this.myhomeData) {
                 this.selectOn = this.titleStr.length - 1

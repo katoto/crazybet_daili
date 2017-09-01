@@ -23,7 +23,7 @@
                     <li>奖品成本</li>
                 </ul>
             </div>
-            <div class="view-c" style="height: 12rem">
+            <div class="view-c" >
                 <ul class="view-scroll" v-if="inviteList && inviteList.invitee_list && inviteList.invitee_list.length>0">
                     <li v-for="item in inviteList.invitee_list">
                         <span>{{ item.name }}</span>
@@ -132,9 +132,19 @@
             Header_all
         },
         mounted () {
-            this.valueTime = this.matchTimeThunder(new Date());
-            this.titleTime = this.matchTimeThunder(new Date(), 'MM-dd') + ' 今天';
-            this.$store.dispatch('getInviteList', this.valueTime)
+            if(!this.$route.params.time){
+                this.valueTime = this.matchTimeThunder(new Date());
+                this.titleTime = this.matchTimeThunder(new Date(), 'MM-dd') + ' 今天';
+            }else{
+                this.valueTime = this.$route.params.time;
+                if(this.matchTimeThunder(new Date(), 'yyyy-MM-dd') === this.valueTime){
+                    this.titleTime = this.$route.params.time.slice(5) + ' 今天';
+                }else{
+                    this.titleTime = this.$route.params.time.slice(5);
+                }
+                history.replaceState({},`${location.href.split(location.pathname)[0]}${location.pathname}#/myhomeRebate`)
+            }
+            this.$store.dispatch('getInviteList',this.valueTime )
         },
         filters: {
             matchTimeThunder (time, format = 'yyyy-MM-dd') {
@@ -175,7 +185,7 @@
         }
     }
 </script>
-<style scoped>
+<style>
     html,body,.wrapper{
         position: absolute;
         left:0;
@@ -184,6 +194,6 @@
         bottom:0;
         width:100%;
         height:100%;
-        overflow: hidden;
+        overflow-y:auto;-webkit-overflow-scrolling:touch
     }
 </style>
