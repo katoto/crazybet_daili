@@ -36,6 +36,8 @@ const state = {
         inviteList: null, // 返佣详情
         moneyNumber:null,
         isSuccApply:null,
+        isShowPaying:false, // 提现按钮状态
+
     }
 }
 const mutations = {
@@ -93,6 +95,9 @@ const mutations = {
     },
     setSuccApply(state,data){
         state.myHomeObj.isSuccApply = data
+    },
+    setisShowPaying(state,data){
+        state.myHomeObj.isShowPaying = data;
     }
 };
 const actions = {
@@ -305,8 +310,9 @@ const actions = {
         try {
             let applyBack = await ajax.get(`/agent/refound/apply?token=${getCk()}&platform=${platform}&money=${money}`);
             commit('setSuccApply', applyBack)
+            commit('setisShowPaying', true)
         } catch (e) {
-            console.log(e)
+            commit('setisShowPaying', false)
             if(e.code){
                 console.error(e.code);
             }

@@ -13,7 +13,7 @@
             <p class="apply-can">提现金额</p>
             <div class="apply-now">
                 <span>￥</span>
-                <input type="tel" id="moneyInp" @input="checkInpCash" v-model="applyCash" name="apply" placeholder="请输入10的倍数">
+                <input type="tel" id="moneyInp" @input="checkInpCash" v-model="applyCash" name="apply" placeholder="请输入100的倍数">
             </div>
             <div class="apply-tips" v-tap="{ methods:inpBlur}">
                 <p v-if="showPay">本次最多可提现<i>{{ moneyNumber | moneyFormate }}</i>元，<a href="javascript:;" v-tap="{ methods:allIn}">全部提现</a></p>
@@ -36,7 +36,6 @@
     export default {
         data () {
             return {
-                isShowPaying:false,
                 applyCash: null,
                 showPay:true,
                 showPayTips:'',
@@ -52,20 +51,28 @@
                     this.showPay = true;
                     return false
                 }
+                console.log(parseInt(this.applyCash))
                 if(parseInt(this.applyCash) % 100 !== 0 ){
+                    console.log(parseInt(123))
                     this.showPayTips = '请输入100的倍数';
                     this.showPay = false;
                     return false
+                }else{
+                    this.showPay = true;
                 }
                 if(parseInt(this.applyCash) > parseInt(this.moneyFormate(this.moneyNumber) )){
                     this.showPayTips = '超出可提现额度';
                     this.showPay = false;
                     return false
+                }else{
+                    this.showPay = true;
                 }
                 if(this.applyCash.length > 8 ){
                     this.showPayTips = '提现超出最大可提现金额';
                     this.applyCash = this.applyCash.slice(0,8);
                     this.showPay = false;
+                }else{
+                    this.showPay = true;
                 }
 
             },
@@ -78,7 +85,7 @@
                 }
                 num = Number(num) ;
                 num = num /1000;
-                num = parseInt(num / 10) * 10;
+                num = parseInt(num / 100) * 100;
                 console.log(num);
                 if (num < 10000) {
                     return num
@@ -98,16 +105,18 @@
                     this.applyCash = '';
                     return false;
                 }
-                if( parseInt(this.applyCash) <= 100  ){
+                if( parseInt(this.applyCash) < 100  ){
                     this.$store.dispatch('showToast', '提现金额最低100元');
                     this.applyCash = '';
                     return false;
                 }
-                this.isShowPaying = true;
                 this.$store.dispatch('setApplyMoney',this.applyCash);
             }
         },
         computed: {
+            isShowPaying(){
+                return this.$store.state.myHomeObj.isShowPaying
+            },
             userInfo () {
                 if(this.$store.state.userInfo){
                     return this.$store.state.userInfo
@@ -131,7 +140,7 @@
                 }
                 num = Number(num);
                 num = num /1000;
-                num = parseInt(num / 10) * 10;
+                num = parseInt(num / 100) * 100;
                 if (num < 10000) {
                     return num
                 } else if (num < 100000000) {

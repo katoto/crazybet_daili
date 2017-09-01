@@ -27,9 +27,9 @@
                 <ul class="view-scroll" v-if="inviteList && inviteList.invitee_list && inviteList.invitee_list.length>0">
                     <li v-for="item in inviteList.invitee_list">
                         <span>{{ item.name }}</span>
-                        <span>{{ item.recharge }}</span>
+                        <span>{{ item.recharge |moneyFormate }}</span>
                         <span>{{ item.places |moneyFormate }}</span>
-                        <span>{{ item.tax }}</span>
+                        <span>{{ item.tax |moneyFormate }}</span>
                         <span>{{ item.cost |moneyFormate }}</span>
                     </li>
                 </ul>
