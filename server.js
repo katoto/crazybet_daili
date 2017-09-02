@@ -50,7 +50,7 @@ app.use(function (req, resp, next) {
             req,
             resp,
             host: 'crazybet.choopaoo.com',
-            ip: '106.75.139.22',
+            ip: '192.168.41.76',
             port: '80',
             showLog: true
         })
