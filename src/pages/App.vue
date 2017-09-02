@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper">
+    <div class="wrapper" style="height: 100%">
         <div class="toast" v-show="toastMsg">{{ toastMsg }}</div>
         <router-view v-if="ready||1"></router-view>
     </div>
@@ -53,10 +53,11 @@
     }
 </script>
 <style>
-    /*html,body{height:100%;padding:0;margin:0}*/
-    /*.iOCSS{display:-webkit-box;display:-webkit-flex;display:box;display:flex;-webkit-box-orient:vertical;-webkit-flex-direction:column;flex-direction:column;width:100%;height:100%;font-family:Helvetica;overflow:hidden;}*/
-    /*.iOCSS > *{height:100%}*/
-    /*.iOCSS .scrollable{min-height:0;-webkit-box-flex:1;box-flex:1;-webkit-flex:1;flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}*/
+    html,body{height:100%;padding:0;margin:0}
+    .iOCSS{display:-webkit-box;display:-webkit-flex;display:box;display:flex;-webkit-box-orient:vertical;-webkit-flex-direction:column;flex-direction:column;width:100%;height:100%;font-family:Helvetica;overflow:hidden;}
+    .iOCSS > *{height:100%}
+    .iOCSS .scrollable{min-height:0;-webkit-box-flex:1;box-flex:1;-webkit-flex:1;flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
+
 
 
     body,

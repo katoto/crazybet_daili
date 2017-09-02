@@ -186,14 +186,14 @@
     }
 </script>
 <style>
-    html,body,.wrapper{
-        position: absolute;
-        left:0;
-        right:0;
-        top:0;
-        bottom:0;
-        width:100%;
-        height:100%;
-        overflow-y:auto;-webkit-overflow-scrolling:touch
-    }
+    /*html,body,.wrapper{*/
+        /*position: absolute;*/
+        /*left:0;*/
+        /*right:0;*/
+        /*top:0;*/
+        /*bottom:0;*/
+        /*width:100%;*/
+        /*height:100%;*/
+        /*overflow-y:auto;-webkit-overflow-scrolling:touch*/
+    /*}*/
 </style>
