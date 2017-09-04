@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="fffBody">
         <Header_all person-title="合伙人注册" :icon-style="'login'"></Header_all>
         <div class="main">
             <div class="form reg-form">

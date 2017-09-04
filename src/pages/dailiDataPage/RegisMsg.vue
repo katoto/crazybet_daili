@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="iOCSS">
         <Header_all person-title="注册信息" :icon-style="'goLand'"></Header_all>
-        <div class="form regMsg-form" v-if="loginAjaxData||1">
+        <div class="form regMsg-form scrollable" v-if="loginAjaxData||1">
             <div class="reg-msg user-phone">
                 <span>帐号：</span>
                 <p>{{ loginAjaxData.mobile }}</p>

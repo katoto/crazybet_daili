@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper" style="height: 100%">
+    <div class="wrapper">
         <div class="toast" v-show="toastMsg">{{ toastMsg }}</div>
         <router-view v-if="ready||1"></router-view>
     </div>
@@ -53,13 +53,22 @@
     }
 </script>
 <style>
-    html,body{height:100%;padding:0;margin:0;}
-    .iOCSS{display:-webkit-box;display:-webkit-flex;display:box;display:flex;-webkit-box-orient:vertical;-webkit-flex-direction:column;flex-direction:column;width:100%;height:100%;font-family:Helvetica;overflow:hidden;}
-    .iOCSS > *{height:100%}
-    .iOCSS .scrollable{min-height:0;-webkit-box-flex:1;box-flex:1;-webkit-flex:1;flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
-
-
-
+    .iOCSS{display:-webkit-box;display:-webkit-flex;display:box;display:flex;-webkit-box-orient:vertical;-webkit-flex-direction:column;flex-direction:column;width:100%;height:100%;overflow:hidden;}
+    /*.iOCSS > *{height:100%}*/
+    .iOCSS .scrollable{-webkit-flex:1; flex:1; }
+    .l-full {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+    body,html{
+        -webkit-overflow-scrolling: touch;
+        min-height:100%;
+    }
     body,
     p,
     h1,
@@ -87,7 +96,6 @@
         margin: 0;
         padding: 0;
     }
-
     body,
     input,
     textarea,
@@ -95,9 +103,6 @@
     button,
     table {
         font-size: 0.14rem;
-    }
-    html {
-        min-height: 100%;
     }
     body {
         min-width: 7.5rem;
@@ -181,6 +186,9 @@
     .wrapper {
         position: relative;
         width:100%;
+        min-height:100%;
+        background: #f2f2f2;
+        -webkit-overflow-scrolling: touch;
     }
     /*澶撮儴寮€濮�*/
     .top{
@@ -203,6 +211,12 @@
         height: 0.51rem;
         background: url("../images/back.png") no-repeat center;
         background-size: 0.31rem 0.51rem;
+    }
+    .fffBody{
+        background: #fff;
+        height: 100%;
+        position: absolute;
+        width: 100%;
     }
     .login{
         position: absolute;
@@ -232,8 +246,8 @@
     }
     /*澶撮儴缁撴潫*/
     .form{
-        padding:0 0.4rem;
-        margin-top:1rem;
+        height:auto;
+        padding:1rem 0.4rem 0;
     }
     .form .prompt{
 
@@ -346,7 +360,7 @@
         height:0.33rem;
         overflow: hidden;
         background: #f0f0f0;
-        border:1px solid #ddd;
+        border:1px solid #ddd;/*no*/
     }
     .protocol a{
         color: #6569c6;
@@ -359,7 +373,7 @@
         -webkit-border-radius: 0.06rem;
         -moz-border-radius: 0.06rem;
         border-radius: 0.06rem;
-        font-size:0.36rem;
+        font-size:0.36rem;/*px*/
         color: #fff;
         border:none;
         outline:none;
@@ -544,8 +558,9 @@
     /*鐤媯鐚滅悆浠ｇ悊鍚庡彴*/
     .inquire{
         position: relative;
-        height:100%;
         background: #f2f2f2;
+        overflow: hidden;
+        height:100%;
     }
     .bottom-home{
         position: relative;
@@ -570,6 +585,7 @@
         color: #020202;
     }
     .main-home{
+        position: relative;
         width:100%;
         overflow: hidden;
         background: #fff;
@@ -594,6 +610,7 @@
         display: flex;
         display: -webkit-flex;
         justify-content: space-around;
+        overflow-x: auto;
     }
     .date li{
         width:1.43rem;
@@ -655,6 +672,7 @@
         text-indent:1.25rem;
     }
     .income{
+        position: relative;
         margin-top:0.23rem;
         padding-top:0.32rem;
         background: #fff;
@@ -685,7 +703,7 @@
     /*涓汉淇℃伅*/
     .main-mymsg{
         height:6.8rem;
-        padding:1.4rem 0.4rem 0;
+        padding:0 0.4rem 0;
         background: #fff;
     }
     .inquire .user-phone{
@@ -697,7 +715,7 @@
     .inquire .protocol2{
         width:100%;
         line-height:0.47rem;
-        margin:2.10rem 0 0 0;
+        margin:1.5rem 0 0 0;
     }
     .inquire .contact-us{
         margin:0 0 0.54rem 0;
@@ -720,7 +738,7 @@
         background-size: 0.42rem 0.38rem;
     }
     .main-payApply{
-        height: 7.74rem;
+        height: 7rem;
         padding:1.38rem 0.4rem 0;
         background: #fff;
     }
@@ -808,7 +826,7 @@
         background: #6569c6;
     }
     .bottom-payApply{
-        padding:2.0rem 0.4rem 0.44rem;
+        padding:1.0rem 0.4rem 0.44rem;
         line-height:0.3rem;
         font-size:0.24rem;
         color: #808080;
@@ -877,7 +895,7 @@
         display: flex;
         display: -webkit-flex;
         flex-direction: column;
-        position: relative;
+        /*position: relative;*/
         height:100%;
         overflow: hidden;
     }

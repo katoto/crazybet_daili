@@ -1,5 +1,5 @@
 <template>
-    <div class="rebate">
+    <div class="rebate fffBody">
         <Header_all person-title="返佣详情" :icon-style="'dateRebate'" :time-title="titleTime"></Header_all>
         <div class="rebate-msg">
             <ul>

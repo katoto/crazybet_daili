@@ -1,5 +1,5 @@
 <template>
-    <div class="page-infinite">
+    <div class="fffBody page-infinite">
         <Header_all person-title="提现记录" :icon-style="'myhome'"></Header_all>
         <div class="main-list">
             <ul v-if="homeApplyList && homeApplyList.record_list.length >0">
@@ -12,7 +12,7 @@
                 </li>
             </ul>
             <div v-else>
-                <p style="text-align: center;margin-top: 2.5rem;font-size: 0.33rem">暂无提现记录~</p>
+                <p style="text-align: center;padding-top: 2.5rem;font-size: 0.33rem">暂无提现记录~</p>
             </div>
         </div>
     </div>

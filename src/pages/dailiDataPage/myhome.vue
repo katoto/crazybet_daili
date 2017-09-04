@@ -268,7 +268,7 @@ export default {
         }
     }
 </script>
-<style>
+<style scoped="scoped">
     ::-webkit-scrollbar {
         display: none;/*隐藏滚轮*/
     }

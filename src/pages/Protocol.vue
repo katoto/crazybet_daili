@@ -1,7 +1,7 @@
 <template>
-    <div class="iOCSS">
+    <div class="">
         <Header_all person-title="推广合作人协议"></Header_all>
-        <div class="protocol scrollable" style="padding-top:1.2rem;">
+        <div class="protocol ">
             <div class="headStyle">
             </div>
             <p>疯狂猜球秉承公平、公正的原则，为用户提供最优惠的回馈、为推广合作人（以下简称：合作人）创造强劲的营利优势! 疯狂猜球秉持商业联营、资源整合、利益共享的理念，与合作伙伴携手打造利多的荣景。 无论您拥有的是网络资源，或是丰富的人脉，都欢迎您来加入我们的行列，不须负担任何费用， 就可以获得无上限的收入。推广疯狂猜球绝对是您最佳的选择!
@@ -57,10 +57,8 @@
         padding-bottom: 0.08rem;
     }
     .protocol{
-        height:100%;
-        overflow-y: scroll;
         font-size: 0.36rem;
-        padding: 0.06rem 0.16rem 0.5rem;
+        padding: 1.2rem 0.16rem 0.5rem;
         -webkit-overflow-scrolling: touch;
     }
     .protocol .headStyle p{
