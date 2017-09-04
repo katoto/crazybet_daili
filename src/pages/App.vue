@@ -53,7 +53,7 @@
     }
 </script>
 <style>
-    html,body{height:100%;padding:0;margin:0}
+    html,body{height:100%;padding:0;margin:0;}
     .iOCSS{display:-webkit-box;display:-webkit-flex;display:box;display:flex;-webkit-box-orient:vertical;-webkit-flex-direction:column;flex-direction:column;width:100%;height:100%;font-family:Helvetica;overflow:hidden;}
     .iOCSS > *{height:100%}
     .iOCSS .scrollable{min-height:0;-webkit-box-flex:1;box-flex:1;-webkit-flex:1;flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
@@ -578,7 +578,8 @@
     .date{
         width:100%;
         height:0.43rem;
-        overflow-x: auto;
+        overflow-x: scroll;
+        -webkit-overflow-scrolling:touch;
         border-bottom:1px solid #e2e2e2;
         padding-top:0.33rem;
         font-size:0.24rem;
@@ -696,7 +697,7 @@
     .inquire .protocol2{
         width:100%;
         line-height:0.47rem;
-        margin:3.12rem 0 0 0;
+        margin:2.10rem 0 0 0;
     }
     .inquire .contact-us{
         margin:0 0 0.54rem 0;
@@ -807,7 +808,7 @@
         background: #6569c6;
     }
     .bottom-payApply{
-        padding:2.17rem 0.4rem 0.44rem;
+        padding:2.0rem 0.4rem 0.44rem;
         line-height:0.3rem;
         font-size:0.24rem;
         color: #808080;

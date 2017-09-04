@@ -14,7 +14,7 @@
                             疯狂猜球盈利
                         </div>
                         <div class="include-c">
-                            {{ myhomeData.places |moneyFormate}}
+                            {{ myhomeData.total_recharge |moneyFormate}}
                         </div>
                     </div>
                     <div class="member">

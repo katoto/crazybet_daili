@@ -25,6 +25,49 @@
             </div>
             <div class="view-c" >
                 <ul class="view-scroll" v-if="inviteList && inviteList.invitee_list && inviteList.invitee_list.length>0">
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+                    <li><span>游客_11879192</span> <span>900万</span> <span>150万</span> <span>27万</span> <span>12万</span></li>
+
                     <li v-for="item in inviteList.invitee_list">
                         <span>{{ item.name }}</span>
                         <span>{{ item.recharge |moneyFormate }}</span>
