@@ -1,5 +1,5 @@
 <template>
-    <div class="inquire">
+    <div class="inquire l-full">
         <Header_all person-title="疯狂猜球合伙人后台" :icon-style="'userMsg'"></Header_all>
         <div class="main-home">
             <div class="date" id="date">

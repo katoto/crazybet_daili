@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper">
+    <div class="">
         <div class="toast" v-show="toastMsg">{{ toastMsg }}</div>
         <router-view v-if="ready||1"></router-view>
     </div>
@@ -53,15 +53,26 @@
     }
 </script>
 <style>
-    .iOCSS{display:-webkit-box;display:-webkit-flex;display:box;display:flex;-webkit-box-orient:vertical;-webkit-flex-direction:column;flex-direction:column;width:100%;height:100%;overflow:hidden;}
+    .iOCSS{
+        display:-webkit-box;
+        display:-webkit-flex;
+        display:box;
+        display:flex;
+        -webkit-box-orient:vertical;
+        -webkit-flex-direction:column;
+        flex-direction:column;
+        width:100%;
+        height:100%;
+        overflow:hidden;
+    }
     /*.iOCSS > *{height:100%}*/
     .iOCSS .scrollable{-webkit-flex:1; flex:1; }
     .l-full {
         position: absolute;
         top: 0;
+        bottom: 0;
         left: 0;
         right: 0;
-        bottom: 0;
         overflow: hidden;
         -webkit-overflow-scrolling: touch;
     }
@@ -186,8 +197,6 @@
     .wrapper {
         position: relative;
         width:100%;
-        min-height:100%;
-        background: #f2f2f2;
         -webkit-overflow-scrolling: touch;
     }
     /*澶撮儴寮€濮�*/
@@ -213,9 +222,11 @@
         background-size: 0.31rem 0.51rem;
     }
     .fffBody{
+        position: absolute;
+        left:0;
+        top:0;
         background: #fff;
         height: 100%;
-        position: absolute;
         width: 100%;
     }
     .login{
@@ -557,7 +568,7 @@
     }
     /*鐤媯鐚滅悆浠ｇ悊鍚庡彴*/
     .inquire{
-        position: relative;
+        /*position: relative;*/
         background: #f2f2f2;
         overflow: hidden;
         height:100%;
@@ -703,7 +714,7 @@
     /*涓汉淇℃伅*/
     .main-mymsg{
         height:6.8rem;
-        padding:0 0.4rem 0;
+        padding:1rem 0.4rem 0;
         background: #fff;
     }
     .inquire .user-phone{

@@ -1,7 +1,7 @@
 <template>
-    <div class="fffBody">
+    <div class="iOCSS">
         <Header_all person-title="合伙人注册" :icon-style="'login'"></Header_all>
-        <div class="main">
+        <div class="scrollable main">
             <div class="form reg-form">
                 <h2 class="use-msg">账号信息</h2>
                 <div class="reg-input reg-phone">

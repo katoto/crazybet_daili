@@ -1,5 +1,5 @@
 <template>
-    <div class="payApply">
+    <div class="payApply l-full">
         <Header_all person-title="提现申请" :icon-style="'myHomeApplyList'"></Header_all>
         <div class="main-payApply" v-if="userInfo">
             <div class="apply-user">
