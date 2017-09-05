@@ -163,7 +163,7 @@
                 }
             },
             checkTel (e) {
-                let tel_reg = /^1[34578]\d{9}$/
+                let tel_reg = /^1[34578]\d{9}$/;
                 if (e.target.value != '') {
                     if (tel_reg.test(e.target.value)) {
                         console.log('手机号输入正确')

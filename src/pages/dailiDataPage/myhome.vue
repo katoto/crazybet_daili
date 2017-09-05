@@ -117,7 +117,11 @@ export default {
                 scrollTop = 0;
                 switch (go) {
                 case 'myhomeRebate':
-                    this.$router.push(`/myhomeRebate/${this.currMonth}-01`);
+                    if( this.currMonth === this.matchTimeThunder(new Date(), 'yyyy-MM') ){
+                        this.$router.push(`/myhomeRebate/${this.matchTimeThunder(new Date(), 'yyyy-MM-dd')}`);
+                    }else{
+                        this.$router.push(`/myhomeRebate/${this.currMonth}-01`);
+                    }
                     break;
                 case 'myHomePayApply':
                     this.$router.push(`/myHomePayApply`);
