@@ -94,6 +94,8 @@ export default {
 //                    let forTiltleTime = this.monthFormate(parseFloat(data.cur_time) * 1000, parseFloat(data.reg_time) * 1000 - 30322220000);
                     let forTiltleTime = this.monthFormate(parseFloat(data.cur_time) * 1000, parseFloat(data.reg_time) * 1000);
                     this.$store.commit('setMoneyNumber',data.refound);
+                    this.$store.commit('setmyHomeDataCopy',Object.assign({},data));
+
                     this.forTiltleTime = forTiltleTime;
                     this.titleStr = forTiltleTime.titleStr;
                     if (!backdata) {

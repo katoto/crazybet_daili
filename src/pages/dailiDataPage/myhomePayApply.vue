@@ -13,18 +13,19 @@
             <p class="apply-can">提现金额</p>
             <div class="apply-now">
                 <span>￥</span>
-                <input type="tel" id="moneyInp" @input="checkInpCash" v-model="applyCash" name="apply" placeholder="请输入100的倍数">
+                <input  type="tel" v-if="!isStopApply" id="moneyInp" @input="checkInpCash" v-model="applyCash" name="apply" placeholder="请输入100的倍数">
+                <p class="inputCopy" v-else  >{{ applyCashCopy }}</p>
             </div>
             <div class="apply-tips" v-tap="{ methods:inpBlur}">
                 <p v-if="showPay">本次最多可提现<i>{{ moneyNumber | moneyFormate }}</i>元，<a href="javascript:;" v-tap="{ methods:allIn}">全部提现</a></p>
                 <p v-else style="color:red;">{{ showPayTips }}</p>
             </div>
-            <a href="javascript:;" v-if="isShowPaying" class="btn btn-apply" >确认提现中</a>
+            <a href="javascript:;" v-if="isShowPaying || isStopApply " class="btn btn-apply" >确认提现中</a>
             <a href="javascript:;" v-else class="btn btn-apply " :class="{'btn-sure': applyCash && showPay}" v-tap="{ methods:confirmApply }" >确认提现</a>
             <p class="apply-time">确认无误后一个工作日内到帐</p>
         </div>
         <div class="bottom-payApply">
-            <p>1. 每月仅可提现一次，最低100元。</p>
+            <p>1. 每月仅可提现一次，最低100元。 {{ isStopApply }}</p>
             <p>2. 提现扣除相应猜球币，不收任何手续费。</p>
             <p>如需帮助请联系客服QQ : 3157085145</p>
         </div>
@@ -39,12 +40,15 @@
                 applyCash: null,
                 showPay:true,
                 showPayTips:'',
+                applyCashCopy:'',
             }
         },
         watch: {},
         methods: {
             inpBlur(){
-                document.getElementById('moneyInp').blur();
+                if(! this.isStopApply){
+                    document.getElementById('moneyInp').blur();
+                }
             },
             checkInpCash(){
                 if(this.applyCash === ''){
@@ -77,7 +81,9 @@
 
             },
             allIn () {
-                this.applyCash = this.moneyFormate(this.moneyNumber)
+                if(! this.isStopApply){
+                    this.applyCash = this.moneyFormate(this.moneyNumber)
+                }
             },
             moneyFormate (num) {
                 if(isNaN(num)){
@@ -114,6 +120,16 @@
             }
         },
         computed: {
+            isStopApply(){
+                let isApply = false;
+                if( this.setmyHomeDataCopy && this.setmyHomeDataCopy.refound_status && this.setmyHomeDataCopy.refound_status === '0' &&this.setmyHomeDataCopy.refounding ){
+                    isApply = true;
+                    this.applyCashCopy = parseInt(this.setmyHomeDataCopy.refounding)/1000;
+                }else{
+                    this.applyCashCopy = 0;
+                }
+                return isApply;
+            },
             isShowPaying(){
                 return this.$store.state.myHomeObj.isShowPaying
             },
@@ -126,7 +142,10 @@
             },
             moneyNumber(){
                 return this.$store.state.myHomeObj.moneyNumber
-            }
+            },
+            setmyHomeDataCopy () {
+                return this.$store.state.myHomeObj.setmyHomeDataCopy
+            },
         },
         components: {
             Header_all
@@ -153,4 +172,13 @@
     }
 </script>
 <style>
+    .apply-now .inputCopy {
+        margin-left: 0.2rem;
+        border: none;
+        outline: none;
+        height: 0.63rem;
+        line-height: 0.63rem;
+        font-size: 0.36rem;
+        color: #c0bfc4;
+    }
 </style>

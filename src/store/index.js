@@ -37,7 +37,7 @@ const state = {
         moneyNumber:null,
         isSuccApply:null,
         isShowPaying:false, // 提现按钮状态
-
+        setmyHomeDataCopy:null
     }
 }
 const mutations = {
@@ -92,6 +92,11 @@ const mutations = {
     /* setMoneyNumber  存金额 */
     setMoneyNumber (state, data) {
         state.myHomeObj.moneyNumber = data
+    },
+
+    /* setMoneyNumber  存金额 */
+    setmyHomeDataCopy (state, data) {
+        state.myHomeObj.setmyHomeDataCopy = data
     },
     setSuccApply(state,data){
         state.myHomeObj.isSuccApply = data
