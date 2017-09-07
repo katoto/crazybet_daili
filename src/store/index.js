@@ -143,7 +143,9 @@ const actions = {
                             window.location.href = window.location.origin +'/crazybet_daili/#/login';
                         }
                     })
+                    return false;
                 }
+                dispatch('showToast', e.message)
             }else{
                 dispatch('showToast', e.message)
             }
@@ -180,8 +182,10 @@ const actions = {
                         cb:()=>{
                             window.location.href = window.location.origin +'/crazybet_daili/#/login';
                         }
-                    })
+                    });
+                    return false;
                 }
+                dispatch('showToast', e.message)
             }else{
                 dispatch('showToast', e.message)
             }

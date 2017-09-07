@@ -5,7 +5,11 @@ import axios from 'axios'
 
 const options = {};
 if (process.env.NODE_ENV === 'production') {
-    options.baseURL = 'http://crazybet.choopaoo.com:6899'
+    if(window.location.protocol==='http:'){
+        options.baseURL = 'http://crazybet.choopaoo.com:7899'
+    }else{
+        options.baseURL = 'https://crazybet.choopaoo.com:47899'
+    }
 } else if (process.env.NODE_ENV === 'preRelease') {
     options.baseURL = 'http://crazybet.choopaoo.com:9899'
 } else {

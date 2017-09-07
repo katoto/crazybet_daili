@@ -53,13 +53,13 @@
                     this.$store.dispatch('showToast', {
                         duration: 1000,
                         message: '请输入手机号'
-                    })
+                    });
                     return false
                 } else if (this.forgetCode === '') {
                     this.$store.dispatch('showToast', {
                         duration: 1000,
                         message: '请输入4位验证码'
-                    })
+                    });
                     return false
                 }
                 /* 提交数据 */

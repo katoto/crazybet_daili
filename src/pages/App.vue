@@ -1,13 +1,12 @@
 <template>
     <div class="">
         <div class="toast" v-show="toastMsg">{{ toastMsg }}</div>
-        <router-view v-if="ready||1"></router-view>
+        <router-view v-if="ready"></router-view>
     </div>
 </template>
 <script>
 
 //    import {getCk, isLowAndroidVersion, platform} from '~common/util'
-
     export default {
         data () {
             return {
