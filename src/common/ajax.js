@@ -11,7 +11,8 @@ if (process.env.NODE_ENV === 'production') {
         options.baseURL = 'https://crazybet.choopaoo.com:47899'
     }
 } else if (process.env.NODE_ENV === 'preRelease') {
-    options.baseURL = 'http://crazybet.choopaoo.com:9899'
+    // options.baseURL = 'http://crazybet.choopaoo.com:9899'
+    options.baseURL = 'http://192.168.41.76:9899'
 } else {
     options.baseURL = '/api'
 }
@@ -56,6 +57,12 @@ ajax.get = function (url, config) {
     })
 }
 ajax.post = function (url, param, config) {
+    // config = {
+    //     headers:{
+    //         'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'
+    //     }
+    // }
+    console.log(config)
     return _axios.post(url, param, config).then((response) => {
         if (response.status === 200) {
             return response.data

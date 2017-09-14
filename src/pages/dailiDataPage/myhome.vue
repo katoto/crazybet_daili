@@ -32,8 +32,8 @@
         <div class="income" v-if="myhomeData">
             <div class="income-t">可提现佣金</div>
             <div class="income-c">{{ myhomeData.refound }}</div>
-            <a href="javascript:;" class="btn income-m" v-if="myhomeData.refound_status==='1'"  v-tap="{ methods: jumpToPage,go: 'myHomePayApply'  }">可提现</a>
-            <a href="javascript:;" class="btn income-m" v-if="myhomeData.refound_status==='0'"  v-tap="{ methods: jumpToPage,go: 'myHomePayApply'  }">查看</a>
+            <a href="javascript:;" class="btn income-m" v-if="myhomeData.refound_status==='1'&&parseInt( myhomeData.refound) >0"  v-tap="{ methods: jumpToPage,go: 'myHomePayApply'  }">可提现</a>
+            <a href="javascript:;" class="btn income-m" v-if="myhomeData.refound_status==='0'|| parseInt( myhomeData.refound) === 0"  v-tap="{ methods: jumpToPage,go: 'myHomePayApply'  }">查看</a>
             <a href="javascript:;" class="btn income-m unable" v-if="myhomeData.refound_status==='2'">提现处理中</a>
         </div>
         <div class="bottom-home">

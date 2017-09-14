@@ -6,15 +6,15 @@
             <div class="login-input login-phone">
                 <span class="login-tips">账号</span>
                 <span class="plaholder">手机号</span>
-                <input type="tel" v-model="loginTel" name="phone" @blur="checkTel" @input="inpEvent">
+                <input type="tel" v-model="loginTel" name="mobile" @blur="checkTel" @input="inpEvent">
             </div>
             <div class="login-input login-psw">
                 <span class="login-tips">密码</span>
                 <span class="plaholder">请输入登录密码</span>
-                <input id="passDomLogin" v-model="loginPassWord" type="password" @blur="checkPassWord" @input="inpEvent" name="password">
+                <input id="passDomLogin" v-model="loginPassWord" type="password" @blur="checkPassWord" @input="inpEvent" name="passwd">
                 <a href="javascript:;" v-tap="{ methods:showCodeFn}" class="btn eye" :class="{ 'eye-on':showCode ,'eye-off':!showCode }"></a>
             </div>
-            <input type="submit" name="submit" value="提交"  v-tap="{ methods:LoginFn }" >
+            <span  class="btnSubmit" value="提交"  v-tap="{ methods:LoginFn }" >提交</span>
             <a href="javascript:;" class="btn" v-tap="{ methods:getPassFn}" >忘记密码</a>
         </div>
     </div>
@@ -34,7 +34,7 @@
         watch: {
             loginAjaxData (loginAjaxData) {
                 console.log(loginAjaxData);
-                if (loginAjaxData) {
+                if (loginAjaxData) { name="submit"
                     if (loginAjaxData.v_status === '0') {
                         /* 可以到后台 */
                         this.$store.commit('ck', loginAjaxData.token);
@@ -80,7 +80,6 @@
                 /* 提交数据 */
                 loginData = Object.assign({}, { mobile: this.loginTel, passwd: this.loginPassWord });
                 console.log(loginData);
-
                 this.$store.dispatch('doLogin', loginData)
             },
             showCodeFn (e) {
@@ -148,4 +147,20 @@
     height:100%;
     overflow: hidden;
 }
+    .btnSubmit{
+        margin-top: .8rem;
+        background: #6569c6;
+        display: block;
+        width: 100%;
+        line-height: .78rem;
+        text-align: center;
+        -webkit-border-radius: .06rem;
+        -moz-border-radius: .06rem;
+        border-radius: .06rem;
+        font-size: .36rem;
+        color: #fff;
+        border: none;
+        outline: none;
+    }
+
 </style>

@@ -151,13 +151,13 @@ const actions = {
             }
         }
     },
-    async doLogin ({commit, dispatch}, params) {
+    async doLogin ({commit, dispatch}, params ) {
         /* 登陆 */
         try {
             let doLoginData = null;
             // params = convertToQueryString(params);
-            // doLoginData = await ajax.get(`agent/login?${params}&platform=${platform}`);
-            doLoginData = await ajax.post(`agent/login`,params);
+            doLoginData = await ajax.post(`agent/login`,params );
+            // doLoginData = await ajax.get(`agent/login?mobile=${params.mobile}&passwd=${params.passwd}` );
             if (doLoginData) {
                 commit('loginAjaxData', doLoginData)
             }
