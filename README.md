@@ -20,7 +20,7 @@ import 'mint-ui/lib/style.css'
     "vue-router": "^2.5.3",
     "vuex": "^2.3.1",
     "vuex-router-sync": "^4.1.1"
-  }
+  }  
 ~~~
 ##项目部分截图
 ![Image text](https://crazybet.choopaoo.com/img/esun/upload/96/0a/960a40eeff3811e7a441.png)
