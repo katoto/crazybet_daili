@@ -34,7 +34,8 @@
         watch: {
             loginAjaxData (loginAjaxData) {
                 console.log(loginAjaxData);
-                if (loginAjaxData) { name="submit"
+                if (loginAjaxData) {
+//                    name="submit"
                     if (loginAjaxData.v_status === '0') {
                         /* 可以到后台 */
                         this.$store.commit('ck', loginAjaxData.token);
