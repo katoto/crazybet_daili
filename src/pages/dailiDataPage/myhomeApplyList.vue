@@ -40,12 +40,12 @@
         mounted () {
             this.$store.dispatch('gethomeApplyList')
         },
-        filters:{
+        filters: {
             moneyFormate (num) {
-                if(isNaN(num)){
-                    num = 0 ;
+                if (isNaN(num)) {
+                    num = 0
                 }
-                num = Number(num) ;
+                num = Number(num)
                 if (num < 10000) {
                     return num
                 } else if (num < 100000000) {
@@ -53,7 +53,7 @@
                 } else {
                     return Math.round(num / 100000000 * 10) / 10 + '亿'
                 }
-            },
+            }
         }
     }
 </script>

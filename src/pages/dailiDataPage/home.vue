@@ -20,25 +20,25 @@
         computed: {
         },
         methods: {
-            jumpToPage({ go }){
-                let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-                scrollTop = 0;
-                go = go || '';
+            jumpToPage ({ go }) {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+                scrollTop = 0
+                go = go || ''
                 switch (go) {
-                    case 'regis':
-                        _hmt.push(['_trackEvent', '代理落地页立即加盟点击', 'click', '代理落地页立即加盟点击']);
-                        this.$router.push(`/register`);
-                        break;
-                    case 'login':
-                        _hmt.push(['_trackEvent', '代理落地页登陆点击', 'click', '代理注册页登陆']);
-                        this.$router.push(`/login`);
-                        break;
-                    case 'backHistory':
-                        window.history.back();
-                        break
+                case 'regis':
+                    _hmt.push(['_trackEvent', '代理落地页立即加盟点击', 'click', '代理落地页立即加盟点击'])
+                    this.$router.push(`/register`)
+                    break
+                case 'login':
+                    _hmt.push(['_trackEvent', '代理落地页登陆点击', 'click', '代理注册页登陆'])
+                    this.$router.push(`/login`)
+                    break
+                case 'backHistory':
+                    window.history.back()
+                    break
                 }
             }
-        },
+        }
 
     }
 </script>

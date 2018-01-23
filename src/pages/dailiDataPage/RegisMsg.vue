@@ -46,18 +46,18 @@
         },
         methods: {
             goPageFn ({ target }) {
-                target = target || '';
+                target = target || ''
                 switch (target) {
                 case 'protocol':
-                    _hmt.push(['_trackEvent', '代理注册页合作协议点击', 'click', '代理注册页合作协议']);
-                    this.$router.push(`/protocol`);
-                    break;
+                    _hmt.push(['_trackEvent', '代理注册页合作协议点击', 'click', '代理注册页合作协议'])
+                    this.$router.push(`/protocol`)
+                    break
                 case 'login':
-                    _hmt.push(['_trackEvent', '代理注册页登陆点击', 'click', '代理注册页登陆']);
-                    this.$router.push(`/login`);
-                    break;
+                    _hmt.push(['_trackEvent', '代理注册页登陆点击', 'click', '代理注册页登陆'])
+                    this.$router.push(`/login`)
+                    break
                 case 'backHistory':
-                    window.history.back();
+                    window.history.back()
                     break
                 }
             }
@@ -72,10 +72,10 @@
         },
         mounted () {
             if (this.loginAjaxData === '') {
-                let regisMsg = localStorage.getItem('regisMsg');
-                console.log(convertToObj(regisMsg));
+                let regisMsg = localStorage.getItem('regisMsg')
+                console.log(convertToObj(regisMsg))
                 if (regisMsg && regisMsg !== 'undefined') {
-                    this.$store.commit('loginAjaxData', convertToObj(regisMsg));
+                    this.$store.commit('loginAjaxData', convertToObj(regisMsg))
                     localStorage.setItem('regisMsg', null)
                 }
             }

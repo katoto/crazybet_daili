@@ -45,17 +45,17 @@
         watch: {},
         methods: {
             jumpToPage ({ go }) {
-                let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-                scrollTop = 0;
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+                scrollTop = 0
                 switch (go) {
                 case 'protocol':
-                    this.$router.push(`/protocol`);
-                    break;
+                    this.$router.push(`/protocol`)
+                    break
                 case 'myHomePayApply':
-                    this.$router.push(`/myHomePayApply`);
-                    break;
+                    this.$router.push(`/myHomePayApply`)
+                    break
                 case 'back':
-                    window.history.back();
+                    window.history.back()
                     break
                 }
             }

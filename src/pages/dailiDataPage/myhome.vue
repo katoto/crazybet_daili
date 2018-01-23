@@ -52,7 +52,7 @@
     import Vue from 'vue'
     import Header_all from '~components/header_all.vue'
     import vueClipboard2 from 'vue-clipboard2'
-    Vue.use(vueClipboard2);
+    Vue.use(vueClipboard2)
 export default {
         data () {
             return {
@@ -60,7 +60,7 @@ export default {
                 titleStr: '',
                 selectOn: '',
                 forTiltleTime: '',
-                currMonth:''
+                currMonth: ''
             }
         },
         computed: {
@@ -72,32 +72,31 @@ export default {
             },
             computeMargin () {
                 if (this.titleStr.length > 5) {
-
                     return ((this.titleStr.length - 5))
                 }
                 return ''
             }
         },
         watch: {
-            computeMargin( mar ){
-                setTimeout(()=>{
-                    var liWidthDom = document.querySelector('#myhomeTitle li');
-                    var liWidth = '';
-                    if(liWidthDom){
-                        liWidth = window.getComputedStyle(liWidthDom , null)['width'];
-                        document.getElementById('date').scrollLeft = parseInt(mar) * (liWidth.replace(/px/g,'')) ;
+            computeMargin (mar) {
+                setTimeout(() => {
+                    var liWidthDom = document.querySelector('#myhomeTitle li')
+                    var liWidth = ''
+                    if (liWidthDom) {
+                        liWidth = window.getComputedStyle(liWidthDom, null)['width']
+                        document.getElementById('date').scrollLeft = parseInt(mar) * (liWidth.replace(/px/g, ''))
                     }
-                },30)
+                }, 30)
             },
             myhomeData (data, backdata) {
                 if (data && data.cur_time && data.reg_time) {
 //                    let forTiltleTime = this.monthFormate(parseFloat(data.cur_time) * 1000, parseFloat(data.reg_time) * 1000 - 30322220000);
-                    let forTiltleTime = this.monthFormate(parseFloat(data.cur_time) * 1000, parseFloat(data.reg_time) * 1000);
-                    this.$store.commit('setMoneyNumber',data.refound);
-                    this.$store.commit('setmyHomeDataCopy',Object.assign({},data));
+                    let forTiltleTime = this.monthFormate(parseFloat(data.cur_time) * 1000, parseFloat(data.reg_time) * 1000)
+                    this.$store.commit('setMoneyNumber', data.refound)
+                    this.$store.commit('setmyHomeDataCopy', Object.assign({}, data))
 
-                    this.forTiltleTime = forTiltleTime;
-                    this.titleStr = forTiltleTime.titleStr;
+                    this.forTiltleTime = forTiltleTime
+                    this.titleStr = forTiltleTime.titleStr
                     if (!backdata) {
                         this.selectOn = this.titleStr.length - 1
                     }
@@ -115,51 +114,51 @@ export default {
                 this.$store.dispatch('showToast', '你手机不支持复制，收到输入~')
             },
             jumpToPage ({ go }) {
-                let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-                scrollTop = 0;
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+                scrollTop = 0
                 switch (go) {
                 case 'myhomeRebate':
-                    if( this.currMonth === this.matchTimeThunder(new Date(), 'yyyy-MM') ){
-                        this.$router.push(`/myhomeRebate/${this.matchTimeThunder(new Date(), 'yyyy-MM-dd')}`);
-                    }else{
-                        this.$router.push(`/myhomeRebate/${this.currMonth}-01`);
+                    if (this.currMonth === this.matchTimeThunder(new Date(), 'yyyy-MM')) {
+                        this.$router.push(`/myhomeRebate/${this.matchTimeThunder(new Date(), 'yyyy-MM-dd')}`)
+                    } else {
+                        this.$router.push(`/myhomeRebate/${this.currMonth}-01`)
                     }
-                    break;
+                    break
                 case 'myHomePayApply':
-                    this.$router.push(`/myHomePayApply`);
-                    break;
+                    this.$router.push(`/myHomePayApply`)
+                    break
                 case 'back':
-                    window.history.back();
+                    window.history.back()
                     break
                 }
             },
 
             selTitleTime (e) {
                 if (e.event.target) {
-                    this.selectOn = +(e.event.target.getAttribute('data-time'));
-                    this.currMonth = this.forTiltleTime.AjaxStr[this.selectOn];
+                    this.selectOn = +(e.event.target.getAttribute('data-time'))
+                    this.currMonth = this.forTiltleTime.AjaxStr[this.selectOn]
                     this.$store.dispatch('getUserHomeInfo', this.forTiltleTime.AjaxStr[this.selectOn])
                 }
             },
             matchTimeThunder (time, format = 'yyyy-MM-dd') {
-                let t = time;
+                let t = time
                 let tf = function (i) {
                     return (i < 10 ? '0' : '') + i
-                };
+                }
                 return format.replace(/year|yyyy|MM|dd|HH|mm|ss/g, function (a) {
                     switch (a) {
                     case 'year':
-                        return tf(t.getFullYear()).slice(2);
+                        return tf(t.getFullYear()).slice(2)
                     case 'yyyy':
-                        return tf(t.getFullYear());
+                        return tf(t.getFullYear())
                     case 'MM':
-                        return tf(t.getMonth() + 1);
+                        return tf(t.getMonth() + 1)
                     case 'mm':
-                        return tf(t.getMinutes());
+                        return tf(t.getMinutes())
                     case 'dd':
-                        return tf(t.getDate());
+                        return tf(t.getDate())
                     case 'HH':
-                        return tf(t.getHours());
+                        return tf(t.getHours())
                     case 'ss':
                         return tf(t.getSeconds())
                     }
@@ -204,18 +203,18 @@ export default {
                         for (var i = 0, len = nowMonth; i < len; i++) {
                             nowMonth--
                             AjaxTime.unshift(Date_startTime.getFullYear() + '-' + tf(nowMonth + 1))
-                            monthStr.unshift((nowMonth + 1) + '月');
+                            monthStr.unshift((nowMonth + 1) + '月')
                         }
                         /* 中间有多少 */
                         for (var i = 1, len = yearIndex; i < len; i++) {
                             for (var j = 12; j >= 1; j--) {
-                                AjaxTime.unshift(Date_startTime.getFullYear() - i + '-' + tf(j));
+                                AjaxTime.unshift(Date_startTime.getFullYear() - i + '-' + tf(j))
                                 monthStr.unshift((Date_startTime.getFullYear() - i).toString().slice(2, 4) + '年' + (j) + '月')
                             }
                         }
                         /* 结束了多少 */
                         for (var i = 12, len = (endMonth + 1); i >= len; i--) {
-                            AjaxTime.unshift(Date_endTime.getFullYear() + '-' + tf(i));
+                            AjaxTime.unshift(Date_endTime.getFullYear() + '-' + tf(i))
                             monthStr.unshift(Date_endTime.getFullYear().toString().slice(2, 4) + '年' + (i) + '月')
                         }
                     } else {
@@ -223,12 +222,12 @@ export default {
                         /* 开始了多少 */
                         for (var i = 0, len = nowMonth; i < len; i++) {
                             nowMonth--
-                            AjaxTime.unshift(Date_startTime.getFullYear() + '-' + tf(nowMonth + 1));
+                            AjaxTime.unshift(Date_startTime.getFullYear() + '-' + tf(nowMonth + 1))
                             monthStr.unshift((nowMonth + 1) + '月')
                         }
                         /* 结束了多少 */
                         for (var i = 12, len = (endMonth + 1); i >= len; i--) {
-                            AjaxTime.unshift(Date_endTime.getFullYear() + '-' + tf(i));
+                            AjaxTime.unshift(Date_endTime.getFullYear() + '-' + tf(i))
                             monthStr.unshift(Date_endTime.getFullYear().toString().slice(2, 4) + '年' + (i) + '月')
                         }
                     }
@@ -238,7 +237,7 @@ export default {
                     if (timeIndex !== 0) {
                         for (var i = 0; i < timeIndex; i++) {
                             nowMonth--
-                            AjaxTime.unshift(Date_startTime.getFullYear() + '-' + tf(nowMonth + 1));
+                            AjaxTime.unshift(Date_startTime.getFullYear() + '-' + tf(nowMonth + 1))
                             monthStr.unshift((nowMonth + 1) + '月')
                         }
                     }
@@ -250,8 +249,8 @@ export default {
             }
         },
         mounted () {
-            this.currMonth = this.matchTimeThunder(new Date(), 'yyyy-MM');
-            this.$store.dispatch('getUserHomeInfo', this.matchTimeThunder(new Date(), 'yyyy-MM'));
+            this.currMonth = this.matchTimeThunder(new Date(), 'yyyy-MM')
+            this.$store.dispatch('getUserHomeInfo', this.matchTimeThunder(new Date(), 'yyyy-MM'))
             if (this.myhomeData) {
                 this.selectOn = this.titleStr.length - 1
             }
@@ -261,8 +260,8 @@ export default {
         },
         filters: {
             moneyFormate: (num) => {
-                num = Number(num);
-                num = parseInt(num);
+                num = Number(num)
+                num = parseInt(num)
                 if (num < 10000) {
                     return num
                 } else if (num < 100000000) {

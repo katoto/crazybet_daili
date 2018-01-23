@@ -33,13 +33,13 @@
         },
         watch: {
             loginAjaxData (loginAjaxData) {
-                console.log(loginAjaxData);
+                console.log(loginAjaxData)
                 if (loginAjaxData) {
 //                    name="submit"
                     if (loginAjaxData.v_status === '0') {
                         /* 可以到后台 */
-                        this.$store.commit('ck', loginAjaxData.token);
-                        this.$router.push(`/myhome`);
+                        this.$store.commit('ck', loginAjaxData.token)
+                        this.$router.push(`/myhome`)
                         setTimeout(() => {
                             this.$store.dispatch('getUserInfo')
                         }, 10)
@@ -63,24 +63,24 @@
             },
             LoginFn () {
                 /* function  登陆拿ck */
-                let loginData = null;
-            /* 提交 */
+                let loginData = null
+        /* 提交 */
                 if (this.loginTel === '') {
                     this.$store.dispatch('showToast', {
                         duration: 1000,
                         message: '请输入手机号'
-                    });
+                    })
                     return false
                 } else if (this.loginPassWord === '') {
                     this.$store.dispatch('showToast', {
                         duration: 1000,
                         message: '请输入密码'
-                    });
+                    })
                     return false
                 }
                 /* 提交数据 */
-                loginData = Object.assign({}, { mobile: this.loginTel, passwd: this.loginPassWord });
-                console.log(loginData);
+                loginData = Object.assign({}, { mobile: this.loginTel, passwd: this.loginPassWord })
+                console.log(loginData)
                 this.$store.dispatch('doLogin', loginData)
             },
             showCodeFn (e) {
@@ -110,9 +110,9 @@
                 }
             },
             checkPassWord (e) {
-                let pass_reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$/;
+                let pass_reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$/
                 if (e.target.value != '') {
-                    e.target.previousElementSibling.style.display = 'none';
+                    e.target.previousElementSibling.style.display = 'none'
                     if (!(pass_reg.test(e.target.value))) {
                         this.$store.dispatch('showToast', {
                             duration: 1000,
@@ -124,9 +124,9 @@
                 }
             },
             checkTel (e) {
-                let tel_reg = /^1[34578]\d{9}$/;
+                let tel_reg = /^1[34578]\d{9}$/
                 if (e.target.value != '') {
-                    e.target.previousElementSibling.style.display = 'none';
+                    e.target.previousElementSibling.style.display = 'none'
                     if (!(tel_reg.test(e.target.value))) {
                         this.$store.dispatch('showToast', {
                             duration: 1000,

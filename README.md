@@ -21,12 +21,13 @@ import 'mint-ui/lib/style.css'
     "vuex": "^2.3.1",
     "vuex-router-sync": "^4.1.1"
   }  
+  
+  ##项目部分截图
 ~~~
-##项目部分截图
+
 ![Image text](https://crazybet.choopaoo.com/img/esun/upload/96/0a/960a40eeff3811e7a441.png)
 ![Image text](https://crazybet.choopaoo.com/img/esun/upload/d3/5e/d35ea83eff5311e7bdd2.png)
 ![Image text](https://crazybet.choopaoo.com/img/esun/upload/dc/29/dc29c98aff5311e7bc49.png)
-
 ![Image text](https://crazybet.choopaoo.com/img/esun/upload/df/d2/dfd22342ff5411e7928e.png)
 ![Image text](https://crazybet.choopaoo.com/img/esun/upload/d5/a5/d5a59c50ff5411e7a008.png)
 

@@ -47,23 +47,23 @@
         methods: {
             forgetNext () {
                 /* 下一步  function */
-                let forgetData = null;
-            /* 提交 */
+                let forgetData = null
+        /* 提交 */
                 if (this.telNumber === '') {
                     this.$store.dispatch('showToast', {
                         duration: 1000,
                         message: '请输入手机号'
-                    });
+                    })
                     return false
                 } else if (this.forgetCode === '') {
                     this.$store.dispatch('showToast', {
                         duration: 1000,
                         message: '请输入4位验证码'
-                    });
+                    })
                     return false
                 }
                 /* 提交数据 */
-                forgetData = Object.assign({}, { mobile: this.telNumber, code: this.forgetCode });
+                forgetData = Object.assign({}, { mobile: this.telNumber, code: this.forgetCode })
                 this.$store.dispatch('checkWdReset', forgetData)
             },
             againConfirm () {
@@ -72,10 +72,10 @@
                     this.$store.dispatch('showToast', {
                         duration: 1000,
                         message: '请输入重置密码'
-                    });
+                    })
                     return false
                 } else {
-                    let pass_reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$/;
+                    let pass_reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$/
                     if (!(pass_reg.test(this.againPassWord))) {
                         this.$store.dispatch('showToast', {
                             duration: 1000,
@@ -97,26 +97,26 @@
             },
             sendCodeFn () {
                 if (this.telNumber === '') { return false }
-                let tel_reg = /^1[34578]\d{9}$/;
+                let tel_reg = /^1[34578]\d{9}$/
                 if (tel_reg.test(this.telNumber)) {
-                    let codeTime = 60;
-                    let times = null;
+                    let codeTime = 60
+                    let times = null
                     if (this.countDownStr !== '获取验证码') {
                         return false
                     }
-                    this.countDownStr = '重发（' + codeTime + 's）';
-                    this.addUnable = true;
-                /* function   请求code   type 1 注册 type 2   */
+                    this.countDownStr = '重发（' + codeTime + 's）'
+                    this.addUnable = true
+            /* function   请求code   type 1 注册 type 2   */
                     this.$store.dispatch('getTelCode', Object.assign({}, { mobile: this.telNumber, type: 2 }))
                     times = setInterval(() => {
-                        codeTime = codeTime - 1;
+                        codeTime = codeTime - 1
                         if (codeTime === 0) {
-                            this.countDownStr = '获取验证码';
-                            this.addUnable = false;
-                            codeTime = 60;
+                            this.countDownStr = '获取验证码'
+                            this.addUnable = false
+                            codeTime = 60
                             clearInterval(times)
                         } else {
-                            this.countDownStr = '重发（' + codeTime + 's）';
+                            this.countDownStr = '重发（' + codeTime + 's）'
                             this.addUnable = true
                         }
                     }, 1000)
@@ -150,7 +150,7 @@
                 }
             },
             checkPassWord (e) {
-                let pass_reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$/;
+                let pass_reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$/
                 if (e.target.value != '') {
                     if (!(pass_reg.test(e.target.value))) {
                         this.$store.dispatch('showToast', {
@@ -163,7 +163,7 @@
                 }
             },
             checkTel (e) {
-                let tel_reg = /^1[34578]\d{9}$/;
+                let tel_reg = /^1[34578]\d{9}$/
                 if (e.target.value != '') {
                     if (tel_reg.test(e.target.value)) {
                         console.log('手机号输入正确')
@@ -217,7 +217,7 @@
                 }
             },
             checkWdReset (checkWdReset) {
-                this.setPassWord = true;
+                this.setPassWord = true
                 setTimeout(() => {
                     if (document.getElementById('showPlaceHold')) {
                         document.getElementById('showPlaceHold').style.display = 'block'
@@ -226,7 +226,7 @@
             }
         },
         mounted () {
-            this.setPassWord = false;
+            this.setPassWord = false
         }
     }
 </script>

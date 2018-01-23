@@ -3,11 +3,11 @@
  */
 import axios from 'axios'
 
-const options = {};
+const options = {}
 if (process.env.NODE_ENV === 'production') {
-    if(window.location.protocol==='http:'){
+    if (window.location.protocol === 'http:') {
         options.baseURL = 'http://crazybet.choopaoo.com:7899'
-    }else{
+    } else {
         options.baseURL = 'https://crazybet.choopaoo.com:47899'
     }
 } else if (process.env.NODE_ENV === 'preRelease') {
@@ -16,7 +16,7 @@ if (process.env.NODE_ENV === 'production') {
 } else {
     options.baseURL = '/api'
 }
-const _axios = axios.create(options);
+const _axios = axios.create(options)
 
 const ajax = function (url, config) {
     return _axios.get(url, config).then((response) => {

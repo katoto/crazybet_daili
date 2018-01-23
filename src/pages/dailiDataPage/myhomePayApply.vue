@@ -38,61 +38,60 @@
         data () {
             return {
                 applyCash: null,
-                showPay:true,
-                showPayTips:'',
-                applyCashCopy:'',
+                showPay: true,
+                showPayTips: '',
+                applyCashCopy: ''
             }
         },
         watch: {},
         methods: {
-            inpBlur(){
-                if(! this.isStopApply){
-                    document.getElementById('moneyInp').blur();
+            inpBlur () {
+                if (!this.isStopApply) {
+                    document.getElementById('moneyInp').blur()
                 }
             },
-            checkInpCash(){
-                if(this.applyCash === ''){
-                    this.showPay = true;
+            checkInpCash () {
+                if (this.applyCash === '') {
+                    this.showPay = true
                     return false
                 }
                 console.log(parseInt(this.applyCash))
-                if(parseInt(this.applyCash) % 100 !== 0 ){
+                if (parseInt(this.applyCash) % 100 !== 0) {
                     console.log(parseInt(123))
-                    this.showPayTips = '请输入100的倍数';
-                    this.showPay = false;
+                    this.showPayTips = '请输入100的倍数'
+                    this.showPay = false
                     return false
-                }else{
-                    this.showPay = true;
+                } else {
+                    this.showPay = true
                 }
-                if(parseInt(this.applyCash) > parseInt(this.moneyFormate(this.moneyNumber) )){
-                    this.showPayTips = '超出可提现额度';
-                    this.showPay = false;
+                if (parseInt(this.applyCash) > parseInt(this.moneyFormate(this.moneyNumber))) {
+                    this.showPayTips = '超出可提现额度'
+                    this.showPay = false
                     return false
-                }else{
-                    this.showPay = true;
+                } else {
+                    this.showPay = true
                 }
-                if(this.applyCash.length > 8 ){
-                    this.showPayTips = '提现超出最大可提现金额';
-                    this.applyCash = this.applyCash.slice(0,8);
-                    this.showPay = false;
-                }else{
-                    this.showPay = true;
+                if (this.applyCash.length > 8) {
+                    this.showPayTips = '提现超出最大可提现金额'
+                    this.applyCash = this.applyCash.slice(0, 8)
+                    this.showPay = false
+                } else {
+                    this.showPay = true
                 }
-
             },
             allIn () {
-                if(! this.isStopApply){
+                if (!this.isStopApply) {
                     this.applyCash = this.moneyFormate(this.moneyNumber)
                 }
             },
             moneyFormate (num) {
-                if(isNaN(num)){
-                    num = 0 ;
+                if (isNaN(num)) {
+                    num = 0
                 }
-                num = Number(num) ;
-                num = num /1000;
-                num = parseInt(num / 100) * 100;
-                console.log(num);
+                num = Number(num)
+                num = num / 1000
+                num = parseInt(num / 100) * 100
+                console.log(num)
                 if (num < 10000) {
                     return num
                 } else if (num < 100000000) {
@@ -103,49 +102,49 @@
             },
             confirmApply () {
                 /* 确认提现 */
-                if( !( this.applyCash && this.showPay ) ){
+                if (!(this.applyCash && this.showPay)) {
                     return false
                 }
-                if(!this.applyCash || parseInt(this.applyCash) === 0 ||this.applyCash === '0' ){
-                    this.$store.dispatch('showToast', '提现金额有误');
-                    this.applyCash = '';
-                    return false;
+                if (!this.applyCash || parseInt(this.applyCash) === 0 || this.applyCash === '0') {
+                    this.$store.dispatch('showToast', '提现金额有误')
+                    this.applyCash = ''
+                    return false
                 }
-                if( parseInt(this.applyCash) < 100  ){
-                    this.$store.dispatch('showToast', '提现金额最低100元');
-                    this.applyCash = '';
-                    return false;
+                if (parseInt(this.applyCash) < 100) {
+                    this.$store.dispatch('showToast', '提现金额最低100元')
+                    this.applyCash = ''
+                    return false
                 }
-                this.$store.dispatch('setApplyMoney',this.applyCash);
+                this.$store.dispatch('setApplyMoney', this.applyCash)
             }
         },
         computed: {
-            isStopApply(){
-                let isApply = false;
-                if( this.setmyHomeDataCopy && this.setmyHomeDataCopy.refound_status && this.setmyHomeDataCopy.refound_status === '0' &&this.setmyHomeDataCopy.refounding ){
-                    isApply = true;
-                    this.applyCashCopy = parseInt(this.setmyHomeDataCopy.refounding)/1000;
-                }else{
-                    this.applyCashCopy = 0;
+            isStopApply () {
+                let isApply = false
+                if (this.setmyHomeDataCopy && this.setmyHomeDataCopy.refound_status && this.setmyHomeDataCopy.refound_status === '0' && this.setmyHomeDataCopy.refounding) {
+                    isApply = true
+                    this.applyCashCopy = parseInt(this.setmyHomeDataCopy.refounding) / 1000
+                } else {
+                    this.applyCashCopy = 0
                 }
-                return isApply;
+                return isApply
             },
-            isShowPaying(){
+            isShowPaying () {
                 return this.$store.state.myHomeObj.isShowPaying
             },
             userInfo () {
-                if(this.$store.state.userInfo){
+                if (this.$store.state.userInfo) {
                     return this.$store.state.userInfo
-                }else{
+                } else {
                     this.$store.dispatch('getUserInfo')
                 }
             },
-            moneyNumber(){
+            moneyNumber () {
                 return this.$store.state.myHomeObj.moneyNumber
             },
             setmyHomeDataCopy () {
                 return this.$store.state.myHomeObj.setmyHomeDataCopy
-            },
+            }
         },
         components: {
             Header_all
@@ -154,12 +153,12 @@
         },
         filters: {
             moneyFormate: (num) => {
-                if(isNaN(num)){
-                    num = 0 ;
+                if (isNaN(num)) {
+                    num = 0
                 }
-                num = Number(num);
-                num = num /1000;
-                num = parseInt(num / 100) * 100;
+                num = Number(num)
+                num = num / 1000
+                num = parseInt(num / 100) * 100
                 if (num < 10000) {
                     return num
                 } else if (num < 100000000) {
