@@ -4,10 +4,10 @@
 const express = require('express')
 const path = require('path')
 
-const webpackDevMiddleware = require('webpack-dev-middleware')
-const webpackHotMiddleware = require('webpack-hot-middleware')
-const webpack = require('webpack')
-const forward = require('forward-request')
+const webpackDevMiddleware = require('webpack-dev-middleware');
+const webpackHotMiddleware = require('webpack-hot-middleware');
+const webpack = require('webpack');
+const forward = require('forward-request');
 const webpackConfig = require('./build/webpack.dev.config')
 
 const app = express()
@@ -36,8 +36,6 @@ app.use(function (req, resp, next) {
             resp,
             // host: 'crazybet.choopaoo.com',
             // ip: '106.75.139.22',
-            // host: 'crazybet.choopaoo.com',
-            // ip: '192.168.41.76',
             host: 'crazybet.choopaoo.com',
             ip: '106.75.167.151',
             path: req.originalUrl.replace('/api', ''),

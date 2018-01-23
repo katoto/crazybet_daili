@@ -1,8 +1,6 @@
-### 球球是道
-service@10.0.0.31:/home/service/touch/crazybet_qqsd.git
+### git 文件位置
+service@10.0.0.31:/home/service/touch/crazybet_daili.git
 service#500wan
+线上范围:
+http://crazybet.choopaoo.com/crazybet_daili/#/home
 
-线下环境
-
-
-线上环境

@@ -1,6 +1,6 @@
 ##疯狂猜球代理需求项目
 ### 采用单页面的形式进行开发
-####主要涉及 代理登陆、代理注册、代理运营数据统计、代理协议等内容。简单形式如下
+####主要涉及功能 代理登陆、代理注册、代理运营数据统计、代理协议等内容。简单形式如下
 ~~~
 // 部分UI 风格使用了 mint-ui
 import MintUI from 'mint-ui'
@@ -26,12 +26,21 @@ import 'mint-ui/lib/style.css'
 ![Image text](https://crazybet.choopaoo.com/img/esun/upload/96/0a/960a40eeff3811e7a441.png)
 ![Image text](https://crazybet.choopaoo.com/img/esun/upload/d3/5e/d35ea83eff5311e7bdd2.png)
 ![Image text](https://crazybet.choopaoo.com/img/esun/upload/dc/29/dc29c98aff5311e7bc49.png)
-![Image text](https://crazybet.choopaoo.com/img/esun/upload/d5/a5/d5a59c50ff5411e7a008.png)
+
 ![Image text](https://crazybet.choopaoo.com/img/esun/upload/df/d2/dfd22342ff5411e7928e.png)
+![Image text](https://crazybet.choopaoo.com/img/esun/upload/d5/a5/d5a59c50ff5411e7a008.png)
 
-## 本地跑项目走localdev。 上线打包走build 。
 
-##项目需求文件 详看 axure 目录下的文件。（包括一期和二期）
+## git clone 之后，npm install 一下，然后走本地跑项目走localdev。 上线打包走build 。
+## git 文件位置
+
+~~~
+    service@10.0.0.31:/home/service/touch/crazybet_daili.git
+    service#500wan
+    线上访问 （ 目前已经下线 ）:
+    http://crazybet.choopaoo.com/crazybet_daili/#/home
+~~~
+## 具体看需求文件 详看 axure 目录下的文件。（包括一期和二期的）
 ###需求文件打开工具 使用 Axure ,附上下载地址：
 ~~~
 http://rj.baidu.com/soft/detail/15574.html?ald
